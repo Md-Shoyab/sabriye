@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
-import 'package:sabriye/app/constants/app_colors.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
+import '../../../constants/app_assets.dart';
+import '../../../constants/app_colors.dart';
 import '../../../routes/app_pages.dart';
-import '../controllers/login_controller.dart';
+import '../../../widgets/gapper.dart';
+import '../controllers/forgot_password_controller.dart';
 
-class LoginView extends GetView<LoginController> {
-  const LoginView({Key? key}) : super(key: key);
+class ForgotPasswordView extends GetView<ForgotPasswordController> {
+  const ForgotPasswordView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,26 +49,27 @@ class LoginView extends GetView<LoginController> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Login',
+                        'Forgot Password',
                         style: TextStyle(
                           color: AppColors.themeTextColor,
-                          fontSize: 28,
+                          fontSize: 24,
                           fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const VerticalGap(),
+                      const Text(
+                        "Please enter your email. \nWe will send you an email with a link to \nreset your password.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: AppColors.themeTextColor,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w300,
                         ),
                       ),
                       const VerticalGap(gap: 20),
                       TextFormField(
                         decoration: InputDecoration(
-                          hintText: 'Enter Email',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
-                      ),
-                      const VerticalGap(),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter Password',
+                          hintText: 'Email',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -98,19 +99,6 @@ class LoginView extends GetView<LoginController> {
                             borderRadius: BorderRadius.circular(25),
                           ),
                           backgroundColor: AppColors.buttonColor,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.FORGOT_PASSWORD);
-                        },
-                        child: const Text(
-                          'Forgot Password?',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.themeTextColor,
-                          ),
                         ),
                       ),
                     ],
