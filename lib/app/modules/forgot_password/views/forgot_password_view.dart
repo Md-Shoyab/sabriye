@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
-import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/forgot_password_controller.dart';
 
@@ -79,9 +78,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         gap: 20,
                       ),
                       TextButton(
-                        onPressed: () {
-                          Get.offAllNamed(Routes.LOGIN);
-                        },
+                        onPressed: () {},
                         child: const Text(
                           'Login',
                           style: TextStyle(
@@ -107,31 +104,23 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.fromLTRB(0, 0, 0, 50),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Text(
-                  "Don't have an account yet?\nJoin the Inner Learning Circle",
-                  textAlign: TextAlign.center,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 20),
+              child: TextButton(
+                onPressed: () {
+                  Get.back();
+                },
+                child: const Text(
+                  'Back to Login',
                   style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w300,
+                    color: AppColors.themeTextColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    'Grab your free one-week trial',
-                    style: TextStyle(
-                      color: AppColors.themeTextColor,
-                      fontSize: 15,
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
           )
         ],

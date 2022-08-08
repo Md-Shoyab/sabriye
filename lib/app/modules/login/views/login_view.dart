@@ -58,19 +58,35 @@ class LoginView extends GetView<LoginController> {
                       ),
                       const VerticalGap(gap: 20),
                       TextFormField(
+                        cursorColor: AppColors.themeTextColor,
                         decoration: InputDecoration(
                           hintText: 'Enter Email',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryColor,
+                              width: 1.5,
+                            ),
+                          ),
                         ),
                       ),
                       const VerticalGap(),
                       TextFormField(
+                        cursorColor: AppColors.primaryColor,
                         decoration: InputDecoration(
                           hintText: 'Enter Password',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryColor,
+                              width: 1.5,
+                            ),
                           ),
                         ),
                       ),
@@ -79,7 +95,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Get.offAllNamed(Routes.LOGIN);
+                          Get.toNamed(Routes.DASHBOARD);
                         },
                         child: const Text(
                           'Login',
