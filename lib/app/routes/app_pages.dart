@@ -1,11 +1,21 @@
 import 'package:get/get.dart';
 
+import '../modules/account_settings/bindings/account_settings_binding.dart';
+import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/main_screen/bindings/main_screen_binding.dart';
+import '../modules/main_screen/views/main_screen_view.dart';
+import '../modules/oracle_cards/bindings/oracle_cards_binding.dart';
+import '../modules/oracle_cards/views/oracle_cards_view.dart';
+import '../modules/side_menu/bindings/side_menu_binding.dart';
+import '../modules/side_menu/views/side_menu_view.dart';
+import '../modules/store/bindings/store_binding.dart';
+import '../modules/store/views/store_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
 import '../modules/welcome_screens/views/welcome_screens_view.dart';
 
@@ -37,6 +47,31 @@ class AppPages {
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAIN_SCREEN,
+      page: () => const MainScreenView(),
+      binding: MainScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORACLE_CARDS,
+      page: () => const OracleCardsView(),
+      binding: OracleCardsBinding(),
+    ),
+    GetPage(
+      name: _Paths.STORE,
+      page: () => const StoreView(),
+      binding: StoreBinding(),
+    ),
+    GetPage(
+      name: _Paths.ACCOUNT_SETTINGS,
+      page: () => const AccountSettingsView(),
+      binding: AccountSettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SIDE_MENU,
+      page: () => const SideMenuView(),
+      binding: SideMenuBinding(),
     ),
   ];
 }

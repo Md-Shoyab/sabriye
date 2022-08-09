@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
+import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../widgets/gapper.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
@@ -12,6 +12,7 @@ class DashboardView extends GetView<DashboardController> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        extendBody: true,
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +37,7 @@ class DashboardView extends GetView<DashboardController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
                       Text(
-                        "A \nnew paradigm\nperspective\nfor\nspiritual\nseekers",
+                        'A \nnew paradigm\nperspective\nfor\nspiritual\nseekers',
                         style: TextStyle(
                           color: AppColors.textColor,
                           fontSize: 16,
@@ -46,7 +47,7 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                       VerticalGap(gap: 10),
                       Text(
-                        "Unlimited Access to the Inner\nLearning Circle",
+                        'Unlimited Access to the Inner\nLearning Circle',
                         style: TextStyle(
                           color: AppColors.textColor,
                           fontSize: 14,
@@ -202,20 +203,20 @@ class DashboardView extends GetView<DashboardController> {
                       width: 80,
                       margin: const EdgeInsets.only(left: 10),
                       decoration: const BoxDecoration(
-                        color: AppColors.themeTextColor,
-                        // image: DecorationImage(
-                        //   image: AssetImage(AppAssets.programsImage),
-                        // ),
+                        image: DecorationImage(
+                          image: AssetImage(AppAssets.circleBackground),
+                          fit: BoxFit.cover,
+                        ),
                         shape: BoxShape.circle,
                       ),
-                      // child: Image.asset(
-                      //   AppAssets.topImage,
-                      //   fit: BoxFit.contain,
-                      // ),
+                      child: Image.asset(
+                        controller.testimonalImage[index],
+                      ),
                     );
                   }),
                 ),
               ),
+              const VerticalGap(gap: 60),
             ],
           ),
         ),

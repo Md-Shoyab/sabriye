@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
+import '../../../constants/app_assets.dart';
 
 class DashboardController extends GetxController {
   final List<String> storyImage = [

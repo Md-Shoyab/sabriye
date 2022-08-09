@@ -8,6 +8,11 @@ abstract class Routes {
   static const LOGIN = _Paths.LOGIN;
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const DASHBOARD = _Paths.DASHBOARD;
+  static const MAIN_SCREEN = _Paths.MAIN_SCREEN;
+  static const ORACLE_CARDS = _Paths.ORACLE_CARDS;
+  static const STORE = _Paths.STORE;
+  static const ACCOUNT_SETTINGS = _Paths.ACCOUNT_SETTINGS;
+  static const SIDE_MENU = _Paths.SIDE_MENU;
 }
 
 abstract class _Paths {
@@ -16,4 +21,9 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const FORGOT_PASSWORD = '/forgot-password';
   static const DASHBOARD = '/dashboard';
+  static const MAIN_SCREEN = '/main-screen';
+  static const ORACLE_CARDS = '/oracle-cards';
+  static const STORE = '/store';
+  static const ACCOUNT_SETTINGS = '/account-settings';
+  static const SIDE_MENU = '/side-menu';
 }
