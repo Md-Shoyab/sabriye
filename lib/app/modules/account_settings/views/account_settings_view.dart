@@ -20,10 +20,6 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: const Icon(
-          Icons.arrow_back,
-          color: AppColors.buttonColor,
-        ),
         centerTitle: true,
         elevation: 0,
       ),
