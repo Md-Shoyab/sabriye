@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
-import '../../../constants/app_colors.dart';
-import '../../../routes/app_pages.dart';
-import '../controllers/change_password_controller.dart';
 
-class ChangePasswordView extends GetView<ChangePasswordController> {
-  const ChangePasswordView({Key? key}) : super(key: key);
+import 'package:get/get.dart';
+import 'package:otp_text_field/otp_field.dart';
+import 'package:otp_text_field/otp_field_style.dart';
+import 'package:otp_text_field/style.dart';
+
+import '../../../constants/app_colors.dart';
+import '../../../widgets/gapper.dart';
+import '../controllers/change_password_verfication_controller.dart';
+
+class ChangePasswordVerficationView
+    extends GetView<ChangePasswordVerficationController> {
+  const ChangePasswordVerficationView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +19,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Change Password',
+          'Verification',
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -38,34 +43,38 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "To change your password Please Enter your registered email ID for verification.",
+              "Please enter the verification code sent to your registered email ID",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 20,
-            ),
-            child: TextFormField(
-              decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  hintText: 'Email'),
+          const VerticalGap(gap: 20),
+          Center(
+            child: OTPTextField(
+              length: 4,
+              width: Get.width * .9,
+              textFieldAlignment: MainAxisAlignment.spaceAround,
+              fieldWidth: 40,
+              fieldStyle: FieldStyle.box,
+              otpFieldStyle: OtpFieldStyle(
+                focusBorderColor: Colors.grey,
+                enabledBorderColor: Colors.grey,
+              ),
+              outlineBorderRadius: 10,
+              style: const TextStyle(fontSize: 17),
+              onChanged: (pin) {
+                debugPrint("Changed: " + pin);
+              },
+              onCompleted: (pin) {
+                debugPrint("Completed: " + pin);
+              },
             ),
           ),
+          const VerticalGap(gap: 30),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.CHANGE_PASSWORD_VERFICATION);
-            },
+            onPressed: () {},
             child: const Text(
               'Send',
               style: TextStyle(

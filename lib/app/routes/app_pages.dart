@@ -6,6 +6,8 @@ import '../modules/change_email/bindings/change_email_binding.dart';
 import '../modules/change_email/views/change_email_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
+import '../modules/change_password_verfication/bindings/change_password_verfication_binding.dart';
+import '../modules/change_password_verfication/views/change_password_verfication_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
@@ -114,6 +116,11 @@ class AppPages {
       name: _Paths.CHANGE_EMAIL,
       page: () => const ChangeEmailView(),
       binding: ChangeEmailBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_PASSWORD_VERFICATION,
+      page: () => const ChangePasswordVerficationView(),
+      binding: ChangePasswordVerficationBinding(),
     ),
   ];
 }
