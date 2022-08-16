@@ -17,6 +17,7 @@ abstract class Routes {
   static const KARMIC_RELATIONSHIPS = _Paths.KARMIC_RELATIONSHIPS;
   static const TEACHINGS_DETAILS = _Paths.TEACHINGS_DETAILS;
   static const PROFILE = _Paths.PROFILE;
+  static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
 }
 
 abstract class _Paths {
@@ -34,4 +35,5 @@ abstract class _Paths {
   static const KARMIC_RELATIONSHIPS = '/karmic-relationships';
   static const TEACHINGS_DETAILS = '/teachings-details';
   static const PROFILE = '/profile';
+  static const CHANGE_PASSWORD = '/change-password';
 }
