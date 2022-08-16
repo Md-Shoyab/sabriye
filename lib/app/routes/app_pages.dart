@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
+import '../modules/change_email/bindings/change_email_binding.dart';
+import '../modules/change_email/views/change_email_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -107,6 +109,11 @@ class AppPages {
       name: _Paths.CHANGE_PASSWORD,
       page: () => const ChangePasswordView(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.CHANGE_EMAIL,
+      page: () => const ChangeEmailView(),
+      binding: ChangeEmailBinding(),
     ),
   ];
 }

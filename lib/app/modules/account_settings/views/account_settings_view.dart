@@ -48,9 +48,14 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               settingName: 'Change Password',
             ),
           ),
-          const AccountSettingsOption(
-            settingIcon: Icons.email,
-            settingName: 'Change Email',
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.CHANGE_EMAIL);
+            },
+            child: const AccountSettingsOption(
+              settingIcon: Icons.email,
+              settingName: 'Change Email',
+            ),
           ),
           const AccountSettingsOption(
             settingIcon: Icons.question_mark,
