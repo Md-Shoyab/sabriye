@@ -95,7 +95,7 @@ class LoginView extends GetView<LoginController> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Get.toNamed(Routes.MAIN_SCREEN);
+                          Get.toNamed(Routes.DASHBOARD);
                         },
                         child: const Text(
                           'Login',

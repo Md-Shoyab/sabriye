@@ -13,6 +13,10 @@ abstract class Routes {
   static const STORE = _Paths.STORE;
   static const ACCOUNT_SETTINGS = _Paths.ACCOUNT_SETTINGS;
   static const SIDE_MENU = _Paths.SIDE_MENU;
+  static const SACRED_RELATIONSHIPS = _Paths.SACRED_RELATIONSHIPS;
+  static const KARMIC_RELATIONSHIPS = _Paths.KARMIC_RELATIONSHIPS;
+  static const TEACHINGS_DETAILS = _Paths.TEACHINGS_DETAILS;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -26,4 +30,8 @@ abstract class _Paths {
   static const STORE = '/store';
   static const ACCOUNT_SETTINGS = '/account-settings';
   static const SIDE_MENU = '/side-menu';
+  static const SACRED_RELATIONSHIPS = '/sacred-relationships';
+  static const KARMIC_RELATIONSHIPS = '/karmic-relationships';
+  static const TEACHINGS_DETAILS = '/teachings-details';
+  static const PROFILE = '/profile';
 }

@@ -16,4 +16,13 @@ class AppAssets {
   static const String sessionsImage = 'assets/images/session_icon.png';
   static const String programsImage = 'assets/images/program_icon.png';
   static const String retreatsImage = 'assets/images/retreats_icon.png';
+  static const String angleBackgroundImage =
+      'assets/images/angel_background.png';
+  static const String karmicRelationshipImage =
+      'assets/images/teachings_image.png';
+  static const String soulPartnershipImage =
+      'assets/images/soul_partnership.png';
+  static const String soulmatesImage = 'assets/images/soulmates.png';
+  static const String karmicImage2 = 'assets/images/karmic_image2.png';
+  static const String karmicImage3 = 'assets/images/karmic_image3.png';
 }

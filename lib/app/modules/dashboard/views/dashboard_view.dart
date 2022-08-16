@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
@@ -13,6 +14,14 @@ class DashboardView extends GetView<DashboardController> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: AppColors.transparent,
+          color: AppColors.bgColor,
+          height: 50,
+          items: controller.navigationIcons,
+          index: controller.selectedPageIndex.value,
+          onTap: (index) => controller.updateSelectedPageIndex(index),
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,20 +207,24 @@ class DashboardView extends GetView<DashboardController> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      height: 80,
-                      width: 80,
-                      margin: const EdgeInsets.only(left: 10),
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(AppAssets.circleBackground),
-                          fit: BoxFit.cover,
+                    return Column(
+                      children: [
+                        Container(
+                          height: 80,
+                          width: 80,
+                          margin: const EdgeInsets.symmetric(horizontal: 8),
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(AppAssets.circleBackground),
+                              fit: BoxFit.cover,
+                            ),
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.asset(
+                            controller.testimonalImage[index],
+                          ),
                         ),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset(
-                        controller.testimonalImage[index],
-                      ),
+                      ],
                     );
                   }),
                 ),
