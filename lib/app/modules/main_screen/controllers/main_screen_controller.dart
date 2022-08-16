@@ -1,31 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../constants/app_assets.dart';
-import '../../../constants/app_colors.dart';
-import '../../account_settings/views/account_settings_view.dart';
-import '../../oracle_cards/views/oracle_cards_view.dart';
-import '../../side_menu/views/side_menu_view.dart';
-import '../../store/views/store_view.dart';
-import '../views/dashboard_view.dart';
+import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/modules/account_settings/views/account_settings_view.dart';
+import 'package:sabriye/app/modules/dashboard/controllers/dashboard_controller.dart';
+import 'package:sabriye/app/modules/dashboard/views/dashboard_view.dart';
+import 'package:sabriye/app/modules/oracle_cards/views/oracle_cards_view.dart';
+import 'package:sabriye/app/modules/side_menu/views/side_menu_view.dart';
+import 'package:sabriye/app/modules/store/views/store_view.dart';
 
-class DashboardController extends GetxController {
-  final List<String> storyImage = [
-    AppAssets.storyImage1,
-    AppAssets.storyImage2,
-    AppAssets.storyImage3
-  ];
-  final List<String> testimonalImage = [
-    AppAssets.topImage,
-    AppAssets.sessionsImage,
-    AppAssets.programsImage,
-    AppAssets.retreatsImage,
-  ];
-  final List<String> testimonalTypeText = [
-    'Top',
-    'Sessions',
-    'Programs',
-    'Retreats'
-  ];
+class MainScreenController extends GetxController {
   RxInt selectedPageIndex = 0.obs;
   final List<Widget> navigationIcons = [
     const Icon(
@@ -65,5 +48,11 @@ class DashboardController extends GetxController {
 
   void updateSelectedPageIndex(int index) {
     selectedPageIndex.value = index;
+  }
+
+  @override
+  void onInit() {
+    Get.put(DashboardController());
+    super.onInit();
   }
 }

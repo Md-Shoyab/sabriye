@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -9,6 +10,8 @@ import '../modules/karmic_relationships/bindings/karmic_relationships_binding.da
 import '../modules/karmic_relationships/views/karmic_relationships_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/main_screen/bindings/main_screen_binding.dart';
+import '../modules/main_screen/views/main_screen_view.dart';
 import '../modules/oracle_cards/bindings/oracle_cards_binding.dart';
 import '../modules/oracle_cards/views/oracle_cards_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
@@ -52,6 +55,11 @@ class AppPages {
       name: _Paths.DASHBOARD,
       page: () => const DashboardView(),
       binding: DashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAIN_SCREEN,
+      page: () => const MainScreenView(),
+      binding: MainScreenBinding(),
     ),
     GetPage(
       name: _Paths.ORACLE_CARDS,

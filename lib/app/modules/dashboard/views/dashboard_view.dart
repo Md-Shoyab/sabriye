@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
@@ -14,14 +13,6 @@ class DashboardView extends GetView<DashboardController> {
     return SafeArea(
       child: Scaffold(
         extendBody: true,
-        bottomNavigationBar: CurvedNavigationBar(
-          backgroundColor: AppColors.transparent,
-          color: AppColors.bgColor,
-          height: 50,
-          items: controller.navigationIcons,
-          index: controller.selectedPageIndex.value,
-          onTap: (index) => controller.updateSelectedPageIndex(index),
-        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
