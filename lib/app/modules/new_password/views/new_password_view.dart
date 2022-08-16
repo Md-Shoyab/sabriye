@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/app_colors.dart';
-import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/new_password_controller.dart';
 
@@ -82,9 +81,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
           ),
           const VerticalGap(),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.CHANGE_PASSWORD_VERFICATION);
-            },
+            onPressed: () {},
             child: const Text(
               'Save',
               style: TextStyle(
