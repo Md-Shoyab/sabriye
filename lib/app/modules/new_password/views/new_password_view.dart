@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/otp_field_style.dart';
-import 'package:otp_text_field/style.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 
 import '../../../constants/app_colors.dart';
+import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
-import '../controllers/change_password_verfication_controller.dart';
+import '../controllers/new_password_controller.dart';
 
-class ChangePasswordVerficationView
-    extends GetView<ChangePasswordVerficationController> {
-  const ChangePasswordVerficationView({Key? key}) : super(key: key);
+class NewPasswordView extends GetView<NewPasswordController> {
+  const NewPasswordView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +16,7 @@ class ChangePasswordVerficationView
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Verification',
+          'New Password',
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -44,42 +40,53 @@ class ChangePasswordVerficationView
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "Please enter the verification code sent to your registered email ID",
+              "Please enter the new password",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
               ),
             ),
           ),
-          const VerticalGap(gap: 20),
-          Center(
-            child: OTPTextField(
-              length: 4,
-              width: Get.width * .9,
-              textFieldAlignment: MainAxisAlignment.spaceAround,
-              fieldWidth: 40,
-              fieldStyle: FieldStyle.box,
-              otpFieldStyle: OtpFieldStyle(
-                focusBorderColor: Colors.grey,
-                enabledBorderColor: Colors.grey,
-              ),
-              outlineBorderRadius: 10,
-              style: const TextStyle(fontSize: 17),
-              onChanged: (pin) {
-                debugPrint("Changed: " + pin);
-              },
-              onCompleted: (pin) {
-                debugPrint("Completed: " + pin);
-              },
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 20,
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  hintText: 'New Password'),
             ),
           ),
-          const VerticalGap(gap: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  hintText: ' Confirm Password'),
+            ),
+          ),
+          const VerticalGap(),
           TextButton(
             onPressed: () {
-              Get.toNamed(Routes.NEW_PASSWORD);
+              Get.toNamed(Routes.CHANGE_PASSWORD_VERFICATION);
             },
             child: const Text(
-              'Verify',
+              'Save',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

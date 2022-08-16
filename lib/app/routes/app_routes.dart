@@ -20,6 +20,7 @@ abstract class Routes {
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const CHANGE_EMAIL = _Paths.CHANGE_EMAIL;
   static const CHANGE_PASSWORD_VERFICATION = _Paths.CHANGE_PASSWORD_VERFICATION;
+  static const NEW_PASSWORD = _Paths.NEW_PASSWORD;
 }
 
 abstract class _Paths {
@@ -40,4 +41,5 @@ abstract class _Paths {
   static const CHANGE_PASSWORD = '/change-password';
   static const CHANGE_EMAIL = '/change-email';
   static const CHANGE_PASSWORD_VERFICATION = '/change-password-verfication';
+  static const NEW_PASSWORD = '/new-password';
 }
