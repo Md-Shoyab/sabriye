@@ -18,6 +18,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/main_screen/bindings/main_screen_binding.dart';
 import '../modules/main_screen/views/main_screen_view.dart';
+import '../modules/new_email/bindings/new_email_binding.dart';
+import '../modules/new_email/views/new_email_view.dart';
 import '../modules/new_password/bindings/new_password_binding.dart';
 import '../modules/new_password/views/new_password_view.dart';
 import '../modules/oracle_cards/bindings/oracle_cards_binding.dart';
@@ -128,6 +130,11 @@ class AppPages {
       name: _Paths.NEW_PASSWORD,
       page: () => const NewPasswordView(),
       binding: NewPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEW_EMAIL,
+      page: () => const NewEmailView(),
+      binding: NewEmailBinding(),
     ),
   ];
 }

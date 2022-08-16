@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
-import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
-import '../controllers/change_email_controller.dart';
+import '../controllers/new_email_controller.dart';
 
-class ChangeEmailView extends GetView<ChangeEmailController> {
-  const ChangeEmailView({Key? key}) : super(key: key);
+class NewEmailView extends GetView<NewEmailController> {
+  const NewEmailView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Change Email',
+          'New Email',
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -39,7 +37,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "To change your Email Address Please Enter your registered email ID for verification.",
+              "Please enter the new password",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -60,15 +58,30 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'Email'),
+                  hintText: 'New Email'),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+            ),
+            child: TextFormField(
+              decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  hintText: ' Confirm Email'),
+            ),
+          ),
+          const VerticalGap(),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.NEW_EMAIL);
-            },
+            onPressed: () {},
             child: const Text(
-              'Send',
+              'Save',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
