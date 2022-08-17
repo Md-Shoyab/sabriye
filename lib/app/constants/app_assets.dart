@@ -33,4 +33,9 @@ class AppAssets {
   static const String spiritualSpotlightImage3 =
       'assets/images/spiritual_spotlight_image3.png';
   static const String videoPlayButton = 'assets/images/video_play_button.png';
+  static const String libraryBackgroundImage =
+      'assets/images/library_background_image.png';
+  static const String blogImage1 = 'assets/images/blog_image1.png';
+  static const String blogImage2 = 'assets/images/blog_image2.png';
+  static const String blogImage3 = 'assets/images/blog_image3.png';
 }

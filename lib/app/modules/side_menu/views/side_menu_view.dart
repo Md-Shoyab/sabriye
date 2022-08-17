@@ -51,9 +51,14 @@ class SideMenuView extends GetView<SideMenuController> {
               settingName: 'Alarm',
             ),
           ),
-          const AccountSettingsOption(
-            settingIcon: Icons.web_sharp,
-            settingName: 'Blogs',
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.BLOGS_LISTING);
+            },
+            child: const AccountSettingsOption(
+              settingIcon: Icons.web_sharp,
+              settingName: 'Blogs',
+            ),
           ),
           const AccountSettingsOption(
             settingIcon: Icons.help,
