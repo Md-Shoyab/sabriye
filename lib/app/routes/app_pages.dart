@@ -30,6 +30,8 @@ import '../modules/sacred_relationships/bindings/sacred_relationships_binding.da
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/side_menu/bindings/side_menu_binding.dart';
 import '../modules/side_menu/views/side_menu_view.dart';
+import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart';
+import '../modules/spiritual_spotlight/views/spiritual_spotlight_view.dart';
 import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
@@ -135,6 +137,11 @@ class AppPages {
       name: _Paths.NEW_EMAIL,
       page: () => const NewEmailView(),
       binding: NewEmailBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPIRITUAL_SPOTLIGHT,
+      page: () => const SpiritualSpotlightView(),
+      binding: SpiritualSpotlightBinding(),
     ),
   ];
 }

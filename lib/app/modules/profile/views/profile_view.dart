@@ -20,11 +20,11 @@ class ProfileView extends GetView<ProfileController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: InkWell(
-          onTap: () {
+        leading: IconButton(
+          onPressed: () {
             Get.back();
           },
-          child: const Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: AppColors.buttonColor,
           ),

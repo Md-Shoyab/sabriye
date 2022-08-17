@@ -26,4 +26,11 @@ class AppAssets {
   static const String karmicImage2 = 'assets/images/karmic_image2.png';
   static const String karmicImage3 = 'assets/images/karmic_image3.png';
   static const String profileImage = 'assets/images/profile.png';
+  static const String spiritualSpotlightImage1 =
+      'assets/images/spiritual_spotlight_image.png';
+  static const String spiritualSpotlightImage2 =
+      'assets/images/spiritual_spotlight_image2.png';
+  static const String spiritualSpotlightImage3 =
+      'assets/images/spiritual_spotlight_image3.png';
+  static const String videoPlayButton = 'assets/images/video_play_button.png';
 }

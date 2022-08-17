@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../../../widgets/gapper.dart';
@@ -28,7 +29,9 @@ class SideMenuView extends GetView<SideMenuController> {
         children: [
           const VerticalGap(gap: 20),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT);
+            },
             child: const AccountSettingsOption(
               settingIcon: Icons.video_camera_back,
               settingName: 'In the Spiritual Spotlight',

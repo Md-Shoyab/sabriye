@@ -20,9 +20,14 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: const Icon(
-          Icons.arrow_back,
-          color: AppColors.buttonColor,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: AppColors.buttonColor,
+          ),
         ),
         centerTitle: true,
         elevation: 0,
