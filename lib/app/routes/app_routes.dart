@@ -24,6 +24,7 @@ abstract class Routes {
   static const NEW_EMAIL = _Paths.NEW_EMAIL;
   static const SPIRITUAL_SPOTLIGHT = _Paths.SPIRITUAL_SPOTLIGHT;
   static const BLOGS_LISTING = _Paths.BLOGS_LISTING;
+  static const BOOKS_LISTING = _Paths.BOOKS_LISTING;
 }
 
 abstract class _Paths {
@@ -48,4 +49,5 @@ abstract class _Paths {
   static const NEW_EMAIL = '/new-email';
   static const SPIRITUAL_SPOTLIGHT = '/spiritual-spotlight';
   static const BLOGS_LISTING = '/blogs-listing';
+  static const BOOKS_LISTING = '/books-listing';
 }

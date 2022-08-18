@@ -65,4 +65,6 @@ class AppAssets {
   static const String programsIcon = 'assets/images/programs_icon.png';
   static const String sessionsIcon = 'assets/images/session_icons.png';
   static const String booksIcon = 'assets/images/books_icon.png';
+  static const String booksImage1 = 'assets/images/book_image1.png';
+  static const String booksImage2 = 'assets/images/book_image2.png';
 }

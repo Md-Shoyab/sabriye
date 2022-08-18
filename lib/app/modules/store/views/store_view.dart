@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/store_option_cards.dart';
@@ -21,15 +22,7 @@ class StoreView extends GetView<StoreController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.buttonColor,
-          ),
-        ),
+        automaticallyImplyLeading: false,
         centerTitle: true,
         elevation: 0,
       ),
@@ -63,7 +56,7 @@ class StoreView extends GetView<StoreController> {
                 StoreOptionCard(
                   iconImagePath: AppAssets.booksIcon,
                   storeOptionName: 'Books',
-                  navigationRoute: '',
+                  navigationRoute: Routes.BOOKS_LISTING,
                 ),
               ],
             ),

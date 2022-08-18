@@ -4,6 +4,8 @@ import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
 import '../modules/blogs_listing/views/blogs_listing_view.dart';
+import '../modules/books_listing/bindings/books_listing_binding.dart';
+import '../modules/books_listing/views/books_listing_view.dart';
 import '../modules/change_email/bindings/change_email_binding.dart';
 import '../modules/change_email/views/change_email_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
@@ -149,6 +151,11 @@ class AppPages {
       name: _Paths.BLOGS_LISTING,
       page: () => const BlogsListingView(),
       binding: BlogsListingBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOKS_LISTING,
+      page: () => const BooksListingView(),
+      binding: BooksListingBinding(),
     ),
   ];
 }
