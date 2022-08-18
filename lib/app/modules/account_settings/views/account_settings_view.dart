@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
@@ -33,8 +34,8 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.PROFILE);
             },
             child: const AccountSettingsOption(
-              settingIcon: Icons.person,
               settingName: 'Profile',
+              settingIconImage: AppAssets.profileIcon,
             ),
           ),
           InkWell(
@@ -42,8 +43,8 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.CHANGE_PASSWORD);
             },
             child: const AccountSettingsOption(
-              settingIcon: Icons.password,
               settingName: 'Change Password',
+              settingIconImage: AppAssets.changePasswordIcon,
             ),
           ),
           InkWell(
@@ -51,17 +52,17 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.CHANGE_EMAIL);
             },
             child: const AccountSettingsOption(
-              settingIcon: Icons.email,
               settingName: 'Change Email',
+              settingIconImage: AppAssets.changeEmailIcon,
             ),
           ),
           const AccountSettingsOption(
-            settingIcon: Icons.question_mark,
             settingName: 'FAQ',
+            settingIconImage: AppAssets.faqIcon,
           ),
           const AccountSettingsOption(
-            settingIcon: Icons.headphones,
             settingName: 'Support',
+            settingIconImage: AppAssets.supportIcon,
           ),
         ],
       ),

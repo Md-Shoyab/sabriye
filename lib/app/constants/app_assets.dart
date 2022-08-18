@@ -38,4 +38,27 @@ class AppAssets {
   static const String blogImage1 = 'assets/images/blog_image1.png';
   static const String blogImage2 = 'assets/images/blog_image2.png';
   static const String blogImage3 = 'assets/images/blog_image3.png';
+  static const String navgaitonHomeIcon = 'assets/images/home_icon.png';
+  static const String navgaitonOracleCardsIcon =
+      'assets/images/orcale_cards_icon.png';
+  static const String navgaitonStoreIcon = 'assets/images/store_icon.png';
+  static const String navgaitonAccountSettingIcon =
+      'assets/images/account_setting_icon.png';
+  static const String navgaitonSideMenuIcon =
+      'assets/images/side_menu_icon.png';
+
+  static const String profileIcon = 'assets/images/profile_icon.png';
+  static const String changePasswordIcon =
+      'assets/images/change_password_icon.png';
+  static const String changeEmailIcon = 'assets/images/change_email_icon.png';
+  static const String faqIcon = 'assets/images/FAQ_icon.png';
+  static const String supportIcon = 'assets/images/support_icon.png';
+  static const String sPLightIcon =
+      'assets/images/spiritual_spotlight_icon.png';
+  static const String downloadEbookIcon =
+      'assets/images/download_ebook_icon.png';
+  static const String alarmIcon = 'assets/images/alarm_icon.png';
+  static const String blogIcon = 'assets/images/blog_icon.png';
+  static const String givingBackIcon = 'assets/images/giving_back_icon.png';
+  static const String aboutIcon = 'assets/images/about_icon.png';
 }

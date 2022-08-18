@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../routes/app_pages.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/side_menu_controller.dart';
@@ -33,22 +34,22 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT);
             },
             child: const AccountSettingsOption(
-              settingIcon: Icons.video_camera_back,
               settingName: 'In the Spiritual Spotlight',
+              settingIconImage: '',
             ),
           ),
           InkWell(
             onTap: () {},
             child: const AccountSettingsOption(
-              settingIcon: Icons.download,
               settingName: 'Download Free e-Book Now',
+              settingIconImage: AppAssets.downloadEbookIcon,
             ),
           ),
           InkWell(
             onTap: () {},
             child: const AccountSettingsOption(
-              settingIcon: Icons.alarm,
               settingName: 'Alarm',
+              settingIconImage: AppAssets.alarmIcon,
             ),
           ),
           InkWell(
@@ -56,17 +57,17 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.BLOGS_LISTING);
             },
             child: const AccountSettingsOption(
-              settingIcon: Icons.web_sharp,
               settingName: 'Blogs',
+              settingIconImage: AppAssets.blogIcon,
             ),
           ),
           const AccountSettingsOption(
-            settingIcon: Icons.help,
             settingName: 'Giving Back',
+            settingIconImage: AppAssets.givingBackIcon,
           ),
           const AccountSettingsOption(
-            settingIcon: Icons.abc_outlined,
             settingName: 'About',
+            settingIconImage: AppAssets.aboutIcon,
           ),
         ],
       ),

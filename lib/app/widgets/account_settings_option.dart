@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_colors.dart';
 
 class AccountSettingsOption extends StatelessWidget {
   final String settingName;
-  final IconData settingIcon;
+  final String settingIconImage;
   const AccountSettingsOption({
     Key? key,
     required this.settingName,
-    required this.settingIcon,
+    required this.settingIconImage,
   }) : super(key: key);
 
   @override
@@ -28,14 +27,11 @@ class AccountSettingsOption extends StatelessWidget {
         border: Border.all(),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 8.0),
+        padding: const EdgeInsets.only(left: 10.0),
         child: Row(
           children: [
-            Icon(
-              settingIcon,
-              color: AppColors.themeTextColor,
-            ),
-            const HorizontalGap(gap: 20),
+            Image.asset(settingIconImage),
+            const HorizontalGap(gap: 15),
             Text(settingName),
           ],
         ),

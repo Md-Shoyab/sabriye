@@ -1,3 +1,4 @@
 import 'package:get/get.dart';
 
-class AccountSettingsController extends GetxController {}
+class AccountSettingsController extends GetxController {
+}
