@@ -46,7 +46,7 @@ class StoreView extends GetView<StoreController> {
                 StoreOptionCard(
                   iconImagePath: AppAssets.programsIcon,
                   storeOptionName: 'Programs',
-                  navigationRoute: '',
+                  navigationRoute: Routes.PROGRAMS_LISTING,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.sessionsIcon,

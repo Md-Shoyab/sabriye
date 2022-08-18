@@ -30,6 +30,8 @@ import '../modules/oracle_cards/bindings/oracle_cards_binding.dart';
 import '../modules/oracle_cards/views/oracle_cards_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/programs_listing/bindings/programs_listing_binding.dart';
+import '../modules/programs_listing/views/programs_listing_view.dart';
 import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/sessions_listing/bindings/sessions_listing_binding.dart';
@@ -163,6 +165,11 @@ class AppPages {
       name: _Paths.SESSIONS_LISTING,
       page: () => const SessionsListingView(),
       binding: SessionsListingBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROGRAMS_LISTING,
+      page: () => const ProgramsListingView(),
+      binding: ProgramsListingBinding(),
     ),
   ];
 }

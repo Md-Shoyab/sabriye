@@ -26,6 +26,7 @@ abstract class Routes {
   static const BLOGS_LISTING = _Paths.BLOGS_LISTING;
   static const BOOKS_LISTING = _Paths.BOOKS_LISTING;
   static const SESSIONS_LISTING = _Paths.SESSIONS_LISTING;
+  static const PROGRAMS_LISTING = _Paths.PROGRAMS_LISTING;
 }
 
 abstract class _Paths {
@@ -52,4 +53,5 @@ abstract class _Paths {
   static const BLOGS_LISTING = '/blogs-listing';
   static const BOOKS_LISTING = '/books-listing';
   static const SESSIONS_LISTING = '/sessions-listing';
+  static const PROGRAMS_LISTING = '/programs-listing';
 }
