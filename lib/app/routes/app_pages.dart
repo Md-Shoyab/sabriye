@@ -32,6 +32,8 @@ import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
+import '../modules/sessions_listing/bindings/sessions_listing_binding.dart';
+import '../modules/sessions_listing/views/sessions_listing_view.dart';
 import '../modules/side_menu/bindings/side_menu_binding.dart';
 import '../modules/side_menu/views/side_menu_view.dart';
 import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart';
@@ -156,6 +158,11 @@ class AppPages {
       name: _Paths.BOOKS_LISTING,
       page: () => const BooksListingView(),
       binding: BooksListingBinding(),
+    ),
+    GetPage(
+      name: _Paths.SESSIONS_LISTING,
+      page: () => const SessionsListingView(),
+      binding: SessionsListingBinding(),
     ),
   ];
 }
