@@ -18,7 +18,7 @@ class LargeButton extends StatelessWidget {
     this.fontSize = 17,
     this.buttonHorizontalPadding,
     this.buttonColor = AppColors.buttonColor,
-    this.buttonTextColor = AppColors.textColor,
+    this.buttonTextColor = AppColors.whiteTextColor,
   }) : super(key: key);
 
   @override
@@ -34,10 +34,10 @@ class LargeButton extends StatelessWidget {
             child: Text(
               buttonText,
               style: TextStyle(
-                color: AppColors.textColor,
+                color: AppColors.whiteTextColor,
                 fontWeight: FontWeight.w600,
                 fontSize: fontSize,
-              )
+              ),
             ),
           ),
         ),

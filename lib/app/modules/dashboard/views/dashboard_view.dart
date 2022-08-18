@@ -39,7 +39,7 @@ class DashboardView extends GetView<DashboardController> {
                       Text(
                         'A \nnew paradigm\nperspective\nfor\nspiritual\nseekers',
                         style: TextStyle(
-                          color: AppColors.textColor,
+                          color: AppColors.whiteTextColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           height: 1.4,
@@ -49,7 +49,7 @@ class DashboardView extends GetView<DashboardController> {
                       Text(
                         'Unlimited Access to the Inner\nLearning Circle',
                         style: TextStyle(
-                          color: AppColors.textColor,
+                          color: AppColors.whiteTextColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
@@ -133,7 +133,7 @@ class DashboardView extends GetView<DashboardController> {
                         child: Text(
                           'Sacred Relationship',
                           style: TextStyle(
-                            color: AppColors.textColor,
+                            color: AppColors.whiteTextColor,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

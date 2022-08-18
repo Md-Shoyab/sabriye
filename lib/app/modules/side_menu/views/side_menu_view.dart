@@ -35,7 +35,7 @@ class SideMenuView extends GetView<SideMenuController> {
             },
             child: const AccountSettingsOption(
               settingName: 'In the Spiritual Spotlight',
-              settingIconImage: '',
+              settingIconImage: AppAssets.sPLightIcon,
             ),
           ),
           InkWell(

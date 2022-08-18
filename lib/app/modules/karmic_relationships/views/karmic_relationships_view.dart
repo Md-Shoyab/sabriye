@@ -72,7 +72,7 @@ class KarmicRelationshipsView extends GetView<KarmicRelationshipsController> {
                       child: Text(
                         controller.karmicRealtionshipPostTitle[index],
                         style: const TextStyle(
-                          color: AppColors.textColor,
+                          color: AppColors.whiteTextColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),

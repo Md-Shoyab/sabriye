@@ -102,7 +102,7 @@ class LoginView extends GetView<LoginController> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.textColor,
+                            color: AppColors.whiteTextColor,
                           ),
                         ),
                         style: TextButton.styleFrom(

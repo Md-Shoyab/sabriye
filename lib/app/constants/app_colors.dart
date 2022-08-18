@@ -6,7 +6,8 @@ class AppColors {
   static const bgColor = Color(0xFFFEF4F5);
   static const buttonColor = Color(0xFF8F5C6C);
   static const iconColor = Colors.white;
-  static const textColor = Colors.white;
+  static const whiteTextColor = Colors.white;
+  static const blackTextColor = Colors.black;
   static const themeTextColor = Color(0xFF8F5C6C);
   static const splashIndicatorColor = Colors.grey;
   static const bgLight = Color(0xff0B1623);

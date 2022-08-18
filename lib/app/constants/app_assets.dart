@@ -61,4 +61,8 @@ class AppAssets {
   static const String blogIcon = 'assets/images/blog_icon.png';
   static const String givingBackIcon = 'assets/images/giving_back_icon.png';
   static const String aboutIcon = 'assets/images/about_icon.png';
+  static const String membershipIcon = 'assets/images/memberships_icon.png';
+  static const String programsIcon = 'assets/images/programs_icon.png';
+  static const String sessionsIcon = 'assets/images/session_icons.png';
+  static const String booksIcon = 'assets/images/books_icon.png';
 }

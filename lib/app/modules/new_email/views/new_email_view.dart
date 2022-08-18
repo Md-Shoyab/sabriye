@@ -85,7 +85,7 @@ class NewEmailView extends GetView<NewEmailController> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: AppColors.textColor,
+                color: AppColors.whiteTextColor,
               ),
             ),
             style: TextButton.styleFrom(

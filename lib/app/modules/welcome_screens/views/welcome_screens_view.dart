@@ -91,7 +91,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         style: TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.w600,
-                                          color: AppColors.textColor,
+                                          color: AppColors.whiteTextColor,
                                         ),
                                       ),
                                       style: TextButton.styleFrom(
