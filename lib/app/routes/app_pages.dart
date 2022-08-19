@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
@@ -16,6 +15,8 @@ import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
+import '../modules/inner_union_oracle/bindings/inner_union_oracle_binding.dart';
+import '../modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import '../modules/karmic_relationships/bindings/karmic_relationships_binding.dart';
 import '../modules/karmic_relationships/views/karmic_relationships_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -26,8 +27,6 @@ import '../modules/new_email/bindings/new_email_binding.dart';
 import '../modules/new_email/views/new_email_view.dart';
 import '../modules/new_password/bindings/new_password_binding.dart';
 import '../modules/new_password/views/new_password_view.dart';
-import '../modules/oracle_cards/bindings/oracle_cards_binding.dart';
-import '../modules/oracle_cards/views/oracle_cards_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/programs_listing/bindings/programs_listing_binding.dart';
@@ -81,11 +80,7 @@ class AppPages {
       page: () => const MainScreenView(),
       binding: MainScreenBinding(),
     ),
-    GetPage(
-      name: _Paths.ORACLE_CARDS,
-      page: () => const OracleCardsView(),
-      binding: OracleCardsBinding(),
-    ),
+  
     GetPage(
       name: _Paths.STORE,
       page: () => const StoreView(),
@@ -170,6 +165,11 @@ class AppPages {
       name: _Paths.PROGRAMS_LISTING,
       page: () => const ProgramsListingView(),
       binding: ProgramsListingBinding(),
+    ),
+    GetPage(
+      name: _Paths.INNER_UNION_ORACLE,
+      page: () => const InnerUnionOracleView(),
+      binding: InnerUnionOracleBinding(),
     ),
   ];
 }

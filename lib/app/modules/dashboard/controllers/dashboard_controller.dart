@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../account_settings/views/account_settings_view.dart';
-import '../../oracle_cards/views/oracle_cards_view.dart';
 import '../../side_menu/views/side_menu_view.dart';
 import '../../store/views/store_view.dart';
 import '../views/dashboard_view.dart';
@@ -57,7 +57,7 @@ class DashboardController extends GetxController {
 
   final screens = [
     const DashboardView(),
-    const OracleCardsView(),
+const InnerUnionOracleView(),
     const StoreView(),
     const AccountSettingsView(),
     const SideMenuView(),

@@ -71,4 +71,8 @@ class AppAssets {
   static const String sessionImage2 = 'assets/images/session_image2.png';
   static const String programImage1 = 'assets/images/program_image1.png';
   static const String programImage2 = 'assets/images/programs_image2.png';
+  static const String innerUnionOrcaleBannerImage =
+      'assets/images/inner_union_oracle_banner_image.png';
+  static const String innerUnionOrcaleTextImage =
+      'assets/images/inner_union_oracle_image2.png';
 }
