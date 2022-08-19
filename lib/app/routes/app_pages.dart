@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
@@ -41,6 +42,8 @@ import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart
 import '../modules/spiritual_spotlight/views/spiritual_spotlight_view.dart';
 import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
+import '../modules/support/bindings/support_binding.dart';
+import '../modules/support/views/support_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
@@ -80,7 +83,6 @@ class AppPages {
       page: () => const MainScreenView(),
       binding: MainScreenBinding(),
     ),
-  
     GetPage(
       name: _Paths.STORE,
       page: () => const StoreView(),
@@ -170,6 +172,11 @@ class AppPages {
       name: _Paths.INNER_UNION_ORACLE,
       page: () => const InnerUnionOracleView(),
       binding: InnerUnionOracleBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUPPORT,
+      page: () => const SupportView(),
+      binding: SupportBinding(),
     ),
   ];
 }

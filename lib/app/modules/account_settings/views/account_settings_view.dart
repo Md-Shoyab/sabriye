@@ -60,9 +60,14 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
             settingName: 'FAQ',
             settingIconImage: AppAssets.faqIcon,
           ),
-          const AccountSettingsOption(
-            settingName: 'Support',
-            settingIconImage: AppAssets.supportIcon,
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.SUPPORT);
+            },
+            child: const AccountSettingsOption(
+              settingName: 'Support',
+              settingIconImage: AppAssets.supportIcon,
+            ),
           ),
         ],
       ),
