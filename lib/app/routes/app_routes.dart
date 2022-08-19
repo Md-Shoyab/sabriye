@@ -29,6 +29,7 @@ abstract class Routes {
   static const PROGRAMS_LISTING = _Paths.PROGRAMS_LISTING;
   static const INNER_UNION_ORACLE = _Paths.INNER_UNION_ORACLE;
   static const SUPPORT = _Paths.SUPPORT;
+  static const BOOK_DETAILS = _Paths.BOOK_DETAILS;
 }
 
 abstract class _Paths {
@@ -58,4 +59,5 @@ abstract class _Paths {
   static const PROGRAMS_LISTING = '/programs-listing';
   static const INNER_UNION_ORACLE = '/inner-union-oracle';
   static const SUPPORT = '/support';
+  static const BOOK_DETAILS = '/book-details';
 }

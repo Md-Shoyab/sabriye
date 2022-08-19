@@ -35,11 +35,13 @@ class SideMenuView extends GetView<SideMenuController> {
             },
             child: const AccountSettingsOption(
               settingName: 'In the Spiritual Spotlight',
-              settingIconImage: AppAssets.sPLightIcon,
+              settingIconImage: AppAssets.spiritualSpotLightIcon,
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.BOOK_DETAILS);
+            },
             child: const AccountSettingsOption(
               settingName: 'Download Free e-Book Now',
               settingIconImage: AppAssets.downloadEbookIcon,

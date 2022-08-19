@@ -164,6 +164,7 @@ class DashboardView extends GetView<DashboardController> {
                   itemCount: 3,
                   itemBuilder: ((context, index) {
                     return Container(
+                      width: 150,
                       margin: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         border: Border.all(),
@@ -172,8 +173,7 @@ class DashboardView extends GetView<DashboardController> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      height: 90,
-                      width: 150,
+                      child: Image.asset(AppAssets.smallVideoPlayIcon),
                     );
                   }),
                 ),
@@ -214,6 +214,9 @@ class DashboardView extends GetView<DashboardController> {
                           child: Image.asset(
                             controller.testimonalImage[index],
                           ),
+                        ),
+                        Text(
+                          controller.testimonalTypeText[index],
                         ),
                       ],
                     );

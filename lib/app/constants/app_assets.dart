@@ -53,7 +53,7 @@ class AppAssets {
   static const String changeEmailIcon = 'assets/images/change_email_icon.png';
   static const String faqIcon = 'assets/images/FAQ_icon.png';
   static const String supportIcon = 'assets/images/support_icon.png';
-  static const String sPLightIcon =
+  static const String spiritualSpotLightIcon =
       'assets/images/spiritual_spotlight_icon.png';
   static const String downloadEbookIcon =
       'assets/images/download_ebook_icon.png';
@@ -77,6 +77,7 @@ class AppAssets {
       'assets/images/inner_union_oracle_image2.png';
   static const String supportEmailIcon = 'assets/images/support_email_icon.png';
   static const String sabriyeSignature = 'assets/images/sa-signature_image.png';
-
+  static const String smallVideoPlayIcon =
+      'assets/images/small_video_play_icon.png';
 }
 // 
