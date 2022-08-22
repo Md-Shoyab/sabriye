@@ -8,6 +8,10 @@ class AppAssets {
   static const String teaching1 = 'assets/images/teachings_1.png';
   static const String videoInterviewImage =
       'assets/images/video_interview_image.png';
+  static const String videoInterviewImage2 =
+      'assets/images/video_Interview_Image2.png';
+  static const String videoInterviewImage3 =
+      'assets/images/video_Interview_Image3.png';
   static const String storyImage1 = 'assets/images/story_image_1.png';
   static const String storyImage2 = 'assets/images/story_image_2.png';
   static const String storyImage3 = 'assets/images/story_image_3.png';
@@ -79,5 +83,10 @@ class AppAssets {
   static const String sabriyeSignature = 'assets/images/sa-signature_image.png';
   static const String smallVideoPlayIcon =
       'assets/images/small_video_play_icon.png';
+  static const String purpleBackgroundImage =
+      'assets/images/purple_sky_image.png';
+  static const String t = 'assets/images/programs_image2.png';
+  static const String teachings = 'assets/images/teachings_dashboard_image.png';
+  static const String interviewImage = 'assets/images/interviews_image.png';
+  static const String scaredRelationship = 'assets/images/angel_background.png';
 }
-// 

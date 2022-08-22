@@ -117,22 +117,26 @@ class DashboardView extends GetView<DashboardController> {
                   itemCount: 3,
                   itemBuilder: ((context, index) {
                     return Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.bottomLeft,
+                      padding: const EdgeInsets.only(left: 10),
                       margin: const EdgeInsets.symmetric(
                         horizontal: 8,
                       ),
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage(AppAssets.teaching1),
-                            fit: BoxFit.cover),
+                          image: AssetImage(
+                            controller.teachingsDashboardImage[index],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       height: 90,
                       width: 150,
-                      child: const Padding(
-                        padding: EdgeInsets.only(bottom: 5.0),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 5.0),
                         child: Text(
-                          'Sacred Relationship',
-                          style: TextStyle(
+                          controller.dashboardTeachingsText[index],
+                          style: const TextStyle(
                             color: AppColors.whiteTextColor,
                             fontWeight: FontWeight.w500,
                           ),
@@ -168,8 +172,10 @@ class DashboardView extends GetView<DashboardController> {
                       margin: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
                         border: Border.all(),
-                        image: const DecorationImage(
-                          image: AssetImage(AppAssets.videoInterviewImage),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            controller.spiritualSpotlightImage[index],
+                          ),
                           fit: BoxFit.cover,
                         ),
                       ),
