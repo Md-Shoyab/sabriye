@@ -31,6 +31,7 @@ class BlogsListingView extends GetView<BlogsListingController> {
         centerTitle: true,
         elevation: 0,
       ),
+      
       body: SizedBox(
         width: Get.width,
         child: Column(

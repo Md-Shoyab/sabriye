@@ -272,7 +272,7 @@ class AboutView extends GetView<AboutController> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
