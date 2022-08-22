@@ -67,9 +67,14 @@ class SideMenuView extends GetView<SideMenuController> {
             settingName: 'Giving Back',
             settingIconImage: AppAssets.givingBackIcon,
           ),
-          const AccountSettingsOption(
-            settingName: 'About',
-            settingIconImage: AppAssets.aboutIcon,
+          InkWell(
+            onTap: () {
+              Get.toNamed(Routes.ABOUT);
+            },
+            child: const AccountSettingsOption(
+              settingName: 'About',
+              settingIconImage: AppAssets.aboutIcon,
+            ),
           ),
         ],
       ),

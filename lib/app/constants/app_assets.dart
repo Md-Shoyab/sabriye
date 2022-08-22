@@ -85,8 +85,13 @@ class AppAssets {
       'assets/images/small_video_play_icon.png';
   static const String purpleBackgroundImage =
       'assets/images/purple_sky_image.png';
-  static const String t = 'assets/images/programs_image2.png';
   static const String teachings = 'assets/images/teachings_dashboard_image.png';
   static const String interviewImage = 'assets/images/interviews_image.png';
   static const String scaredRelationship = 'assets/images/angel_background.png';
+  static const String aboutBannerImage = 'assets/images/about_banner_image.png';
+  static const String facebookIcon = 'assets/images/fb_icon.png';
+  static const String instagramIcon = 'assets/images/instagram_icon.png';
+  static const String twitterIcon = 'assets/images/twitter_icon.png';
+  static const String pinterestIcon = 'assets/images/pinterest_icon.png';
+  static const String youtubeIcon = 'assets/images/youtube_icon.png';
 }

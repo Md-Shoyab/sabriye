@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/about/bindings/about_binding.dart';
+import '../modules/about/views/about_view.dart';
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
@@ -184,6 +186,11 @@ class AppPages {
       name: _Paths.BOOK_DETAILS,
       page: () => const BookDetailsView(),
       binding: BookDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT,
+      page: () => const AboutView(),
+      binding: AboutBinding(),
     ),
   ];
 }
