@@ -31,6 +31,8 @@ abstract class Routes {
   static const SUPPORT = _Paths.SUPPORT;
   static const BOOK_DETAILS = _Paths.BOOK_DETAILS;
   static const ABOUT = _Paths.ABOUT;
+  static const SET_REMINDER = _Paths.SET_REMINDER;
+  static const MEMBERSHIP = _Paths.MEMBERSHIP;
 }
 
 abstract class _Paths {
@@ -62,4 +64,6 @@ abstract class _Paths {
   static const SUPPORT = '/support';
   static const BOOK_DETAILS = '/book-details';
   static const ABOUT = '/about';
+  static const SET_REMINDER = '/set-reminder';
+  static const MEMBERSHIP = '/membership';
 }

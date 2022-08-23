@@ -41,7 +41,7 @@ class StoreView extends GetView<StoreController> {
                 StoreOptionCard(
                   iconImagePath: AppAssets.membershipIcon,
                   storeOptionName: 'Membership',
-                  navigationRoute: '',
+                  navigationRoute: Routes.MEMBERSHIP,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.programsIcon,

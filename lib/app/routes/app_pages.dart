@@ -28,6 +28,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/main_screen/bindings/main_screen_binding.dart';
 import '../modules/main_screen/views/main_screen_view.dart';
+import '../modules/membership/bindings/membership_binding.dart';
+import '../modules/membership/views/membership_view.dart';
 import '../modules/new_email/bindings/new_email_binding.dart';
 import '../modules/new_email/views/new_email_view.dart';
 import '../modules/new_password/bindings/new_password_binding.dart';
@@ -40,6 +42,8 @@ import '../modules/sacred_relationships/bindings/sacred_relationships_binding.da
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/sessions_listing/bindings/sessions_listing_binding.dart';
 import '../modules/sessions_listing/views/sessions_listing_view.dart';
+import '../modules/set_reminder/bindings/set_reminder_binding.dart';
+import '../modules/set_reminder/views/set_reminder_view.dart';
 import '../modules/side_menu/bindings/side_menu_binding.dart';
 import '../modules/side_menu/views/side_menu_view.dart';
 import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart';
@@ -191,6 +195,16 @@ class AppPages {
       name: _Paths.ABOUT,
       page: () => const AboutView(),
       binding: AboutBinding(),
+    ),
+    GetPage(
+      name: _Paths.SET_REMINDER,
+      page: () => const SetReminderView(),
+      binding: SetReminderBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEMBERSHIP,
+      page: () => const MembershipView(),
+      binding: MembershipBinding(),
     ),
   ];
 }

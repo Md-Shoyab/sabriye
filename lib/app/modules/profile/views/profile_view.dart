@@ -29,6 +29,15 @@ class ProfileView extends GetView<ProfileController> {
             color: AppColors.buttonColor,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.edit,
+              color: AppColors.primaryColor,
+            ),
+          ),
+        ],
         centerTitle: true,
         elevation: 0,
       ),

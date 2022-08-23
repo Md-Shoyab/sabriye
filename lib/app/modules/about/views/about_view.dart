@@ -273,6 +273,9 @@ class AboutView extends GetView<AboutController> {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 100,
+            )
           ],
         ),
       ),

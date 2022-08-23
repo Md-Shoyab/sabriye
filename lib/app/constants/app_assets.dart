@@ -97,4 +97,9 @@ class AppAssets {
   static const String twitterIcon = 'assets/images/twitter_icon.png';
   static const String pinterestIcon = 'assets/images/pinterest_icon.png';
   static const String youtubeIcon = 'assets/images/youtube_icon.png';
+  static const String checkIcon = 'assets/images/check_icon.png';
+  static const String flowerImage = 'assets/images/flower_image.png';
+
+  static const String memberhsipBannerImage =
+      'assets/images/membership_banner.png';
 }

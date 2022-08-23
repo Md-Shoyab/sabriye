@@ -48,7 +48,9 @@ class SideMenuView extends GetView<SideMenuController> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(Routes.SET_REMINDER);
+            },
             child: const AccountSettingsOption(
               settingName: 'Alarm',
               settingIconImage: AppAssets.alarmIcon,
