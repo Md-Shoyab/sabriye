@@ -79,6 +79,9 @@ class AppAssets {
       'assets/images/inner_union_oracle_banner_image.png';
   static const String innerUnionOrcaleTextImage =
       'assets/images/inner_union_oracle_image2.png';
+  static const String innerUnionCircleAuthorImage =
+      'assets/images/inner_union_circle_author.png';
+
   static const String supportEmailIcon = 'assets/images/support_email_icon.png';
   static const String sabriyeSignature = 'assets/images/sa-signature_image.png';
   static const String smallVideoPlayIcon =
