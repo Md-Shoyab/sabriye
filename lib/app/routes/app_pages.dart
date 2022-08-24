@@ -54,6 +54,8 @@ import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
+import '../modules/top_testimonials/bindings/top_testimonials_binding.dart';
+import '../modules/top_testimonials/views/top_testimonials_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
 import '../modules/welcome_screens/views/welcome_screens_view.dart';
 
@@ -205,6 +207,11 @@ class AppPages {
       name: _Paths.MEMBERSHIP,
       page: () => const MembershipView(),
       binding: MembershipBinding(),
+    ),
+    GetPage(
+      name: _Paths.TOP_TESTIMONIALS,
+      page: () => const TopTestimonialsView(),
+      binding: TopTestimonialsBinding(),
     ),
   ];
 }

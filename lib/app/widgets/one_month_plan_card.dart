@@ -4,8 +4,8 @@ import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 import '../routes/app_pages.dart';
 
-class OneWeekTrialPlan extends StatelessWidget {
-  const OneWeekTrialPlan({
+class OneMonthPlanCard extends StatelessWidget {
+  const OneMonthPlanCard({
     Key? key,
   }) : super(key: key);
 
@@ -25,10 +25,10 @@ class OneWeekTrialPlan extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           const Text(
-            '1-Week Trial\nMembership',
+            'Monthly\nMembership',
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w700,
@@ -39,6 +39,7 @@ class OneWeekTrialPlan extends StatelessWidget {
           const Text(
             'Try all Features',
             style: TextStyle(
+              fontSize: 13,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -49,7 +50,7 @@ class OneWeekTrialPlan extends StatelessWidget {
               Icon(Icons.circle, size: 8),
               HorizontalGap(gap: 5),
               Text(
-                'One FREE Week',
+                '1 FREE Month',
                 style: TextStyle(
                   fontSize: 12,
                 ),
@@ -63,14 +64,14 @@ class OneWeekTrialPlan extends StatelessWidget {
               Icon(Icons.circle, size: 8),
               HorizontalGap(gap: 5),
               Text(
-                'After €11.11 per\nmonth',
+                'Billed Monthly',
                 style: TextStyle(
                   fontSize: 12,
                 ),
               ),
             ],
           ),
-          const VerticalGap(),
+          const VerticalGap(gap: 15),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: const [
@@ -84,7 +85,7 @@ class OneWeekTrialPlan extends StatelessWidget {
               ),
             ],
           ),
-          const VerticalGap(),
+          const VerticalGap(gap: 15),
           TextButton(
             onPressed: () {
               Get.toNamed(Routes.NEW_EMAIL);

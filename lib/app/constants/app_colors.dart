@@ -10,7 +10,7 @@ class AppColors {
   static const blackTextColor = Colors.black;
   static const themeTextColor = Color(0xFF8F5C6C);
   static const splashIndicatorColor = Colors.grey;
-  static const bgLight = Colors.amber;
+  static const bgLight = Color(0xffFEF4F5);
   static const bgDark = Color(0xff0D1018);
   static const black = Color(0xff000000);
   static const transparent = Colors.transparent;

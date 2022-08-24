@@ -212,19 +212,24 @@ class DashboardView extends GetView<DashboardController> {
                   itemBuilder: ((context, index) {
                     return Column(
                       children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          margin: const EdgeInsets.symmetric(horizontal: 8),
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(AppAssets.circleBackground),
-                              fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.TOP_TESTIMONIALS);
+                          },
+                          child: Container(
+                            height: 80,
+                            width: 80,
+                            margin: const EdgeInsets.symmetric(horizontal: 8),
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(AppAssets.circleBackground),
+                                fit: BoxFit.cover,
+                              ),
+                              shape: BoxShape.circle,
                             ),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.asset(
-                            controller.testimonalImage[index],
+                            child: Image.asset(
+                              controller.testimonalImage[index],
+                            ),
                           ),
                         ),
                         Text(

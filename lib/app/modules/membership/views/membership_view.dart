@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:sabriye/app/widgets/one_month_plan_card.dart';
 import 'package:sabriye/app/widgets/other_membership_card.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/annual_membership_card.dart';
@@ -81,10 +82,7 @@ class MembershipView extends GetView<MembershipController> {
               ),
             ),
             const VerticalGap(gap: 20),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: const Text('Info Cards'),
-            ),
+            const Text('Expandanple Tile'),
             const VerticalGap(gap: 20),
             Container(
               padding: const EdgeInsets.symmetric(
@@ -124,8 +122,8 @@ class MembershipView extends GetView<MembershipController> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Stack(
                 children: const [
-                  Positioned(left: -3, child: OtherMembershipCard()),
-                  Positioned(right: 1, child: OtherMembershipCard()),
+                  Positioned(left: -3, child: OneWeekTrialPlan()),
+                  Positioned(right: 1, child: OneMonthPlanCard()),
                   Align(child: MembershipPlanCard()),
                 ],
               ),

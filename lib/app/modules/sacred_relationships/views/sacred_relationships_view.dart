@@ -48,7 +48,7 @@ class SacredRelationshipsView extends GetView<SacredRelationshipsController> {
             ),
             const VerticalGap(gap: 20),
             SizedBox(
-              height: Get.height * .85,
+              height: Get.height * .9,
               child: ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: 3,
