@@ -124,7 +124,7 @@ class MembershipView extends GetView<MembershipController> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Stack(
                 children: const [
-                  Positioned(left: 1, child: OtherMembershipCard()),
+                  Positioned(left: -3, child: OtherMembershipCard()),
                   Positioned(right: 1, child: OtherMembershipCard()),
                   Align(child: MembershipPlanCard()),
                 ],

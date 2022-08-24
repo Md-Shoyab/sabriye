@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../controllers/sacred_relationships_controller.dart';
 
@@ -32,40 +33,47 @@ class SacredRelationshipsView extends GetView<SacredRelationshipsController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(top: 20),
-            height: Get.height * .2,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(AppAssets.angleBackgroundImage),
-                fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 20),
+              height: Get.height * .2,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(AppAssets.angleBackgroundImage),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          const VerticalGap(gap: 20),
-          Expanded(
-            child: SizedBox(
-              height: Get.height,
+            const VerticalGap(gap: 20),
+            SizedBox(
+              height: Get.height * .85,
               child: ListView.builder(
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 3,
                 itemBuilder: ((context, index) {
                   return Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Container(
-                        height: Get.height * .23,
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.scaredRealtionshipCategoryImage[index],
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed(Routes.KARMIC_RELATIONSHIPS);
+                        },
+                        child: Container(
+                          height: Get.height * .23,
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage(
+                                controller
+                                    .scaredRealtionshipCategoryImage[index],
+                              ),
+                              fit: BoxFit.cover,
                             ),
-                            fit: BoxFit.cover,
                           ),
                         ),
                       ),
@@ -83,8 +91,8 @@ class SacredRelationshipsView extends GetView<SacredRelationshipsController> {
                 }),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

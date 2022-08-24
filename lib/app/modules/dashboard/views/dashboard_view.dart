@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
@@ -116,29 +117,34 @@ class DashboardView extends GetView<DashboardController> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      alignment: Alignment.bottomLeft,
-                      padding: const EdgeInsets.only(left: 10),
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            controller.teachingsDashboardImage[index],
-                          ),
-                          fit: BoxFit.cover,
+                    return InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.SACRED_RELATIONSHIPS);
+                      },
+                      child: Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: const EdgeInsets.only(left: 10),
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 8,
                         ),
-                      ),
-                      height: 90,
-                      width: 150,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 5.0),
-                        child: Text(
-                          controller.dashboardTeachingsText[index],
-                          style: const TextStyle(
-                            color: AppColors.whiteTextColor,
-                            fontWeight: FontWeight.w500,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              controller.teachingsDashboardImage[index],
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        height: 90,
+                        width: 150,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 5.0),
+                          child: Text(
+                            controller.dashboardTeachingsText[index],
+                            style: const TextStyle(
+                              color: AppColors.whiteTextColor,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ),
                       ),

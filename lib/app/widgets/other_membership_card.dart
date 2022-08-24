@@ -16,9 +16,9 @@ class OtherMembershipCard extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: AppColors.bgLight,
-        border: Border.all(
-          color: AppColors.darkPrimaryColor,
-        ),
+        // border: Border.all(
+        //   color: AppColors.darkPrimaryColor,
+        // ),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -32,14 +32,14 @@ class OtherMembershipCard extends StatelessWidget {
               color: AppColors.whiteTextColor,
             ),
           ),
-          const VerticalGap(gap: 15),
+          const VerticalGap(),
           const Text(
             'Try all Features',
             style: TextStyle(
               fontWeight: FontWeight.w600,
             ),
           ),
-          const VerticalGap(gap: 15),
+          const VerticalGap(),
           Row(
             mainAxisSize: MainAxisSize.min,
             children: const [
@@ -66,7 +66,7 @@ class OtherMembershipCard extends StatelessWidget {
               Text('Cancel anytime')
             ],
           ),
-          const VerticalGap(gap: 15),
+          const VerticalGap(),
           TextButton(
             onPressed: () {
               Get.toNamed(Routes.NEW_EMAIL);
