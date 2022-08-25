@@ -35,6 +35,9 @@ abstract class Routes {
   static const MEMBERSHIP = _Paths.MEMBERSHIP;
   static const TOP_TESTIMONIALS = _Paths.TOP_TESTIMONIALS;
   static const SESSIONS_TESTIMONIALS = _Paths.SESSIONS_TESTIMONIALS;
+  static const SESSION = _Paths.SESSION;
+  static const SESSION_TESTIMONIALS = _Paths.SESSION_TESTIMONIALS;
+  static const SESSION_DETAILS = _Paths.SESSION_DETAILS;
 }
 
 abstract class _Paths {
@@ -70,4 +73,7 @@ abstract class _Paths {
   static const MEMBERSHIP = '/membership';
   static const TOP_TESTIMONIALS = '/top-testimonials';
   static const SESSIONS_TESTIMONIALS = '/sessions-testimonials';
+  static const SESSION = '/session';
+  static const SESSION_TESTIMONIALS = '/session-testimonials';
+  static const SESSION_DETAILS = '/session-details';
 }

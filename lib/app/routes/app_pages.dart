@@ -40,6 +40,8 @@ import '../modules/programs_listing/bindings/programs_listing_binding.dart';
 import '../modules/programs_listing/views/programs_listing_view.dart';
 import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
+import '../modules/session_details/bindings/session_details_binding.dart';
+import '../modules/session_details/views/session_details_view.dart';
 import '../modules/sessions_listing/bindings/sessions_listing_binding.dart';
 import '../modules/sessions_listing/views/sessions_listing_view.dart';
 import '../modules/sessions_testimonials/bindings/sessions_testimonials_binding.dart';
@@ -219,6 +221,11 @@ class AppPages {
       name: _Paths.SESSIONS_TESTIMONIALS,
       page: () => const SessionsTestimonialsView(),
       binding: SessionsTestimonialsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SESSION_DETAILS,
+      page: () => const SessionDetailsView(),
+      binding: SessionDetailsBinding(),
     ),
   ];
 }

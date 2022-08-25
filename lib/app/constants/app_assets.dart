@@ -110,4 +110,7 @@ class AppAssets {
 
   static const String memberhsipBannerImage =
       'assets/images/membership_banner.png';
+
+  static const String akshayHealingSabriyeProfile = 'assets/images/akasha_healing_sabriye_profile.png';
+
 }

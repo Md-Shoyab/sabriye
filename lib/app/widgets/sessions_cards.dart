@@ -8,12 +8,14 @@ class SessionCards extends StatelessWidget {
   final String sessionTitleText;
   final String buttonText;
   final String imagePath;
+  final String routes;
 
   const SessionCards({
     Key? key,
     required this.sessionTitleText,
     required this.buttonText,
     required this.imagePath,
+    required this.routes,
   }) : super(key: key);
 
   @override
@@ -49,7 +51,9 @@ class SessionCards extends StatelessWidget {
                 ),
                 const VerticalGap(gap: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(routes);
+                  },
                   child: Text(
                     buttonText,
                     style: const TextStyle(

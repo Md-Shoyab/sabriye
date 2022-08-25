@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/sessions_cards.dart';
 import '../controllers/sessions_listing_controller.dart';
@@ -38,11 +39,13 @@ class SessionsListingView extends GetView<SessionsListingController> {
             buttonText: 'Learn More',
             imagePath: AppAssets.sessionImage1,
             sessionTitleText: 'Akasha Healing Journey',
+            routes: Routes.SESSION_DETAILS,
           ),
           SessionCards(
             buttonText: 'Buy Now',
             imagePath: AppAssets.sessionImage2,
             sessionTitleText: 'Bach Flower Power\nSession',
+            routes: '',
           ),
         ],
       ),
