@@ -42,6 +42,8 @@ import '../modules/sacred_relationships/bindings/sacred_relationships_binding.da
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/sessions_listing/bindings/sessions_listing_binding.dart';
 import '../modules/sessions_listing/views/sessions_listing_view.dart';
+import '../modules/sessions_testimonials/bindings/sessions_testimonials_binding.dart';
+import '../modules/sessions_testimonials/views/sessions_testimonials_view.dart';
 import '../modules/set_reminder/bindings/set_reminder_binding.dart';
 import '../modules/set_reminder/views/set_reminder_view.dart';
 import '../modules/side_menu/bindings/side_menu_binding.dart';
@@ -212,6 +214,11 @@ class AppPages {
       name: _Paths.TOP_TESTIMONIALS,
       page: () => const TopTestimonialsView(),
       binding: TopTestimonialsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SESSIONS_TESTIMONIALS,
+      page: () => const SessionsTestimonialsView(),
+      binding: SessionsTestimonialsBinding(),
     ),
   ];
 }

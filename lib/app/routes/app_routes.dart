@@ -34,6 +34,7 @@ abstract class Routes {
   static const SET_REMINDER = _Paths.SET_REMINDER;
   static const MEMBERSHIP = _Paths.MEMBERSHIP;
   static const TOP_TESTIMONIALS = _Paths.TOP_TESTIMONIALS;
+  static const SESSIONS_TESTIMONIALS = _Paths.SESSIONS_TESTIMONIALS;
 }
 
 abstract class _Paths {
@@ -68,4 +69,5 @@ abstract class _Paths {
   static const SET_REMINDER = '/set-reminder';
   static const MEMBERSHIP = '/membership';
   static const TOP_TESTIMONIALS = '/top-testimonials';
+  static const SESSIONS_TESTIMONIALS = '/sessions-testimonials';
 }

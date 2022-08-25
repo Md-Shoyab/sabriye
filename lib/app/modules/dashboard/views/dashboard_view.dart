@@ -214,7 +214,7 @@ class DashboardView extends GetView<DashboardController> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.TOP_TESTIMONIALS);
+                            Get.toNamed(Routes.SESSIONS_TESTIMONIALS);
                           },
                           child: Container(
                             height: 80,

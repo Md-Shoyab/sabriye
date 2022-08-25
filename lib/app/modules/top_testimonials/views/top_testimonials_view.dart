@@ -79,7 +79,3 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
         ));
   }
 }
-
-/*  */
-
-/* */
