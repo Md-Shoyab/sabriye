@@ -100,7 +100,9 @@ class AppAssets {
   static const String checkIcon = 'assets/images/check_icon.png';
   static const String checkBoxIcon = 'assets/images/checkbox_icon.png';
   static const String flowerImage = 'assets/images/flower_image.png';
+  static const String flowerImage2 = 'assets/images/flower_2.png';
   static const String testimonialsBgImage = 'assets/images/testimonials_bg.png';
+
   static const String testimonialsProfileImage =
       'assets/images/testimony_profile.png';
   static const String testimonialsProfileImage2 =
@@ -111,6 +113,6 @@ class AppAssets {
   static const String memberhsipBannerImage =
       'assets/images/membership_banner.png';
 
-  static const String akshayHealingSabriyeProfile = 'assets/images/akasha_healing_sabriye_profile.png';
-
+  static const String akshayHealingSabriyeProfile =
+      'assets/images/akasha_healing_sabriye_profile.png';
 }

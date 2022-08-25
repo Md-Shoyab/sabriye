@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/session_details_controller.dart';
@@ -95,7 +96,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
                 '''Akasha Healing™ is a revolutionary healing method that helps you release unprocessed trauma, karma and vibrational residue from this lifetime and previous lifetimes. Allowing you to reprogram deep subconscious beliefs, release fears and phobias that are limiting you and retrieve aspects of the soul that were disowned or ‘lost’ in other timelines.
-      
+        
 The soul itself remains pure and unscathed throughout the incarnation process. All our wounding throughout all timelines only accumulates on an ego level, creating the wounded and fragmented ego. When one heals the wounded ego it reactivates the Divine (soul) Blueprint that has always remained immaculate within the soul realm. Creating as above, so below which allows us to fully embody our soul in the physical realm without the previous distortions that were created through the perception of the wounded ego – who sees itself separated, instead of at one with the soul.''',
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -175,7 +176,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: const Text(
                 '''Select the one-off session or package of your choice by using the ‘buy now!’ button under it. This will bring you to our Thrivecart checkout, where you can pay through PayPal or Credit Card as well as Google Pay or Apple Pay.
-      
+        
 After successful payment you will receive an email with a link to Sabriyé’s online calendar and instructions on how to prepare for your session(s). If you do not receive this email within one hour please contact our support team for further assistance.''',
                 textAlign: TextAlign.justify,
                 style: TextStyle(
@@ -198,15 +199,12 @@ After successful payment you will receive an email with a link to Sabriyé’s o
                 ),
               ),
             ),
-            Expanded(
-              child: SizedBox(
-                height: Get.height * .9,
-                child: ListView.builder(
-                  itemCount: 5,
-                  itemBuilder: ((context, index) => const SessionCards()),
-                ),
-              ),
-            )
+            InkWell(
+              onTap: () {
+                Get.toNamed(Routes.SESSION_DETAILS_AKASHAY);
+              },
+              child: const SessionCards(),
+            ),
           ],
         ),
       ),
