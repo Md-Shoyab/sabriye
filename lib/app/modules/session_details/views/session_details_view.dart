@@ -205,6 +205,54 @@ After successful payment you will receive an email with a link to Sabriyé’s o
               },
               child: const SessionCards(),
             ),
+            const VerticalGap(),
+            const SessionCards(),
+            const VerticalGap(),
+            const SessionCards(),
+            const VerticalGap(),
+            const SessionCards(),
+            const VerticalGap(),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 25,
+                vertical: 15,
+              ),
+              child: const Text(
+                'Akasha Healing™ Packages',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            const SessionCards(),
+            const VerticalGap(),
+            const SessionCards(),
+            const VerticalGap(gap: 20),
+            Center(
+              child: TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Know More About\nAkasha Healing™',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.whiteTextColor,
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  backgroundColor: AppColors.buttonColor,
+                ),
+              ),
+            ),
+            const VerticalGap(gap: 50),
           ],
         ),
       ),
