@@ -36,6 +36,8 @@ import '../modules/new_password/bindings/new_password_binding.dart';
 import '../modules/new_password/views/new_password_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/programs_details/bindings/programs_details_binding.dart';
+import '../modules/programs_details/views/programs_details_view.dart';
 import '../modules/programs_listing/bindings/programs_listing_binding.dart';
 import '../modules/programs_listing/views/programs_listing_view.dart';
 import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
@@ -233,6 +235,11 @@ class AppPages {
       name: _Paths.SESSION_DETAILS_AKASHAY,
       page: () => const SessionDetailsAkashayView(),
       binding: SessionDetailsAkashayBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROGRAMS_DETAILS,
+      page: () => const ProgramsDetailsView(),
+      binding: ProgramsDetailsBinding(),
     ),
   ];
 }

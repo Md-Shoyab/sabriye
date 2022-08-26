@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 
 import '../constants/app_colors.dart';
@@ -48,7 +49,9 @@ class ProgramsCards extends StatelessWidget {
                 ),
                 const VerticalGap(),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(Routes.PROGRAMS_DETAILS);
+                  },
                   child: Text(
                     textButton,
                     style: const TextStyle(
