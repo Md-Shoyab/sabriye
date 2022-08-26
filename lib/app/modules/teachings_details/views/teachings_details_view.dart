@@ -110,7 +110,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CircleAvatar(
-                    radius: 30,
+                    radius: 25,
                     backgroundImage: AssetImage(AppAssets.profileImage),
                   ),
                   const HorizontalGap(),
@@ -130,7 +130,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                           'Bestselling author, new paradigm business, life & soul mentor, founder of the AkashaHealing™ method and the School of Inner Union',
                           overflow: TextOverflow.visible,
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 15,
                             fontWeight: FontWeight.w300,
                           ),
                         ),

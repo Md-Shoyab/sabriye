@@ -4,6 +4,8 @@ import '../modules/about/bindings/about_binding.dart';
 import '../modules/about/views/about_view.dart';
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
+import '../modules/blog_details/bindings/blog_details_binding.dart';
+import '../modules/blog_details/views/blog_details_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
 import '../modules/blogs_listing/views/blogs_listing_view.dart';
 import '../modules/book_details/bindings/book_details_binding.dart';
@@ -240,6 +242,11 @@ class AppPages {
       name: _Paths.PROGRAMS_DETAILS,
       page: () => const ProgramsDetailsView(),
       binding: ProgramsDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.BLOG_DETAILS,
+      page: () => const BlogDetailsView(),
+      binding: BlogDetailsBinding(),
     ),
   ];
 }
