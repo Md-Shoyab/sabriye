@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/spiritual_spotlight_controller.dart';
 
@@ -39,23 +40,28 @@ class SpiritualSpotlightView extends GetView<SpiritualSpotlightController> {
               child: ListView.builder(
                 itemCount: 3,
                 itemBuilder: ((context, index) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 15,
-                      vertical: 10,
-                    ),
-                    height: Get.height * .25,
-                    width: Get.width * .7,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      image: DecorationImage(
-                        image: AssetImage(
-                          controller.spiritualImageList[index],
-                        ),
-                        fit: BoxFit.cover,
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT_DETAILS);
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                        vertical: 10,
                       ),
+                      height: Get.height * .25,
+                      width: Get.width * .7,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            controller.spiritualImageList[index],
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      child: Image.asset(AppAssets.videoPlayButton),
                     ),
-                    child: Image.asset(AppAssets.videoPlayButton),
                   );
                 }),
               ),

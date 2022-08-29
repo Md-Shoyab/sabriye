@@ -59,6 +59,8 @@ class AppAssets {
   static const String supportIcon = 'assets/images/support_icon.png';
   static const String spiritualSpotLightIcon =
       'assets/images/spiritual_spotlight_icon.png';
+  static const String spiritualSpotLightVideoImage =
+      'assets/images/spiritual_spotlight_video_interview.png';
   static const String downloadEbookIcon =
       'assets/images/download_ebook_icon.png';
   static const String alarmIcon = 'assets/images/alarm_icon.png';

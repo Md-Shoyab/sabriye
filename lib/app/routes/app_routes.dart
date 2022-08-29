@@ -41,6 +41,7 @@ abstract class Routes {
   static const SESSION_DETAILS_AKASHAY = _Paths.SESSION_DETAILS_AKASHAY;
   static const PROGRAMS_DETAILS = _Paths.PROGRAMS_DETAILS;
   static const BLOG_DETAILS = _Paths.BLOG_DETAILS;
+  static const SPIRITUAL_SPOTLIGHT_DETAILS = _Paths.SPIRITUAL_SPOTLIGHT_DETAILS;
 }
 
 abstract class _Paths {
@@ -82,4 +83,5 @@ abstract class _Paths {
   static const SESSION_DETAILS_AKASHAY = '/session-details-akashay';
   static const PROGRAMS_DETAILS = '/programs-details';
   static const BLOG_DETAILS = '/blog-details';
+  static const SPIRITUAL_SPOTLIGHT_DETAILS = '/spiritual-spotlight-details';
 }

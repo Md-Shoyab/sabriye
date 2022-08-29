@@ -58,6 +58,8 @@ import '../modules/side_menu/bindings/side_menu_binding.dart';
 import '../modules/side_menu/views/side_menu_view.dart';
 import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart';
 import '../modules/spiritual_spotlight/views/spiritual_spotlight_view.dart';
+import '../modules/spiritual_spotlight_details/bindings/spiritual_spotlight_details_binding.dart';
+import '../modules/spiritual_spotlight_details/views/spiritual_spotlight_details_view.dart';
 import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
 import '../modules/support/bindings/support_binding.dart';
@@ -247,6 +249,11 @@ class AppPages {
       name: _Paths.BLOG_DETAILS,
       page: () => const BlogDetailsView(),
       binding: BlogDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPIRITUAL_SPOTLIGHT_DETAILS,
+      page: () => const SpiritualSpotlightDetailsView(),
+      binding: SpiritualSpotlightDetailsBinding(),
     ),
   ];
 }
