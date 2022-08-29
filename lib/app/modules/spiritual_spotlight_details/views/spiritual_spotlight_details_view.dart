@@ -70,7 +70,10 @@ class SpiritualSpotlightDetailsView
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const CircleAvatar(radius: 25),
+                  const CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage(AppAssets.profileImage),
+                  ),
                   const HorizontalGap(gap: 15),
                   Expanded(
                     child: Column(

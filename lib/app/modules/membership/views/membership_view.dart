@@ -82,7 +82,47 @@ class MembershipView extends GetView<MembershipController> {
               ),
             ),
             const VerticalGap(gap: 20),
-            const Text('Expandanple Tile'),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+              child: Obx(
+                (() => ExpansionPanelList(
+                      expandedHeaderPadding: EdgeInsets.zero,
+                      expansionCallback: ((panelIndex, isExpanded) {
+                        controller.isExpandedUpdate();
+                      }),
+                      children: [
+                        ExpansionPanel(
+                          headerBuilder: ((context, isExpanded) => Container(
+                                padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
+                                alignment: Alignment.centerLeft,
+                                child: const Text(
+                                  'Healing the subconscious',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.primaryColor,
+                                  ),
+                                ),
+                              )),
+                          body: Container(
+                            margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
+                            alignment: Alignment.topLeft,
+                            child: const Text(
+                              'The people, situations, and experiences in our lives today are connected to the unprocessed trauma, emotions, and unresolved pain carried within our subconscious mind that is bleeding through from previous timelines such as past lives, ancestral, and early current life. Healing the subconscious mind heals our physical reality experience.',
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w300,
+                                height: 1.3,
+                              ),
+                            ),
+                          ),
+                          isExpanded: controller.isExpanded.value,
+                        ),
+                      ],
+                    )),
+              ),
+            ),
             const VerticalGap(gap: 20),
             Container(
               padding: const EdgeInsets.symmetric(
