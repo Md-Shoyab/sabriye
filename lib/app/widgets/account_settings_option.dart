@@ -24,7 +24,13 @@ class AccountSettingsOption extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.bgColor,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(),
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.darkPrimaryColor,
+            blurRadius: 2.0,
+            offset: Offset(-1, 0),
+          ),
+        ],
       ),
       child: Padding(
         padding: const EdgeInsets.only(left: 10.0),
