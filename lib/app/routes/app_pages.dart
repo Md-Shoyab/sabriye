@@ -20,6 +20,8 @@ import '../modules/change_password_verfication/bindings/change_password_verficat
 import '../modules/change_password_verfication/views/change_password_verfication_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/faq/bindings/faq_binding.dart';
+import '../modules/faq/views/faq_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
 import '../modules/inner_union_oracle/bindings/inner_union_oracle_binding.dart';
@@ -254,6 +256,11 @@ class AppPages {
       name: _Paths.SPIRITUAL_SPOTLIGHT_DETAILS,
       page: () => const SpiritualSpotlightDetailsView(),
       binding: SpiritualSpotlightDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.FAQ,
+      page: () => const FaqView(),
+      binding: FaqBinding(),
     ),
   ];
 }
