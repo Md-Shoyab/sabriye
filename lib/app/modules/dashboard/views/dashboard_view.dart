@@ -128,6 +128,7 @@ class DashboardView extends GetView<DashboardController> {
                           horizontal: 8,
                         ),
                         decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10), 
                           image: DecorationImage(
                             image: AssetImage(
                               controller.teachingsDashboardImage[index],
@@ -177,7 +178,7 @@ class DashboardView extends GetView<DashboardController> {
                       width: 150,
                       margin: const EdgeInsets.symmetric(horizontal: 8),
                       decoration: BoxDecoration(
-                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
                           image: AssetImage(
                             controller.spiritualSpotlightImage[index],
