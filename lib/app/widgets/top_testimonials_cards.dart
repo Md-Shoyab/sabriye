@@ -21,9 +21,7 @@ class TopTestimonialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        top: 15,
-      ),
+      margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
       padding: const EdgeInsets.all(8),
       height: 270,
       width: Get.width * .9,

@@ -47,31 +47,11 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
               height: Get.height,
               child: ListView.builder(
                 itemCount: 3,
-                itemBuilder: ((context, index) => Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        index == 0
-                            ? Center(
-                                child: Container(
-                                  margin: const EdgeInsets.symmetric(
-                                    vertical: 8,
-                                  ),
-                                  child: const Text(
-                                    'What clients say about doing Akasha Healing™\nJourneys with me',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : const SizedBox(height: 0),
-                        TopTestimonialCard(
-                          imagePath: controller.reviewProfileImage[index],
-                          reviewText: controller.reviewText[index],
-                          reviwerName: controller.reviewerName[index],
-                          professionText: controller.professionText[index],
-                        )
-                      ],
+                itemBuilder: ((context, index) => TopTestimonialCard(
+                      imagePath: controller.reviewProfileImage[index],
+                      reviewText: controller.reviewText[index],
+                      reviwerName: controller.reviewerName[index],
+                      professionText: controller.professionText[index],
                     )),
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../account_settings/views/account_settings_view.dart';
 import '../../side_menu/views/side_menu_view.dart';
@@ -41,6 +42,13 @@ class DashboardController extends GetxController {
     'Sessions',
     'Programs',
     'Retreats'
+  ];
+
+  final List<String> routesList = [
+    Routes.TOP_TESTIMONIALS,
+    Routes.SESSIONS_TESTIMONIALS,
+    Routes.PROGRAMS_TESTIMONIALS,
+    Routes.RETREATS_TESTIMONIALS,
   ];
   RxInt selectedPageIndex = 0.obs;
 

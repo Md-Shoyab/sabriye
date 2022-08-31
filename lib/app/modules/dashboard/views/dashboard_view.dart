@@ -128,7 +128,7 @@ class DashboardView extends GetView<DashboardController> {
                           horizontal: 8,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10), 
+                          borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                             image: AssetImage(
                               controller.teachingsDashboardImage[index],
@@ -215,7 +215,9 @@ class DashboardView extends GetView<DashboardController> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.SESSIONS_TESTIMONIALS);
+                            Get.toNamed(
+                              controller.routesList[index],
+                            );
                           },
                           child: Container(
                             height: 80,

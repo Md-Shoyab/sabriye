@@ -18,6 +18,8 @@ import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
 import '../modules/change_password_verfication/bindings/change_password_verfication_binding.dart';
 import '../modules/change_password_verfication/views/change_password_verfication_view.dart';
+import '../modules/comments/bindings/comments_binding.dart';
+import '../modules/comments/views/comments_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/faq/bindings/faq_binding.dart';
@@ -46,6 +48,10 @@ import '../modules/programs_details/bindings/programs_details_binding.dart';
 import '../modules/programs_details/views/programs_details_view.dart';
 import '../modules/programs_listing/bindings/programs_listing_binding.dart';
 import '../modules/programs_listing/views/programs_listing_view.dart';
+import '../modules/programs_testimonials/bindings/programs_testimonials_binding.dart';
+import '../modules/programs_testimonials/views/programs_testimonials_view.dart';
+import '../modules/retreats_testimonials/bindings/retreats_testimonials_binding.dart';
+import '../modules/retreats_testimonials/views/retreats_testimonials_view.dart';
 import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
 import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/session_details/bindings/session_details_binding.dart';
@@ -268,6 +274,21 @@ class AppPages {
       name: _Paths.GIVING_BACK,
       page: () => const GivingBackView(),
       binding: GivingBackBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMMENTS,
+      page: () => const CommentsView(),
+      binding: CommentsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROGRAMS_TESTIMONIALS,
+      page: () => const ProgramsTestimonialsView(),
+      binding: ProgramsTestimonialsBinding(),
+    ),
+    GetPage(
+      name: _Paths.RETREATS_TESTIMONIALS,
+      page: () => const RetreatsTestimonialsView(),
+      binding: RetreatsTestimonialsBinding(),
     ),
   ];
 }

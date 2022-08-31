@@ -44,6 +44,9 @@ abstract class Routes {
   static const SPIRITUAL_SPOTLIGHT_DETAILS = _Paths.SPIRITUAL_SPOTLIGHT_DETAILS;
   static const FAQ = _Paths.FAQ;
   static const GIVING_BACK = _Paths.GIVING_BACK;
+  static const COMMENTS = _Paths.COMMENTS;
+  static const PROGRAMS_TESTIMONIALS = _Paths.PROGRAMS_TESTIMONIALS;
+  static const RETREATS_TESTIMONIALS = _Paths.RETREATS_TESTIMONIALS;
 }
 
 abstract class _Paths {
@@ -88,4 +91,7 @@ abstract class _Paths {
   static const SPIRITUAL_SPOTLIGHT_DETAILS = '/spiritual-spotlight-details';
   static const FAQ = '/faq';
   static const GIVING_BACK = '/giving-back';
+  static const COMMENTS = '/comments';
+  static const PROGRAMS_TESTIMONIALS = '/programs-testimonials';
+  static const RETREATS_TESTIMONIALS = '/retreats-testimonials';
 }
