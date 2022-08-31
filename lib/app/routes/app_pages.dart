@@ -24,6 +24,8 @@ import '../modules/faq/bindings/faq_binding.dart';
 import '../modules/faq/views/faq_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
 import '../modules/forgot_password/views/forgot_password_view.dart';
+import '../modules/giving_back/bindings/giving_back_binding.dart';
+import '../modules/giving_back/views/giving_back_view.dart';
 import '../modules/inner_union_oracle/bindings/inner_union_oracle_binding.dart';
 import '../modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import '../modules/karmic_relationships/bindings/karmic_relationships_binding.dart';
@@ -261,6 +263,11 @@ class AppPages {
       name: _Paths.FAQ,
       page: () => const FaqView(),
       binding: FaqBinding(),
+    ),
+    GetPage(
+      name: _Paths.GIVING_BACK,
+      page: () => const GivingBackView(),
+      binding: GivingBackBinding(),
     ),
   ];
 }

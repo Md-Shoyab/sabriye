@@ -43,6 +43,7 @@ abstract class Routes {
   static const BLOG_DETAILS = _Paths.BLOG_DETAILS;
   static const SPIRITUAL_SPOTLIGHT_DETAILS = _Paths.SPIRITUAL_SPOTLIGHT_DETAILS;
   static const FAQ = _Paths.FAQ;
+  static const GIVING_BACK = _Paths.GIVING_BACK;
 }
 
 abstract class _Paths {
@@ -86,4 +87,5 @@ abstract class _Paths {
   static const BLOG_DETAILS = '/blog-details';
   static const SPIRITUAL_SPOTLIGHT_DETAILS = '/spiritual-spotlight-details';
   static const FAQ = '/faq';
+  static const GIVING_BACK = '/giving-back';
 }

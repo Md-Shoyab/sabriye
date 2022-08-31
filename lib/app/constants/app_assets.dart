@@ -104,6 +104,14 @@ class AppAssets {
   static const String flowerImage = 'assets/images/flower_image.png';
   static const String flowerImage2 = 'assets/images/flower_2.png';
   static const String testimonialsBgImage = 'assets/images/testimonials_bg.png';
+  static const String spendingMoney = 'assets/images/spending_money.png';
+  static const String kettoLogo = 'assets/images/ketto_logo.png';
+  static const String givingBackSabriye =
+      'assets/images/giving_back_sabriye.png';
+  static const String givingBackBannerImage =
+      'assets/images/giving_back_banner.png';
+  static const String eSFLogo = 'assets/images/ESF_foundation_logo.png';
+  static const String treeSisterLogo = 'assets/images/treesisters_logo.png';
 
   static const String testimonialsProfileImage =
       'assets/images/testimony_profile.png';
