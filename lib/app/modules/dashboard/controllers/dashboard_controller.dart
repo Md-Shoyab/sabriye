@@ -48,7 +48,7 @@ class DashboardController extends GetxController {
     Routes.TOP_TESTIMONIALS,
     Routes.SESSIONS_TESTIMONIALS,
     Routes.PROGRAMS_TESTIMONIALS,
-    Routes.RETREATS_TESTIMONIALS,
+    Routes.COMMENTS,
   ];
   RxInt selectedPageIndex = 0.obs;
 
