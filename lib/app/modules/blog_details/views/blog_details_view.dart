@@ -40,9 +40,12 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
             SizedBox(
               height: Get.height * .225,
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: controller.relatedPostImages.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: ((context, index) => const RelatedPost()),
+                itemBuilder: ((context, index) => RelatedPost(
+                      controller: controller,
+                      index: index,
+                    )),
               ),
             ),
             const VerticalGap(),
@@ -90,7 +93,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                 children: [
                   const CircleAvatar(
                     radius: 25,
-                    backgroundImage: AssetImage(AppAssets.profileImage),
+                    backgroundImage: AssetImage(AppAssets.sabriyeCircleProfile),
                   ),
                   const HorizontalGap(),
                   Expanded(

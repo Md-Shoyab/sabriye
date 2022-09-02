@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -143,13 +144,87 @@ class GivingBackView extends GetView<GivingBackController> {
                         ],
                       ),
                     ),
-                    const VerticalGap(gap: 20),
                     Center(
-                      child: Container(
-                        height: 230,
-                        decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10),
+                      child: CarouselSlider.builder(
+                        itemCount: 3,
+                        itemBuilder: (_, i, k) => Container(
+                          width: Get.width,
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10,
+                          ),
+                          margin: const EdgeInsets.fromLTRB(3, 20, 3, 8),
+                          decoration: BoxDecoration(
+                            color: AppColors.whiteTextColor,
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 2.0,
+                                color: AppColors.primaryColor,
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                height: 80,
+                                child: Image.asset(
+                                  AppAssets.kettoLogo,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              const VerticalGap(gap: 15),
+                              const Text(
+                                'Feeding hundreds of migrant worker families',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const VerticalGap(gap: 15),
+                              const Text(
+                                'Groceries packets for poor people in India who lost their jobs due to Covid-19 lockdown through Ketto.org. This project helped feed hundreds of migrant worker families and Hindu illegal immigrants from Pakistan.',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  height: 1.3,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        options: CarouselOptions(
+                          height: 350,
+                          aspectRatio: 2 / 1,
+                          viewportFraction: .99,
+                          initialPage: 0,
+                          enableInfiniteScroll: true,
+                          reverse: false,
+                          autoPlay: false,
+                          autoPlayInterval: const Duration(seconds: 2),
+                          autoPlayAnimationDuration:
+                              const Duration(milliseconds: 800),
+                          autoPlayCurve: Curves.fastOutSlowIn,
+                          enlargeCenterPage: false,
+                          scrollDirection: Axis.horizontal,
+                          onPageChanged: (index, _) {},
+                        ),
+                      ),
+                    ),
+                    const VerticalGap(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        3,
+                        (index) => Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 2),
+                          width: 10,
+                          height: 10,
+                          decoration: const BoxDecoration(
+                            color: AppColors.primaryColor,
+                            shape: BoxShape.circle,
+                          ),
                         ),
                       ),
                     ),

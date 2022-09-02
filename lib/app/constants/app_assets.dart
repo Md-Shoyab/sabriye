@@ -106,6 +106,12 @@ class AppAssets {
   static const String testimonialsBgImage = 'assets/images/testimonials_bg.png';
   static const String spendingMoney = 'assets/images/spending_money.png';
   static const String kettoLogo = 'assets/images/ketto_logo.png';
+  static const String relatedPost1 = 'assets/images/related_post_1.png';
+  static const String relatedPost2 = 'assets/images/related_post_2.png';
+  static const String relatedPost3 = 'assets/images/related_post_3.png';
+  static const String sabriyeCircleProfile =
+      'assets/images/sabriye_circle_profile.png';
+
   static const String givingBackSabriye =
       'assets/images/giving_back_sabriye.png';
   static const String givingBackBannerImage =

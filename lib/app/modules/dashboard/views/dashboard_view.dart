@@ -96,7 +96,7 @@ class DashboardView extends GetView<DashboardController> {
                   }),
                 ),
               ),
-              const VerticalGap(gap: 20),
+              const VerticalGap(gap: 30),
               const Padding(
                 padding: EdgeInsets.only(left: 30.0),
                 child: Text(

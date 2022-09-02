@@ -39,11 +39,14 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: Get.height * .225,
+              height: Get.height * .21,
               child: ListView.builder(
-                itemCount: 4,
+                itemCount: controller.relatedPostImages.length,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: ((context, index) => const RelatedPost()),
+                itemBuilder: ((context, index) => RelatedPost(
+                      controller: controller,
+                      index: index,
+                    )),
               ),
             ),
             const VerticalGap(),
@@ -87,7 +90,11 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const CircleAvatar(radius: 30),
+                      const CircleAvatar(
+                        radius: 30,
+                        backgroundImage:
+                            AssetImage(AppAssets.sabriyeCircleProfile),
+                      ),
                       const HorizontalGap(),
                       Expanded(
                         child: Column(
@@ -156,7 +163,7 @@ I firmly believe that every single experience that we have is ultimately happeni
                       fontWeight: FontWeight.w300,
                       height: 1.4,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

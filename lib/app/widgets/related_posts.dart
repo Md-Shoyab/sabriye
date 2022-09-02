@@ -1,10 +1,19 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:sabriye/app/modules/teachings_details/controllers/teachings_details_controller.dart';
+import 'gapper.dart';
 
 class RelatedPost extends StatelessWidget {
-  const RelatedPost({
+  TeachingsDetailsController teachingsDetailsController =
+      Get.put(TeachingsDetailsController());
+  final GetxController controller;
+  final int index;
+  RelatedPost({
     Key? key,
+    required this.controller,
+    required this.index,
   }) : super(key: key);
 
   @override
@@ -20,6 +29,11 @@ class RelatedPost extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.red,
             borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(
+                  teachingsDetailsController.relatedPostImages[index]),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         const VerticalGap(gap: 5),
