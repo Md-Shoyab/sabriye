@@ -47,7 +47,7 @@ class DashboardController extends GetxController {
   final List<String> routesList = [
     Routes.TOP_TESTIMONIALS,
     Routes.SESSIONS_TESTIMONIALS,
-    Routes.PROGRAMS_TESTIMONIALS,
+    Routes.AKASHA_HEALING_FULL_DETAILS,
     Routes.COMMENTS,
   ];
   RxInt selectedPageIndex = 0.obs;

@@ -36,8 +36,8 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                         child: Text(
                           controller.welcomePages[index].title,
                           style: const TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
                             color: AppColors.themeTextColor,
                           ),
                         ),
@@ -48,7 +48,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                         child: Text(
                           controller.welcomePages[index].subTitle,
                           style: const TextStyle(
-                            fontSize: 45,
+                            fontSize: 35,
                             fontWeight: FontWeight.w700,
                             color: AppColors.themeTextColor,
                           ),
@@ -76,7 +76,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         'SKIP',
                                         style: TextStyle(
                                           color: AppColors.themeTextColor,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),
@@ -89,7 +89,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                       child: const Text(
                                         'Finish',
                                         style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                           color: AppColors.whiteTextColor,
                                         ),
@@ -118,7 +118,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         'NEXT',
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 18,
+                                          fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
                                       ),

@@ -39,7 +39,7 @@ class SessionsListingView extends GetView<SessionsListingController> {
             buttonText: 'Learn More',
             imagePath: AppAssets.sessionImage1,
             sessionTitleText: 'Akasha Healing Journey',
-            routes: Routes.SESSION_DETAILS_AKASHAY,
+            routes: Routes.SESSION_DETAILS,
           ),
           SessionCards(
             buttonText: 'Buy Now',

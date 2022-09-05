@@ -4,6 +4,8 @@ import '../modules/about/bindings/about_binding.dart';
 import '../modules/about/views/about_view.dart';
 import '../modules/account_settings/bindings/account_settings_binding.dart';
 import '../modules/account_settings/views/account_settings_view.dart';
+import '../modules/akasha_healing_full_details/bindings/akasha_healing_full_details_binding.dart';
+import '../modules/akasha_healing_full_details/views/akasha_healing_full_details_view.dart';
 import '../modules/blog_details/bindings/blog_details_binding.dart';
 import '../modules/blog_details/views/blog_details_view.dart';
 import '../modules/blogs_listing/bindings/blogs_listing_binding.dart';
@@ -289,6 +291,11 @@ class AppPages {
       name: _Paths.RETREATS_TESTIMONIALS,
       page: () => const RetreatsTestimonialsView(),
       binding: RetreatsTestimonialsBinding(),
+    ),
+    GetPage(
+      name: _Paths.AKASHA_HEALING_FULL_DETAILS,
+      page: () => const AkashaHealingFullDetailsView(),
+      binding: AkashaHealingFullDetailsBinding(),
     ),
   ];
 }
