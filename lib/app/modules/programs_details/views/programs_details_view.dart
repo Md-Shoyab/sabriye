@@ -176,6 +176,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       const Text('Medical Doctor'),
                       const VerticalGap(),
                       RatingBar.builder(
+                        ignoreGestures: true,
                         initialRating: 5.0,
                         itemBuilder: (context, _) => const Icon(
                           Icons.star,
