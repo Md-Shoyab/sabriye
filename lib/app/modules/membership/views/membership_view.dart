@@ -86,6 +86,7 @@ class MembershipView extends GetView<MembershipController> {
               margin: const EdgeInsets.symmetric(horizontal: 15),
               child: Obx(
                 (() => ExpansionPanelList(
+                      elevation: 0,
                       expandedHeaderPadding: EdgeInsets.zero,
                       expansionCallback: ((panelIndex, isExpanded) {
                         controller.isExpandedUpdate();

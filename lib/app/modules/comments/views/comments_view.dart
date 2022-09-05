@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/comments_controller.dart';
@@ -85,21 +86,23 @@ class CommentsView extends GetView<CommentsController> {
                 children: [
                   const CircleAvatar(
                     radius: 30,
+                    backgroundImage:
+                        AssetImage(AppAssets.testimonialsProfileImage),
                   ),
                   const HorizontalGap(),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           'Reen@gmail.com',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        VerticalGap(gap: 5),
-                        Text(
+                        const VerticalGap(gap: 5),
+                        const Text(
                           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.',
                           style: TextStyle(
                             fontSize: 14,
@@ -107,6 +110,35 @@ class CommentsView extends GetView<CommentsController> {
                             height: 1.3,
                           ),
                           textAlign: TextAlign.justify,
+                        ),
+                        SizedBox(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Edit',
+                                  style: TextStyle(
+                                    color: AppColors.primaryColor,
+                                  ),
+                                ),
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Reply',
+                                  style: TextStyle(
+                                    color: AppColors.primaryColor,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
