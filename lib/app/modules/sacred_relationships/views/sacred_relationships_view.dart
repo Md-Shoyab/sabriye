@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_assets.dart';
@@ -15,7 +16,7 @@ class SacredRelationshipsView extends GetView<SacredRelationshipsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Sacred Relationships',
+          AppConstants.scaredRelationshipText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,

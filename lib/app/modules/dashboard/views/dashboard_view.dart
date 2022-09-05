@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -38,7 +39,7 @@ class DashboardView extends GetView<DashboardController> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
                       Text(
-                        'A \nnew paradigm\nperspective\nfor\nspiritual\nseekers',
+                        AppConstants.dashboardCardText,
                         style: TextStyle(
                           color: AppColors.whiteTextColor,
                           fontSize: 16,
@@ -48,7 +49,7 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                       VerticalGap(gap: 10),
                       Text(
-                        'Unlimited Access to the Inner\nLearning Circle',
+                        AppConstants.dashboardCardText2,
                         style: TextStyle(
                           color: AppColors.whiteTextColor,
                           fontSize: 14,
@@ -63,7 +64,7 @@ class DashboardView extends GetView<DashboardController> {
               const Padding(
                 padding: EdgeInsets.only(left: 30.0),
                 child: Text(
-                  'Stories',
+                  AppConstants.storiesText,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -100,7 +101,7 @@ class DashboardView extends GetView<DashboardController> {
               const Padding(
                 padding: EdgeInsets.only(left: 30.0),
                 child: Text(
-                  'Teachings',
+                  AppConstants.teachingText,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -157,7 +158,7 @@ class DashboardView extends GetView<DashboardController> {
               const Padding(
                 padding: EdgeInsets.only(left: 30.0),
                 child: Text(
-                  'In the Spiritual Spotlight',
+                  AppConstants.inSpritiualSpotlightSubTxt,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
@@ -195,7 +196,7 @@ class DashboardView extends GetView<DashboardController> {
               const Padding(
                 padding: EdgeInsets.only(left: 30.0),
                 child: Text(
-                  'Testimonials',
+                  AppConstants.testimonialsText,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,

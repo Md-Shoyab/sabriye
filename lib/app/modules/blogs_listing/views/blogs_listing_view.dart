@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -14,7 +15,7 @@ class BlogsListingView extends GetView<BlogsListingController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Blogs',
+          AppConstants.blogText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,

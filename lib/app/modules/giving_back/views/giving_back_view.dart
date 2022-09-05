@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/foundation_cards.dart';
 import '../../../widgets/spiritual_guiding_points.dart';
 import '../controllers/giving_back_controller.dart';
@@ -17,7 +18,7 @@ class GivingBackView extends GetView<GivingBackController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Giving Back',
+          AppConstants.givingBackText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -60,17 +61,17 @@ class GivingBackView extends GetView<GivingBackController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text(
-                      'Giving Back',
+                      AppConstants.givingBackText,
                       style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const VerticalGap(gap: 15),
-                    const Text('WE WANT TO BE A FORCE OF GOOD IN THE WORLD'),
+                    const Text(AppConstants.givingBackSubtitleText),
                     const VerticalGap(gap: 20),
                     const Text(
-                      'Giving back is an important part of our business model. We want to be a force of good in the world, not only through what we put out in content, products, services but also through spending actual \$\$\$ on projects and initiatives that touch our heart.',
+                      AppConstants.givingBackContentText,
                       style: TextStyle(
                         fontSize: 15,
                         height: 1.3,
@@ -78,7 +79,7 @@ class GivingBackView extends GetView<GivingBackController> {
                     ),
                     const VerticalGap(gap: 50),
                     const Text(
-                      'Initiatives that touch our heart.',
+                      AppConstants.intiativeTouchHeartsText,
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w600,
@@ -86,7 +87,7 @@ class GivingBackView extends GetView<GivingBackController> {
                     ),
                     const VerticalGap(gap: 15),
                     const Text(
-                      'CURRENT ONGOING INITIATIVES:',
+                      AppConstants.currentOnGoingIntiativeText,
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w500,
@@ -94,14 +95,12 @@ class GivingBackView extends GetView<GivingBackController> {
                     ),
                     const VerticalGap(gap: 20),
                     const FoundationCards(
-                      cardContent:
-                          'Educating people on sexual abuse, child sex trafficking, and child sex slavery through Elizabethsmartfoundation.org. Elizabeth is herself a survivor of abduction and sex enslavement as a child. The sexual exploitation of children is the biggest pandemic of our time. A truly enlightened society does not prey on their most vulnerable, but protects and nourishes them.',
+                      cardContent: AppConstants.smartFoundationContent,
                       imagePath: AppAssets.eSFLogo,
                     ),
                     const VerticalGap(gap: 20),
                     const FoundationCards(
-                      cardContent:
-                          'Planting trees, reforesting rain forests worldwide through Treesisters.org. Planting trees is one of the most important ways that we can reverse climate change, and leave this world a better place for our children and grandchildren.',
+                      cardContent: AppConstants.treeSisterContent,
                       imagePath: AppAssets.treeSisterLogo,
                     ),
                     const VerticalGap(gap: 20),
@@ -126,7 +125,7 @@ class GivingBackView extends GetView<GivingBackController> {
                         children: const [
                           VerticalGap(gap: 25),
                           Text(
-                            'Spending actual \$\$\$ on projects & initiatives',
+                            AppConstants.spendingActualMoneyText,
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.w600,
@@ -135,7 +134,7 @@ class GivingBackView extends GetView<GivingBackController> {
                           ),
                           VerticalGap(),
                           Text(
-                            'PREVIOUS PROJECTS:',
+                            AppConstants.previousProjectText,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
@@ -175,7 +174,7 @@ class GivingBackView extends GetView<GivingBackController> {
                               ),
                               const VerticalGap(gap: 15),
                               const Text(
-                                'Feeding hundreds of migrant worker families',
+                                AppConstants.kettoProjectTitle,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 16,
@@ -184,7 +183,7 @@ class GivingBackView extends GetView<GivingBackController> {
                               ),
                               const VerticalGap(gap: 15),
                               const Text(
-                                'Groceries packets for poor people in India who lost their jobs due to Covid-19 lockdown through Ketto.org. This project helped feed hundreds of migrant worker families and Hindu illegal immigrants from Pakistan.',
+                                AppConstants.kettoProjectContent,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontSize: 15,
@@ -230,7 +229,7 @@ class GivingBackView extends GetView<GivingBackController> {
                     ),
                     const VerticalGap(gap: 20),
                     const Text(
-                      'The 7 spiritual guiding principles of our company',
+                      AppConstants.sevenSpiritualGuidingPrincipleText,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
@@ -258,40 +257,32 @@ class GivingBackView extends GetView<GivingBackController> {
                       ),
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '1. We love to go deep',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints1,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '2. We say it like it is',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints2,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '3. We are here to change the world',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints3,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '4. We shift paradigms',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints4,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '5. We have got your back',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints5,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle: '6. We love you',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints6,
                     ),
                     const SpiritualGudingPoints(
-                      pointContent:
-                          'we don’t believe in superficial solutions or quick fixes. No spiritual bypassing. We love to go deep and really face what needs to be faced so that it can be released once and for all. All our products and services are built on this principle.',
-                      pointTitle:
-                          '7. We are committed to our own growth and healing',
+                      pointContent: AppConstants.spiritualPoints1Content,
+                      pointTitle: AppConstants.spiritualPoints7,
                     ),
                   ],
                 ),

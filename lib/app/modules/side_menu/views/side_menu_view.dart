@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../../../widgets/gapper.dart';
@@ -16,7 +17,7 @@ class SideMenuView extends GetView<SideMenuController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Side Menu',
+          AppConstants.sideMenuText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -34,7 +35,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT);
             },
             child: const AccountSettingsOption(
-              settingName: 'In the Spiritual Spotlight',
+              settingName: AppConstants.inSpritiualSpotlightSubTxt,
               settingIconImage: AppAssets.spiritualSpotLightIcon,
             ),
           ),
@@ -43,7 +44,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.BOOK_DETAILS);
             },
             child: const AccountSettingsOption(
-              settingName: 'Download Free e-Book Now',
+              settingName: AppConstants.downloadFreeEbookNowText,
               settingIconImage: AppAssets.downloadEbookIcon,
             ),
           ),
@@ -52,7 +53,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.SET_REMINDER);
             },
             child: const AccountSettingsOption(
-              settingName: 'Alarm',
+              settingName: AppConstants.alarmText,
               settingIconImage: AppAssets.alarmIcon,
             ),
           ),
@@ -61,7 +62,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.BLOGS_LISTING);
             },
             child: const AccountSettingsOption(
-              settingName: 'Blogs',
+              settingName: AppConstants.blogText,
               settingIconImage: AppAssets.blogIcon,
             ),
           ),
@@ -70,7 +71,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.GIVING_BACK);
             },
             child: const AccountSettingsOption(
-              settingName: 'Giving Back',
+              settingName: AppConstants.givingBackText,
               settingIconImage: AppAssets.givingBackIcon,
             ),
           ),
@@ -79,7 +80,7 @@ class SideMenuView extends GetView<SideMenuController> {
               Get.toNamed(Routes.ABOUT);
             },
             child: const AccountSettingsOption(
-              settingName: 'About',
+              settingName: AppConstants.aboutText,
               settingIconImage: AppAssets.aboutIcon,
             ),
           ),

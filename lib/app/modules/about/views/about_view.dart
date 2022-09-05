@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/about_controller.dart';
 
 class AboutView extends GetView<AboutController> {
@@ -14,7 +15,7 @@ class AboutView extends GetView<AboutController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'About',
+          AppConstants.aboutText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,

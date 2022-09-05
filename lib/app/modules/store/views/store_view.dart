@@ -4,6 +4,7 @@ import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/store_option_cards.dart';
 import '../controllers/store_controller.dart';
 
@@ -16,7 +17,7 @@ class StoreView extends GetView<StoreController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Store',
+          AppConstants.storeText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -40,22 +41,22 @@ class StoreView extends GetView<StoreController> {
               children: const [
                 StoreOptionCard(
                   iconImagePath: AppAssets.membershipIcon,
-                  storeOptionName: 'Membership',
+                  storeOptionName: AppConstants.membershipText,
                   navigationRoute: Routes.MEMBERSHIP,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.programsIcon,
-                  storeOptionName: 'Programs',
+                  storeOptionName: AppConstants.programsText,
                   navigationRoute: Routes.PROGRAMS_LISTING,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.sessionsIcon,
-                  storeOptionName: 'Sessions',
+                  storeOptionName: AppConstants.sessionsText,
                   navigationRoute: Routes.SESSIONS_LISTING,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.booksIcon,
-                  storeOptionName: 'Books',
+                  storeOptionName: AppConstants.booksText,
                   navigationRoute: Routes.BOOKS_LISTING,
                 ),
               ],

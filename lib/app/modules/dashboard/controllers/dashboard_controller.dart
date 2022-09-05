@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
@@ -27,9 +28,9 @@ class DashboardController extends GetxController {
   ];
 
   final List<String> dashboardTeachingsText = [
-    'Sacred Relationship',
-    'Interviews',
-    'Teaching',
+    AppConstants.scaredRelationshipText,
+    AppConstants.interviewText,
+    AppConstants.teachingText,
   ];
   final List<String> testimonalImage = [
     AppAssets.topImage,
@@ -38,10 +39,10 @@ class DashboardController extends GetxController {
     AppAssets.retreatsImage,
   ];
   final List<String> testimonalTypeText = [
-    'Top',
-    'Sessions',
-    'Programs',
-    'Retreats'
+    AppConstants.topText,
+    AppConstants.sessionsText,
+    AppConstants.programsText,
+    AppConstants.retreatsText,
   ];
 
   final List<String> routesList = [

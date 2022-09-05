@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/top_testimonials_cards.dart';
 import '../controllers/top_testimonials_controller.dart';
 
@@ -14,7 +15,7 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
         appBar: AppBar(
           backgroundColor: AppColors.bgColor,
           title: const Text(
-            'Top Testimonials',
+            AppConstants.topTestimonials,
             style: TextStyle(
               color: AppColors.themeTextColor,
               fontWeight: FontWeight.w600,

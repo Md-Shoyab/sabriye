@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/faq_card.dart';
 import '../controllers/faq_controller.dart';
 
@@ -14,7 +15,7 @@ class FaqView extends GetView<FaqController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          "FAQ's",
+          AppConstants.faqText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -42,7 +43,7 @@ class FaqView extends GetView<FaqController> {
             children: const [
               Center(
                 child: Text(
-                  'Frequently Asked Questions',
+                  AppConstants.frequentlyAskedQuestion,
                   textAlign: TextAlign.justify,
                   style: TextStyle(
                     fontSize: 25,
@@ -53,7 +54,7 @@ class FaqView extends GetView<FaqController> {
               VerticalGap(),
               Center(
                 child: Text(
-                  'Some things to consider or you might be curious to know more about!',
+                  AppConstants.frequentlyAskedQuestionSubtitleText,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -65,7 +66,7 @@ class FaqView extends GetView<FaqController> {
               VerticalGap(gap: 50),
               Center(
                 child: Text(
-                  'The Inner Learning Circle FAQ’s',
+                  AppConstants.innerUnionCircleFaqText,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
@@ -74,11 +75,7 @@ class FaqView extends GetView<FaqController> {
               ),
               VerticalGap(gap: 20),
               Text(
-                '''Are you in the Learning Circle or thinking of joining our online spiritual community? These are the most frequently asked questions around the Inner Learning Circle answered for you. If your question is not in the FAQ’s please contact us. Our Support
-      team will be happy to help you!
-      
-      
-      You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.''',
+                AppConstants.schoolOfinnerUnionFaqContentText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   height: 1.3,
@@ -88,34 +85,30 @@ class FaqView extends GetView<FaqController> {
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'The Inner Circle:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.fAQCardTitle1,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'The Teachings:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.fAQCardTitle2,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Managing My Account:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.fAQCardTitle3,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Troubleshooting:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.fAQCardTitle4,
               ),
               SizedBox(
                 height: 50,
               ),
               Center(
                 child: Text(
-                  'School of Inner Union (SIU) FAQ’s',
+                  AppConstants.schoolOfinnerUnionFaqText,
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -124,7 +117,7 @@ class FaqView extends GetView<FaqController> {
               ),
               VerticalGap(gap: 30),
               Text(
-                '''Are you an SIU student or are you considering enrolling into the School of Inner Union? Here are the most frequently asked questions and answers about SIU. If your question is not in the FAQ’s please contact us. Our Support team will be happy to help you!''',
+                AppConstants.schoolOfinnerUnionFaqContentText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   height: 1.3,
@@ -133,39 +126,33 @@ class FaqView extends GetView<FaqController> {
               ),
               VerticalGap(gap: 30),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Will the Inner Union\nProgram Work For Me If:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle1,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Healing',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle2,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Mastermind Group:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle3,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Payment plans:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle4,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Managing My Account:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle5,
               ),
               VerticalGap(gap: 20),
               FAQCards(
-                bodyContent:
-                    'You can contact us through the Facebook Messenger chat at the bottom right-hand corner of every page. Just click on the Messenger icon to open a chat with us. One of our Support team agents will respond as quickly as possible, due to time zone differences this may take up to a couple of hours outside of standard office hours.',
-                title: 'Troubleshooting:',
+                bodyContent: AppConstants.fAQCardContent1,
+                title: AppConstants.schoolFAQCardTitle6,
               ),
               SizedBox(
                 height: 80,

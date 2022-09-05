@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/books_cards.dart';
 import '../controllers/books_listing_controller.dart';
 
@@ -15,7 +16,7 @@ class BooksListingView extends GetView<BooksListingController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Books & Ebooks',
+          AppConstants.booksAndEbooksText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -37,14 +38,14 @@ class BooksListingView extends GetView<BooksListingController> {
         children: const [
           VerticalGap(gap: 20),
           BookCards(
-            bookTitleText: 'The Ultimate Guide to\nInner Union',
+            bookTitleText: AppConstants.booksCardTitle1,
             imagePath: AppAssets.booksImage1,
-            textButtonText: 'Download the E-Book',
+            textButtonText: AppConstants.booksCardButtonText,
           ),
           BookCards(
-            bookTitleText: 'Divine Union : Wisdom\nFrom Leaders...',
+            bookTitleText: AppConstants.booksCardTitle2,
             imagePath: AppAssets.booksImage2,
-            textButtonText: 'Buy on Amazon',
+            textButtonText: AppConstants.booksCardButtonText2,
           ),
         ],
       ),

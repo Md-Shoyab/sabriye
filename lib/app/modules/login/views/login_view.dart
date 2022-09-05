@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
@@ -49,7 +50,7 @@ class LoginView extends GetView<LoginController> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Login',
+                        AppConstants.loginTxt,
                         style: TextStyle(
                           color: AppColors.themeTextColor,
                           fontSize: 28,
@@ -60,7 +61,7 @@ class LoginView extends GetView<LoginController> {
                       TextFormField(
                         cursorColor: AppColors.themeTextColor,
                         decoration: InputDecoration(
-                          hintText: 'Enter Email',
+                          hintText: AppConstants.enterEmail,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -77,7 +78,7 @@ class LoginView extends GetView<LoginController> {
                       TextFormField(
                         cursorColor: AppColors.primaryColor,
                         decoration: InputDecoration(
-                          hintText: 'Enter Password',
+                          hintText: AppConstants.enterPassword,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -98,7 +99,7 @@ class LoginView extends GetView<LoginController> {
                           Get.toNamed(Routes.MAIN_SCREEN);
                         },
                         child: const Text(
-                          'Login',
+                          AppConstants.loginTxt,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -121,7 +122,7 @@ class LoginView extends GetView<LoginController> {
                           Get.toNamed(Routes.FORGOT_PASSWORD);
                         },
                         child: const Text(
-                          'Forgot Password?',
+                          AppConstants.forgotPassword,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -142,7 +143,7 @@ class LoginView extends GetView<LoginController> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text(
-                  "Don't have an account yet?\nJoin the Inner Learning Circle",
+                  AppConstants.dontHaveAccountTxt,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -152,7 +153,7 @@ class LoginView extends GetView<LoginController> {
                 TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Grab your free one-week trial',
+                    AppConstants.oneWeekTrial,
                     style: TextStyle(
                       color: AppColors.themeTextColor,
                       fontSize: 15,

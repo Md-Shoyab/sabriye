@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-import 'package:sabriye/app/widgets/one_month_plan_card.dart';
-import 'package:sabriye/app/widgets/other_membership_card.dart';
+import '../../../../model/membership_accordion.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/annual_membership_card.dart';
 import '../../../widgets/membership_bulletpoints.dart';
+import '../../../widgets/one_month_plan_card.dart';
+import '../../../widgets/other_membership_card.dart';
 import '../controllers/membership_controller.dart';
 
 class MembershipView extends GetView<MembershipController> {
@@ -83,46 +84,61 @@ class MembershipView extends GetView<MembershipController> {
             ),
             const VerticalGap(gap: 20),
             Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              child: Obx(
-                (() => ExpansionPanelList(
-                      elevation: 0,
-                      expandedHeaderPadding: EdgeInsets.zero,
-                      expansionCallback: ((panelIndex, isExpanded) {
-                        controller.isExpandedUpdate();
-                      }),
-                      children: [
-                        ExpansionPanel(
-                          headerBuilder: ((context, isExpanded) => Container(
-                                padding: const EdgeInsets.fromLTRB(15, 0, 5, 0),
-                                alignment: Alignment.centerLeft,
-                                child: const Text(
-                                  'Healing the subconscious',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ),
-                              )),
-                          body: Container(
-                            margin: const EdgeInsets.fromLTRB(15, 0, 15, 10),
-                            alignment: Alignment.topLeft,
-                            child: const Text(
-                              'The people, situations, and experiences in our lives today are connected to the unprocessed trauma, emotions, and unresolved pain carried within our subconscious mind that is bleeding through from previous timelines such as past lives, ancestral, and early current life. Healing the subconscious mind heals our physical reality experience.',
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w300,
-                                height: 1.3,
-                              ),
-                            ),
-                          ),
-                          isExpanded: controller.isExpanded.value,
-                        ),
-                      ],
-                    )),
+              decoration: BoxDecoration(
+                color: AppColors.whiteTextColor,
+                boxShadow: const [
+                  BoxShadow(
+                    blurRadius: 4,
+                    color: AppColors.primaryColor,
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(10),
               ),
+              margin: const EdgeInsets.symmetric(horizontal: 8),
+              child: Obx(() {
+                return ExpansionPanelList(
+                    dividerColor: Colors.white,
+                    expandedHeaderPadding: EdgeInsets.zero,
+                    elevation: 0,
+                    expansionCallback: (panelIndex, isExpanded) {
+                      controller.membershipAccordionItem[panelIndex].isExpanded!
+                          .value = !isExpanded;
+                    },
+                    children: controller.membershipAccordionItem
+                        .map<ExpansionPanel>((MemberShipAccordionItem item) {
+                      return ExpansionPanel(
+                          canTapOnHeader: true,
+                          headerBuilder: ((context, isExpanded) {
+                            return Container(
+                              margin: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+                              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              child: Text(
+                                item.header!,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColors.primaryColor,
+                                ),
+                              ),
+                            );
+                          }),
+                          body: Container(
+                            alignment: Alignment.topLeft,
+                            child: Container(
+                                margin:
+                                    const EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                child: Text(
+                                  item.body!,
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      height: 1.5,
+                                      fontSize: 14),
+                                  textAlign: TextAlign.left,
+                                )),
+                          ),
+                          isExpanded: item.isExpanded!.value);
+                    }).toList());
+              }),
             ),
             const VerticalGap(gap: 20),
             Container(

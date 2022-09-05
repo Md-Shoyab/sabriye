@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/inner_union_oracle_controller.dart';
 
 class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
@@ -14,7 +15,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Inner Union Circle',
+          AppConstants.innerUnionText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -55,7 +56,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
             const VerticalGap(gap: 30),
             const Center(
               child: Text(
-                'Pick A Card And Ask Your Soul For Advice',
+                AppConstants.pickACardText,
                 style: TextStyle(
                   color: AppColors.themeTextColor,
                   fontSize: 16,
@@ -90,7 +91,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
               child: const Text(
-                'The Inner Union Oracle',
+                AppConstants.theInnerUnionText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -119,7 +120,7 @@ Each card helps you heal a deeper layer of separation and helps you to connect d
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 5),
               child: const Text(
-                'About The Author',
+                AppConstants.aboutTheAuthorText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
@@ -48,7 +49,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Forgot Password',
+                        AppConstants.forgotPassword,
                         style: TextStyle(
                           color: AppColors.themeTextColor,
                           fontSize: 24,
@@ -57,7 +58,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       ),
                       const VerticalGap(),
                       const Text(
-                        "Please enter your email. \nWe will send you an email with a link to \nreset your password.",
+                        AppConstants.enterEmailToResetPassword,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: AppColors.themeTextColor,
@@ -68,7 +69,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       const VerticalGap(gap: 20),
                       TextFormField(
                         decoration: InputDecoration(
-                          hintText: 'Email',
+                          hintText: AppConstants.emailText,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -80,7 +81,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       TextButton(
                         onPressed: () {},
                         child: const Text(
-                          'Login',
+                          AppConstants.loginTxt,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -113,7 +114,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                   Get.back();
                 },
                 child: const Text(
-                  'Back to Login',
+                  AppConstants.backToLogin,
                   style: TextStyle(
                     color: AppColors.themeTextColor,
                     fontSize: 18,

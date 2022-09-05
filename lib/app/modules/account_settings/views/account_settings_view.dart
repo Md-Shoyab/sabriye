@@ -4,6 +4,7 @@ import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../controllers/account_settings_controller.dart';
 
@@ -16,7 +17,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Account Settings',
+          AppConstants.accountSettingsText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -34,7 +35,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.PROFILE);
             },
             child: const AccountSettingsOption(
-              settingName: 'Profile',
+              settingName: AppConstants.profileText,
               settingIconImage: AppAssets.profileIcon,
             ),
           ),
@@ -43,7 +44,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.CHANGE_PASSWORD);
             },
             child: const AccountSettingsOption(
-              settingName: 'Change Password',
+              settingName: AppConstants.changePasswordText,
               settingIconImage: AppAssets.changePasswordIcon,
             ),
           ),
@@ -52,7 +53,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.CHANGE_EMAIL);
             },
             child: const AccountSettingsOption(
-              settingName: 'Change Email',
+              settingName: AppConstants.changeEmailText,
               settingIconImage: AppAssets.changeEmailIcon,
             ),
           ),
@@ -61,7 +62,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.FAQ);
             },
             child: const AccountSettingsOption(
-              settingName: 'FAQ',
+              settingName: AppConstants.fAQText,
               settingIconImage: AppAssets.faqIcon,
             ),
           ),
@@ -70,7 +71,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
               Get.toNamed(Routes.SUPPORT);
             },
             child: const AccountSettingsOption(
-              settingName: 'Support',
+              settingName: AppConstants.supportText,
               settingIconImage: AppAssets.supportIcon,
             ),
           ),
