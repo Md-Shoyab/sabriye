@@ -256,7 +256,6 @@ After successful payment you will receive an email with a link to Sabriyé’s o
 The Hard-Shelled Woman is birthed out of the need to feel safe. She is strong, tough and hard. As the hard woman, you may even be perceived as empowered by the world. But you know better. You know that deep down there is an insecure little girl, longing for love and safety. This is because you know that this is just a protective shell. You have created layers of protection around yourself and around your heart. You don’t believe that you can be soft and feminine. Maybe you even see vulnerability and tenderness as a weakness. You keep people at bay and protect yourself. Yes, you may feel safe. But you also feel so lonely, tired and disconnected.
 
 The People-Pleasing Good-Girl appears when you want to get something – love, approval, belonging. She wants to be liked by everyone and so she doesn’t know how to say no. As the people-pleaser or the good-girl, you don’t want to disappoint or let people down. But what is the price? You have no energy left for yourself. And who takes care of you? You mother people, try to fix and help and you give, give, give. Even when there is nothing left to give. To you, self-care is selfish, AND you put others and the world ahead of yourself. You end up feeling exhausted, depleted and drained. And still you don’t have what you desire or deserve.''';
-
   static const String aboutLauraCamacho = 'About Laura Camacho';
   static const String aboutLauraCamachoPostContent =
       '''I am a Clinical Psychologist and Life Coach. More than that though, I facilitate an experience. The experience of you coming into contact with the deepest parts of yourself. I work with people on their patterns. Patterns of behavior, thinking and feeling. Whatever is going inside of you, will be reflected in your outside world, so if you want to make a change, go within. I hold your hand, guide you into your depths and unexplored darkness and open you deeper to yourself. 
@@ -326,7 +325,6 @@ She teaches that until we address this trauma from the past, the subconscious mi
 Because 95% of our reality is created by the subconscious mind, when we carry unresolved pain and trauma in our energy field, this is what we will see reflected back to us in our external reality. Our outer reality is always a reflection of what is going on inside of us, this remains true whether it is created from the wounded ego (fear) or the soul (love) – as within, so without.
 
 The reason why so many people have tried everything else to manifest the life of their dreams but failed is because their ego and soul were not on the same page.''';
-
   static const String commentsText = 'Comments';
   static const String sendCommentsText = 'Send Comments';
   static const String setReminder = 'Set Reminder';
