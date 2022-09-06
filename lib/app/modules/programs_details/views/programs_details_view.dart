@@ -5,6 +5,7 @@ import 'package:sabriye/app/widgets/check_points.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/programs_details_controller.dart';
 
 class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
@@ -16,7 +17,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Programs Details',
+          AppConstants.programDetailsText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -43,7 +44,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
             children: [
               const VerticalGap(gap: 20),
               const Text(
-                'Akasha Healing™\nCertification',
+                AppConstants.akashaHealingCertificationText,
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
@@ -52,7 +53,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(),
               const Text(
-                '''Akasha Healing™ is a life-changing healing method with which you can heal past lives, inner child wounds, ancestral wounding and understand how all three are in fact interconnected and do not stand on their own.''',
+                AppConstants.programDetailsContent1,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 16,
@@ -62,7 +63,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(gap: 15),
               const Text(
-                '''Akasha Healing™ is a life-changing healing method with which you can heal past lives, inner child wounds, ancestral wounding and understand how all three are in fact interconnected and do not stand on their own.''',
+                AppConstants.programDetailsContent1,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 14,
@@ -71,7 +72,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(),
               const Text(
-                'Become a Certified Akasha Healing™ Practitioner',
+                AppConstants.becomeAkashaHealingPractitionerText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
@@ -80,7 +81,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(),
               const Text(
-                'Fill in the form to download our information packet with program curriculum and pricing details:',
+                AppConstants.fillTheFormDetailsText,
                 style: TextStyle(
                   height: 1.5,
                   fontWeight: FontWeight.w500,
@@ -96,7 +97,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    hintText: 'First Name'),
+                    hintText: AppConstants.firstNameText),
               ),
               const VerticalGap(gap: 15),
               TextFormField(
@@ -108,7 +109,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'Last Name',
+                  hintText: AppConstants.lastNameText,
                 ),
               ),
               const VerticalGap(gap: 15),
@@ -121,14 +122,14 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    hintText: 'Email'),
+                    hintText: AppConstants.emailText),
               ),
               const VerticalGap(),
               Center(
                 child: TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Download',
+                    AppConstants.downloadText,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
@@ -167,13 +168,13 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       ),
                       const VerticalGap(gap: 8),
                       const Text(
-                        'REENA BAHARANI',
+                        AppConstants.reenaBaharaniNameText,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const Text('Medical Doctor'),
+                      const Text(AppConstants.medicalDoctorText),
                       const VerticalGap(),
                       RatingBar.builder(
                         ignoreGestures: true,
@@ -187,7 +188,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       ),
                       const VerticalGap(),
                       const Text(
-                        '''“I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.”''',
+                        AppConstants.reenaBaharaniTestimonyText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
@@ -205,7 +206,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(),
               const Text(
-                'Client Results',
+                AppConstants.clientResultText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -213,7 +214,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               ),
               const VerticalGap(gap: 18),
               const Text(
-                '''The Akasha Healing™ method works to help clients find the root cause on a soul path level to their current life struggles. When we heal the root cause, it heals all consecutive timelines in which these wounds were continued to be played out in an attempt to heal them once and for all. In the Akasha Healing™ sessions we address unresolved pain and trauma, such as:''',
+                AppConstants.clientResultContentText,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 14,
@@ -222,16 +223,19 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 ),
               ),
               const VerticalGap(),
-              const CheckBoxPoints(checkBoxPointText: 'Money struggles'),
               const CheckBoxPoints(
-                  checkBoxPointText: 'Self-worth & Self-esteem'),
+                  checkBoxPointText: AppConstants.moneyStrugglesText),
               const CheckBoxPoints(
-                  checkBoxPointText: 'Glass ceiling and income plateaus'),
-              const CheckBoxPoints(
-                  checkBoxPointText: 'Healing narcissistic relationships'),
+                  checkBoxPointText: AppConstants.selfWorthAndSelfEsteemText),
               const CheckBoxPoints(
                   checkBoxPointText:
-                      'Absent or emotionally unavailable father'),
+                      AppConstants.glassCeilingAndIcomePlateausText),
+              const CheckBoxPoints(
+                  checkBoxPointText:
+                      AppConstants.healingNarcissisticRelationships),
+              const CheckBoxPoints(
+                  checkBoxPointText:
+                      AppConstants.absentOrEmotionallyUnavailableFatherText),
             ],
           ),
         ),

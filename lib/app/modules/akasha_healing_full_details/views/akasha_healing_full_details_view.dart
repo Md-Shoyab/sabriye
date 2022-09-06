@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/widgets/check_points.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -166,13 +167,13 @@ I am here to help you unlock Heaven on Earth.''',
                       ),
                       const VerticalGap(gap: 8),
                       const Text(
-                        'REENA BAHARANI',
+                        AppConstants.reenaBaharaniNameText,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const Text('Medical Doctor'),
+                      const Text(AppConstants.medicalDoctorText),
                       const VerticalGap(),
                       RatingBar.builder(
                         ignoreGestures: true,
@@ -186,7 +187,7 @@ I am here to help you unlock Heaven on Earth.''',
                       ),
                       const VerticalGap(),
                       const Text(
-                        '''“I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.”''',
+                        AppConstants.reenaBaharaniTestimonyText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
@@ -283,13 +284,13 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
                       ),
                       const VerticalGap(gap: 8),
                       const Text(
-                        'REENA BAHARANI',
+                        AppConstants.reenaBaharaniNameText,
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const Text('Medical Doctor'),
+                      const Text(AppConstants.medicalDoctorText),
                       const VerticalGap(),
                       RatingBar.builder(
                         ignoreGestures: true,
@@ -303,7 +304,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
                       ),
                       const VerticalGap(),
                       const Text(
-                        '''“I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.”''',
+                        AppConstants.reenaBaharaniTestimonyText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
@@ -321,7 +322,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
               ),
               const VerticalGap(),
               const Text(
-                'Do you recognize this?',
+                AppConstants.doYouRecognizeThisText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,

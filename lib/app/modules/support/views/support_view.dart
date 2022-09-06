@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/support_controller.dart';
 
 class SupportView extends GetView<SupportController> {
@@ -14,7 +15,7 @@ class SupportView extends GetView<SupportController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Support',
+          AppConstants.supportText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -40,7 +41,7 @@ class SupportView extends GetView<SupportController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Do You Need Support?',
+              AppConstants.doYouNeedSupportText,
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w600,
@@ -48,7 +49,7 @@ class SupportView extends GetView<SupportController> {
             ),
             const VerticalGap(),
             const Text(
-              'Please read this section carefully before contacting our Support Team.',
+              AppConstants.supportScreenSubtitleText,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
@@ -70,7 +71,7 @@ class SupportView extends GetView<SupportController> {
                 ),
                 const HorizontalGap(gap: 15),
                 const Text(
-                  'helpdesk@sabriyeayana.com',
+                  AppConstants.supportMailIdText,
                   style: TextStyle(
                     color: AppColors.themeTextColor,
                     fontSize: 16,
@@ -81,7 +82,7 @@ class SupportView extends GetView<SupportController> {
             ),
             const VerticalGap(gap: 25),
             const Text(
-              'Please also respect our time and boundaries:',
+              AppConstants.pleaseAlsoRespectOurTime,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -90,7 +91,7 @@ class SupportView extends GetView<SupportController> {
             ),
             const VerticalGap(gap: 20),
             const Text(
-              'We DO NOT answer personal questions about your Soul Partnership connection over the chat. My team is not qualified to answer your personal questions as they are trained in tech support and sales.',
+              AppConstants.supportMainContentText,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w300,
@@ -99,7 +100,7 @@ class SupportView extends GetView<SupportController> {
             ),
             const VerticalGap(gap: 15),
             const Text(
-              'You can join the Inner Learning Circle or book an Akasha Healing™ journey if you want more support in your Inner Union and Ascension process.',
+              AppConstants.supportMainContentText2,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w300,
@@ -108,7 +109,7 @@ class SupportView extends GetView<SupportController> {
             ),
             const VerticalGap(gap: 15),
             const Text(
-              'With my deepest love,',
+              AppConstants.withMyDeepestLoveText,
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w300,

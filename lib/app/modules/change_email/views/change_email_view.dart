@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/change_email_controller.dart';
@@ -15,7 +16,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Change Email',
+          AppConstants.changeEmailText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -39,7 +40,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "To change your Email Address Please Enter your registered email ID for verification.",
+              AppConstants.changeEmailSubText,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -60,7 +61,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'Email'),
+                  hintText: AppConstants.emailText),
             ),
           ),
           TextButton(
@@ -68,7 +69,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               Get.toNamed(Routes.NEW_EMAIL);
             },
             child: const Text(
-              'Send',
+              AppConstants.sendText,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

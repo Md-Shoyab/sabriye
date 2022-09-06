@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/sessions_cards.dart';
 import '../controllers/sessions_listing_controller.dart';
 
@@ -36,15 +37,15 @@ class SessionsListingView extends GetView<SessionsListingController> {
       body: Column(
         children: const [
           SessionCards(
-            buttonText: 'Learn More',
+            buttonText: AppConstants.learnMoreText,
             imagePath: AppAssets.sessionImage1,
-            sessionTitleText: 'Akasha Healing Journey',
+            sessionTitleText: AppConstants.akashaHealingJourneyText,
             routes: Routes.SESSION_DETAILS,
           ),
           SessionCards(
-            buttonText: 'Buy Now',
+            buttonText: AppConstants.learnMoreText,
             imagePath: AppAssets.sessionImage2,
-            sessionTitleText: 'Bach Flower Power\nSession',
+            sessionTitleText: AppConstants.batchFlowerSessionText,
             routes: '',
           ),
         ],

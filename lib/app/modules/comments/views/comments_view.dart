@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/comments_controller.dart';
 
 class CommentsView extends GetView<CommentsController> {
@@ -14,7 +15,7 @@ class CommentsView extends GetView<CommentsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Comments',
+          AppConstants.commentsText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -43,7 +44,7 @@ class CommentsView extends GetView<CommentsController> {
               child: TextFormField(
                 maxLines: null,
                 decoration: InputDecoration(
-                  hintText: 'Enter Your Comment',
+                  hintText: AppConstants.enterYourCommentsText,
                   border: OutlineInputBorder(
                     borderSide: const BorderSide(
                       width: 1.0,
@@ -66,7 +67,7 @@ class CommentsView extends GetView<CommentsController> {
             margin: const EdgeInsets.fromLTRB(0, 0, 0, 18),
             child: IconButton(
               onPressed: () {
-                debugPrint('Send Comment');
+                debugPrint(AppConstants.sendCommentsText);
               },
               icon: const Icon(Icons.send),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/book_details_controller.dart';
 
@@ -14,7 +15,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'The Ultimate Guide to\nInner Union',
+          AppConstants.booksCardTitle1,
           textAlign: TextAlign.justify,
           style: TextStyle(
             color: AppColors.themeTextColor,
@@ -64,7 +65,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 ),
                 const VerticalGap(gap: 30),
                 const Text(
-                  'The Ultimate Guide to\nInner Union',
+                  AppConstants.booksCardTitle1,
                   style: TextStyle(
                     fontSize: 25,
                     height: 1.6,
@@ -74,7 +75,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 ),
                 const VerticalGap(),
                 const Text(
-                  'Have you tried everything else to manifest the life of your dreams, but failed?',
+                  AppConstants.booksDetailsContent,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -83,7 +84,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 ),
                 const VerticalGap(),
                 const Text(
-                  'This is because your ego and your soul were not on the same page.',
+                  AppConstants.booksDetailsContent2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -92,7 +93,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 ),
                 const VerticalGap(),
                 const Text(
-                  'In this in-depth guide to Inner Union, Sabriyé explains the process of healing the separation between the ego and the soul in order to create inner union of the higher and lower self. Heaven on Earth is a state of consciousness we unlock within ourselves when we heal the wounded ego. It’s when we get the ego and the soul on the same page, that we take our manifesting to the soul level.',
+                  AppConstants.booksDetailsContent3,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -101,7 +102,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 ),
                 const VerticalGap(gap: 20),
                 const Text(
-                  'Download this FREE e-book.',
+                  AppConstants.downloadThisFreeEbookNowText,
                   style: TextStyle(
                     color: AppColors.blackTextColor,
                     fontWeight: FontWeight.w500,
@@ -118,7 +119,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      hintText: 'Name'),
+                      hintText: AppConstants.nameText),
                 ),
                 const VerticalGap(gap: 20),
                 TextFormField(
@@ -130,13 +131,13 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      hintText: 'Email'),
+                      hintText: AppConstants.emailText),
                 ),
                 const VerticalGap(gap: 15),
                 TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Direct Download',
+                    AppConstants.directDownloadText,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,

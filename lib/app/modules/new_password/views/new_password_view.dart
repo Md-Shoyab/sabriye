@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/new_password_controller.dart';
 
@@ -15,7 +14,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'New Password',
+          AppConstants.newPasswordText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -39,7 +38,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "Please enter the new password",
+              AppConstants.plsEnterNewPassword,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -60,7 +59,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'New Password'),
+                  hintText: AppConstants.newPasswordText),
             ),
           ),
           Padding(
@@ -76,14 +75,14 @@ class NewPasswordView extends GetView<NewPasswordController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: ' Confirm Password'),
+                  hintText: AppConstants.confirmPasswordText),
             ),
           ),
           const VerticalGap(),
           TextButton(
             onPressed: () {},
             child: const Text(
-              'Save',
+              AppConstants.saveText,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/check_points.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
 import '../../../widgets/related_posts.dart';
 import '../controllers/teachings_details_controller.dart';
@@ -75,7 +76,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                   ),
                   const VerticalGap(gap: 15),
                   const Text(
-                    'How Everything is Happening for Your Highest Good, Even When What’s Happening Blows',
+                    AppConstants.teachingPostTitle1,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       height: 1.6,
@@ -101,7 +102,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: const [
                             Text(
-                              'by Sabriyé Ayana',
+                              AppConstants.bySabriyeAyanaText,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,
@@ -111,13 +112,13 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                             Text(
                               'Bestselling author, new paradigm business, life & soul mentor, founder of the Akasha Healing™ method and the School of Inner Union',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 15,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                   const Divider(
@@ -125,23 +126,19 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                   ),
                   const VerticalGap(),
                   const CheckBoxPoints(
-                    checkBoxPointText:
-                        'How our external experiences offer us an opportunity to heal unresolved pain from the past',
+                    checkBoxPointText: AppConstants.teachingDetailsPoint1,
                   ),
                   const CheckBoxPoints(
-                    checkBoxPointText:
-                        'How this is true in ALL cases even when we think it’s someone else’s fault',
+                    checkBoxPointText: AppConstants.teachingDetailsPoint2,
                   ),
                   const CheckBoxPoints(
-                    checkBoxPointText:
-                        'What the subconscious processes behind this dynamic look like',
+                    checkBoxPointText: AppConstants.teachingDetailsPoint3,
                   ),
                   const CheckBoxPoints(
-                    checkBoxPointText:
-                        'How someone can be WRONG but you can heal anyway, without them ever needing to change',
+                    checkBoxPointText: AppConstants.teachingDetailsPoint4,
                   ),
                   const CheckBoxPoints(
-                    checkBoxPointText: 'And more….',
+                    checkBoxPointText: AppConstants.teachingDetailsPoint5,
                   ),
                   const VerticalGap(gap: 15),
                   const Text(

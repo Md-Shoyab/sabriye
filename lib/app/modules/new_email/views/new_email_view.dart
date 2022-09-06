@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/new_email_controller.dart';
 
@@ -13,7 +14,7 @@ class NewEmailView extends GetView<NewEmailController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'New Email',
+          AppConstants.newEmailText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -37,7 +38,7 @@ class NewEmailView extends GetView<NewEmailController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "Please enter the new password",
+              "Please enter the new Email",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -58,7 +59,7 @@ class NewEmailView extends GetView<NewEmailController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'New Email'),
+                  hintText: AppConstants.newEmailText),
             ),
           ),
           Padding(
@@ -67,21 +68,22 @@ class NewEmailView extends GetView<NewEmailController> {
             ),
             child: TextFormField(
               decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 0,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  hintText: ' Confirm Email'),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                hintText: AppConstants.confirmEmailText,
+              ),
             ),
           ),
           const VerticalGap(),
           TextButton(
             onPressed: () {},
             child: const Text(
-              'Save',
+              AppConstants.saveText,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/session_details_akashay_controller.dart';
 
@@ -68,7 +69,7 @@ class SessionDetailsAkashayView
             TextButton(
               onPressed: () {},
               child: const Text(
-                'Buy Now',
+                AppConstants.buyNowText,
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,

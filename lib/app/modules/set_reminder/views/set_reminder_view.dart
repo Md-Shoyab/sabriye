@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/set_reminder_controller.dart';
 
 class SetReminderView extends GetView<SetReminderController> {
@@ -14,7 +15,7 @@ class SetReminderView extends GetView<SetReminderController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Set Reminder',
+          AppConstants.setReminder,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -65,14 +66,14 @@ class SetReminderView extends GetView<SetReminderController> {
             ),
             const VerticalGap(gap: 20),
             const Text(
-              'Reach Your Goals By Setting',
+              AppConstants.reachYourGoalsBySettingReminder,
               style: TextStyle(
                 fontSize: 18,
               ),
             ),
             const VerticalGap(),
             const Text(
-              'Daily Reminders',
+              AppConstants.dailyReminder,
               style: TextStyle(
                 fontSize: 30,
                 color: AppColors.primaryColor,

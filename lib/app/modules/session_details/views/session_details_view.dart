@@ -5,6 +5,7 @@ import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/session_details_controller.dart';
 
 class SessionDetailsView extends GetView<SessionDetailsController> {
@@ -60,7 +61,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                     child: Column(
                       children: const [
                         Text(
-                          'Akasha Healing™ Journey with Sabriyé Ayana',
+                          AppConstants.akashaHealingJourneyWithSabriye,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -68,7 +69,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                         ),
                         VerticalGap(),
                         Text(
-                          'Are you ready to be, do and have what your soul desires? It’s time to claim what is yours by Divine right!',
+                          AppConstants.akashaHealingJourneyWithSabriyeSubText,
                           style: TextStyle(
                             height: 1.2,
                             fontSize: 15,
@@ -85,7 +86,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: const Text(
-                'What is Akasha Healing™?',
+                AppConstants.whatIsAkashaHealingText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -95,9 +96,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
-                '''Akasha Healing™ is a revolutionary healing method that helps you release unprocessed trauma, karma and vibrational residue from this lifetime and previous lifetimes. Allowing you to reprogram deep subconscious beliefs, release fears and phobias that are limiting you and retrieve aspects of the soul that were disowned or ‘lost’ in other timelines.
-        
-The soul itself remains pure and unscathed throughout the incarnation process. All our wounding throughout all timelines only accumulates on an ego level, creating the wounded and fragmented ego. When one heals the wounded ego it reactivates the Divine (soul) Blueprint that has always remained immaculate within the soul realm. Creating as above, so below which allows us to fully embody our soul in the physical realm without the previous distortions that were created through the perception of the wounded ego – who sees itself separated, instead of at one with the soul.''',
+                AppConstants.whatIsAkashaHealingContentText,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 16,
@@ -125,13 +124,13 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
                     ),
                     const VerticalGap(gap: 8),
                     const Text(
-                      'REENA BAHARANI',
+                      AppConstants.reenaBaharaniNameText,
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const Text('Medical Doctor'),
+                    const Text(AppConstants.medicalDoctorText),
                     const VerticalGap(),
                     RatingBar.builder(
                       initialRating: 5.0,
@@ -144,7 +143,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
                     ),
                     const VerticalGap(),
                     const Text(
-                      '''“I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.”''',
+                      AppConstants.reenaBaharaniTestimonyText,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -164,7 +163,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
             Container(
               margin: const EdgeInsets.only(left: 15),
               child: const Text(
-                'Book your session',
+                AppConstants.bookYourSessionText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -175,9 +174,7 @@ The soul itself remains pure and unscathed throughout the incarnation process. A
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: const Text(
-                '''Select the one-off session or package of your choice by using the ‘buy now!’ button under it. This will bring you to our Thrivecart checkout, where you can pay through PayPal or Credit Card as well as Google Pay or Apple Pay.
-        
-After successful payment you will receive an email with a link to Sabriyé’s online calendar and instructions on how to prepare for your session(s). If you do not receive this email within one hour please contact our support team for further assistance.''',
+                AppConstants.bookYourSessionContentText,
                 textAlign: TextAlign.justify,
                 style: TextStyle(
                   fontSize: 15,
@@ -192,7 +189,7 @@ After successful payment you will receive an email with a link to Sabriyé’s o
                 vertical: 30,
               ),
               child: const Text(
-                'One-Off sessions:',
+                AppConstants.oneOffSessionsText,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -218,7 +215,7 @@ After successful payment you will receive an email with a link to Sabriyé’s o
                 vertical: 15,
               ),
               child: const Text(
-                'Akasha Healing™ Packages',
+                AppConstants.akashaHealingPackageText,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
@@ -233,7 +230,7 @@ After successful payment you will receive an email with a link to Sabriyé’s o
               child: TextButton(
                 onPressed: () {},
                 child: const Text(
-                  'Know More About\nAkasha Healing™',
+                  AppConstants.knowMoreAboutAkashaHealing,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
@@ -291,7 +288,7 @@ class SessionCards extends StatelessWidget {
           children: [
             const VerticalGap(),
             const Text(
-              'Three Timelines Healing €1111',
+              AppConstants.threeTimelinesHealingText,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -299,7 +296,7 @@ class SessionCards extends StatelessWidget {
             ),
             const VerticalGap(),
             const Text(
-              '''Akasha Healing™ works on the three timelines of the past: our childhood, ancestral baggage and past lives. Sometimes no matter how hard we try we can’t seem to create what we want.''',
+              AppConstants.akashaHealingWorksText,
               textAlign: TextAlign.justify,
               style: TextStyle(
                 height: 1.5,
@@ -313,7 +310,7 @@ class SessionCards extends StatelessWidget {
                 TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Buy Now',
+                    AppConstants.buyNowText,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
@@ -333,7 +330,7 @@ class SessionCards extends StatelessWidget {
                 ),
                 const HorizontalGap(gap: 30),
                 const Text(
-                  'Know More',
+                  AppConstants.knowMoreText,
                   style: TextStyle(
                     color: AppColors.themeTextColor,
                     decoration: TextDecoration.underline,

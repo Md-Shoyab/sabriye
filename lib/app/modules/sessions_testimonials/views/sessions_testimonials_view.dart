@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/sessions_testimonials_controller.dart';
 
 class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
@@ -14,7 +15,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Sessions Testimonials',
+          AppConstants.sessionTestimonials,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -51,7 +52,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
                           width: Get.width * .9,
                           margin: const EdgeInsets.all(10),
                           child: const Text(
-                            'What clients say about doing Akasha Healing™ Journeys with me',
+                            AppConstants.sessionTestimonialsHeading,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               height: 1.5,
@@ -86,7 +87,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
                         ),
                         VerticalGap(),
                         Text(
-                          'Lauren Maniere',
+                          AppConstants.sessionTestimonialUserName,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
@@ -95,7 +96,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
                         ),
                         VerticalGap(),
                         Text(
-                          '“My mind has been blown open! After working with Sabriyé, I not only worked through the mental blocks that were holding me back from achieving some of the outcomes I had in visioned in my life, but with her new method soul clarity, it helped illuminate the path that I am meant to pursue. I couldn’t be more excited for the next part of my journey! Thank you Sabriyé for helping me realize my soul power and bringing it back to life!”',
+                          AppConstants.sessionTestimonialContent,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontWeight: FontWeight.w300,

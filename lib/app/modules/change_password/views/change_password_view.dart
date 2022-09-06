@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/change_password_controller.dart';
 
@@ -14,7 +15,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Change Password',
+          AppConstants.changePassword,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -38,7 +39,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
-              "To change your password Please Enter your registered email ID for verification.",
+              AppConstants.changePasswordSubText,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
@@ -59,7 +60,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
-                  hintText: 'Email'),
+                  hintText: AppConstants.emailText),
             ),
           ),
           TextButton(
@@ -67,7 +68,7 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
               Get.toNamed(Routes.CHANGE_PASSWORD_VERFICATION);
             },
             child: const Text(
-              'Send',
+              AppConstants.sendText,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,

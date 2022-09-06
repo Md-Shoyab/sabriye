@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/app_constants.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
@@ -14,7 +15,7 @@ class ProfileView extends GetView<ProfileController> {
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Profile',
+          AppConstants.profileText,
           style: TextStyle(
             color: AppColors.themeTextColor,
             fontWeight: FontWeight.w600,
@@ -84,10 +85,10 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const VerticalGap(gap: 30),
-            const Text('First Name'),
+            const Text(AppConstants.firstNameText),
             const TextField(
               decoration: InputDecoration(
-                hintText: 'Sia',
+                hintText: AppConstants.siaText,
                 hintStyle: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -95,10 +96,10 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const VerticalGap(gap: 20),
-            const Text('Last Name'),
+            const Text(AppConstants.lastNameText),
             const TextField(
               decoration: InputDecoration(
-                hintText: 'Corner',
+                hintText: AppConstants.cornerText,
                 hintStyle: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -106,10 +107,10 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const VerticalGap(gap: 20),
-            const Text('Email'),
+            const Text(AppConstants.emailText),
             const TextField(
               decoration: InputDecoration(
-                hintText: 'Corner@example.com',
+                hintText: AppConstants.cornerEmail,
                 hintStyle: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
