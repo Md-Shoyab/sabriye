@@ -20,7 +20,7 @@ class ChangePasswordVerficationView
         title: const Text(
           'Verification',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

@@ -18,7 +18,7 @@ class SessionsListingView extends GetView<SessionsListingController> {
         title: const Text(
           'Sessions',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

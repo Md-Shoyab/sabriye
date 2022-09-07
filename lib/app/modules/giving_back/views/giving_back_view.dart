@@ -20,7 +20,7 @@ class GivingBackView extends GetView<GivingBackController> {
         title: const Text(
           AppConstants.givingBackText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

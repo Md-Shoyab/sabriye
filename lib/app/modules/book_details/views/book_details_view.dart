@@ -18,7 +18,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
           AppConstants.booksCardTitle1,
           textAlign: TextAlign.justify,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

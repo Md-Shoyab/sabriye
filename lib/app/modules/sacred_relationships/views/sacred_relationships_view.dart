@@ -18,7 +18,7 @@ class SacredRelationshipsView extends GetView<SacredRelationshipsController> {
         title: const Text(
           AppConstants.scaredRelationshipText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

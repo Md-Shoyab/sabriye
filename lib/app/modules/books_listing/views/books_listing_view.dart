@@ -18,7 +18,7 @@ class BooksListingView extends GetView<BooksListingController> {
         title: const Text(
           AppConstants.booksAndEbooksText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

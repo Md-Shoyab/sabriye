@@ -17,7 +17,7 @@ class FaqView extends GetView<FaqController> {
         title: const Text(
           AppConstants.faqText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

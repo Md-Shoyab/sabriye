@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -68,6 +69,7 @@ class DashboardView extends GetView<DashboardController> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
+                    fontFamily: FontName.gastromond,
                   ),
                 ),
               ),
@@ -175,19 +177,24 @@ class DashboardView extends GetView<DashboardController> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      width: 150,
-                      margin: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        image: DecorationImage(
-                          image: AssetImage(
-                            controller.spiritualSpotlightImage[index],
+                    return InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT_DETAILS);
+                      },
+                      child: Container(
+                        width: 150,
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: AssetImage(
+                              controller.spiritualSpotlightImage[index],
+                            ),
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
                         ),
+                        child: Image.asset(AppAssets.smallVideoPlayIcon),
                       ),
-                      child: Image.asset(AppAssets.smallVideoPlayIcon),
                     );
                   }),
                 ),

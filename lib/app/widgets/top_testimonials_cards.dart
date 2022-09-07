@@ -30,7 +30,7 @@ class TopTestimonialCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: const [
           BoxShadow(
-            color: AppColors.bgLight,
+            color: AppColors.bgColor,
             blurRadius: 4,
             spreadRadius: 4,
           ),

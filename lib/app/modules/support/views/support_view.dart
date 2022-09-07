@@ -17,7 +17,7 @@ class SupportView extends GetView<SupportController> {
         title: const Text(
           AppConstants.supportText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

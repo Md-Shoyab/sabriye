@@ -16,7 +16,7 @@ class NewEmailView extends GetView<NewEmailController> {
         title: const Text(
           AppConstants.newEmailText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

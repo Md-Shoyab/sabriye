@@ -19,7 +19,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
         title: const Text(
           AppConstants.programDetailsText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

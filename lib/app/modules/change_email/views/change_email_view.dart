@@ -18,7 +18,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
         title: const Text(
           AppConstants.changeEmailText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

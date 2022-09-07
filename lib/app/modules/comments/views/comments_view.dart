@@ -17,7 +17,7 @@ class CommentsView extends GetView<CommentsController> {
         title: const Text(
           AppConstants.commentsText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

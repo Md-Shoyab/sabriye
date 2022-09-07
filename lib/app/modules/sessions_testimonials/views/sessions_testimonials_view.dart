@@ -74,7 +74,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
                       boxShadow: const [
                         BoxShadow(
                           blurRadius: 4,
-                          color: AppColors.bgLight,
+                          color: AppColors.bgColor,
                         )
                       ],
                     ),

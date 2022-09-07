@@ -18,7 +18,7 @@ class OneMonthPlanCard extends StatelessWidget {
       ),
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: AppColors.bgLight,
+        color: AppColors.bgColor,
         // border: Border.all(
         //   color: AppColors.darkPrimaryColor,
         // ),

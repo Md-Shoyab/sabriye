@@ -19,7 +19,7 @@ class SideMenuView extends GetView<SideMenuController> {
         title: const Text(
           AppConstants.sideMenuText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

@@ -16,7 +16,7 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
         title: const Text(
           'Programs',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

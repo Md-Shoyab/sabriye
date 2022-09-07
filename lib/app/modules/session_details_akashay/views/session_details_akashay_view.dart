@@ -19,7 +19,7 @@ class SessionDetailsAkashayView
         title: const Text(
           'Sessions Testimonials Akashay',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

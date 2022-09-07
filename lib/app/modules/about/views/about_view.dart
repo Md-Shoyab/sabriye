@@ -17,7 +17,7 @@ class AboutView extends GetView<AboutController> {
         title: const Text(
           AppConstants.aboutText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

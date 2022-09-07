@@ -19,7 +19,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
         title: const Text(
           '',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

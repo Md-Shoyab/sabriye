@@ -19,7 +19,7 @@ class SpiritualSpotlightDetailsView
         title: const Text(
           AppConstants.spiritualSpotlightDetailsText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

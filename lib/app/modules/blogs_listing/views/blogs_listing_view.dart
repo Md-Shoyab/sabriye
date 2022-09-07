@@ -17,7 +17,7 @@ class BlogsListingView extends GetView<BlogsListingController> {
         title: const Text(
           AppConstants.blogText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

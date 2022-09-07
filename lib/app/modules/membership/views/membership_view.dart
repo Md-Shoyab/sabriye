@@ -21,7 +21,7 @@ class MembershipView extends GetView<MembershipController> {
         title: const Text(
           'Membership',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

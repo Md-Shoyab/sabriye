@@ -18,7 +18,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
         title: const Text(
           AppConstants.blogDetails,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

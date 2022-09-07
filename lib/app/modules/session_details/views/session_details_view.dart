@@ -19,7 +19,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
         title: const Text(
           'Sessions Details',
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -274,7 +274,7 @@ class SessionCards extends StatelessWidget {
           boxShadow: const [
             BoxShadow(
               blurRadius: 4,
-              color: AppColors.bgLight,
+              color: AppColors.bgColor,
             ),
           ],
           image: const DecorationImage(

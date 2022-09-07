@@ -17,7 +17,7 @@ class KarmicRelationshipsView extends GetView<KarmicRelationshipsController> {
         title: const Text(
           AppConstants.karmicRelationshipText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),

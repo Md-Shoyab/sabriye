@@ -17,7 +17,7 @@ class ProfileView extends GetView<ProfileController> {
         title: const Text(
           AppConstants.profileText,
           style: TextStyle(
-            color: AppColors.primaryColor,
+            color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
         ),
