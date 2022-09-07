@@ -18,7 +18,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
         title: const Text(
           AppConstants.blogDetails,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +28,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

@@ -19,7 +19,7 @@ class SessionDetailsAkashayView
         title: const Text(
           'Sessions Testimonials Akashay',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,7 +29,7 @@ class SessionDetailsAkashayView
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -84,7 +84,7 @@ class SessionDetailsAkashayView
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
-                backgroundColor: AppColors.buttonColor,
+                backgroundColor: AppColors.primaryColor,
               ),
             ),
           ],

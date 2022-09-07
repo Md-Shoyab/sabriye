@@ -18,7 +18,7 @@ class BooksListingView extends GetView<BooksListingController> {
         title: const Text(
           AppConstants.booksAndEbooksText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +28,7 @@ class BooksListingView extends GetView<BooksListingController> {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

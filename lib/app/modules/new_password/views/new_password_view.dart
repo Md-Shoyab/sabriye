@@ -16,7 +16,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
         title: const Text(
           AppConstants.newPasswordText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -26,7 +26,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -94,7 +94,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              backgroundColor: AppColors.buttonColor,
+              backgroundColor: AppColors.primaryColor,
             ),
           ),
         ],

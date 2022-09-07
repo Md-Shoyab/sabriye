@@ -38,7 +38,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w400,
-                            color: AppColors.themeTextColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ),
@@ -50,7 +50,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                           style: const TextStyle(
                             fontSize: 35,
                             fontWeight: FontWeight.w700,
-                            color: AppColors.themeTextColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ),
@@ -75,7 +75,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                       child: const Text(
                                         'SKIP',
                                         style: TextStyle(
-                                          color: AppColors.themeTextColor,
+                                          color: AppColors.primaryColor,
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -103,7 +103,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                           borderRadius:
                                               BorderRadius.circular(25),
                                         ),
-                                        backgroundColor: AppColors.buttonColor,
+                                        backgroundColor: AppColors.primaryColor,
                                       ),
                                     )
                                   : TextButton(
@@ -123,7 +123,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         ),
                                       ),
                                       style: TextButton.styleFrom(
-                                        backgroundColor: AppColors.buttonColor,
+                                        backgroundColor: AppColors.primaryColor,
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 50,
                                           vertical: 15,

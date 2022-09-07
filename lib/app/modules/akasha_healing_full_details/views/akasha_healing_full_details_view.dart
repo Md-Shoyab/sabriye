@@ -20,7 +20,7 @@ class AkashaHealingFullDetailsView
         title: const Text(
           '',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -30,7 +30,7 @@ class AkashaHealingFullDetailsView
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

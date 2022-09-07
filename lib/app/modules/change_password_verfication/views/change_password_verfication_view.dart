@@ -20,7 +20,7 @@ class ChangePasswordVerficationView
         title: const Text(
           'Verification',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -30,7 +30,7 @@ class ChangePasswordVerficationView
           },
           child: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -89,7 +89,7 @@ class ChangePasswordVerficationView
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              backgroundColor: AppColors.buttonColor,
+              backgroundColor: AppColors.primaryColor,
             ),
           ),
         ],

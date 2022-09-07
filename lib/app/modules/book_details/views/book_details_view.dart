@@ -18,7 +18,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
           AppConstants.booksCardTitle1,
           textAlign: TextAlign.justify,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +28,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -152,7 +152,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
                 const VerticalGap(gap: 100),

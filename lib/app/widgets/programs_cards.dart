@@ -42,7 +42,7 @@ class ProgramsCards extends StatelessWidget {
                 Text(
                   programTitle,
                   style: const TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                   ),
@@ -68,7 +68,7 @@ class ProgramsCards extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
               ],

@@ -17,7 +17,7 @@ class CommentsView extends GetView<CommentsController> {
         title: const Text(
           AppConstants.commentsText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -27,7 +27,7 @@ class CommentsView extends GetView<CommentsController> {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

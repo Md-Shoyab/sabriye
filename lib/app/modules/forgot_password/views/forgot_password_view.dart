@@ -51,7 +51,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       const Text(
                         AppConstants.forgotPassword,
                         style: TextStyle(
-                          color: AppColors.themeTextColor,
+                          color: AppColors.primaryColor,
                           fontSize: 24,
                           fontWeight: FontWeight.w700,
                         ),
@@ -61,7 +61,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         AppConstants.enterEmailToResetPassword,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: AppColors.themeTextColor,
+                          color: AppColors.primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w300,
                         ),
@@ -96,7 +96,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
-                          backgroundColor: AppColors.buttonColor,
+                          backgroundColor: AppColors.primaryColor,
                         ),
                       ),
                     ],
@@ -116,7 +116,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                 child: const Text(
                   AppConstants.backToLogin,
                   style: TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),

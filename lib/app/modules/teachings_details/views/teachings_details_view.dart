@@ -19,7 +19,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
         title: const Text(
           '',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,7 +29,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -40,7 +40,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: Get.height * .21,
+              height: Get.height * .22,
               child: ListView.builder(
                 itemCount: controller.relatedPostImages.length,
                 scrollDirection: Axis.horizontal,

@@ -16,7 +16,7 @@ class SpiritualSpotlightView extends GetView<SpiritualSpotlightController> {
         title: const Text(
           'In the Spiritual Spotlight',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +28,7 @@ class SpiritualSpotlightView extends GetView<SpiritualSpotlightController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
       ),

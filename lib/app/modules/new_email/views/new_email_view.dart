@@ -16,7 +16,7 @@ class NewEmailView extends GetView<NewEmailController> {
         title: const Text(
           AppConstants.newEmailText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -26,7 +26,7 @@ class NewEmailView extends GetView<NewEmailController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -95,7 +95,7 @@ class NewEmailView extends GetView<NewEmailController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              backgroundColor: AppColors.buttonColor,
+              backgroundColor: AppColors.primaryColor,
             ),
           ),
         ],

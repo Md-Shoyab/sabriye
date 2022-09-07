@@ -90,7 +90,7 @@ class MembershipPlanCard extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              backgroundColor: AppColors.buttonColor,
+              backgroundColor: AppColors.primaryColor,
             ),
           ),
         ],

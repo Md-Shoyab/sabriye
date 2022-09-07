@@ -52,14 +52,14 @@ class LoginView extends GetView<LoginController> {
                       const Text(
                         AppConstants.loginTxt,
                         style: TextStyle(
-                          color: AppColors.themeTextColor,
+                          color: AppColors.primaryColor,
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       const VerticalGap(gap: 20),
                       TextFormField(
-                        cursorColor: AppColors.themeTextColor,
+                        cursorColor: AppColors.primaryColor,
                         decoration: InputDecoration(
                           hintText: AppConstants.enterEmail,
                           border: OutlineInputBorder(
@@ -114,7 +114,7 @@ class LoginView extends GetView<LoginController> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),
-                          backgroundColor: AppColors.buttonColor,
+                          backgroundColor: AppColors.primaryColor,
                         ),
                       ),
                       TextButton(
@@ -126,7 +126,7 @@ class LoginView extends GetView<LoginController> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.themeTextColor,
+                            color: AppColors.primaryColor,
                           ),
                         ),
                       ),
@@ -155,7 +155,7 @@ class LoginView extends GetView<LoginController> {
                   child: const Text(
                     AppConstants.oneWeekTrial,
                     style: TextStyle(
-                      color: AppColors.themeTextColor,
+                      color: AppColors.primaryColor,
                       fontSize: 15,
                     ),
                   ),

@@ -18,7 +18,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
         title: const Text(
           AppConstants.changeEmailText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -28,7 +28,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -81,7 +81,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
-              backgroundColor: AppColors.buttonColor,
+              backgroundColor: AppColors.primaryColor,
             ),
           ),
         ],

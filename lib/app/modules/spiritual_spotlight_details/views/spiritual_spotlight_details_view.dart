@@ -19,7 +19,7 @@ class SpiritualSpotlightDetailsView
         title: const Text(
           AppConstants.spiritualSpotlightDetailsText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,7 +29,7 @@ class SpiritualSpotlightDetailsView
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

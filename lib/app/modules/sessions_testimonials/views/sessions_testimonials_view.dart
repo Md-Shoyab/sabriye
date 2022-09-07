@@ -17,7 +17,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
         title: const Text(
           AppConstants.sessionTestimonials,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -27,7 +27,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

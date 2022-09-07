@@ -28,8 +28,9 @@ flutter:
   assets:
     - assets/images/
   fonts:
-  - family: Gastromond
+  - family: SourceSansPro
     fonts:
-      - asset: assets/fonts/Gastromond_Regular.ttf
-      - asset: assets/fonts/Gastromond_Italic.ttf
-        
+      - asset: assets/fonts/SourceSansPro-Black.ttf
+      - asset: assets/fonts/SourceSansPro-Bold.ttf
+      - asset: assets/fonts/SourceSansPro-SemiBold.ttf
+      - asset: assets/fonts/SourceSansPro-Regular.ttf

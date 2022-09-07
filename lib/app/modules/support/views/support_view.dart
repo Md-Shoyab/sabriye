@@ -17,7 +17,7 @@ class SupportView extends GetView<SupportController> {
         title: const Text(
           AppConstants.supportText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -27,7 +27,7 @@ class SupportView extends GetView<SupportController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -73,7 +73,7 @@ class SupportView extends GetView<SupportController> {
                 const Text(
                   AppConstants.supportMailIdText,
                   style: TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),

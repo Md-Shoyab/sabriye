@@ -20,7 +20,7 @@ class GivingBackView extends GetView<GivingBackController> {
         title: const Text(
           AppConstants.givingBackText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -30,7 +30,7 @@ class GivingBackView extends GetView<GivingBackController> {
           },
           child: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

@@ -17,7 +17,7 @@ class SetReminderView extends GetView<SetReminderController> {
         title: const Text(
           AppConstants.setReminder,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -27,7 +27,7 @@ class SetReminderView extends GetView<SetReminderController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,

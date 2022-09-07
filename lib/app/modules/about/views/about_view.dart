@@ -17,7 +17,7 @@ class AboutView extends GetView<AboutController> {
         title: const Text(
           AppConstants.aboutText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -27,7 +27,7 @@ class AboutView extends GetView<AboutController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -59,7 +59,7 @@ class AboutView extends GetView<AboutController> {
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   height: 1.7,
-                  color: AppColors.themeTextColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ),
@@ -83,7 +83,7 @@ class AboutView extends GetView<AboutController> {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.themeTextColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ),
@@ -109,7 +109,7 @@ class AboutView extends GetView<AboutController> {
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.themeTextColor,
+                  color: AppColors.primaryColor,
                 ),
               ),
             ),

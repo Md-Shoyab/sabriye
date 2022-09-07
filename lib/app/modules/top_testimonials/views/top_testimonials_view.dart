@@ -17,7 +17,7 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
           title: const Text(
             AppConstants.topTestimonials,
             style: TextStyle(
-              color: AppColors.themeTextColor,
+              color: AppColors.primaryColor,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -27,7 +27,7 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
             },
             icon: const Icon(
               Icons.arrow_back,
-              color: AppColors.buttonColor,
+              color: AppColors.primaryColor,
             ),
           ),
           centerTitle: true,

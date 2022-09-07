@@ -44,7 +44,7 @@ class SessionCards extends StatelessWidget {
                 Text(
                   sessionTitleText,
                   style: const TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                   ),
@@ -70,7 +70,7 @@ class SessionCards extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
               ],

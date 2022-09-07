@@ -1,4 +1,4 @@
 class FontName {
-  // static final String monst_Bold = "Montserrat-Bold";
-
+  static const String gastromond = "Gastromond";
+  static const String sourceSansPro = "SourceSansPro";
 }

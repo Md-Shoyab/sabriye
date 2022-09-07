@@ -19,7 +19,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
         title: const Text(
           AppConstants.accountSettingsText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),

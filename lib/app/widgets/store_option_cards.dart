@@ -49,7 +49,7 @@ class StoreOptionCard extends StatelessWidget {
             Text(
               storeOptionName,
               style: const TextStyle(
-                color: AppColors.themeTextColor,
+                color: AppColors.primaryColor,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),

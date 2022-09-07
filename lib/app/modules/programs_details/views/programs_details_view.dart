@@ -19,7 +19,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
         title: const Text(
           AppConstants.programDetailsText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,7 +29,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -144,7 +144,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
               ),

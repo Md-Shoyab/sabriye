@@ -38,7 +38,7 @@ class BookCards extends StatelessWidget {
                 Text(
                   bookTitleText,
                   style: const TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
@@ -47,7 +47,7 @@ class BookCards extends StatelessWidget {
                 const Text(
                   'Know More',
                   style: TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     decoration: TextDecoration.underline,
                     fontWeight: FontWeight.w600,
                   ),
@@ -71,7 +71,7 @@ class BookCards extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
               ],

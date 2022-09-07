@@ -17,7 +17,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
         title: const Text(
           AppConstants.innerUnionText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -58,7 +58,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
               child: Text(
                 AppConstants.pickACardText,
                 style: TextStyle(
-                  color: AppColors.themeTextColor,
+                  color: AppColors.primaryColor,
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),

@@ -19,7 +19,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
         title: const Text(
           'Sessions Details',
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -29,7 +29,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: AppColors.buttonColor,
+            color: AppColors.primaryColor,
           ),
         ),
         centerTitle: true,
@@ -245,7 +245,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  backgroundColor: AppColors.buttonColor,
+                  backgroundColor: AppColors.primaryColor,
                 ),
               ),
             ),
@@ -325,14 +325,14 @@ class SessionCards extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    backgroundColor: AppColors.buttonColor,
+                    backgroundColor: AppColors.primaryColor,
                   ),
                 ),
                 const HorizontalGap(gap: 30),
                 const Text(
                   AppConstants.knowMoreText,
                   style: TextStyle(
-                    color: AppColors.themeTextColor,
+                    color: AppColors.primaryColor,
                     decoration: TextDecoration.underline,
                     fontWeight: FontWeight.w700,
                   ),

@@ -17,7 +17,7 @@ class LargeButton extends StatelessWidget {
     this.height = 50,
     this.fontSize = 17,
     this.buttonHorizontalPadding,
-    this.buttonColor = AppColors.buttonColor,
+    this.buttonColor = AppColors.primaryColor,
     this.buttonTextColor = AppColors.whiteTextColor,
   }) : super(key: key);
 

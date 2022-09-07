@@ -23,14 +23,14 @@ class InnerUnionPointers extends StatelessWidget {
             style: const TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w700,
-              color: AppColors.themeTextColor,
+              color: AppColors.primaryColor,
             ),
           ),
           const HorizontalGap(),
           Text(
             pointText,
             style: const TextStyle(
-              color: AppColors.themeTextColor,
+              color: AppColors.primaryColor,
             ),
           ),
         ],

@@ -19,7 +19,7 @@ class StoreView extends GetView<StoreController> {
         title: const Text(
           AppConstants.storeText,
           style: TextStyle(
-            color: AppColors.themeTextColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
