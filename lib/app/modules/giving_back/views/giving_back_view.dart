@@ -168,24 +168,24 @@ class GivingBackView extends GetView<GivingBackController> {
                               SizedBox(
                                 height: 80,
                                 child: Image.asset(
-                                  AppAssets.kettoLogo,
+                                  controller.carouselImagePath[i],
                                   fit: BoxFit.cover,
                                 ),
                               ),
                               const VerticalGap(gap: 15),
-                              const Text(
-                                AppConstants.kettoProjectTitle,
+                              Text(
+                                controller.carouselTitle[i],
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
                               const VerticalGap(gap: 15),
-                              const Text(
-                                AppConstants.kettoProjectContent,
+                               Text(
+                                controller.carouselContent[i],
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 15,
                                   height: 1.3,
                                 ),

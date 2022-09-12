@@ -40,6 +40,12 @@ class AppConstants {
   static const String retreatsText = 'Retreats';
   static const String innerUnionText = 'Inner Union Circle';
   static const String theInnerUnionText = 'The Inner Union Circle';
+  static const String theInnerUnionPointer1Text =
+      'From a neutral state of mind, ask the question you\nwant a soul led answer to.';
+  static const String theInnerUnionPointer2Text =
+      'Click on the card that speaks to you the most to\nreceive the message your Soul has for you.';
+  static const String theInnerUnionPointer3Text =
+      'Read the extended card meaning to fully integrate\nthe soul led message being shared with you.';
   static const String pickACardText =
       'Pick A Card And Ask Your Soul For Advice';
   static const String receiveAMessageFromSoul =
@@ -76,8 +82,17 @@ class AppConstants {
 
   static const String kettoProjectTitle =
       'Feeding hundreds of migrant worker families';
+
+  static const String milaapProjectTitle = 'Improving female health conditions';
+
   static const String kettoProjectContent =
       'Groceries packets for poor people in India who lost their jobs due to Covid-19 lockdown through Ketto.org. This project helped feed hundreds of migrant worker families and Hindu illegal immigrants from Pakistan.';
+
+  static const String milaapProjectContent =
+      'Building toilets for women and girls in India through Milaap.org. Building toilets in India for women and girls is a proven strategy to reduce sexual violence and improve female health conditions.';
+  static const String kivaProjectTitle = 'Empowering female entrepreneurship';
+  static const String kivaProjectContent =
+      'Micro-credits to female owned businesses in third world countries through Kiva.org. As empowering female entrepreneurship reduces poverty.';
   static const String previousProjectText = 'PREVIOUS PROJECTS:';
   static const String spendingActualMoneyText =
       'Spending actual \$\$\$ on projects & initiatives';

@@ -83,18 +83,15 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                 children: [
                   const InnerUnionPointers(
                     pointNumber: '01',
-                    pointText:
-                        'From a neutral state of mind, ask the question you\nwant a soul led answer to.',
+                    pointText: AppConstants.theInnerUnionPointer1Text,
                   ),
                   const InnerUnionPointers(
                     pointNumber: '02',
-                    pointText:
-                        'Click on the card that speaks to you the most to\nreceive the message your Soul has for you.',
+                    pointText: AppConstants.theInnerUnionPointer2Text,
                   ),
                   const InnerUnionPointers(
                     pointNumber: '03',
-                    pointText:
-                        'Read the extended card meaning to fully integrate\nthe soul led message being shared with you.',
+                    pointText: AppConstants.theInnerUnionPointer3Text,
                   ),
                   const VerticalGap(gap: 15),
                   Center(
