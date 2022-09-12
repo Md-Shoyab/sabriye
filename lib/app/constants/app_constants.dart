@@ -42,6 +42,8 @@ class AppConstants {
   static const String theInnerUnionText = 'The Inner Union Circle';
   static const String pickACardText =
       'Pick A Card And Ask Your Soul For Advice';
+  static const String receiveAMessageFromSoul =
+      'Receive a Message From Your Soul in Three Easy\nSteps';
   static const String aboutTheAuthorText = 'About The Author';
   static const String storeText = 'Store';
   static const String membershipText = 'Membership';

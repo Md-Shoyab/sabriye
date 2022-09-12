@@ -207,22 +207,31 @@ class GivingBackView extends GetView<GivingBackController> {
                           autoPlayCurve: Curves.fastOutSlowIn,
                           enlargeCenterPage: false,
                           scrollDirection: Axis.horizontal,
-                          onPageChanged: (index, _) {},
+                          onPageChanged: (index, _) {
+                            controller.changeIndexOnCasrosleSlide(index);
+                          },
                         ),
                       ),
                     ),
                     const VerticalGap(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        3,
-                        (index) => Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 2),
-                          width: 10,
-                          height: 10,
-                          decoration: const BoxDecoration(
-                            color: AppColors.primaryColor,
-                            shape: BoxShape.circle,
+                    Obx(
+                      () => Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(
+                          3,
+                          (index) => Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 2),
+                            width: 10,
+                            height: 10,
+                            decoration: BoxDecoration(
+                              border: controller.currentCardIndex.value == index
+                                  ? null
+                                  : Border.all(color: AppColors.primaryColor),
+                              color: controller.currentCardIndex.value == index
+                                  ? AppColors.primaryColor
+                                  : AppColors.whiteTextColor,
+                              shape: BoxShape.circle,
+                            ),
                           ),
                         ),
                       ),

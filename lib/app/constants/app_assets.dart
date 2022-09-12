@@ -16,6 +16,7 @@ class AppAssets {
   static const String storyImage2 = 'assets/images/story_image_2.png';
   static const String storyImage3 = 'assets/images/story_image_3.png';
   static const String topImage = 'assets/images/top_icon.png';
+  static const String orcaleCardsImage = 'assets/images/oracle_card_image.png';
   static const String circleBackground = 'assets/images/circle_background.png';
   static const String sessionsImage = 'assets/images/session_icon.png';
   static const String programsImage = 'assets/images/program_icon.png';

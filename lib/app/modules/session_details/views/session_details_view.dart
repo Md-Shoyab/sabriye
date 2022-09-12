@@ -228,7 +228,9 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
             const VerticalGap(gap: 20),
             Center(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(Routes.AKASHA_HEALING_FULL_DETAILS);
+                },
                 child: const Text(
                   AppConstants.knowMoreAboutAkashaHealing,
                   style: TextStyle(
