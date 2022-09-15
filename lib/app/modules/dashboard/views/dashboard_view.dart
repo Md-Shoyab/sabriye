@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
-import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -69,7 +68,6 @@ class DashboardView extends GetView<DashboardController> {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    fontFamily: FontName.gastromond,
                   ),
                 ),
               ),
