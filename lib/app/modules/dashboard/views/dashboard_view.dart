@@ -80,16 +80,21 @@ class DashboardView extends GetView<DashboardController> {
                   scrollDirection: Axis.horizontal,
                   itemCount: 3,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      height: 80,
-                      width: 80,
-                      margin: const EdgeInsets.only(left: 10),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.blue,
-                        image: DecorationImage(
-                          image: AssetImage(
-                            controller.storyImage[index],
+                    return InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.TEST);
+                      },
+                      child: Container(
+                        height: 80,
+                        width: 80,
+                        margin: const EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              controller.storyImage[index],
+                            ),
                           ),
                         ),
                       ),

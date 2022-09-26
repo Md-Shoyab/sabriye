@@ -78,6 +78,8 @@ import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
+import '../modules/test/bindings/test_binding.dart';
+import '../modules/test/views/test_view.dart';
 import '../modules/top_testimonials/bindings/top_testimonials_binding.dart';
 import '../modules/top_testimonials/views/top_testimonials_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
@@ -184,7 +186,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BLOGS_LISTING,
-      page: () => const BlogsListingView(),
+      page: () => BlogsListingView(),
       binding: BlogsListingBinding(),
     ),
     GetPage(
@@ -296,6 +298,11 @@ class AppPages {
       name: _Paths.AKASHA_HEALING_FULL_DETAILS,
       page: () => const AkashaHealingFullDetailsView(),
       binding: AkashaHealingFullDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEST,
+      page: () => const TestView(),
+      binding: TestBinding(),
     ),
   ];
 }

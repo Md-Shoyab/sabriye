@@ -48,6 +48,7 @@ abstract class Routes {
   static const PROGRAMS_TESTIMONIALS = _Paths.PROGRAMS_TESTIMONIALS;
   static const RETREATS_TESTIMONIALS = _Paths.RETREATS_TESTIMONIALS;
   static const AKASHA_HEALING_FULL_DETAILS = _Paths.AKASHA_HEALING_FULL_DETAILS;
+  static const TEST = _Paths.TEST;
 }
 
 abstract class _Paths {
@@ -96,4 +97,5 @@ abstract class _Paths {
   static const PROGRAMS_TESTIMONIALS = '/programs-testimonials';
   static const RETREATS_TESTIMONIALS = '/retreats-testimonials';
   static const AKASHA_HEALING_FULL_DETAILS = '/akasha-healing-full-details';
+  static const TEST = '/test';
 }

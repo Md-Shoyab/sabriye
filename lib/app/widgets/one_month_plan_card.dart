@@ -25,7 +25,7 @@ class OneMonthPlanCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Text(
             'Monthly\nMembership',
@@ -91,7 +91,7 @@ class OneMonthPlanCard extends StatelessWidget {
               Get.toNamed(Routes.NEW_EMAIL);
             },
             child: const Text(
-              'free',
+              '€10.10',
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,

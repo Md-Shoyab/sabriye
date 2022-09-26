@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import '../../../../services/wp_api.dart';
 
 class BlogsListingController extends GetxController {
+  final Post post = Post();
   final List blogListImage = <String>[
     AppAssets.blogImage1,
     AppAssets.blogImage2,
@@ -14,4 +16,9 @@ class BlogsListingController extends GetxController {
   ];
   @override
   void onClose() {}
+  @override
+  void onInit() {
+    post.getAllPost();
+    super.onInit();
+  }
 }
