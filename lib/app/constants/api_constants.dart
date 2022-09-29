@@ -13,4 +13,6 @@ const String API_GET_ALL_SPIRITUAL_SPOTLIGHT_VIDEO_INTERVIEW =
     '/posts/?categories=98';
 const String API_GET_ABOUT_INFO = '/pages/370141';
 const String API_GET_SPIRITUAL_SPOTLIGHT_VIDEO_INTERVIEW_DETAILS = '/posts/';
+const String API_GET_BLOGPOST_BY_SUB_TEACHING = '/posts/?categories=';
+
 const String API_ADD_TASKS = '/tasks';

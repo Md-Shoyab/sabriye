@@ -50,6 +50,7 @@ abstract class Routes {
   static const AKASHA_HEALING_FULL_DETAILS = _Paths.AKASHA_HEALING_FULL_DETAILS;
   static const TEST = _Paths.TEST;
   static const TEACHINGS1 = _Paths.TEACHINGS1;
+  static const TEACHINGS2 = _Paths.TEACHINGS2;
 }
 
 abstract class _Paths {
@@ -100,4 +101,5 @@ abstract class _Paths {
   static const AKASHA_HEALING_FULL_DETAILS = '/akasha-healing-full-details';
   static const TEST = '/test';
   static const TEACHINGS1 = '/teachings1';
+  static const TEACHINGS2 = '/teachings2';
 }

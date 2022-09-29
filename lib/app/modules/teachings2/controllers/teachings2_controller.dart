@@ -1,8 +1,14 @@
-import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_constants.dart';
-import '../../../constants/app_assets.dart';
+import 'dart:developer';
 
-class KarmicRelationshipsController extends GetxController {
+import 'package:get/get.dart';
+import 'package:sabriye/services/api_services.dart';
+import '../../../constants/app_assets.dart';
+import '../../../constants/app_constants.dart';
+
+class Teachings2Controller extends GetxController {
+  final ApiServices apiServices = ApiServices();
+  final String id = Get.arguments['id'].toString();
+
   final List<String> karmicRealtionshipPostTitle = [
     AppConstants.karmicRelationshipBlogTitleText1,
     AppConstants.karmicRelationshipBlogTitleText2,
@@ -13,4 +19,10 @@ class KarmicRelationshipsController extends GetxController {
     AppAssets.karmicImage2,
     AppAssets.karmicImage3,
   ];
+  @override
+  void onInit() {
+    log(id);
+    apiServices.getAllBlogsByTeachingsSubCategories(id);
+    super.onInit();
+  }
 }

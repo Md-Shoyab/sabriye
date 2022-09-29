@@ -32,8 +32,6 @@ import '../modules/giving_back/bindings/giving_back_binding.dart';
 import '../modules/giving_back/views/giving_back_view.dart';
 import '../modules/inner_union_oracle/bindings/inner_union_oracle_binding.dart';
 import '../modules/inner_union_oracle/views/inner_union_oracle_view.dart';
-import '../modules/karmic_relationships/bindings/karmic_relationships_binding.dart';
-import '../modules/karmic_relationships/views/karmic_relationships_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/main_screen/bindings/main_screen_binding.dart';
@@ -76,6 +74,8 @@ import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
 import '../modules/teachings1/bindings/teachings1_binding.dart';
 import '../modules/teachings1/views/teachings1_view.dart';
+import '../modules/teachings2/bindings/teachings2_binding.dart';
+import '../modules/teachings2/views/teachings2_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -133,11 +133,6 @@ class AppPages {
       name: _Paths.SIDE_MENU,
       page: () => const SideMenuView(),
       binding: SideMenuBinding(),
-    ),
-    GetPage(
-      name: _Paths.KARMIC_RELATIONSHIPS,
-      page: () => const KarmicRelationshipsView(),
-      binding: KarmicRelationshipsBinding(),
     ),
     GetPage(
       name: _Paths.TEACHINGS_DETAILS,
@@ -303,6 +298,11 @@ class AppPages {
       name: _Paths.TEACHINGS1,
       page: () => const Teachings1View(),
       binding: Teachings1Binding(),
+    ),
+    GetPage(
+      name: _Paths.TEACHINGS2,
+      page: () => const Teachings2View(),
+      binding: Teachings2Binding(),
     ),
   ];
 }
