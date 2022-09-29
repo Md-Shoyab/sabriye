@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
-import '../../../../services/wp_api.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/blog_post_card.dart';
 import '../controllers/blogs_listing_controller.dart';
 
 class BlogsListingView extends GetView<BlogsListingController> {
-  final Post post = Post();
-
-  BlogsListingView({Key? key}) : super(key: key);
+  const BlogsListingView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +34,7 @@ class BlogsListingView extends GetView<BlogsListingController> {
       ),
       body: SizedBox(
         child: FutureBuilder<List>(
-          future: post.getAllPost(),
+          future: controller.post.getAllPost(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               if (snapshot.data!.isEmpty) {

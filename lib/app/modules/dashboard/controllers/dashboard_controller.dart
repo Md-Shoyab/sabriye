@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
+import 'package:sabriye/services/api_services.dart';
 import '../../../constants/app_assets.dart';
 import '../../account_settings/views/account_settings_view.dart';
 import '../../side_menu/views/side_menu_view.dart';
@@ -9,6 +10,9 @@ import '../../store/views/store_view.dart';
 import '../views/dashboard_view.dart';
 
 class DashboardController extends GetxController {
+  final ApiServices apiServices = ApiServices();
+  RxInt selectedPageIndex = 0.obs;
+
   final List<String> storyImage = [
     AppAssets.storyImage1,
     AppAssets.storyImage2,
@@ -32,6 +36,7 @@ class DashboardController extends GetxController {
     AppConstants.interviewText,
     AppConstants.teachingText,
   ];
+
   final List<String> testimonalImage = [
     AppAssets.topImage,
     AppAssets.sessionsImage,
@@ -51,7 +56,6 @@ class DashboardController extends GetxController {
     Routes.AKASHA_HEALING_FULL_DETAILS,
     Routes.COMMENTS,
   ];
-  RxInt selectedPageIndex = 0.obs;
 
   final screens = [
     const DashboardView(),
@@ -60,6 +64,14 @@ class DashboardController extends GetxController {
     const AccountSettingsView(),
     const SideMenuView(),
   ];
+
+  @override
+  void onInit() {
+    apiServices.getAllTeachingsCategories();
+    apiServices.getAllSpritiualSpotlightVideoInterview();
+
+    super.onInit();
+  }
 
   void updateSelectedPageIndex(int index) {
     selectedPageIndex.value = index;

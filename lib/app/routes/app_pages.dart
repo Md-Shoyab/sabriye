@@ -54,8 +54,6 @@ import '../modules/programs_testimonials/bindings/programs_testimonials_binding.
 import '../modules/programs_testimonials/views/programs_testimonials_view.dart';
 import '../modules/retreats_testimonials/bindings/retreats_testimonials_binding.dart';
 import '../modules/retreats_testimonials/views/retreats_testimonials_view.dart';
-import '../modules/sacred_relationships/bindings/sacred_relationships_binding.dart';
-import '../modules/sacred_relationships/views/sacred_relationships_view.dart';
 import '../modules/session_details/bindings/session_details_binding.dart';
 import '../modules/session_details/views/session_details_view.dart';
 import '../modules/session_details_akashay/bindings/session_details_akashay_binding.dart';
@@ -76,6 +74,8 @@ import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
 import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
+import '../modules/teachings1/bindings/teachings1_binding.dart';
+import '../modules/teachings1/views/teachings1_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
 import '../modules/test/bindings/test_binding.dart';
@@ -135,11 +135,6 @@ class AppPages {
       binding: SideMenuBinding(),
     ),
     GetPage(
-      name: _Paths.SACRED_RELATIONSHIPS,
-      page: () => const SacredRelationshipsView(),
-      binding: SacredRelationshipsBinding(),
-    ),
-    GetPage(
       name: _Paths.KARMIC_RELATIONSHIPS,
       page: () => const KarmicRelationshipsView(),
       binding: KarmicRelationshipsBinding(),
@@ -186,7 +181,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.BLOGS_LISTING,
-      page: () => BlogsListingView(),
+      page: () => const BlogsListingView(),
       binding: BlogsListingBinding(),
     ),
     GetPage(
@@ -303,6 +298,11 @@ class AppPages {
       name: _Paths.TEST,
       page: () => const TestView(),
       binding: TestBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEACHINGS1,
+      page: () => const Teachings1View(),
+      binding: Teachings1Binding(),
     ),
   ];
 }

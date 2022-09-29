@@ -6,6 +6,7 @@ import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/dashboard_controller.dart';
+import 'dart:core';
 
 class DashboardView extends GetView<DashboardController> {
   const DashboardView({Key? key}) : super(key: key);
@@ -119,44 +120,64 @@ class DashboardView extends GetView<DashboardController> {
                 height: 100,
                 width: Get.width,
                 margin: const EdgeInsets.only(left: 30),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: ((context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.SACRED_RELATIONSHIPS);
-                      },
-                      child: Container(
-                        alignment: Alignment.bottomLeft,
-                        padding: const EdgeInsets.only(left: 10),
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.teachingsDashboardImage[index],
+                child: FutureBuilder<List>(
+                  future: controller.apiServices.getAllTeachingsCategories(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      if (snapshot.data!.isEmpty) {
+                        return const Center(
+                            child: Text('0 Categories avaialible'));
+                      }
+                      return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: snapshot.data?.length,
+                        itemBuilder: ((context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Get.toNamed(
+                                Routes.TEACHINGS1,
+                                arguments: {
+                                  'id': snapshot.data?[index]['id'],
+                                  'appTitle': snapshot.data?[index]['name'],
+                                },
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.bottomLeft,
+                              padding: const EdgeInsets.only(left: 10),
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                              ),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    snapshot.data?[index]['thumbnail'],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              height: 90,
+                              width: 150,
+                              child: Padding(
+                                padding: const EdgeInsets.only(bottom: 5.0),
+                                child: Text(
+                                  snapshot.data?[index]['name'],
+                                  style: const TextStyle(
+                                    color: AppColors.whiteTextColor,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
                             ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        height: 90,
-                        width: 150,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 5.0),
-                          child: Text(
-                            controller.dashboardTeachingsText[index],
-                            style: const TextStyle(
-                              color: AppColors.whiteTextColor,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
+                          );
+                        }),
+                      );
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
-                  }),
+                  },
                 ),
               ),
               const VerticalGap(gap: 30),
@@ -176,30 +197,44 @@ class DashboardView extends GetView<DashboardController> {
                 height: 100,
                 width: Get.width,
                 margin: const EdgeInsets.only(left: 30),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: ((context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT_DETAILS);
-                      },
-                      child: Container(
-                        width: 150,
-                        margin: const EdgeInsets.symmetric(horizontal: 8),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.spiritualSpotlightImage[index],
+                child: FutureBuilder<List>(
+                  future: controller.apiServices
+                      .getAllSpritiualSpotlightVideoInterview(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      if (snapshot.data!.isEmpty) {
+                        return const Center(
+                            child: Text('0 Categories avaialible'));
+                      }
+                      return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: snapshot.data?.length,
+                        itemBuilder: ((context, index) {
+                          return InkWell(
+                            onTap: () {},
+                            child: Container(
+                              width: 150,
+                              margin: const EdgeInsets.symmetric(horizontal: 8),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    snapshot.data?[index]
+                                        ['jetpack_featured_media_url'],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              child: Image.asset(AppAssets.smallVideoPlayIcon),
                             ),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        child: Image.asset(AppAssets.smallVideoPlayIcon),
-                      ),
+                          );
+                        }),
+                      );
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
                     );
-                  }),
+                  },
                 ),
               ),
               const VerticalGap(gap: 30),
