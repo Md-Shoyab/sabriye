@@ -25,7 +25,7 @@ class StoreOptionCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(5),
         decoration: BoxDecoration(
-          color: AppColors.whiteTextColor,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(

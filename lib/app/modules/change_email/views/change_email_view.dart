@@ -73,7 +73,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: AppColors.whiteTextColor,
+                color: AppColors.white,
               ),
             ),
             style: TextButton.styleFrom(

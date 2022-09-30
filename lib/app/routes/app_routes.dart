@@ -36,7 +36,6 @@ abstract class Routes {
   static const TOP_TESTIMONIALS = _Paths.TOP_TESTIMONIALS;
   static const SESSIONS_TESTIMONIALS = _Paths.SESSIONS_TESTIMONIALS;
   static const SESSION = _Paths.SESSION;
-  static const SESSION_TESTIMONIALS = _Paths.SESSION_TESTIMONIALS;
   static const SESSION_DETAILS = _Paths.SESSION_DETAILS;
   static const SESSION_DETAILS_AKASHAY = _Paths.SESSION_DETAILS_AKASHAY;
   static const PROGRAMS_DETAILS = _Paths.PROGRAMS_DETAILS;
@@ -87,7 +86,6 @@ abstract class _Paths {
   static const TOP_TESTIMONIALS = '/top-testimonials';
   static const SESSIONS_TESTIMONIALS = '/sessions-testimonials';
   static const SESSION = '/session';
-  static const SESSION_TESTIMONIALS = '/session-testimonials';
   static const SESSION_DETAILS = '/session-details';
   static const SESSION_DETAILS_AKASHAY = '/session-details-akashay';
   static const PROGRAMS_DETAILS = '/programs-details';

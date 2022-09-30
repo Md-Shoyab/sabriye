@@ -73,7 +73,7 @@ class SessionDetailsAkashayView
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.whiteTextColor,
+                  color: AppColors.white,
                 ),
               ),
               style: TextButton.styleFrom(

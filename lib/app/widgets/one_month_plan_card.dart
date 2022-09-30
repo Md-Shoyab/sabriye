@@ -95,7 +95,7 @@ class OneMonthPlanCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
-                color: AppColors.whiteTextColor,
+                color: AppColors.white,
               ),
             ),
             style: TextButton.styleFrom(

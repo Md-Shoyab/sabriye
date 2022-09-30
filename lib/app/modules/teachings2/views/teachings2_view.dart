@@ -78,7 +78,7 @@ class Teachings2View extends GetView<Teachings2Controller> {
                           child: Text(
                             snapshot.data![index]['title']['rendered'],
                             style: const TextStyle(
-                              color: AppColors.whiteTextColor,
+                              color: AppColors.white,
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                             ),

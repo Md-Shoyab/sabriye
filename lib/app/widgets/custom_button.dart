@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sabriye/app/constants/app_colors.dart';
+
+import '../constants/app_colors.dart';
 
 class LargeButton extends StatelessWidget {
   final String buttonText;
@@ -18,7 +19,7 @@ class LargeButton extends StatelessWidget {
     this.fontSize = 17,
     this.buttonHorizontalPadding,
     this.buttonColor = AppColors.primaryColor,
-    this.buttonTextColor = AppColors.whiteTextColor,
+    this.buttonTextColor = AppColors.white,
   }) : super(key: key);
 
   @override
@@ -34,7 +35,7 @@ class LargeButton extends StatelessWidget {
             child: Text(
               buttonText,
               style: TextStyle(
-                color: AppColors.whiteTextColor,
+                color: AppColors.white,
                 fontWeight: FontWeight.w600,
                 fontSize: fontSize,
               ),

@@ -54,6 +54,7 @@ class TopTestimonialCard extends StatelessWidget {
           Text(professionText),
           const VerticalGap(),
           RatingBar.builder(
+            ignoreGestures: true,
             initialRating: 5.0,
             itemBuilder: (context, _) => const Icon(
               Icons.star,

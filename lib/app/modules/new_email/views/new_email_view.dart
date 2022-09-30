@@ -85,10 +85,9 @@ class NewEmailView extends GetView<NewEmailController> {
             child: const Text(
               AppConstants.saveText,
               style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.whiteTextColor,
-              ),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.white),
             ),
             style: TextButton.styleFrom(
               minimumSize: const Size(160, 40),

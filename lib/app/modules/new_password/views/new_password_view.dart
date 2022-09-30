@@ -86,7 +86,7 @@ class NewPasswordView extends GetView<NewPasswordController> {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: AppColors.whiteTextColor,
+                color: AppColors.white,
               ),
             ),
             style: TextButton.styleFrom(

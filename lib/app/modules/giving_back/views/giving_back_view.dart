@@ -154,7 +154,7 @@ class GivingBackView extends GetView<GivingBackController> {
                           ),
                           margin: const EdgeInsets.fromLTRB(3, 20, 3, 8),
                           decoration: BoxDecoration(
-                            color: AppColors.whiteTextColor,
+                            color: AppColors.white,
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: const [
                               BoxShadow(
@@ -182,7 +182,7 @@ class GivingBackView extends GetView<GivingBackController> {
                                 ),
                               ),
                               const VerticalGap(gap: 15),
-                               Text(
+                              Text(
                                 controller.carouselContent[i],
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
@@ -229,7 +229,7 @@ class GivingBackView extends GetView<GivingBackController> {
                                   : Border.all(color: AppColors.primaryColor),
                               color: controller.currentCardIndex.value == index
                                   ? AppColors.primaryColor
-                                  : AppColors.whiteTextColor,
+                                  : AppColors.white,
                               shape: BoxShape.circle,
                             ),
                           ),

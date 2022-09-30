@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_colors.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
+import '../../../constants/app_colors.dart';
 import '../controllers/welcome_screens_controller.dart';
 
 class WelcomeScreensView extends GetView<WelcomeScreensController> {
@@ -91,7 +91,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
-                                          color: AppColors.whiteTextColor,
+                                          color: AppColors.white,
                                         ),
                                       ),
                                       style: TextButton.styleFrom(

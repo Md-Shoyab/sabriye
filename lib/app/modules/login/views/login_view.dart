@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
-import 'package:sabriye/app/constants/app_colors.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import '../../../constants/app_colors.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/login_controller.dart';
 
@@ -103,7 +103,7 @@ class LoginView extends GetView<LoginController> {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.whiteTextColor,
+                            color: AppColors.white,
                           ),
                         ),
                         style: TextButton.styleFrom(

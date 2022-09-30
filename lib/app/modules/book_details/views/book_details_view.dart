@@ -70,7 +70,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     fontSize: 25,
                     height: 1.6,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.whiteTextColor,
+                    color: AppColors.white,
                   ),
                 ),
                 const VerticalGap(),
@@ -104,7 +104,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 const Text(
                   AppConstants.downloadThisFreeEbookNowText,
                   style: TextStyle(
-                    color: AppColors.blackTextColor,
+                    color: AppColors.black,
                     fontWeight: FontWeight.w500,
                     fontSize: 16,
                   ),
@@ -141,7 +141,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.whiteTextColor,
+                      color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(

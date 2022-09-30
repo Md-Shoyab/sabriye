@@ -17,7 +17,7 @@ class FAQCards extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: AppColors.whiteTextColor,
+        color: AppColors.white,
         boxShadow: const [
           BoxShadow(
             color: AppColors.primaryColor,

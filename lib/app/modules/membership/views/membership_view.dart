@@ -85,7 +85,7 @@ class MembershipView extends GetView<MembershipController> {
             const VerticalGap(gap: 20),
             Container(
               decoration: BoxDecoration(
-                color: AppColors.whiteTextColor,
+                color: AppColors.white,
                 boxShadow: const [
                   BoxShadow(
                     blurRadius: 4,

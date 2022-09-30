@@ -236,7 +236,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
-                    color: AppColors.whiteTextColor,
+                    color: AppColors.white,
                   ),
                 ),
                 style: TextButton.styleFrom(
@@ -271,7 +271,7 @@ class SessionCards extends StatelessWidget {
         width: Get.width * .9,
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         decoration: BoxDecoration(
-          color: AppColors.whiteTextColor,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: const [
             BoxShadow(
@@ -316,7 +316,7 @@ class SessionCards extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.whiteTextColor,
+                      color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(

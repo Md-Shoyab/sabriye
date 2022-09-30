@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/services/api_services.dart';
 import '../../../constants/app_assets.dart';
 import '../../account_settings/views/account_settings_view.dart';
@@ -19,42 +17,26 @@ class DashboardController extends GetxController {
     AppAssets.storyImage3
   ];
 
-  final List<String> teachingsDashboardImage = [
-    AppAssets.scaredRelationship,
-    AppAssets.teachings,
-    AppAssets.interviewImage
+  final List<String> testimonalUserNameText = [
+    'REENA BAHARANI',
+    'MIROSLAVA D.',
+    'NATASHA LEIGH BRAY',
+    'Ann, USA',
+    '',
   ];
 
-  final List<String> spiritualSpotlightImage = [
-    AppAssets.videoInterviewImage,
-    AppAssets.videoInterviewImage2,
-    AppAssets.videoInterviewImage3,
+  final List<String> testimonalUserProfessionText = [
+    'Medical Doctor',
+    'Business Owner',
+    'Multi 7 figure Healer & founder HeartHealing®',
+    '',
   ];
 
-  final List<String> dashboardTeachingsText = [
-    AppConstants.scaredRelationshipText,
-    AppConstants.interviewText,
-    AppConstants.teachingText,
-  ];
-
-  final List<String> testimonalImage = [
-    AppAssets.topImage,
-    AppAssets.sessionsImage,
-    AppAssets.programsImage,
-    AppAssets.retreatsImage,
-  ];
-  final List<String> testimonalTypeText = [
-    AppConstants.topText,
-    AppConstants.sessionsText,
-    AppConstants.programsText,
-    AppConstants.retreatsText,
-  ];
-
-  final List<String> routesList = [
-    Routes.TOP_TESTIMONIALS,
-    Routes.SESSIONS_TESTIMONIALS,
-    Routes.AKASHA_HEALING_FULL_DETAILS,
-    Routes.COMMENTS,
+  final List<String> testimonalUserTestimonyText = [
+    'I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.',
+    '… we did a session to release blocks on money, … and I more than doubled my income.',
+    '… Sabriyé is an amazing healer. I loved my Akasha healing sessions with her. I saw improvements in my business and relationships thanks to the work we did.',
+    '',
   ];
 
   final screens = [

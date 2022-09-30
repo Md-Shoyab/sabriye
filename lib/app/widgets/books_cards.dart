@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_colors.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+
+import '../constants/app_colors.dart';
 
 class BookCards extends StatelessWidget {
   final String bookTitleText;
@@ -60,7 +61,7 @@ class BookCards extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.whiteTextColor,
+                      color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import '../../../constants/app_colors.dart';
+import 'package:sabriye/app/constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../controllers/about_controller.dart';
 

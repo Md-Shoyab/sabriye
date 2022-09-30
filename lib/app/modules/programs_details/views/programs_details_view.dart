@@ -133,7 +133,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.whiteTextColor,
+                      color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(

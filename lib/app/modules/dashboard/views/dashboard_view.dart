@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_colors.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
-import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/dashboard_controller.dart';
 import 'dart:core';
@@ -42,7 +43,7 @@ class DashboardView extends GetView<DashboardController> {
                       Text(
                         AppConstants.dashboardCardText,
                         style: TextStyle(
-                          color: AppColors.whiteTextColor,
+                          color: AppColors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w700,
                           height: 1.4,
@@ -52,7 +53,7 @@ class DashboardView extends GetView<DashboardController> {
                       Text(
                         AppConstants.dashboardCardText2,
                         style: TextStyle(
-                          color: AppColors.whiteTextColor,
+                          color: AppColors.white,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                         ),
@@ -164,7 +165,7 @@ class DashboardView extends GetView<DashboardController> {
                                 child: Text(
                                   snapshot.data?[index]['name'],
                                   style: const TextStyle(
-                                    color: AppColors.whiteTextColor,
+                                    color: AppColors.white,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -251,45 +252,86 @@ class DashboardView extends GetView<DashboardController> {
               const VerticalGap(),
               Container(
                 padding: const EdgeInsets.only(left: 25.0),
-                height: 100,
                 width: Get.width,
+                height: Get.height * .17,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: 4,
                   itemBuilder: ((context, index) {
-                    return Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Get.toNamed(
-                              controller.routesList[index],
-                            );
-                          },
-                          child: Container(
-                            height: 80,
-                            width: 80,
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(AppAssets.circleBackground),
-                                fit: BoxFit.cover,
-                              ),
-                              shape: BoxShape.circle,
+                    return Container(
+                      width: Get.width * .8,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: const [
+                          BoxShadow(
+                            blurRadius: 2.0,
+                            color: AppColors.primaryColor,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 8,
+                              vertical: 10,
                             ),
-                            child: Image.asset(
-                              controller.testimonalImage[index],
+                            child: const CircleAvatar(
+                              radius: 25,
                             ),
                           ),
-                        ),
-                        Text(
-                          controller.testimonalTypeText[index],
-                        ),
-                      ],
+                          Container(
+                            width: Get.width * .63,
+                            margin: const EdgeInsets.symmetric(vertical: 13),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'REENA BAHARANI',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                const VerticalGap(gap: 2),
+                                const Text('Medical Doctor'),
+                                const VerticalGap(gap: 3),
+                                RatingBar.builder(
+                                  ignoreGestures: true,
+                                  initialRating: 5.0,
+                                  itemBuilder: (context, _) => const Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  onRatingUpdate: (rating) {},
+                                  itemSize: 15,
+                                ),
+                                const VerticalGap(gap: 5),
+                                SizedBox(
+                                  width: Get.width * .6,
+                                  child: const Text(
+                                    'I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.',
+                                    maxLines: 3,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   }),
                 ),
               ),
-              const VerticalGap(gap: 60),
+              const VerticalGap(gap: 100),
             ],
           ),
         ),

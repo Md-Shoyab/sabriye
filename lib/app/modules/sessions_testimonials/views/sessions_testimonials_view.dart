@@ -69,7 +69,7 @@ class SessionsTestimonialsView extends GetView<SessionsTestimonialsController> {
                     margin: const EdgeInsets.symmetric(vertical: 8),
                     padding: const EdgeInsets.fromLTRB(12, 20, 12, 5),
                     decoration: BoxDecoration(
-                      color: AppColors.whiteTextColor,
+                      color: AppColors.white,
                       borderRadius: BorderRadius.circular(15),
                       boxShadow: const [
                         BoxShadow(
