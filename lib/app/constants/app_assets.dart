@@ -15,6 +15,19 @@ class AppAssets {
   static const String storyImage1 = 'assets/images/story_image_1.png';
   static const String storyImage2 = 'assets/images/story_image_2.png';
   static const String storyImage3 = 'assets/images/story_image_3.png';
+  static const String reenaBharaniProfile =
+      'assets/images/reena_baharani_profile.png';
+  static const String miroslawaDProfile = 'assets/images/miroslava_d.png';
+  static const String profileAvatar = 'assets/images/profile_avatar.png';
+  static const String annUsaProfile = 'assets/images/ann_usa_profile.webp';
+  static const String laurenManiereProfile =
+      'assets/images/lauren_profile.webp';
+
+  static const String dannielleJonesProfile =
+      'assets/images/danniellejones_profile.webp';
+
+  static const String natashaLeighBrayProfile =
+      'assets/images/natasha_leigh_bray.png';
   static const String topImage = 'assets/images/top_icon.png';
   static const String orcaleCardsImage = 'assets/images/oracle_card_image.png';
   static const String circleBackground = 'assets/images/circle_background.png';
@@ -29,8 +42,10 @@ class AppAssets {
       'assets/images/soul_partnership.png';
   static const String soulmatesImage = 'assets/images/soulmates.png';
   static const String karmicImage2 = 'assets/images/karmic_image2.png';
-  static const String kivaFoundationImage = 'assets/images/kiva_foundation_image.png';
-  static const String milaapFoundationImage = 'assets/images/milaap_foundation_image.png';
+  static const String kivaFoundationImage =
+      'assets/images/kiva_foundation_image.png';
+  static const String milaapFoundationImage =
+      'assets/images/milaap_foundation_image.png';
   static const String karmicImage3 = 'assets/images/karmic_image3.png';
   static const String profileImage = 'assets/images/profile.png';
   static const String spiritualSpotlightImage1 =

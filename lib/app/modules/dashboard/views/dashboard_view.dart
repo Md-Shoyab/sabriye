@@ -253,10 +253,10 @@ class DashboardView extends GetView<DashboardController> {
               Container(
                 padding: const EdgeInsets.only(left: 25.0),
                 width: Get.width,
-                height: Get.height * .17,
+                height: Get.height * .16,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 4,
+                  itemCount: controller.testimonalUserNameText.length,
                   itemBuilder: ((context, index) {
                     return Container(
                       width: Get.width * .8,
@@ -282,8 +282,11 @@ class DashboardView extends GetView<DashboardController> {
                               horizontal: 8,
                               vertical: 10,
                             ),
-                            child: const CircleAvatar(
+                            child: CircleAvatar(
                               radius: 25,
+                              foregroundImage: AssetImage(
+                                controller.testimonialsUserImage[index],
+                              ),
                             ),
                           ),
                           Container(
@@ -292,15 +295,13 @@ class DashboardView extends GetView<DashboardController> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  'REENA BAHARANI',
-                                  style: TextStyle(
+                                Text(
+                                  controller.testimonalUserNameText[index],
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                                const VerticalGap(gap: 2),
-                                const Text('Medical Doctor'),
                                 const VerticalGap(gap: 3),
                                 RatingBar.builder(
                                   ignoreGestures: true,
@@ -315,8 +316,9 @@ class DashboardView extends GetView<DashboardController> {
                                 const VerticalGap(gap: 5),
                                 SizedBox(
                                   width: Get.width * .6,
-                                  child: const Text(
-                                    'I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.',
+                                  child: Text(
+                                    controller
+                                        .testimonalUserTestimonyText[index],
                                     maxLines: 3,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.left,
