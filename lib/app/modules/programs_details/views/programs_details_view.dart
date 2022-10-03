@@ -149,7 +149,6 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 ),
               ),
               const VerticalGap(gap: 15),
-              const VerticalGap(),
               const Divider(
                 thickness: 1.0,
                 indent: 15,
@@ -223,19 +222,18 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 ),
               ),
               const VerticalGap(),
-              const CheckBoxPoints(
-                  checkBoxPointText: AppConstants.moneyStrugglesText),
-              const CheckBoxPoints(
-                  checkBoxPointText: AppConstants.selfWorthAndSelfEsteemText),
-              const CheckBoxPoints(
-                  checkBoxPointText:
-                      AppConstants.glassCeilingAndIcomePlateausText),
-              const CheckBoxPoints(
-                  checkBoxPointText:
-                      AppConstants.healingNarcissisticRelationships),
-              const CheckBoxPoints(
-                  checkBoxPointText:
-                      AppConstants.absentOrEmotionallyUnavailableFatherText),
+              SizedBox(
+                height: Get.height,
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: controller.clientResultPointsList.length,
+                  itemBuilder: ((context, index) => CheckBoxPoints(
+                        checkBoxPointText:
+                            controller.clientResultPointsList[index],
+                      )),
+                ),
+              ),
+              const VerticalGap(gap: 100),
             ],
           ),
         ),

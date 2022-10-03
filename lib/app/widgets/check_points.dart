@@ -14,7 +14,7 @@ class CheckBoxPoints extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 3),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
