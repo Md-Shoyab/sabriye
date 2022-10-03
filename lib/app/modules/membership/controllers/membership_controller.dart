@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 import 'package:sabriye/model/membership_accordion.dart';
+import 'package:sabriye/services/api_services.dart';
 
 class MembershipController extends GetxController {
   late List<MemberShipAccordionItem> membershipAccordionItem;
+  final ApiServices apiServices = ApiServices();
   // RxBool isExpanded = false.obs;
 
   // void isExpandedUpdate() {
@@ -19,6 +21,7 @@ class MembershipController extends GetxController {
   @override
   void onInit() {
     membershipAccordionItem = generateItems(4);
+    apiServices.getMembershipDetails();
     super.onInit();
   }
 
