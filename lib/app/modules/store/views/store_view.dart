@@ -52,7 +52,7 @@ class StoreView extends GetView<StoreController> {
                 StoreOptionCard(
                   iconImagePath: AppAssets.sessionsIcon,
                   storeOptionName: AppConstants.sessionsText,
-                  navigationRoute: Routes.SESSIONS_LISTING,
+                  navigationRoute: Routes.SESSION_DETAILS,
                 ),
                 StoreOptionCard(
                   iconImagePath: AppAssets.booksIcon,

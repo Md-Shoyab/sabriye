@@ -16,3 +16,4 @@ const String API_GET_SPIRITUAL_SPOTLIGHT_VIDEO_INTERVIEW_DETAILS = '/posts/';
 const String API_GET_BLOGPOST_BY_SUB_TEACHING = '/posts/?categories=';
 const String API_GET_BLOG_DETAILS_ID = '/posts/';
 const String API_GET_GIVING_BACK = '/pages/11013';
+const String API_GET_SESSIONS_DETAILS = '/pages/370037';

@@ -44,6 +44,7 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
             programTitle: 'Coming into Oneness',
             textButton: 'Buy Now',
           ),
+        
         ],
       ),
     );
