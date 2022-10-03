@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../../../../services/api_services.dart';
 
 class AboutController extends GetxController {

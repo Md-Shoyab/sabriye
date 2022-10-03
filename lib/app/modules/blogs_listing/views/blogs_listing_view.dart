@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/blog_post_card.dart';
 import '../controllers/blogs_listing_controller.dart';
@@ -51,6 +50,8 @@ class BlogsListingView extends GetView<BlogsListingController> {
                     imagePath: wpPost['jetpack_featured_media_url'] ??
                         'https://sabriyeayana.com/wp-content/uploads/2022/08/kundalini-awakening.jpg',
                     title: title,
+                    appTitle: snapshot.data?[index]['title']['rendered'],
+                    id: snapshot.data?[index]['id']
                   );
                 }),
               );

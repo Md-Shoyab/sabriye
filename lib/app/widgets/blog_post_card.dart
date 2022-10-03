@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/modules/blogs_listing/controllers/blogs_listing_controller.dart';
 import '../constants/app_assets.dart';
 import '../routes/app_pages.dart';
 
 class PostCards extends StatelessWidget {
-  final int index;
-  final String imagePath, title;
+  final BlogsListingController blogsListingController =
+      Get.put(BlogsListingController());
+  final int index, id;
+  final String imagePath, title, appTitle;
 
-  const PostCards(
+  PostCards(
       {Key? key,
       required this.index,
       required this.imagePath,
-      required this.title})
+      required this.title,
+      required this.id,
+      required this.appTitle})
       : super(key: key);
 
   @override
@@ -36,7 +41,10 @@ class PostCards extends StatelessWidget {
           : const SizedBox(),
       InkWell(
         onTap: () {
-          Get.toNamed(Routes.BLOG_DETAILS);
+          Get.toNamed(Routes.BLOG_DETAILS, arguments: {
+            'id': id,
+            'appTitle': appTitle,
+          });
         },
         child: Container(
           height: Get.height * .25,

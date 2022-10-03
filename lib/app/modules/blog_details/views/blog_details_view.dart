@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -31,8 +32,25 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: const SingleChildScrollView(
-
+      body: FutureBuilder<Map>(
+        future: controller.apiServices.getBlogDetailsById(controller.id),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data!.isEmpty) {
+              return const Center(
+                child: Text('No Data Available'),
+              );
+            }
+            return SingleChildScrollView(
+              child: Html(
+                data: snapshot.data!['content']['rendered'],
+              ),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }

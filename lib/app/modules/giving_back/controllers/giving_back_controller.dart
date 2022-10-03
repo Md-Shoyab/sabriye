@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
+import 'package:sabriye/services/api_services.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_constants.dart';
 
 class GivingBackController extends GetxController {
+  ApiServices apiServices = ApiServices();
   RxInt currentCardIndex = 0.obs;
   @override
   void onClose() {}
@@ -28,4 +30,9 @@ class GivingBackController extends GetxController {
     AppConstants.milaapProjectContent,
     AppConstants.milaapProjectContent,
   ];
+  @override
+  void onInit() {
+    apiServices.getGivingBackInfo();
+    super.onInit();
+  }
 }
