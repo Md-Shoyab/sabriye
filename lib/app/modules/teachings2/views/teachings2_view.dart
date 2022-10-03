@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/teachings2_controller.dart';
@@ -12,9 +13,9 @@ class Teachings2View extends GetView<Teachings2Controller> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
-        title: const Text(
-          'Teachings 2',
-          style: TextStyle(
+        title: Text(
+          controller.appTitle,
+          style: const TextStyle(
             color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
@@ -55,7 +56,13 @@ class Teachings2View extends GetView<Teachings2Controller> {
                           )
                         : const SizedBox(),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(Routes.TEACHINGS_DETAILS, arguments: {
+                          'id': snapshot.data?[index]['id'],
+                          'appTitle': snapshot.data?[index]['title']
+                              ['rendered'],
+                        });
+                      },
                       child: Container(
                         alignment: Alignment.bottomLeft,
                         height: Get.height * .23,

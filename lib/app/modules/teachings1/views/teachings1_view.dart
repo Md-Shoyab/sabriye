@@ -69,6 +69,7 @@ class Teachings1View extends GetView<Teachings1Controller> {
                       onTap: () {
                         Get.toNamed(Routes.TEACHINGS2, arguments: {
                           'id': snapshot.data?[index]['id'],
+                          'appTitle': snapshot.data?[index]['name'],
                         });
                       },
                       child: Container(
