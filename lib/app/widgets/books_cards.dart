@@ -8,11 +8,14 @@ class BookCards extends StatelessWidget {
   final String bookTitleText;
   final String imagePath;
   final String textButtonText;
+  final String routes;
   const BookCards({
     Key? key,
     required this.bookTitleText,
     required this.imagePath,
     required this.textButtonText,
+    required this.routes,
+    // required this.routes,
   }) : super(key: key);
 
   @override
@@ -55,7 +58,9 @@ class BookCards extends StatelessWidget {
                 ),
                 const VerticalGap(gap: 15),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(routes);
+                  },
                   child: Text(
                     textButtonText,
                     style: const TextStyle(

@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sabriye/app/constants/api_constants.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 
 class ApiServices {
   Future<List> getAllPost() async {
@@ -150,6 +154,23 @@ class ApiServices {
     }
   }
 
+  Future<Map> getFaq() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL + API_GET_ALL_FAQ,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
   Future<Map> getSessions() async {
     try {
       var response = await http.get(
@@ -176,6 +197,26 @@ class ApiServices {
       );
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future loginUser(String basicAuth) async {
+    try {
+      log(basicAuth);
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL + API_LOGIN,
+        ),
+        headers: <String, String>{'Authorization': basicAuth},
+      );
+      log(response.body);
+      if (response.statusCode == 200) {
+        return Get.toNamed(Routes.MAIN_SCREEN);
       } else {
         return Future.error('Server Error');
       }

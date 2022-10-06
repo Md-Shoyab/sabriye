@@ -7,7 +7,7 @@ class AppConstants {
   static const String pickACardReadingSubTxt = 'Pick-a-Card Readings';
   static const String loginTxt = 'Login';
   static const String backToLogin = 'Back to Login';
-  static const String enterEmail = 'Enter Email';
+  static const String enterUsername = 'Enter Username';
   static const String emailText = 'Email';
   static const String enterPassword = 'Enter Password';
   static const String forgotPassword = 'Forgot Password';

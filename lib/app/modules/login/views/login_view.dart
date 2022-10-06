@@ -46,91 +46,104 @@ class LoginView extends GetView<LoginController> {
                   padding: const EdgeInsets.symmetric(
                     horizontal: 15,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
-                        AppConstants.loginTxt,
-                        style: TextStyle(
-                          color: AppColors.primaryColor,
-                          fontSize: 28,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const VerticalGap(gap: 20),
-                      TextFormField(
-                        cursorColor: AppColors.primaryColor,
-                        decoration: InputDecoration(
-                          hintText: AppConstants.enterEmail,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(
-                              color: AppColors.primaryColor,
-                              width: 1.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const VerticalGap(),
-                      TextFormField(
-                        cursorColor: AppColors.primaryColor,
-                        decoration: InputDecoration(
-                          hintText: AppConstants.enterPassword,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(
-                              color: AppColors.primaryColor,
-                              width: 1.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const VerticalGap(
-                        gap: 20,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.MAIN_SCREEN);
-                        },
-                        child: const Text(
+                  child: Form(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    key: controller.loginFormKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
                           AppConstants.loginTxt,
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                          ),
-                        ),
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                            Get.width * .8,
-                            Get.height * .07,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          backgroundColor: AppColors.primaryColor,
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Get.toNamed(Routes.FORGOT_PASSWORD);
-                        },
-                        child: const Text(
-                          AppConstants.forgotPassword,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
                             color: AppColors.primaryColor,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w700,
                           ),
                         ),
-                      ),
-                    ],
+                        const VerticalGap(gap: 20),
+                        TextFormField(
+                          controller: controller.usernameController,
+                          validator: (value) {
+                            return controller.validateUsername(value!);
+                          },
+                          cursorColor: AppColors.primaryColor,
+                          decoration: InputDecoration(
+                            hintText: AppConstants.enterUsername,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                color: AppColors.primaryColor,
+                                width: 1.5,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const VerticalGap(),
+                        TextFormField(
+                          controller: controller.passwordController,
+                          validator: (value) {
+                            return controller.validatePassword(value!);
+                          },
+                          cursorColor: AppColors.primaryColor,
+                          decoration: InputDecoration(
+                            hintText: AppConstants.enterPassword,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                color: AppColors.primaryColor,
+                                width: 1.5,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const VerticalGap(
+                          gap: 20,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            controller.loginUser();
+                            //Get.toNamed(Routes.MAIN_SCREEN);
+                          },
+                          child: const Text(
+                            AppConstants.loginTxt,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.white,
+                            ),
+                          ),
+                          style: TextButton.styleFrom(
+                            minimumSize: Size(
+                              Get.width * .8,
+                              Get.height * .07,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            backgroundColor: AppColors.primaryColor,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Get.toNamed(Routes.FORGOT_PASSWORD);
+                          },
+                          child: const Text(
+                            AppConstants.forgotPassword,
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

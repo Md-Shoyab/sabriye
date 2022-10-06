@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -41,11 +42,13 @@ class BooksListingView extends GetView<BooksListingController> {
             bookTitleText: AppConstants.booksCardTitle1,
             imagePath: AppAssets.booksImage1,
             textButtonText: AppConstants.booksCardButtonText,
+            routes: Routes.BOOK_DETAILS,
           ),
           BookCards(
             bookTitleText: AppConstants.booksCardTitle2,
             imagePath: AppAssets.booksImage2,
             textButtonText: AppConstants.booksCardButtonText2,
+            routes: '',
           ),
         ],
       ),
