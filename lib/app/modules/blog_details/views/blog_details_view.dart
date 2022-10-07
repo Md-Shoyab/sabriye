@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
-import '../../../constants/app_constants.dart';
 import '../controllers/blog_details_controller.dart';
 
 class BlogDetailsView extends GetView<BlogDetailsController> {
@@ -13,9 +12,9 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
-        title: const Text(
-          AppConstants.blogDetails,
-          style: TextStyle(
+        title: Text(
+          controller.appTitle,
+          style: const TextStyle(
             color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),
@@ -44,6 +43,13 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
             return SingleChildScrollView(
               child: Html(
                 data: snapshot.data!['content']['rendered'],
+                style: {
+                  'h2': Style(
+                    maxLines: 2,
+                    textOverflow: TextOverflow.ellipsis,
+                    fontSize: FontSize.large,
+                  ),
+                },
               ),
             );
           }

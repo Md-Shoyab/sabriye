@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
@@ -109,6 +110,34 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                   ),
                   const SizedBox(
                     height: 80,
+                  ),
+                  SizedBox(
+                    height: Get.height * .25,
+                    child: FutureBuilder<List>(
+                      future: controller.apiServices.getAllCards(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          if (snapshot.data!.isEmpty) {
+                            return const Center(
+                              child: Text('0 Cards avaialible'),
+                            );
+                          }
+                          return ListView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: snapshot.data?.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Html(
+                                data: snapshot.data?[index]['title']
+                                    ['rendered'],
+                              );
+                            },
+                          );
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
                   ),
                 ],
               ),

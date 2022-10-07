@@ -4,6 +4,7 @@ import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/modules/account_settings/views/account_settings_view.dart';
 import 'package:sabriye/app/modules/dashboard/controllers/dashboard_controller.dart';
 import 'package:sabriye/app/modules/dashboard/views/dashboard_view.dart';
+import 'package:sabriye/app/modules/inner_union_oracle/controllers/inner_union_oracle_controller.dart';
 import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
 import 'package:sabriye/app/modules/side_menu/views/side_menu_view.dart';
 import 'package:sabriye/app/modules/store/views/store_view.dart';
@@ -34,6 +35,8 @@ class MainScreenController extends GetxController {
   @override
   void onInit() {
     Get.put(DashboardController());
+    Get.put(InnerUnionOracleController());
+
     super.onInit();
   }
 }
