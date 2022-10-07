@@ -20,4 +20,4 @@ const String API_GET_ALL_FAQ = '/pages/11016';
 const String API_GET_SESSIONS_DETAILS = '/pages/370037';
 const String API_GET_MEMBERSHIP_DETAILS = '/pages/12473/';
 const String API_GET_ALL_CARDS = '/card/';
-
+const String API_GET_BOOK_DETAILS = '/pages/11825';
