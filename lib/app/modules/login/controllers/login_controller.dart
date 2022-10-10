@@ -1,9 +1,9 @@
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/services/api_services.dart';
+
+import '../../../../services/api_services.dart';
 
 class LoginController extends GetxController {
   late TextEditingController usernameController, passwordController;
@@ -30,7 +30,8 @@ class LoginController extends GetxController {
 
   void loginUser() {
     if (loginFormKey.currentState!.validate()) {
-      String basicAuth = 'Basic ' + base64.encode(
+      String basicAuth = 'Basic ' +
+          base64.encode(
             utf8.encode(
               '${usernameController.text}:${passwordController.text}',
             ),

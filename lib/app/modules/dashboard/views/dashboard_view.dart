@@ -212,7 +212,12 @@ class DashboardView extends GetView<DashboardController> {
                         itemCount: snapshot.data?.length,
                         itemBuilder: ((context, index) {
                           return InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT_DETAILS,
+                                  arguments: {
+                                    'id': snapshot.data?[index]['id'],
+                                  });
+                            },
                             child: Container(
                               width: 150,
                               margin: const EdgeInsets.symmetric(horizontal: 8),

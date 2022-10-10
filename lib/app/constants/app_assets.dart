@@ -18,6 +18,8 @@ class AppAssets {
   static const String reenaBharaniProfile =
       'assets/images/reena_baharani_profile.png';
   static const String miroslawaDProfile = 'assets/images/miroslava_d.png';
+  static const String jasmijnDeGaafProfile =
+      'assets/images/jasmijn_de_graaf.png';
   static const String profileAvatar = 'assets/images/profile_avatar.png';
   static const String annUsaProfile = 'assets/images/ann_usa_profile.webp';
   static const String laurenManiereProfile =

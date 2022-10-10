@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../controllers/spiritual_spotlight_details_controller.dart';
@@ -33,26 +34,43 @@ class SpiritualSpotlightDetailsView
         centerTitle: true,
         elevation: 0,
       ),
-      body: FutureBuilder<Map>(
-        future: controller.apiServices
-            .getSpiritualSpotlightVideoInterViewDetails(controller.id),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Center(
-                child: Text('No Data Available'),
-              );
-            }
-            return SingleChildScrollView(
-              child: Html(
-                data: snapshot.data!['content']['rendered'],
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            FutureBuilder<Map>(
+              future: controller.apiServices
+                  .getSpiritualSpotlightVideoInterViewDetails(controller.id),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data!.isEmpty) {
+                    return const Center(
+                      child: Text('No Data Available'),
+                    );
+                  }
+                  return Html(
+                    data: snapshot.data!['content']['rendered'],
+                  );
+                }
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
+            TextButton(
+              onPressed: () {
+                Get.toNamed(Routes.COMMENTS);
+              },
+              child: const Text(
+                'View All Comments',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: AppColors.primaryColor,
+                ),
               ),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
+            ),
+          ],
+        ),
       ),
     );
   }

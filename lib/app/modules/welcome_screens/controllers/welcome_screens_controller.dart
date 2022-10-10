@@ -33,4 +33,6 @@ class WelcomeScreensController extends GetxController {
 
   @override
   void onClose() {}
+
+  
 }

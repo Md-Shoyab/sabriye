@@ -165,9 +165,13 @@ class AppConstants {
   static const String lastNameText = 'Last Name';
   static const String downloadText = 'Download';
   static const String reenaBaharaniNameText = 'REENA BAHARANI';
+  static const String jasmijnDeGraafNameText = 'Jasmijn de Graaf';
   static const String medicalDoctorText = 'Medical Doctor';
+  static const String newZealandText = 'New Zealand';
   static const String reenaBaharaniTestimonyText =
       '“I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.”';
+  static const String jasmijnDeGraafTestimonyText =
+      "This program is truly a gem…! Since starting the process of learning this healing method from Sabriyé, there have been so many synchronicities, so many aha-moments and my own healing journey has taken massive leaps.​";
   static const String clientResultText = 'Client Results';
   static const String clientResultContentText =
       'The Akasha Healing™ method works to help clients find the root cause on a soul path level to their current life struggles. When we heal the root cause, it heals all consecutive timelines in which these wounds were continued to be played out in an attempt to heal them once and for all. In the Akasha Healing™ sessions we address unresolved pain and trauma, such as:';

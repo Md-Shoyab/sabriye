@@ -49,6 +49,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
                   height: 1.5,
+                  color: AppColors.primaryColor,
                 ),
               ),
               const VerticalGap(),
@@ -77,6 +78,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   height: 1.5,
+                  color: AppColors.primaryColor,
                 ),
               ),
               const VerticalGap(),
@@ -167,14 +169,19 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       ),
                       const VerticalGap(gap: 8),
                       const Text(
-                        AppConstants.reenaBaharaniNameText,
+                        AppConstants.jasmijnDeGraafNameText,
                         style: TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
-                      const Text(AppConstants.medicalDoctorText),
-                      const VerticalGap(),
+                      const Text(
+                        AppConstants.newZealandText,
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      const VerticalGap(gap: 5),
                       RatingBar.builder(
                         ignoreGestures: true,
                         initialRating: 5.0,
@@ -187,7 +194,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       ),
                       const VerticalGap(),
                       const Text(
-                        AppConstants.reenaBaharaniTestimonyText,
+                        AppConstants.jasmijnDeGraafTestimonyText,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 15,
