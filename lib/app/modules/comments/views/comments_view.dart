@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../widgets/gapper.dart';
 import '../controllers/comments_controller.dart';
 
 class CommentsView extends GetView<CommentsController> {
@@ -74,79 +73,99 @@ class CommentsView extends GetView<CommentsController> {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: 5,
-        itemBuilder: ((context, index) => Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 2,
-              ),
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const CircleAvatar(
-                    radius: 30,
-                    backgroundImage:
-                        AssetImage(AppAssets.testimonialsProfileImage),
+      body: FutureBuilder<List>(
+        future: controller.apiServices.getAllCommentsById(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data!.isEmpty) {
+              return const Center(child: Text('0 Categories avaialible'));
+            }
+            return ListView.builder(
+              itemCount: snapshot.data!.length,
+              itemBuilder: ((context, index) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical: 2,
                   ),
-                  const HorizontalGap(),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Reen@gmail.com',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const VerticalGap(gap: 5),
-                        const Text(
-                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w300,
-                            height: 1.3,
-                          ),
-                          textAlign: TextAlign.justify,
-                        ),
-                        SizedBox(
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  'Edit',
-                                  style: TextStyle(
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ),
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                ),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        backgroundImage: NetworkImage(
+                            snapshot.data![index]['author_avatar_urls']['96']),
+                      ),
+                      const HorizontalGap(),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              snapshot.data![index]['author_name'],
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
                               ),
-                              TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  'Reply',
-                                  style: TextStyle(
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ),
+                            ),
+                            const VerticalGap(gap: 5),
+                            Text(
+                              snapshot.data![index]['content']['rendered']
+                                  .toString()
+                                  .replaceAll('<p>', '')
+                                  .replaceAll('</p>', ''),
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w300,
+                                height: 1.3,
                               ),
-                            ],
-                          ),
+                              textAlign: TextAlign.left,
+                            ),
+                            SizedBox(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: const Text(
+                                      'Edit',
+                                      style: TextStyle(
+                                        color: AppColors.primaryColor,
+                                      ),
+                                    ),
+                                    style: TextButton.styleFrom(
+                                      padding: EdgeInsets.zero,
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {},
+                                    child: const Text(
+                                      'Reply',
+                                      style: TextStyle(
+                                        color: AppColors.primaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            )),
+                );
+              }),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }
