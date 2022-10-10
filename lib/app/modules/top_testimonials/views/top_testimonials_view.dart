@@ -43,18 +43,15 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
               fit: BoxFit.fitWidth,
             ),
           ),
-          child: Expanded(
-            child: SizedBox(
-              height: Get.height,
-              child: ListView.builder(
-                itemCount: 3,
-                itemBuilder: ((context, index) => TopTestimonialCard(
-                      imagePath: controller.reviewProfileImage[index],
-                      reviewText: controller.reviewText[index],
-                      reviwerName: controller.reviewerName[index],
-                      professionText: controller.professionText[index],
-                    )),
-              ),
+          child: SizedBox(
+            height: Get.height,
+            child: ListView.builder(
+              itemCount: controller.testimonalUserNameText.length,
+              itemBuilder: ((context, index) => TopTestimonialCard(
+                    imagePath: controller.testimonialsUserImage[index],
+                    reviewText: controller.testimonalUserTestimonyText[index],
+                    reviwerName: controller.testimonalUserNameText[index],
+                  )),
             ),
           ),
         ));

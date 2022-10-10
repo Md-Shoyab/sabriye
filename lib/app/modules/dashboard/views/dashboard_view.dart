@@ -258,76 +258,81 @@ class DashboardView extends GetView<DashboardController> {
                   scrollDirection: Axis.horizontal,
                   itemCount: controller.testimonalUserNameText.length,
                   itemBuilder: ((context, index) {
-                    return Container(
-                      width: Get.width * .8,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 5,
-                        vertical: 5,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 2.0,
-                            color: AppColors.primaryColor,
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 10,
+                    return InkWell(
+                      onTap: () {
+                        Get.toNamed(Routes.TOP_TESTIMONIALS);
+                      },
+                      child: Container(
+                        width: Get.width * .8,
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 5,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 2.0,
+                              color: AppColors.primaryColor,
                             ),
-                            child: CircleAvatar(
-                              radius: 25,
-                              foregroundImage: AssetImage(
-                                controller.testimonialsUserImage[index],
+                          ],
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 10,
+                              ),
+                              child: CircleAvatar(
+                                radius: 25,
+                                foregroundImage: AssetImage(
+                                  controller.testimonialsUserImage[index],
+                                ),
                               ),
                             ),
-                          ),
-                          Container(
-                            width: Get.width * .63,
-                            margin: const EdgeInsets.symmetric(vertical: 13),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  controller.testimonalUserNameText[index],
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                            Container(
+                              width: Get.width * .63,
+                              margin: const EdgeInsets.symmetric(vertical: 13),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    controller.testimonalUserNameText[index],
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                                   ),
-                                ),
-                                const VerticalGap(gap: 3),
-                                RatingBar.builder(
-                                  ignoreGestures: true,
-                                  initialRating: 5.0,
-                                  itemBuilder: (context, _) => const Icon(
-                                    Icons.star,
-                                    color: Colors.amber,
+                                  const VerticalGap(gap: 3),
+                                  RatingBar.builder(
+                                    ignoreGestures: true,
+                                    initialRating: 5.0,
+                                    itemBuilder: (context, _) => const Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {},
+                                    itemSize: 15,
                                   ),
-                                  onRatingUpdate: (rating) {},
-                                  itemSize: 15,
-                                ),
-                                const VerticalGap(gap: 5),
-                                SizedBox(
-                                  width: Get.width * .6,
-                                  child: Text(
-                                    controller
-                                        .testimonalUserTestimonyText[index],
-                                    maxLines: 3,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.left,
+                                  const VerticalGap(gap: 5),
+                                  SizedBox(
+                                    width: Get.width * .6,
+                                    child: Text(
+                                      controller
+                                          .testimonalUserTestimonyText[index],
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.left,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   }),

@@ -8,14 +8,12 @@ class TopTestimonialCard extends StatelessWidget {
   final String reviwerName;
   final String reviewText;
   final String imagePath;
-  final String professionText;
 
   const TopTestimonialCard({
     Key? key,
     required this.reviwerName,
     required this.reviewText,
     required this.imagePath,
-    required this.professionText,
   }) : super(key: key);
 
   @override
@@ -23,7 +21,6 @@ class TopTestimonialCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
       padding: const EdgeInsets.all(8),
-      height: 270,
       width: Get.width * .9,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -51,7 +48,6 @@ class TopTestimonialCard extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          Text(professionText),
           const VerticalGap(),
           RatingBar.builder(
             ignoreGestures: true,

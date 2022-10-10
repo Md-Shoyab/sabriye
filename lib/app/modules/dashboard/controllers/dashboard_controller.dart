@@ -39,13 +39,6 @@ class DashboardController extends GetxController {
     'Danielle, United States',
   ];
 
-  // final List<String> testimonalUserProfessionText = [
-  //   'Medical Doctor',
-  //   'Business Owner',
-  //   'Multi 7 figure Healer & founder HeartHealing®',
-  //   '',
-  // ];
-
   final List<String> testimonalUserTestimonyText = [
     'I have worked with other healers and having one session with Sabriyé was the equivalent of 8-10 sessions with someone else.',
     '… we did a session to release blocks on money, … and I more than doubled my income.',
