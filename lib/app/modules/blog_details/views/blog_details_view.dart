@@ -63,7 +63,9 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                     ),
                   );
                 }
-                return const CircularProgressIndicator();
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
               },
             ),
             FutureBuilder<Map>(

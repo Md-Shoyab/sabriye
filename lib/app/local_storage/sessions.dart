@@ -9,7 +9,7 @@ Rx<String> USER_TOKEN = ''.obs;
 class SessionManager {
   static final _getStorage = GetStorage();
   static const String _userToken = 'User Token';
-  static const String _userData = 'User Data';
+  // static const String _userData = 'User Data';
 
   static Future<void> saveUserToken(String token) async {
     USER_TOKEN.value = token;
