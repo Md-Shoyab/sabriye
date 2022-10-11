@@ -50,6 +50,8 @@ abstract class Routes {
   static const TEST = _Paths.TEST;
   static const TEACHINGS1 = _Paths.TEACHINGS1;
   static const TEACHINGS2 = _Paths.TEACHINGS2;
+  static const SPLASH = _Paths.SPLASH;
+  static const STORY_PAGE = _Paths.STORY_PAGE;
 }
 
 abstract class _Paths {
@@ -100,4 +102,6 @@ abstract class _Paths {
   static const TEST = '/test';
   static const TEACHINGS1 = '/teachings1';
   static const TEACHINGS2 = '/teachings2';
+  static const SPLASH = '/splash';
+  static const STORY_PAGE = '/story-page';
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sabriye/app/constants/api_constants.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 
 class ApiServices {
@@ -232,7 +233,8 @@ class ApiServices {
       );
       log(response.body);
       if (response.statusCode == 200) {
-        return Get.toNamed(Routes.MAIN_SCREEN);
+        SessionManager.saveUserToken(basicAuth);
+        return Get.offAllNamed(Routes.MAIN_SCREEN);
       } else {
         return Future.error('Server Error');
       }

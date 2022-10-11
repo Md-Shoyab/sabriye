@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -86,36 +87,45 @@ class ProfileView extends GetView<ProfileController> {
             ),
             const VerticalGap(gap: 30),
             const Text(AppConstants.firstNameText),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: AppConstants.siaText,
-                hintStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
+            const VerticalGap(gap: 15),
+            const Text(
+              AppConstants.siaText,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: AppColors.black,
               ),
             ),
-            const VerticalGap(gap: 20),
+            const Divider(
+              color: AppColors.black,
+            ),
+            const VerticalGap(gap: 15),
             const Text(AppConstants.lastNameText),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: AppConstants.cornerText,
-                hintStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
+            const VerticalGap(gap: 15),
+            const Text(
+              AppConstants.cornerText,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: AppColors.black,
               ),
             ),
-            const VerticalGap(gap: 20),
-            const Text(AppConstants.emailText),
-            const TextField(
-              decoration: InputDecoration(
-                hintText: AppConstants.cornerEmail,
-                hintStyle: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                ),
+            const Divider(
+              color: AppColors.black,
+            ),
+            const VerticalGap(gap: 15),
+            Text(SessionManager.getUserToken()),
+            const VerticalGap(gap: 15),
+            const Text(
+              AppConstants.cornerEmail,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: AppColors.black,
               ),
+            ),
+            const Divider(
+              color: AppColors.black,
             ),
           ],
         ),

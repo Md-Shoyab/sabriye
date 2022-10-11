@@ -68,8 +68,12 @@ import '../modules/spiritual_spotlight/bindings/spiritual_spotlight_binding.dart
 import '../modules/spiritual_spotlight/views/spiritual_spotlight_view.dart';
 import '../modules/spiritual_spotlight_details/bindings/spiritual_spotlight_details_binding.dart';
 import '../modules/spiritual_spotlight_details/views/spiritual_spotlight_details_view.dart';
+import '../modules/splash/bindings/splash_binding.dart';
+import '../modules/splash/views/splash_view.dart';
 import '../modules/store/bindings/store_binding.dart';
 import '../modules/store/views/store_view.dart';
+import '../modules/story_page/bindings/story_page_binding.dart';
+import '../modules/story_page/views/story_page_view.dart';
 import '../modules/support/bindings/support_binding.dart';
 import '../modules/support/views/support_view.dart';
 import '../modules/teachings1/bindings/teachings1_binding.dart';
@@ -78,8 +82,6 @@ import '../modules/teachings2/bindings/teachings2_binding.dart';
 import '../modules/teachings2/views/teachings2_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
-import '../modules/test/bindings/test_binding.dart';
-import '../modules/test/views/test_view.dart';
 import '../modules/top_testimonials/bindings/top_testimonials_binding.dart';
 import '../modules/top_testimonials/views/top_testimonials_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
@@ -91,7 +93,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.WELCOME_SCREENS;
+  static const INITIAL = Routes.SPLASH;
 
   static final routes = [
     GetPage(
@@ -290,11 +292,6 @@ class AppPages {
       binding: AkashaHealingFullDetailsBinding(),
     ),
     GetPage(
-      name: _Paths.TEST,
-      page: () => const TestView(),
-      binding: TestBinding(),
-    ),
-    GetPage(
       name: _Paths.TEACHINGS1,
       page: () => const Teachings1View(),
       binding: Teachings1Binding(),
@@ -303,6 +300,16 @@ class AppPages {
       name: _Paths.TEACHINGS2,
       page: () => const Teachings2View(),
       binding: Teachings2Binding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH,
+      page: () => const SplashView(),
+      binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.STORY_PAGE,
+      page: () => const StoryPageView(),
+      binding: StoryPageBinding(),
     ),
   ];
 }

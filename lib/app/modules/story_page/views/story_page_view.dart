@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:story_view/widgets/story_view.dart';
-import '../controllers/test_controller.dart';
+import '../controllers/story_page_controller.dart';
 
-class TestView extends GetView<TestController> {
-  const TestView({Key? key}) : super(key: key);
+class StoryPageView extends GetView<StoryPageController> {
+  const StoryPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

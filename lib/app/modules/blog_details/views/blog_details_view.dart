@@ -35,6 +35,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
       ),
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             FutureBuilder<Map>(

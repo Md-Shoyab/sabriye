@@ -84,7 +84,7 @@ class DashboardView extends GetView<DashboardController> {
                   itemBuilder: ((context, index) {
                     return InkWell(
                       onTap: () {
-                        Get.toNamed(Routes.TEST);
+                        Get.toNamed(Routes.STORY_PAGE);
                       },
                       child: Container(
                         height: 80,
