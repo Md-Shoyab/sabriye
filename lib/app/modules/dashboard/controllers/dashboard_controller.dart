@@ -62,6 +62,7 @@ class DashboardController extends GetxController {
   void onInit() {
     apiServices.getAllTeachingsCategories();
     apiServices.getAllSpritiualSpotlightVideoInterview();
+    apiServices.getAllStories();
     super.onInit();
   }
 

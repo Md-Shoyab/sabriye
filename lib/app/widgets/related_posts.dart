@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/modules/teachings_details/controllers/teachings_details_controller.dart';
 import 'gapper.dart';
@@ -10,10 +11,13 @@ class RelatedPost extends StatelessWidget {
       Get.put(TeachingsDetailsController());
   final GetxController controller;
   final int index;
+  final String imageUrl, title;
   RelatedPost({
     Key? key,
     required this.controller,
     required this.index,
+    required this.imageUrl,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -30,8 +34,7 @@ class RelatedPost extends StatelessWidget {
             color: Colors.red,
             borderRadius: BorderRadius.circular(10),
             image: DecorationImage(
-              image: AssetImage(
-                  teachingsDetailsController.relatedPostImages[index]),
+              image: NetworkImage(imageUrl),
               fit: BoxFit.cover,
             ),
           ),
@@ -40,13 +43,8 @@ class RelatedPost extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(left: 10),
           width: 200,
-          child: const Text(
-            'The Nine Levels of Twin Flames Initiations...',
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-          ),
-        )
+          child: Html(data: title),
+        ),
       ],
     );
   }

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../widgets/related_posts.dart';
 import '../controllers/blog_details_controller.dart';
 
 class BlogDetailsView extends GetView<BlogDetailsController> {
@@ -38,6 +39,33 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            FutureBuilder<List>(
+              future: controller.apiServices.getRelatedPosts(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data!.isEmpty) {
+                    return const Center(
+                      child: Text('0 Related Post'),
+                    );
+                  }
+                  return SizedBox(
+                    height: Get.height * .225,
+                    child: ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: ((context, index) => RelatedPost(
+                            controller: controller,
+                            index: index,
+                            imageUrl: snapshot.data?[index]
+                                ['jetpack_featured_media_url'],
+                            title: snapshot.data?[index]['title']['rendered'],
+                          )),
+                    ),
+                  );
+                }
+                return const CircularProgressIndicator();
+              },
+            ),
             FutureBuilder<Map>(
               future: controller.apiServices.getBlogDetailsById(controller.id),
               builder: (context, snapshot) {

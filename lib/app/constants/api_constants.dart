@@ -22,3 +22,5 @@ const String API_GET_MEMBERSHIP_DETAILS = '/pages/12473/';
 const String API_GET_ALL_CARDS = '/card/';
 const String API_GET_BOOK_DETAILS = '/pages/11825';
 const String API_GET_COMMENTS_BY_ID = '/comments/';
+const String API_GET_ALL_STORIES = '/posts?per_page=10&categories=18';
+const String API_GET_RELATED_POST = '/posts?per_page=10&categories=18';

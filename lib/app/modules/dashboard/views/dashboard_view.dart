@@ -78,30 +78,43 @@ class DashboardView extends GetView<DashboardController> {
                 padding: const EdgeInsets.only(left: 25.0),
                 height: 100,
                 width: Get.width,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  itemBuilder: ((context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.STORY_PAGE);
-                      },
-                      child: Container(
-                        height: 80,
-                        width: 80,
-                        margin: const EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.blue,
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.storyImage[index],
+                child: FutureBuilder<List>(
+                  future: controller.apiServices.getAllStories(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      if (snapshot.data!.isEmpty) {
+                        return const Text('0 Stories avaliable');
+                      }
+                      return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: ((context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Get.toNamed(Routes.STORY_PAGE);
+                            },
+                            child: Container(
+                              height: 80,
+                              width: 80,
+                              margin: const EdgeInsets.only(left: 10),
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.blue,
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    snapshot.data?[index]
+                                        ['jetpack_featured_media_url'],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
+                          );
+                        }),
+                      );
+                    }
+                    return const Center(child: CircularProgressIndicator());
+                  },
                 ),
               ),
               const VerticalGap(gap: 30),
@@ -127,7 +140,8 @@ class DashboardView extends GetView<DashboardController> {
                     if (snapshot.hasData) {
                       if (snapshot.data!.isEmpty) {
                         return const Center(
-                            child: Text('0 Categories avaialible'));
+                          child: Text('0 Categories avaialible'),
+                        );
                       }
                       return ListView.builder(
                         scrollDirection: Axis.horizontal,
