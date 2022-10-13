@@ -80,7 +80,15 @@ class SetReminderView extends GetView<SetReminderController> {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const VerticalGap(gap: 40),
+            const VerticalGap(gap: 20),
+            Obx(
+              (() => Text(
+                    controller.selectedReminderTime.value
+                        .format(context)
+                        .toString(),
+                  )),
+            ),
+            const VerticalGap(gap: 20),
             Container(
               height: 60,
               width: 60,
@@ -95,7 +103,11 @@ class SetReminderView extends GetView<SetReminderController> {
                 ],
               ),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  showTimePicker(context: context, initialTime: TimeOfDay.now())
+                      .then((value) =>
+                          {controller.selectedReminderTime.value = value!});
+                },
                 icon: const Icon(
                   Icons.add,
                   color: AppColors.primaryColor,
