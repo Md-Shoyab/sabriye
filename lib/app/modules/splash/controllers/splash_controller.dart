@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -28,7 +27,6 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     GetStorage.init();
-
     super.onInit();
   }
 }

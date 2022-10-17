@@ -33,88 +33,143 @@ class SetReminderView extends GetView<SetReminderController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SizedBox(
-        width: Get.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: Get.height * .08,
-            ),
-            SizedBox(
-              height: Get.height * .35,
-              child: AnalogClock(
-                decoration: BoxDecoration(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          width: Get.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: Get.height * .08,
+              ),
+              SizedBox(
+                height: Get.height * .35,
+                child: AnalogClock(
+                  decoration: BoxDecoration(
                     border:
                         Border.all(width: 2.0, color: AppColors.primaryColor),
                     color: Colors.transparent,
-                    shape: BoxShape.circle),
-                width: Get.width * .7,
-                isLive: true,
-                hourHandColor: AppColors.primaryColor,
-                minuteHandColor: AppColors.primaryColor,
-                showSecondHand: false,
-                numberColor: AppColors.primaryColor,
-                showNumbers: true,
-                showAllNumbers: false,
-                textScaleFactor: 1.4,
-                showTicks: true,
-                tickColor: AppColors.primaryColor,
-                showDigitalClock: false,
-                datetime: DateTime.now(),
-              ),
-            ),
-            const VerticalGap(gap: 20),
-            const Text(
-              AppConstants.reachYourGoalsBySettingReminder,
-              style: TextStyle(
-                fontSize: 18,
-              ),
-            ),
-            const VerticalGap(),
-            const Text(
-              AppConstants.dailyReminder,
-              style: TextStyle(
-                fontSize: 30,
-                color: AppColors.primaryColor,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            const VerticalGap(gap: 20),
-            Obx(
-              (() => Text(
-                    controller.selectedReminderTime.value
-                        .format(context)
-                        .toString(),
-                  )),
-            ),
-            const VerticalGap(gap: 20),
-            Container(
-              height: 60,
-              width: 60,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColors.bgColor,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.primaryColor,
-                    blurRadius: 4,
-                  )
-                ],
-              ),
-              child: IconButton(
-                onPressed: () {
-                  showTimePicker(context: context, initialTime: TimeOfDay.now())
-                      .then((value) =>
-                          {controller.selectedReminderTime.value = value!});
-                },
-                icon: const Icon(
-                  Icons.add,
-                  color: AppColors.primaryColor,
+                    shape: BoxShape.circle,
+                  ),
+                  width: Get.width * .7,
+                  isLive: true,
+                  hourHandColor: AppColors.primaryColor,
+                  minuteHandColor: AppColors.primaryColor,
+                  showSecondHand: false,
+                  numberColor: AppColors.primaryColor,
+                  showNumbers: true,
+                  showAllNumbers: false,
+                  textScaleFactor: 1.4,
+                  showTicks: true,
+                  tickColor: AppColors.primaryColor,
+                  showDigitalClock: false,
+                  datetime: DateTime.now(),
                 ),
               ),
-            ),
-          ],
+              const VerticalGap(gap: 20),
+              const Text(
+                AppConstants.reachYourGoalsBySettingReminder,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              const VerticalGap(),
+              const Text(
+                AppConstants.dailyReminder,
+                style: TextStyle(
+                  fontSize: 30,
+                  color: AppColors.primaryColor,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const VerticalGap(gap: 20),
+              Container(
+                // color: Colors.amber,
+                width: Get.width,
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                child: Obx(
+                  (() => ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.reminderTiming.length,
+                        itemBuilder: ((context, index) => Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 15,
+                              ),
+                              margin: const EdgeInsets.only(bottom: 10),
+                              height: 80,
+                              width: Get.width * .9,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    width: 0.8,
+                                  )),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    controller.reminderTiming[index]
+                                        .format(context)
+                                        .toString(),
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Obx(
+                                    (() => Switch.adaptive(
+                                        activeColor: AppColors.primaryColor,
+                                        value: controller
+                                            .reminderOnOffStatus[index].value,
+                                        onChanged: (value) {
+                                          controller.reminderOnOffStatus[index]
+                                              .value = value;
+                                        })),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      )),
+                ),
+              ),
+              Container(
+                height: 60,
+                width: 60,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.bgColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.primaryColor,
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    showTimePicker(
+                            context: context, initialTime: TimeOfDay.now())
+                        .then((value) => {
+                              if (value != null)
+                                {
+                                  controller.selectedReminderTime.value = value,
+                                  controller.reminderTiming.add(value),
+                                  controller.reminderOnOffStatus.add(true.obs),
+                                }
+                            });
+                    debugPrint(controller.reminderTiming.toString());
+                    debugPrint(controller.reminderOnOffStatus.toString());
+                  },
+                  icon: const Icon(
+                    Icons.add,
+                    color: AppColors.primaryColor,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

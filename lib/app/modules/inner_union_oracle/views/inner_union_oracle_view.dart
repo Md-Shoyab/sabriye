@@ -1,3 +1,4 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -94,16 +95,29 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                     pointText: AppConstants.theInnerUnionPointer3Text,
                   ),
                   const VerticalGap(gap: 15),
-                  Center(
-                    child: Container(
+                  FlipCard(
+                    front: Center(
+                      child: Container(
+                        height: 200,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          image: const DecorationImage(
+                            image: AssetImage(AppAssets.orcaleCardsImage),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                    back: Container(
                       height: 200,
                       width: 200,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        image: const DecorationImage(
-                          image: AssetImage(AppAssets.orcaleCardsImage),
-                          fit: BoxFit.cover,
-                        ),
+                        color: Colors.amber,
+                      ),
+                      child: const Center(
+                        child: Text('Api Text Here'),
                       ),
                     ),
                   ),
