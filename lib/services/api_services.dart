@@ -73,7 +73,7 @@ class ApiServices {
     try {
       var response = await http.get(
         Uri.parse(
-          API_BASE_URL + API_GET_ABOUT_INFO,
+          API_BASE_URL_2 + API_GET_ABOUT_INFO,
         ),
       );
       if (response.statusCode == 200) {
@@ -90,7 +90,7 @@ class ApiServices {
     try {
       var response = await http.get(
         Uri.parse(
-          API_BASE_URL + API_GET_BOOK_DETAILS,
+          API_BASE_URL_2 + API_GET_BOOK_DETAILS,
         ),
       );
       if (response.statusCode == 200) {

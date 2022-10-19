@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../controllers/about_controller.dart';
@@ -42,8 +43,29 @@ class AboutView extends GetView<AboutController> {
               );
             }
             return SingleChildScrollView(
-              child: Html(
-                data: snapshot.data!['content']['rendered'],
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                    height: Get.height * .45,
+                    width: Get.width,
+                    color: Colors.amber,
+                    child: Image.asset(
+                      AppAssets.aboutBannerImage,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Html(
+                    data: snapshot.data!['content']['rendered'],
+                    style: {
+                      "h2": Style(color: AppColors.primaryColor),
+                      "strong": Style(color: AppColors.primaryColor),
+                    },
+                  ),
+                ],
               ),
             );
           }

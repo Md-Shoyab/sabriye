@@ -43,8 +43,18 @@ class BookDetailsView extends GetView<BookDetailsController> {
               );
             }
             return SingleChildScrollView(
-              child: Html(
-                data: snapshot.data!['content']['rendered'],
+              child: Column(
+                children: [
+                  Html(
+                    data: snapshot.data!['content']['rendered'],
+                    style: {
+                      "p": Style(
+                        textAlign: TextAlign.center,
+                      ),
+                      "strong": Style(color: AppColors.primaryColor),
+                    },
+                  ),
+                ],
               ),
             );
           }
