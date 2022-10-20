@@ -84,6 +84,7 @@ class AppAssets {
   static const String downloadEbookIcon =
       'assets/images/download_ebook_icon.png';
   static const String alarmIcon = 'assets/images/alarm_icon.png';
+  static const String purpleSkyBackground = 'assets/images/purple-sky.png';
   static const String blogIcon = 'assets/images/blog_icon.png';
   static const String givingBackIcon = 'assets/images/giving_back_icon.png';
   static const String aboutIcon = 'assets/images/about_icon.png';

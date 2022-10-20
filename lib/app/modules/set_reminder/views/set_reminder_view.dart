@@ -150,15 +150,16 @@ class SetReminderView extends GetView<SetReminderController> {
                 child: IconButton(
                   onPressed: () {
                     showTimePicker(
-                            context: context, initialTime: TimeOfDay.now())
-                        .then((value) => {
-                              if (value != null)
-                                {
-                                  controller.selectedReminderTime.value = value,
-                                  controller.reminderTiming.add(value),
-                                  controller.reminderOnOffStatus.add(true.obs),
-                                }
-                            });
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                    ).then((value) => {
+                          if (value != null)
+                            {
+                              controller.selectedReminderTime.value = value,
+                              controller.reminderTiming.add(value),
+                              controller.reminderOnOffStatus.add(true.obs),
+                            }
+                        });
                     debugPrint(controller.reminderTiming.toString());
                     debugPrint(controller.reminderOnOffStatus.toString());
                   },

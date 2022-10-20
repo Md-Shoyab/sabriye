@@ -33,6 +33,8 @@ class GivingBackController extends GetxController {
   @override
   void onInit() {
     apiServices.getGivingBackInfo();
+    apiServices.getGivingBackInfo2();
+
     super.onInit();
   }
 }
