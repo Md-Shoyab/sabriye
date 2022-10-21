@@ -43,13 +43,35 @@ class GivingBackView extends GetView<GivingBackController> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   if (snapshot.data!.isEmpty) {
-                    return const Center(
-                      child: Text('Something went wrong'),
-                    );
+                    return const Center(child: Text('Something went wrong'));
                   }
+                  controller.carouselImages.addAll([
+                    snapshot.data!['custom_fields']['Kiva'][0],
+                    snapshot.data!['custom_fields']['ketto'][0],
+                    snapshot.data!['custom_fields']['milaap_2'][0],
+                  ]);
+                  controller.carouselDescription.addAll([
+                    snapshot.data!['custom_fields']['kiva_desc'][0],
+                    snapshot.data!['custom_fields']['ketto_desc'][0],
+                    snapshot.data!['custom_fields']['milaap_2_desc'][0],
+                  ]);
+
                   return SingleChildScrollView(
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        const VerticalGap(gap: 50),
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            snapshot.data?['title']['rendered'],
+                            style: const TextStyle(
+                              fontSize: 25,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
                         Html(
                           data: snapshot.data!['content']['rendered'],
                           style: {
@@ -86,7 +108,10 @@ class GivingBackView extends GetView<GivingBackController> {
                                 data: snapshot.data?['custom_fields']
                                     ['smart_desc'][0],
                                 style: {
-                                  "a": Style(color: AppColors.primaryColor)
+                                  "a": Style(color: AppColors.primaryColor),
+                                  "p": Style(
+                                    lineHeight: LineHeight.number(1.3),
+                                  ),
                                 },
                               ),
                             ],
@@ -166,7 +191,7 @@ class GivingBackView extends GetView<GivingBackController> {
                         ),
                         Center(
                           child: CarouselSlider.builder(
-                            itemCount: 3,
+                            itemCount: controller.carouselDescription.length,
                             itemBuilder: (_, i, k) => Container(
                               width: Get.width,
                               padding: const EdgeInsets.symmetric(
@@ -192,28 +217,14 @@ class GivingBackView extends GetView<GivingBackController> {
                                 children: [
                                   SizedBox(
                                     height: 80,
-                                    child: Image.asset(
-                                      controller.carouselImagePath[i],
+                                    child: Image.network(
+                                      controller.carouselImages[i],
                                       fit: BoxFit.cover,
                                     ),
                                   ),
                                   const VerticalGap(gap: 15),
-                                  Text(
-                                    controller.carouselTitle[i],
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  const VerticalGap(gap: 15),
-                                  Text(
-                                    controller.carouselContent[i],
-                                    textAlign: TextAlign.center,
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                      height: 1.3,
-                                    ),
+                                  Html(
+                                    data: controller.carouselDescription[i],
                                   ),
                                 ],
                               ),
@@ -274,32 +285,31 @@ class GivingBackView extends GetView<GivingBackController> {
                 );
               },
             ),
-
-            // FutureBuilder<Map>(
-            //   future: controller.apiServices.getGivingBackInfo2(),
-            //   builder: (context, snapshot) {
-            //     if (snapshot.hasData) {
-            //       if (snapshot.data!.isEmpty) {
-            //         return const Center(
-            //           child: Text('Something went wrong'),
-            //         );
-            //       }
-            //       return SingleChildScrollView(
-            //         child: Html(
-            //           data: snapshot.data!['content']['rendered'],
-            //           style: {
-            //             "h2": Style(color: AppColors.primaryColor),
-            //             "h3": Style(color: AppColors.primaryColor),
-            //             "h4": Style(color: AppColors.primaryColor),
-            //           },
-            //         ),
-            //       );
-            //     }
-            //     return const Center(
-            //       child: CircularProgressIndicator(),
-            //     );
-            //   },
-            // ),
+            FutureBuilder<Map>(
+              future: controller.apiServices.getGivingBackInfo2(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data!.isEmpty) {
+                    return const Center(
+                      child: Text('Something went wrong'),
+                    );
+                  }
+                  return SingleChildScrollView(
+                    child: Html(
+                      data: snapshot.data!['content']['rendered'],
+                      style: {
+                        "h2": Style(color: AppColors.primaryColor),
+                        // "h3": Style(color: AppColors.primaryColor),
+                        "h4": Style(color: AppColors.primaryColor),
+                      },
+                    ),
+                  );
+                }
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
           ],
         ),
       ),
