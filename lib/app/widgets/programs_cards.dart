@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 
 import '../constants/app_colors.dart';
@@ -9,11 +8,12 @@ class ProgramsCards extends StatelessWidget {
   final String programTitle;
   final String programImagePath;
   final String textButton;
+  final String routes;
   const ProgramsCards({
     Key? key,
     required this.programTitle,
     required this.programImagePath,
-    required this.textButton,
+    required this.textButton, required this.routes,
   }) : super(key: key);
 
   @override
@@ -50,7 +50,7 @@ class ProgramsCards extends StatelessWidget {
                 const VerticalGap(),
                 TextButton(
                   onPressed: () {
-                    Get.toNamed(Routes.PROGRAMS_DETAILS);
+                    Get.toNamed(routes);
                   },
                   child: Text(
                     textButton,

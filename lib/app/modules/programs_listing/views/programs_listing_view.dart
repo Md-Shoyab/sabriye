@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/programs_cards.dart';
@@ -38,13 +39,14 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
             programImagePath: AppAssets.programImage1,
             programTitle: 'Akasha Healing™\nPractitioner Certification',
             textButton: 'Learn More',
+            routes: Routes.PROGRAMS_DETAILS,
           ),
           ProgramsCards(
             programImagePath: AppAssets.programImage2,
             programTitle: 'Coming into Oneness',
             textButton: 'Buy Now',
+            routes: Routes.COMING_INTO_ONENESS,
           ),
-        
         ],
       ),
     );

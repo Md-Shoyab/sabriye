@@ -52,6 +52,7 @@ abstract class Routes {
   static const TEACHINGS2 = _Paths.TEACHINGS2;
   static const SPLASH = _Paths.SPLASH;
   static const STORY_PAGE = _Paths.STORY_PAGE;
+  static const COMING_INTO_ONENESS = _Paths.COMING_INTO_ONENESS;
 }
 
 abstract class _Paths {
@@ -104,4 +105,5 @@ abstract class _Paths {
   static const TEACHINGS2 = '/teachings2';
   static const SPLASH = '/splash';
   static const STORY_PAGE = '/story-page';
+  static const COMING_INTO_ONENESS = '/coming-into-oneness';
 }

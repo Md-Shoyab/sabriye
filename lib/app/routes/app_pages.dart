@@ -20,6 +20,8 @@ import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
 import '../modules/change_password_verfication/bindings/change_password_verfication_binding.dart';
 import '../modules/change_password_verfication/views/change_password_verfication_view.dart';
+import '../modules/coming_into_oneness/bindings/coming_into_oneness_binding.dart';
+import '../modules/coming_into_oneness/views/coming_into_oneness_view.dart';
 import '../modules/comments/bindings/comments_binding.dart';
 import '../modules/comments/views/comments_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
@@ -310,6 +312,11 @@ class AppPages {
       name: _Paths.STORY_PAGE,
       page: () => const StoryPageView(),
       binding: StoryPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.COMING_INTO_ONENESS,
+      page: () => const ComingIntoOnenessView(),
+      binding: ComingIntoOnenessBinding(),
     ),
   ];
 }
