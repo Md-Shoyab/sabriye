@@ -84,6 +84,8 @@ class AppAssets {
   static const String downloadEbookIcon =
       'assets/images/download_ebook_icon.png';
   static const String alarmIcon = 'assets/images/alarm_icon.png';
+  static const String aboutSabriya = 'assets/images/about-sabriye.png';
+  static const String accordionBackground = 'assets/images/accordion_bg.png';
   static const String purpleSkyBackground = 'assets/images/purple-sky.png';
   static const String blogIcon = 'assets/images/blog_icon.png';
   static const String givingBackIcon = 'assets/images/giving_back_icon.png';
@@ -152,4 +154,7 @@ class AppAssets {
 
   static const String akshayHealingSabriyeProfile =
       'assets/images/akasha_healing_sabriye_profile.png';
+  static const String transparentBackground = 'assets/images/transparent.png';
+  static const String pattyProfile =
+      'assets/images/jasmijn_de_graaf_profile.png';
 }
