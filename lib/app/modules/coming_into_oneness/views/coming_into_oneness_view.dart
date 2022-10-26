@@ -67,11 +67,23 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                 ),
               ),
               const VerticalGap(),
+              Container(
+                height: Get.height * .25,
+                width: Get.width,
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage(AppAssets.comingIntoOneness),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              const VerticalGap(),
               const Text(
                 'Are you ready to be, do and have what your soul desires?',
                 style: TextStyle(
                   height: 1.7,
-                  fontSize: 14,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -233,7 +245,12 @@ The reason we are often not living our Divine design is because it is being dist
                             ? Container(
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 15, horizontal: 15),
-                                child: Text(controller.content),
+                                child: Text(
+                                  controller.content,
+                                  style: const TextStyle(
+                                    color: AppColors.white,
+                                  ),
+                                ),
                               )
                             : Container()
                       ],
@@ -290,7 +307,7 @@ The reason we are often not living our Divine design is because it is being dist
                     Text(
                       '''“Sabriye has guided me on my journey for several years and her teachings are always helpful, but none has been as powerful as the recent shift that came in a module of Coming into Oneness. It revealed how my position as the golden child of my parents, counterintuitive as it sounds, was a form of wounding. Sabriye’s teaching released me from a lifetime of trying to be perfect, fear of not achieving that high standard and the exhausting task of maintaining a facade of perfection that hid my true self. Thank you once again, Sabriye, for your continued guidance.”''',
                       textAlign: TextAlign.center,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -298,6 +315,19 @@ The reason we are often not living our Divine design is because it is being dist
                 height: 1.3,
                 color: Colors.grey,
               ),
+              const VerticalGap(gap: 20),
+              const Text(
+                'Who is ‘Coming into Oneness’ for?',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const VerticalGap(),
+              const Text(
+                  '''The program ‘Coming into Oneness’ is for everyone that is ready to take their life and their manifestation skills to the soul level. It doesn’t matter if you are a stay-at-home mom, entrepreneur, business professional, Starseed, lightworker, Twin Flame or none of the above.
+
+Coming into Oneness is about the next step in our human evolution and will meet everyone at the level that they are at in order to uplevel to the next level available to them and beyond by healing the wounded ego that is keeping them in the illusion of being separated from their soul. Once you get the ego and the soul on the same page, you unlock your soul’s superpower which brings in all that is yours by Divine right''')
             ],
           ),
         ),

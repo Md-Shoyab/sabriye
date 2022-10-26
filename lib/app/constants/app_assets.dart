@@ -157,4 +157,7 @@ class AppAssets {
   static const String transparentBackground = 'assets/images/transparent.png';
   static const String pattyProfile =
       'assets/images/jasmijn_de_graaf_profile.png';
+
+  static const String comingIntoOneness =
+      'assets/images/coming_into_oneness.png';
 }
