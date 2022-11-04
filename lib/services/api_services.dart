@@ -239,7 +239,7 @@ class ApiServices {
     }
   }
 
-  Future loginUser(String basicAuth) async {
+  Future<void> loginUser(String basicAuth) async {
     try {
       log(basicAuth);
       var response = await http.get(
@@ -251,12 +251,12 @@ class ApiServices {
       log(response.body);
       if (response.statusCode == 200) {
         SessionManager.saveUserToken(basicAuth);
-        return Get.offAllNamed(Routes.MAIN_SCREEN);
+        Get.offAllNamed(Routes.MAIN_SCREEN);
       } else {
-        return Future.error('Server Error');
+        Future.error('Server Error');
       }
     } catch (e) {
-      return Future.error('Exception error');
+      Future.error('Exception error');
     }
   }
 
@@ -315,6 +315,25 @@ class ApiServices {
       );
       if (response.statusCode == 200) {
         return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> getComingIntoOneness() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          'https://app.sabriyeayana.com/wp-json/wp/v2/pages/8',
+        ),
+      );
+      if (response.statusCode == 200) {
+        log(response.body);
+        return jsonDecode(response.body);
+        
       } else {
         return Future.error('Server Error');
       }

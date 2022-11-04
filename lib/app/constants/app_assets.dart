@@ -90,6 +90,8 @@ class AppAssets {
   static const String blogIcon = 'assets/images/blog_icon.png';
   static const String givingBackIcon = 'assets/images/giving_back_icon.png';
   static const String aboutIcon = 'assets/images/about_icon.png';
+  static const String akashayHealingImageSession =
+      'assets/images/akasha-healing-session.png';
   static const String membershipIcon = 'assets/images/memberships_icon.png';
   static const String programsIcon = 'assets/images/programs_icon.png';
   static const String sessionsIcon = 'assets/images/session_icons.png';
@@ -132,6 +134,8 @@ class AppAssets {
   static const String relatedPost1 = 'assets/images/related_post_1.png';
   static const String relatedPost2 = 'assets/images/related_post_2.png';
   static const String relatedPost3 = 'assets/images/related_post_3.png';
+  static const String cathyBellancaProfile = 'assets/images/cathy_bellanca.png';
+
   static const String sabriyeCircleProfile =
       'assets/images/sabriye_circle_profile.png';
 

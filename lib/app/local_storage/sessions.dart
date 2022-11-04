@@ -11,15 +11,15 @@ class SessionManager {
   static const String _userToken = 'User Token';
   // static const String _userData = 'User Data';
 
-  static Future<void> saveUserToken(String token) async {
+  static void saveUserToken(String token) {
     USER_TOKEN.value = token;
     _getStorage.write(_userToken, token);
     debugPrint("User Token Saved ==> $token.");
   }
 
-  static String getUserToken() {
-    String token = _getStorage.read(_userToken) ?? '';
-    USER_TOKEN.value = token;
+  static String? getUserToken() {
+    String? token = _getStorage.read(_userToken);
+    USER_TOKEN.value = token ?? '';
     debugPrint("User Token ==> $token.");
     return token;
   }

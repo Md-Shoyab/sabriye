@@ -18,6 +18,7 @@ const String API_GET_BLOGPOST_BY_SUB_TEACHING = '/posts/?categories=';
 const String API_GET_BLOG_DETAILS_ID = '/posts/';
 const String API_GET_GIVING_BACK = '/pages/47';
 const String API_GET_GIVING_BACK2 = '/pages/53';
+const String API_GET_COMING_INTO_ONENESS = '/pages/8';
 const String API_GET_ALL_FAQ = '/pages/11016';
 const String API_GET_SESSIONS_DETAILS = '/pages/370037';
 const String API_GET_MEMBERSHIP_DETAILS = '/pages/12473/';

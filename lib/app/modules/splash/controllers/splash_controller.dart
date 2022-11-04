@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -10,11 +10,10 @@ class SplashController extends GetxController {
 
   @override
   void onReady() {
-    String userToken = SessionManager.getUserToken();
-    log('This is splash ==> $userToken');
+    String? userToken = SessionManager.getUserToken();
     Future.delayed(const Duration(seconds: 3)).then(
       (_) {
-        if (userToken.isEmpty) {
+        if (userToken == null) {
           Get.offAllNamed(Routes.LOGIN);
         } else {
           Get.offAllNamed(Routes.MAIN_SCREEN);
@@ -23,6 +22,13 @@ class SplashController extends GetxController {
     );
     super.onReady();
   }
+
+  // void onReady() {
+  //   Future.delayed(const Duration(seconds: 3)).then((_) {
+  //     Get.toNamed(Routes.LOGIN);
+  //   });
+  //   super.onReady();
+  // }
 
   @override
   void onInit() {

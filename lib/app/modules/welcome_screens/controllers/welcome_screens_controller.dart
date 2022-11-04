@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
-import 'package:sabriye/app/local_storage/sessions.dart';
 import '../../../../model/welcome_model.dart';
 
 class WelcomeScreensController extends GetxController {
-  final String loginToken = SessionManager.getUserToken();
   RxInt currentPageIndex = 0.obs;
   final welcomePageController = PageController();
 

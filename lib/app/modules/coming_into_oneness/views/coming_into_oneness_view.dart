@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
@@ -39,33 +42,53 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                'Healing the separation\nbetween the ego and the\nsoul',
-                style: TextStyle(
-                  height: 1.4,
-                  fontSize: 28,
-                  color: AppColors.primaryColor,
-                  fontWeight: FontWeight.w600,
-                ),
+              FutureBuilder<Map>(
+                future: controller.apiServices.getComingIntoOneness(),
+                builder: (context, snapshot) {
+                  log('coming in Future Builder');
+                  if (snapshot.hasData) {
+                    log('coming in snashot has Data');
+                    if (snapshot.data!.isEmpty) {
+                      return const Center(
+                        child: Text('Something went wrong'),
+                      );
+                    }
+                    return Html(
+                      data: snapshot.data!['content']['rendered'],
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
               ),
-              const VerticalGap(),
-              const Text(
-                '''A 12-Month Profoundly Transformational Group Experience Where We Heal The Separation Between Your Ego And Your Soul, Unlock Your Divine Design, Quantum Leap Into The Frequency Of Heaven on Earth, And Become A Vibrational Match For All That Is Yours By Divine Right!''',
-                style: TextStyle(
-                  height: 1.7,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                '''Akasha Healing™ is one of the deepest levels of trauma & karma healing available to us now. Working within the Akashic Quantum field allows you to heal money, love, relationships, vocation, and all other areas of your life by closing the door on the past once and for all.''',
-                style: TextStyle(
-                  height: 1.7,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
+              // const Text(
+              //   'Healing the separation\nbetween the ego and the\nsoul',
+              //   style: TextStyle(
+              //     height: 1.4,
+              //     fontSize: 28,
+              //     color: AppColors.primaryColor,
+              //     fontWeight: FontWeight.w600,
+              //   ),
+              // ),
+              // const VerticalGap(),
+              // const Text(
+              //   '''A 12-Month Profoundly Transformational Group Experience Where We Heal The Separation Between Your Ego And Your Soul, Unlock Your Divine Design, Quantum Leap Into The Frequency Of Heaven on Earth, And Become A Vibrational Match For All That Is Yours By Divine Right!''',
+              //   style: TextStyle(
+              //     height: 1.7,
+              //     fontSize: 14,
+              //     fontWeight: FontWeight.w600,
+              //   ),
+              // ),
+              // const VerticalGap(),
+              // const Text(
+              //   '''Akasha Healing™ is one of the deepest levels of trauma & karma healing available to us now. Working within the Akashic Quantum field allows you to heal money, love, relationships, vocation, and all other areas of your life by closing the door on the past once and for all.''',
+              //   style: TextStyle(
+              //     height: 1.7,
+              //     fontSize: 14,
+              //     fontWeight: FontWeight.w300,
+              //   ),
+              // ),
               const VerticalGap(),
               Container(
                 height: Get.height * .25,
@@ -149,11 +172,12 @@ The disconnect that you experience between who you know you are here to be and y
                       ),
                       const VerticalGap(gap: 20),
                       const Text(
-                          '''My name is Sabriyé Ayana, I am a bestselling spiritual author, New Paradigm leader, founder of Akasha Quantum Soul Healing™ & the School of Inner Union. I help new paradigm shifters and leaders ready to unlock the frequency of Heaven on Earth, take their manifesting skills to the Soul level. 
+                        '''My name is Sabriyé Ayana, I am a bestselling spiritual author, New Paradigm leader, founder of Akasha Quantum Soul Healing™ & the School of Inner Union. I help new paradigm shifters and leaders ready to unlock the frequency of Heaven on Earth, take their manifesting skills to the Soul level. 
 
 The key to unlocking your private version of Paradise is healing the separation between the ego and the soul. 
 
-The reason why so many people fail to create the life and the reality that they dream of is because their ego and their soul are not on the same page. They are literally coming from two different directions, as the ego creates from the frequency of fear and the soul creates from the frequency of love. It is through healing the wounded ego that we can come into Divine union with our soul.''')
+The reason why so many people fail to create the life and the reality that they dream of is because their ego and their soul are not on the same page. They are literally coming from two different directions, as the ego creates from the frequency of fear and the soul creates from the frequency of love. It is through healing the wounded ego that we can come into Divine union with our soul.''',
+                      ),
                     ],
                   ),
                 ),
@@ -191,7 +215,6 @@ The reason we are often not living our Divine design is because it is being dist
               Center(
                 child: Obx(
                   () => Container(
-                    width: Get.width,
                     decoration: BoxDecoration(
                       color: controller.showValue.value
                           ? Colors.transparent
@@ -207,7 +230,9 @@ The reason we are often not living our Divine design is because it is being dist
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.lightprimary.withOpacity(0.4),
+                          color: controller.showValue.value
+                              ? Colors.transparent
+                              : AppColors.lightprimary.withOpacity(0.4),
                           spreadRadius: 1.0,
                           blurRadius: 3.0,
                         )
@@ -325,9 +350,10 @@ The reason we are often not living our Divine design is because it is being dist
               ),
               const VerticalGap(),
               const Text(
-                  '''The program ‘Coming into Oneness’ is for everyone that is ready to take their life and their manifestation skills to the soul level. It doesn’t matter if you are a stay-at-home mom, entrepreneur, business professional, Starseed, lightworker, Twin Flame or none of the above.
+                '''The program ‘Coming into Oneness’ is for everyone that is ready to take their life and their manifestation skills to the soul level. It doesn’t matter if you are a stay-at-home mom, entrepreneur, business professional, Starseed, lightworker, Twin Flame or none of the above.
 
-Coming into Oneness is about the next step in our human evolution and will meet everyone at the level that they are at in order to uplevel to the next level available to them and beyond by healing the wounded ego that is keeping them in the illusion of being separated from their soul. Once you get the ego and the soul on the same page, you unlock your soul’s superpower which brings in all that is yours by Divine right''')
+Coming into Oneness is about the next step in our human evolution and will meet everyone at the level that they are at in order to uplevel to the next level available to them and beyond by healing the wounded ego that is keeping them in the illusion of being separated from their soul. Once you get the ego and the soul on the same page, you unlock your soul’s superpower which brings in all that is yours by Divine right''',
+              ),
             ],
           ),
         ),

@@ -1,7 +1,7 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
-import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -12,6 +12,7 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
+    log(controller.readOnly.value.toString());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
@@ -32,12 +33,23 @@ class ProfileView extends GetView<ProfileController> {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.edit,
-              color: AppColors.primaryColor,
-            ),
+          Obx(
+            () => controller.readOnly.value
+                ? TextButton(
+                    onPressed: () {
+                      controller.readOnly.value = !controller.readOnly.value;
+                    },
+                    child: const Text('Save'),
+                  )
+                : IconButton(
+                    onPressed: () {
+                      controller.readOnly.value = !controller.readOnly.value;
+                    },
+                    icon: const Icon(
+                      Icons.edit,
+                      color: AppColors.primaryColor,
+                    ),
+                  ),
           ),
         ],
         centerTitle: true,
@@ -87,41 +99,57 @@ class ProfileView extends GetView<ProfileController> {
             ),
             const VerticalGap(gap: 30),
             const Text(AppConstants.firstNameText),
-            const VerticalGap(gap: 15),
-            const Text(
-              AppConstants.siaText,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.black,
+            Obx(
+              () => TextFormField(
+                readOnly: !controller.readOnly.value,
+                controller: controller.firstNameController,
+                style: const TextStyle(
+                  color: AppColors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                ),
+                decoration: const InputDecoration(
+                  contentPadding: EdgeInsets.zero,
+                  border: InputBorder.none,
+                ),
               ),
             ),
             const Divider(
               color: AppColors.black,
             ),
-            const VerticalGap(gap: 15),
+            const VerticalGap(),
             const Text(AppConstants.lastNameText),
-            const VerticalGap(gap: 15),
-            const Text(
-              AppConstants.cornerText,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.black,
+            Obx(
+              () => TextFormField(
+                readOnly: !controller.readOnly.value,
+                controller: controller.lastNameController,
+                style: const TextStyle(
+                  color: AppColors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                ),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                ),
               ),
             ),
             const Divider(
               color: AppColors.black,
             ),
-            const VerticalGap(gap: 15),
-            Text(SessionManager.getUserToken()),
-            const VerticalGap(gap: 15),
-            const Text(
-              AppConstants.cornerEmail,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.black,
+            const VerticalGap(),
+            const Text(AppConstants.emailText),
+            Obx(
+              () => TextFormField(
+                readOnly: !controller.readOnly.value,
+                controller: controller.emailController,
+                style: const TextStyle(
+                  color: AppColors.black,
+                  fontSize: 19,
+                  fontWeight: FontWeight.w600,
+                ),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                ),
               ),
             ),
             const Divider(
