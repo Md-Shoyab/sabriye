@@ -327,13 +327,66 @@ class ApiServices {
     try {
       var response = await http.get(
         Uri.parse(
-          'https://app.sabriyeayana.com/wp-json/wp/v2/pages/8',
+          API_BASE_URL_2 + API_GET_COMING_INTO_ONENESS,
         ),
       );
       if (response.statusCode == 200) {
         log(response.body);
         return jsonDecode(response.body);
-        
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> getPattyTestimonial() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_PATTY_TESTIMONIALS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        log(response.body);
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> getTheProgramDetailsComingInOneness() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_THE_PROGRAM_DETAILS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        log(response.body);
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> getWhoIsComingInOneness() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_WHO_IS_COMING_INTO_ONENESS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        log(response.body);
+        return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');
       }

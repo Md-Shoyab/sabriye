@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_colors.dart';
 
 class SessionCards extends StatelessWidget {

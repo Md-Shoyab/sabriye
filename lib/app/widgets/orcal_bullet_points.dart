@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_colors.dart';
 
 class InnerUnionPointers extends StatelessWidget {

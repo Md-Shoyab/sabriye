@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_assets.dart';
 import '../constants/app_colors.dart';
 import '../routes/app_pages.dart';

@@ -284,75 +284,112 @@ The reason we are often not living our Divine design is because it is being dist
                 ),
               ),
               const VerticalGap(gap: 30),
-              const Text(
-                'The program details',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              const VerticalGap(gap: 20),
-              const Text(
-                'Over the course of 12 months we are going to go through four different stages of the Inner Union process. Each stage is built up of three months, with with plenty of time to do the modules, to integrate and catch up if needed.',
+              FutureBuilder<Map>(
+                future: controller.apiServices
+                    .getTheProgramDetailsComingInOneness(),
+                builder: ((context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.isEmpty) {
+                      return const Center(
+                        child: Text('No Testimonials available'),
+                      );
+                    }
+                    return Html(
+                      data: snapshot.data!['content']['rendered'],
+                      style: {
+                        "h2": Style(color: AppColors.primaryColor),
+                      },
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
               ),
               const VerticalGap(gap: 20),
               const Divider(
                 height: 1.3,
                 color: Colors.grey,
               ),
-              Container(
-                width: Get.width,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                child: Column(
-                  children: const [
-                    CircleAvatar(
-                      radius: 28,
-                      backgroundImage: AssetImage(AppAssets.pattyProfile),
-                    ),
-                    VerticalGap(gap: 5),
-                    Text(
-                      'PATTY C.',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.primaryColor,
+              FutureBuilder<Map>(
+                future: controller.apiServices.getPattyTestimonial(),
+                builder: ((context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.isEmpty) {
+                      return const Center(
+                        child: Text('No Testimonials available'),
+                      );
+                    }
+                    return Container(
+                      width: Get.width,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 15,
                       ),
-                    ),
-                    VerticalGap(gap: 5),
-                    Text(
-                      'United States',
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
+                      child: Column(
+                        children: [
+                          const CircleAvatar(
+                            radius: 28,
+                            backgroundImage: AssetImage(AppAssets.pattyProfile),
+                          ),
+                          const VerticalGap(gap: 5),
+                          Text(
+                            snapshot.data!['title']['rendered'],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                          const VerticalGap(gap: 5),
+                          // const Text(
+                          //   'United States',
+                          //   style: TextStyle(
+                          //     fontSize: 15,
+                          //     fontWeight: FontWeight.w600,
+                          //   ),
+                          // ),
+                          const VerticalGap(),
+                          Html(
+                            data: snapshot.data!['content']['rendered'],
+                            style: {
+                              "p": Style(alignment: Alignment.center),
+                            },
+                          ),
+                        ],
                       ),
-                    ),
-                    VerticalGap(),
-                    Text(
-                      '''“Sabriye has guided me on my journey for several years and her teachings are always helpful, but none has been as powerful as the recent shift that came in a module of Coming into Oneness. It revealed how my position as the golden child of my parents, counterintuitive as it sounds, was a form of wounding. Sabriye’s teaching released me from a lifetime of trying to be perfect, fear of not achieving that high standard and the exhausting task of maintaining a facade of perfection that hid my true self. Thank you once again, Sabriye, for your continued guidance.”''',
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
               ),
               const Divider(
                 height: 1.3,
                 color: Colors.grey,
               ),
               const VerticalGap(gap: 20),
-              const Text(
-                'Who is ‘Coming into Oneness’ for?',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                '''The program ‘Coming into Oneness’ is for everyone that is ready to take their life and their manifestation skills to the soul level. It doesn’t matter if you are a stay-at-home mom, entrepreneur, business professional, Starseed, lightworker, Twin Flame or none of the above.
-
-Coming into Oneness is about the next step in our human evolution and will meet everyone at the level that they are at in order to uplevel to the next level available to them and beyond by healing the wounded ego that is keeping them in the illusion of being separated from their soul. Once you get the ego and the soul on the same page, you unlock your soul’s superpower which brings in all that is yours by Divine right''',
+              FutureBuilder<Map>(
+                future: controller.apiServices.getWhoIsComingInOneness(),
+                builder: ((context, snapshot) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.isEmpty) {
+                      return const Center(
+                        child: Text('No Testimonials available'),
+                      );
+                    }
+                    return Html(
+                      data: snapshot.data!['content']['rendered'],
+                      style: {
+                        "h2": Style(color: AppColors.primaryColor),
+                      },
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
               ),
             ],
           ),

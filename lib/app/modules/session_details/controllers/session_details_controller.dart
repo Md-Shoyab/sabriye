@@ -3,6 +3,7 @@ import 'package:sabriye/services/api_services.dart';
 
 class SessionDetailsController extends GetxController {
   ApiServices apiServices = ApiServices();
+
   final List<String> sessionBenefitList = [
     'Heal on a soul path level and not just the current incarnation level',
     'Get direct access to your karmic templates and Divine Blueprint',
@@ -12,13 +13,13 @@ class SessionDetailsController extends GetxController {
     'Break karmic loops that have been repeating over lifetimes and lifetimes',
     'Change the lives of future generations as well as your own future lifetimes',
   ];
-final List<String> recognizeThisList = [
-  'Is an area in your life not working for you?',
-  'Do you keep running into the same kind of situations and the same kind of relationships?',
-  'Do you recognize repeating patterns in your life that you just can’t seem to break?',
-  'Is there a red thread that you see through a specific or maybe all areas of your life?',
-  'Do you feel like you are stuck in the movie Groundhog day, re-experiencing the same hurdles, struggles and obstacles over and over again?',
-];
+  final List<String> recognizeThisList = [
+    'Is an area in your life not working for you?',
+    'Do you keep running into the same kind of situations and the same kind of relationships?',
+    'Do you recognize repeating patterns in your life that you just can’t seem to break?',
+    'Is there a red thread that you see through a specific or maybe all areas of your life?',
+    'Do you feel like you are stuck in the movie Groundhog day, re-experiencing the same hurdles, struggles and obstacles over and over again?',
+  ];
 
   final List<String> sessionResultPointsList = [
     'Money struggles',
@@ -52,6 +53,15 @@ final List<String> recognizeThisList = [
     'Rescuing/Savior',
     'Inability or difficulty to receive',
     'Overgiving',
+  ];
+
+  final List<String> sessionCardTitle = [
+    'Three Timelines Healing €1111',
+    'Breaking Karmic Loops €1111',
+    "Akasha Healing™ the false 'love is pain' program €1111",
+    'Soul Clarity Journey €1111',
+    'Money Blocks session €555',
+    
   ];
 
   @override

@@ -164,4 +164,7 @@ class AppAssets {
 
   static const String comingIntoOneness =
       'assets/images/coming_into_oneness.png';
+
+  static const String sessionCardFlowerImage =
+      'assets/images/session_card_decor_image.png';
 }
