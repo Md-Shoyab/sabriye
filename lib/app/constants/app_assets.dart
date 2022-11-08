@@ -108,7 +108,6 @@ class AppAssets {
       'assets/images/inner_union_oracle_image2.png';
   static const String innerUnionCircleAuthorImage =
       'assets/images/inner_union_circle_author.png';
-
   static const String supportEmailIcon = 'assets/images/support_email_icon.png';
   static const String sabriyeSignature = 'assets/images/sa-signature_image.png';
   static const String smallVideoPlayIcon =
@@ -135,6 +134,7 @@ class AppAssets {
   static const String relatedPost2 = 'assets/images/related_post_2.png';
   static const String relatedPost3 = 'assets/images/related_post_3.png';
   static const String cathyBellancaProfile = 'assets/images/cathy_bellanca.png';
+  static const String lauraMullisProfile = 'assets/images/laura_mullis.png';
 
   static const String sabriyeCircleProfile =
       'assets/images/sabriye_circle_profile.png';

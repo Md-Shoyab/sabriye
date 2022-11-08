@@ -26,7 +26,7 @@ class OneOffSessionCards extends StatelessWidget {
       height: Get.height * .28,
       width: Get.width,
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
