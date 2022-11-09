@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
@@ -45,9 +43,7 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
               FutureBuilder<Map>(
                 future: controller.apiServices.getComingIntoOneness(),
                 builder: (context, snapshot) {
-                  log('coming in Future Builder');
                   if (snapshot.hasData) {
-                    log('coming in snashot has Data');
                     if (snapshot.data!.isEmpty) {
                       return const Center(
                         child: Text('Something went wrong'),
@@ -61,144 +57,6 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                     child: CircularProgressIndicator(),
                   );
                 },
-              ),
-              // const Text(
-              //   'Healing the separation\nbetween the ego and the\nsoul',
-              //   style: TextStyle(
-              //     height: 1.4,
-              //     fontSize: 28,
-              //     color: AppColors.primaryColor,
-              //     fontWeight: FontWeight.w600,
-              //   ),
-              // ),
-              // const VerticalGap(),
-              // const Text(
-              //   '''A 12-Month Profoundly Transformational Group Experience Where We Heal The Separation Between Your Ego And Your Soul, Unlock Your Divine Design, Quantum Leap Into The Frequency Of Heaven on Earth, And Become A Vibrational Match For All That Is Yours By Divine Right!''',
-              //   style: TextStyle(
-              //     height: 1.7,
-              //     fontSize: 14,
-              //     fontWeight: FontWeight.w600,
-              //   ),
-              // ),
-              // const VerticalGap(),
-              // const Text(
-              //   '''Akasha Healing™ is one of the deepest levels of trauma & karma healing available to us now. Working within the Akashic Quantum field allows you to heal money, love, relationships, vocation, and all other areas of your life by closing the door on the past once and for all.''',
-              //   style: TextStyle(
-              //     height: 1.7,
-              //     fontSize: 14,
-              //     fontWeight: FontWeight.w300,
-              //   ),
-              // ),
-              const VerticalGap(),
-              Container(
-                height: Get.height * .25,
-                width: Get.width,
-                decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(AppAssets.comingIntoOneness),
-                    fit: BoxFit.cover,
-                  ),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                'Are you ready to be, do and have what your soul desires?',
-                style: TextStyle(
-                  height: 1.7,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                '''Living a soul-aligned life goes deeper than simply setting an intention, it requires healing our wounded ego that otherwise will hijack our reality whenever it sees its chance. This is not yet another program that will teach you to ‘manifest your ego desires’ the woo-woo way. This program is not about attracting the love of your life, landing your dream job, or upscaling your business or income to six or seven figures.
-      
-Yet, all of the above are possible side-effects of the powerful work that we will be doing together. The difference is that it’s not these things that motivate you. You are seeking more profound experiences than designer clothes, a lamborghini and the jet-set life.
-      
-You crave authenticity, deep connection, unconditional love, unlimited abundance in all areas of your life, freedom and soul liberation. It’s not that any of the other experiences are wrong in your eyes, it’s that you are searching for more depth and meaning in your life beyond the shiny objects that you realise are merely a distraction from why we are really here and what we came here to do.
-      
-This by no means is to say that you have to renounce all worldly stuff and can’t own luxury cars. If you deeply desire the experience of having a Porsche, a mansion or a yacht this is of course always available to have, but it’s not what makes you jump out of bed every morning.
-      
-You came here to shine your light bright, to create impact, to be a changemaker, to fully embody your soul and create a legacy of light in your own life and every life you touch including future generations. 
-      
-The disconnect that you experience between who you know you are here to be and your current reality is caused by the unresolved wounding and pain that you still carry with you from your past. When you can let the past go on the deepest subconscious level, the way is clear for the soul to fully embody itself in the physical.''',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  height: 1.7,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              const VerticalGap(),
-              Align(
-                alignment: Alignment.center,
-                child: Container(
-                  width: Get.width,
-                  padding: const EdgeInsets.fromLTRB(30, 30, 30, 20),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: AppColors.lightprimary.withOpacity(0.6),
-                        spreadRadius: 1.0,
-                        blurRadius: 3.0,
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'About Sabriyé Ayana',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.primaryColor,
-                        ),
-                      ),
-                      const VerticalGap(gap: 20),
-                      Container(
-                        height: Get.height * .2,
-                        width: Get.width * .8,
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          image: DecorationImage(
-                            image: AssetImage(AppAssets.aboutSabriya),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const VerticalGap(gap: 20),
-                      const Text(
-                        '''My name is Sabriyé Ayana, I am a bestselling spiritual author, New Paradigm leader, founder of Akasha Quantum Soul Healing™ & the School of Inner Union. I help new paradigm shifters and leaders ready to unlock the frequency of Heaven on Earth, take their manifesting skills to the Soul level. 
-
-The key to unlocking your private version of Paradise is healing the separation between the ego and the soul. 
-
-The reason why so many people fail to create the life and the reality that they dream of is because their ego and their soul are not on the same page. They are literally coming from two different directions, as the ego creates from the frequency of fear and the soul creates from the frequency of love. It is through healing the wounded ego that we can come into Divine union with our soul.''',
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const VerticalGap(gap: 30),
-              const Text(
-                'Reactivating Your Divine Blueprint',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                '''There’s a Divine design for every aspect of our lives, a perfect match if you will for where we live, what we do for a living, the person we spend our lives with, the quality of our health, the amount of money in the bank and all our other earthly desires.
-
-The reason we are often not living our Divine design is because it is being distorted by the unresolved pain and wounding that we still carry with us from our childhood, our ancestors and our past life incarnations. We all have a Divine blueprint that is crystal clear and perfect within the soul realm, but as it projects from the energetical realm into the physical, our fears and false beliefs created from our unresolved pain and wounding in the three previous timelines creates distortions in the physical manifestation of our Divine design. When we heal the origins of these distortions, they cease to exist and our Divine design will manifest as crystal clear and perfect in the physical realm as the original that forever stays immaculate within the soul realm.''',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w300,
-                ),
               ),
               const VerticalGap(),
               const Center(
@@ -235,7 +93,7 @@ The reason we are often not living our Divine design is because it is being dist
                               : AppColors.lightprimary.withOpacity(0.4),
                           spreadRadius: 1.0,
                           blurRadius: 3.0,
-                        )
+                        ),
                       ],
                     ),
                     child: Column(

@@ -614,6 +614,7 @@ After successful payment you will receive an email with a link to Sabriyé's onl
                   SizedBox(
                     height: 1380,
                     child: ListView.builder(
+                      shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: controller.sessionCardTitle.length,
                       itemBuilder: ((context, index) => OneOffSessionCards(

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -12,7 +11,6 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    log(controller.readOnly.value.toString());
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
@@ -89,7 +87,9 @@ class ProfileView extends GetView<ProfileController> {
                         border: Border.all(),
                       ),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          controller.addImage();
+                        },
                         icon: const Icon(Icons.camera_alt_outlined),
                       ),
                     ),

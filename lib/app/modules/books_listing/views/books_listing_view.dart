@@ -48,7 +48,7 @@ class BooksListingView extends GetView<BooksListingController> {
             bookTitleText: AppConstants.booksCardTitle2,
             imagePath: AppAssets.booksImage2,
             textButtonText: AppConstants.booksCardButtonText2,
-            routes: '',
+            routes: Routes.DIVINE_UNION_BOOK,
           ),
         ],
       ),

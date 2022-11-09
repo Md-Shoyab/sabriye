@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -241,14 +240,12 @@ class ApiServices {
 
   Future<void> loginUser(String basicAuth) async {
     try {
-      log(basicAuth);
       var response = await http.get(
         Uri.parse(
           API_BASE_URL + API_LOGIN,
         ),
         headers: <String, String>{'Authorization': basicAuth},
       );
-      log(response.body);
       if (response.statusCode == 200) {
         SessionManager.saveUserToken(basicAuth);
         Get.offAllNamed(Routes.MAIN_SCREEN);
@@ -268,7 +265,6 @@ class ApiServices {
         ),
       );
       if (response.statusCode == 200) {
-        log(response.body);
         return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');
@@ -331,7 +327,6 @@ class ApiServices {
         ),
       );
       if (response.statusCode == 200) {
-        log(response.body);
         return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');
@@ -349,7 +344,6 @@ class ApiServices {
         ),
       );
       if (response.statusCode == 200) {
-        log(response.body);
         return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');
@@ -367,7 +361,6 @@ class ApiServices {
         ),
       );
       if (response.statusCode == 200) {
-        log(response.body);
         return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');
@@ -385,7 +378,6 @@ class ApiServices {
         ),
       );
       if (response.statusCode == 200) {
-        log(response.body);
         return jsonDecode(response.body);
       } else {
         return Future.error('Server Error');

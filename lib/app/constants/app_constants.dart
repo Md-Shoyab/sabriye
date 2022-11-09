@@ -135,7 +135,7 @@ class AppConstants {
   static const String schoolFAQCardTitle4 = 'Payment plans:';
   static const String schoolFAQCardTitle5 = 'Managing My Account:';
   static const String schoolFAQCardTitle6 = 'Troubleshooting:';
-  static const String booksAndEbooksText = 'Books & Ebooks:';
+  static const String booksAndEbooksText = 'Books & Ebooks';
   static const String booksCardTitle1 = 'The Ultimate Guide to\nInner Union';
   static const String booksCardButtonText = 'Download the E-Book';
   static const String booksCardButtonText2 = 'Buy on Amazon';

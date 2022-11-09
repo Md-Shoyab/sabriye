@@ -26,6 +26,8 @@ import '../modules/comments/bindings/comments_binding.dart';
 import '../modules/comments/views/comments_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/divine_union_book/bindings/divine_union_book_binding.dart';
+import '../modules/divine_union_book/views/divine_union_book_view.dart';
 import '../modules/faq/bindings/faq_binding.dart';
 import '../modules/faq/views/faq_view.dart';
 import '../modules/forgot_password/bindings/forgot_password_binding.dart';
@@ -317,6 +319,11 @@ class AppPages {
       name: _Paths.COMING_INTO_ONENESS,
       page: () => const ComingIntoOnenessView(),
       binding: ComingIntoOnenessBinding(),
+    ),
+    GetPage(
+      name: _Paths.DIVINE_UNION_BOOK,
+      page: () => const DivineUnionBookView(),
+      binding: DivineUnionBookBinding(),
     ),
   ];
 }
