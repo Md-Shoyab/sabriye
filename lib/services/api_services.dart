@@ -238,7 +238,7 @@ class ApiServices {
     }
   }
 
-Future<List> getFaqAccount() async {
+  Future<List> getFaqAccount() async {
     try {
       var response = await http.get(
         Uri.parse(
@@ -260,25 +260,6 @@ Future<List> getFaqAccount() async {
       var response = await http.get(
         Uri.parse(
           API_BASE_URL_2 + API_GET_FAQ_MANAGING_ACCOUNT,
-        ),
-      );
-      if (response.statusCode == 200) {
-        return jsonDecode(response.body);
-      } else {
-        return Future.error('Server Error');
-      }
-    } catch (e) {
-      return Future.error('Exception error');
-    }
-  }
-
-
-
-  Future<Map> getSessions() async {
-    try {
-      var response = await http.get(
-        Uri.parse(
-          API_BASE_URL + API_GET_SESSIONS_DETAILS,
         ),
       );
       if (response.statusCode == 200) {
@@ -462,6 +443,159 @@ Future<List> getFaqAccount() async {
       var response = await http.get(
         Uri.parse(
           API_BASE_URL_2 + API_GET_FOUR_STAGES_INNER_UNION,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> membershipIntro() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_MEMBERSHIP_INTRO,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> membershipCheckPoints() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_MEMBERSHIP_CHECKPOINTS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> membershipAccordion() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_MEMBERSHIP_ACCORDIONS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> membershipPayment() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_MEMBERSHIP_PAYMENTS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionDetails() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_PART1_DETAILS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionDetailsPartTwo() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_PART2_DETAILS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionDetailsPartThree() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_PART3_DETAILS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionDetailsPartFour() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_PART4_DETAILS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionDetailsPartFive() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_PART5_DETAILS,
         ),
       );
       if (response.statusCode == 200) {

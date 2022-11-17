@@ -61,15 +61,5 @@ class SessionDetailsController extends GetxController {
     "Akasha Healing™ the false 'love is pain' program €1111",
     'Soul Clarity Journey €1111',
     'Money Blocks session €555',
-    
   ];
-
-  @override
-  void onInit() {
-    apiServices.getSessions();
-    super.onInit();
-  }
-
-  @override
-  void onClose() {}
 }
