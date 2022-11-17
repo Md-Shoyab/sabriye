@@ -20,6 +20,8 @@ class AppAssets {
   static const String miroslawaDProfile = 'assets/images/miroslava_d.png';
   static const String jasmijnDeGaafProfile =
       'assets/images/jasmijn_de_graaf.png';
+  static const String deafultProfileAvatar =
+      'assets/images/default_profile.png';
   static const String profileAvatar = 'assets/images/profile_avatar.png';
   static const String annUsaProfile = 'assets/images/ann_usa_profile.webp';
   static const String laurenManiereProfile =
@@ -32,6 +34,8 @@ class AppAssets {
       'assets/images/natasha_leigh_bray.png';
   static const String topImage = 'assets/images/top_icon.png';
   static const String orcaleCardsImage = 'assets/images/oracle_card_image.png';
+  static const String orcaleCardsBackImage =
+      'assets/images/oracle_card_back.png';
   static const String circleBackground = 'assets/images/circle_background.png';
   static const String sessionsImage = 'assets/images/session_icon.png';
   static const String programsImage = 'assets/images/program_icon.png';

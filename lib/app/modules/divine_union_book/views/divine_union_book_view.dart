@@ -25,6 +25,7 @@ class DivineUnionBookView extends GetView<DivineUnionBookController> {
           javascriptMode: JavascriptMode.unrestricted,
           initialUrl: 'https://a.co/d/aZLBJIr',
         ),
+        
       ),
     );
   }

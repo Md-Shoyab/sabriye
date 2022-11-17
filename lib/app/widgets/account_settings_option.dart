@@ -7,10 +7,12 @@ import '../constants/app_colors.dart';
 class AccountSettingsOption extends StatelessWidget {
   final String settingName;
   final String settingIconImage;
+  final Color? color;
   const AccountSettingsOption({
     Key? key,
     required this.settingName,
     required this.settingIconImage,
+    this.color,
   }) : super(key: key);
 
   @override
@@ -39,7 +41,10 @@ class AccountSettingsOption extends StatelessWidget {
           children: [
             Image.asset(settingIconImage),
             const HorizontalGap(gap: 15),
-            Text(settingName),
+            Text(settingName,
+                style: TextStyle(
+                  color: color,
+                )),
           ],
         ),
       ),

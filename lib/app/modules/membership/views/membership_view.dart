@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/membership_controller.dart';
 
@@ -31,25 +32,43 @@ class MembershipView extends GetView<MembershipController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: FutureBuilder<Map>(
-        future: controller.apiServices.getMembershipDetails(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Center(
-                child: Text('Something went wrong'),
-              );
-            }
-            return SingleChildScrollView(
-              child: Html(
-                data: snapshot.data!['content']['rendered'],
+      body: ListView(
+        children: [
+          const VerticalGap(),
+          Image.asset(
+            AppAssets.memberhsipBannerImage,
+            fit: BoxFit.fill,
+          ),
+          const VerticalGap(),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: const Text(
+              'The Inner Learning Circle. Join us today\nrisk-free!',
+              style: TextStyle(
+                height: 1.5,
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
               ),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
+            ),
+          ),
+          const VerticalGap(),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: const Text(
+                '''Get Instant Access to Spiritual teachings on Healing the subconscious, Inner Union, Ascension, 5D or Heaven on Earth, Past Lives, Law of Attraction, Soul Partnerships, and more! You can join on a trial, or a monthly or annual membership if you want to feel into the vibe and teachings first before you dive in deep.'''),
+          ),
+          const VerticalGap(),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: const Text(
+              'Join today and receive:',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -46,6 +46,7 @@ class SideMenuView extends GetView<SideMenuController> {
             child: const AccountSettingsOption(
               settingName: AppConstants.downloadFreeEbookNowText,
               settingIconImage: AppAssets.downloadEbookIcon,
+              color: AppColors.primaryColor,
             ),
           ),
           InkWell(
