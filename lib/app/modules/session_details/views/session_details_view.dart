@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
+import '../../../widgets/on_off_session_card.dart';
 import '../../../widgets/sessions_testimony.dart';
 import '../controllers/session_details_controller.dart';
 
@@ -579,86 +580,27 @@ After our work I felt a radical shift in the martyrdom pattern and now have the 
             ),
           ),
           const VerticalGap(),
-          ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 5,
-            itemBuilder: ((context, index) => Container(
-                  width: Get.width,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                  padding: const EdgeInsets.fromLTRB(15, 20, 15, 5),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 3,
-                        color: AppColors.lightprimary,
-                      )
-                    ],
-                    image: const DecorationImage(
-                      alignment: Alignment.bottomRight,
-                      image: AssetImage(
-                        AppAssets.sessionCardFlowerImage,
-                      ),
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Three Timelines Healing €1111',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                        ),
-                      ),
-                      const VerticalGap(),
-                      const Text(
-                        '''Akasha Healing™ works on the three timelines of the past: our childhood, ancestral baggage and past lives. Sometimes no matter how hard we try we can’t seem to create what we want.''',
-                        style: TextStyle(
-                          height: 1.5,
-                        ),
-                      ),
-                      const VerticalGap(gap: 20),
-                      Row(
-                        children: [
-                          const HorizontalGap(),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Buy Now',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: AppColors.white,
-                              ),
-                            ),
-                            style: TextButton.styleFrom(
-                              backgroundColor: AppColors.primaryColor,
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                            ),
-                          ),
-                          const HorizontalGap(gap: 25),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'Learn More',
-                              style: TextStyle(
-                                decoration: TextDecoration.underline,
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                )),
+          FutureBuilder<List>(
+            future: controller.apiServices.sessionCardsDetails(),
+            builder: ((context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data!.isEmpty) {
+                  return const Text('No Data Available');
+                }
+                return ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: ((context, index) => OneOffSessionCards(
+                        title: snapshot.data![index]['title']['rendered'],
+                        content: snapshot.data![index]['content']['rendered'],
+                      )),
+                );
+              }
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }),
           ),
           const VerticalGap(),
           Container(
@@ -678,7 +620,7 @@ After our work I felt a radical shift in the martyrdom pattern and now have the 
           ),
           const SizedBox(
             height: 100,
-          )
+          ),
         ],
       ),
     );
