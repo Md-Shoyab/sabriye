@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_colors.dart';
 
 class SessionTestimony extends StatelessWidget {
@@ -38,15 +37,6 @@ class SessionTestimony extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.w700,
               color: AppColors.primaryColor,
-            ),
-          ),
-          const VerticalGap(gap: 8),
-          Text(
-            reviewHighlightedText,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 15,
-              fontWeight: FontWeight.w600,
             ),
           ),
           const VerticalGap(gap: 8),

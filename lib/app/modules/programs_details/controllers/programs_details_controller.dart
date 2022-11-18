@@ -1,6 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProgramsDetailsController extends GetxController {
+  final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
+  final TextEditingController fnameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+
   final List<String> clientResultPointsList = [
     'Money struggles',
     'Self-worth & Self-esteem',
@@ -34,6 +39,28 @@ class ProgramsDetailsController extends GetxController {
     'Inability or difficulty to receive',
     'Overgiving',
   ];
+
+  String? validateEmail(String? value) {
+    if (value!.isEmpty) {
+      return "Provide valid email.";
+    } else if (GetUtils.isEmail(value)) {
+      debugPrint('This is correct email');
+    } else {
+      return 'Provide a valid email';
+    }
+    return null;
+  }
+
+  String? validateName(String? value) {
+    if (value!.isEmpty) {
+      return 'Provide a valid name';
+    } else {}
+    return null;
+  }
+
   @override
-  void onClose() {}
+  void onClose() {
+    fnameController.dispose();
+    emailController.dispose();
+  }
 }

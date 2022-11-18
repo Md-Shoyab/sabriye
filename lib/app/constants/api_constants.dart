@@ -38,6 +38,7 @@ const String API_GET_SESSIONS_PART3_DETAILS = '/pages/146';
 const String API_GET_SESSIONS_PART4_DETAILS = '/pages/148';
 const String API_GET_SESSIONS_PART5_DETAILS = '/pages/150';
 const String API_GET_SESSIONS_CARDS_DETAILS = '/posts/?categories=12';
+const String API_GET_SESSIONS_TESTIMONY = '/posts/?categories=13';
 const String API_GET_ALL_CARDS = '/card/';
 const String API_GET_BOOK_DETAILS = '/pages/41';
 const String API_GET_COMMENTS_BY_ID = '/comments/';

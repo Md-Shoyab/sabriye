@@ -197,14 +197,24 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
             indent: 15,
             endIndent: 15,
           ),
-          const SessionTestimony(
-            profileImagePath: AppAssets.cathyBellancaProfile,
-            reviewerName: 'CATHY BELLANCA',
-            reviewHighlightedText:
-                '''“I feel much more confident in myself and my ability to have success and wealth. I have signed FOUR new clients and I know that more are on the way.”''',
-            reviewRating: 5.0,
-            reviewFullContent:
-                '''When I met Sabriyé, I was struggling with getting paying clients. I had launched my business almost a year ago and had very few paying clients. Not only was this affecting me financially, it also made me question my skills as a healer and an entrepreneur. I wondered if I was ever going to be able to help people and if I could have a successful business.''',
+          FutureBuilder<List>(
+            future: controller.apiServices.sessionTestimony(),
+            builder: ((context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.data!.isEmpty) {
+                  return const Text('No Data Available');
+                }
+                return SessionTestimony(
+                  profileImagePath: AppAssets.cathyBellancaProfile,
+                  reviewerName: snapshot.data![5]['title']['rendered'],
+                  reviewHighlightedText:
+                      '''“I feel much more confident in myself and my ability to have success and wealth. I have signed FOUR new clients and I know that more are on the way.”''',
+                  reviewRating: 5.0,
+                  reviewFullContent: snapshot.data![5]['content']['rendered'],
+                );
+              }
+              return const Center(child: CircularProgressIndicator());
+            }),
           ),
           const Divider(
             color: AppColors.grey,
@@ -252,7 +262,6 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
           //         )),
           //   ),
           // ),
-
           FutureBuilder<Map>(
             future: controller.apiServices.sessionDetailsPartTwo(),
             builder: ((context, snapshot) {

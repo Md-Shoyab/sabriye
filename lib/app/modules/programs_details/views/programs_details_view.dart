@@ -35,63 +35,68 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          width: Get.width,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const VerticalGap(gap: 20),
-              const Text(
-                AppConstants.akashaHealingCertificationText,
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w700,
-                  height: 1.5,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                AppConstants.programDetailsContent1,
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 16,
-                  height: 1.5,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(gap: 15),
-              const Text(
-                AppConstants.programDetailsContent1,
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 14,
-                  height: 1.5,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                AppConstants.becomeAkashaHealingPractitionerText,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  height: 1.5,
-                  color: AppColors.primaryColor,
-                ),
-              ),
-              const VerticalGap(),
-              const Text(
-                AppConstants.fillTheFormDetailsText,
-                style: TextStyle(
-                  height: 1.5,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const VerticalGap(gap: 15),
-              TextFormField(
-                decoration: InputDecoration(
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        children: [
+          const VerticalGap(gap: 20),
+          const Text(
+            AppConstants.akashaHealingCertificationText,
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w700,
+              height: 1.5,
+              color: AppColors.primaryColor,
+            ),
+          ),
+          const VerticalGap(),
+          const Text(
+            AppConstants.programDetailsContent1,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 16,
+              height: 1.5,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const VerticalGap(gap: 15),
+          const Text(
+            AppConstants.programDetailsContent1,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.5,
+            ),
+          ),
+          const VerticalGap(),
+          const Text(
+            AppConstants.becomeAkashaHealingPractitionerText,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+              height: 1.5,
+              color: AppColors.primaryColor,
+            ),
+          ),
+          const VerticalGap(),
+          const Text(
+            AppConstants.fillTheFormDetailsText,
+            style: TextStyle(
+              height: 1.5,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          const VerticalGap(gap: 15),
+          Form(
+            key: controller.emailFormKey,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFormField(
+                  validator: (value) => controller.validateName(value!),
+                  controller: controller.fnameController,
+                  cursorColor: AppColors.primaryColor,
+                  decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 15,
                       vertical: 0,
@@ -99,24 +104,20 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    hintText: AppConstants.firstNameText),
-              ),
-              const VerticalGap(gap: 15),
-              TextFormField(
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 0,
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: AppColors.primaryColor,
+                        width: 2.0,
+                      ),
+                    ),
+                    hintText: AppConstants.firstNameText,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  hintText: AppConstants.lastNameText,
                 ),
-              ),
-              const VerticalGap(gap: 15),
-              TextFormField(
-                decoration: InputDecoration(
+                const VerticalGap(gap: 15),
+                TextFormField(
+                  cursorColor: AppColors.primaryColor,
+                  decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: 15,
                       vertical: 0,
@@ -124,126 +125,159 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    hintText: AppConstants.emailText),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: AppColors.primaryColor,
+                        width: 2.0,
+                      ),
+                    ),
+                    hintText: AppConstants.lastNameText,
+                  ),
+                ),
+                const VerticalGap(gap: 15),
+                TextFormField(
+                  validator: (value) => controller.validateEmail(value),
+                  controller: controller.emailController,
+                  cursorColor: AppColors.primaryColor,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 15,
+                      vertical: 0,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: const BorderSide(
+                        color: AppColors.primaryColor,
+                        width: 2.0,
+                      ),
+                    ),
+                    hintText: AppConstants.emailText,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const VerticalGap(),
+          Center(
+            child: TextButton(
+              onPressed: () {
+                controller.emailFormKey.currentState!.validate();
+              },
+              child: const Text(
+                AppConstants.downloadText,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.white,
+                ),
               ),
-              const VerticalGap(),
-              Center(
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    AppConstants.downloadText,
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                backgroundColor: AppColors.primaryColor,
+              ),
+            ),
+          ),
+          const VerticalGap(gap: 15),
+          const Divider(
+            thickness: 1.0,
+            indent: 15,
+            endIndent: 15,
+          ),
+          const VerticalGap(),
+          Center(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    backgroundImage:
+                        AssetImage(AppAssets.testimonialsProfileImage),
+                    radius: 30,
+                  ),
+                  const VerticalGap(gap: 8),
+                  const Text(
+                    AppConstants.jasmijnDeGraafNameText,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const Text(
+                    AppConstants.newZealandText,
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
+                  const VerticalGap(gap: 5),
+                  RatingBar.builder(
+                    ignoreGestures: true,
+                    initialRating: 5.0,
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {},
+                    itemSize: 20,
+                  ),
+                  const VerticalGap(),
+                  const Text(
+                    AppConstants.jasmijnDeGraafTestimonyText,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.white,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
-                  style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 8,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    backgroundColor: AppColors.primaryColor,
-                  ),
-                ),
+                ],
               ),
-              const VerticalGap(gap: 15),
-              const Divider(
-                thickness: 1.0,
-                indent: 15,
-                endIndent: 15,
-              ),
-              const VerticalGap(),
-              Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    children: [
-                      const CircleAvatar(
-                        backgroundImage:
-                            AssetImage(AppAssets.testimonialsProfileImage),
-                        radius: 30,
-                      ),
-                      const VerticalGap(gap: 8),
-                      const Text(
-                        AppConstants.jasmijnDeGraafNameText,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      const Text(
-                        AppConstants.newZealandText,
-                        style: TextStyle(
-                          fontSize: 16,
-                        ),
-                      ),
-                      const VerticalGap(gap: 5),
-                      RatingBar.builder(
-                        ignoreGestures: true,
-                        initialRating: 5.0,
-                        itemBuilder: (context, _) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        onRatingUpdate: (rating) {},
-                        itemSize: 20,
-                      ),
-                      const VerticalGap(),
-                      const Text(
-                        AppConstants.jasmijnDeGraafTestimonyText,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              const Divider(
-                thickness: 1.0,
-                indent: 15,
-                endIndent: 15,
-              ),
-              const VerticalGap(),
-              const Text(
-                AppConstants.clientResultText,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(gap: 18),
-              const Text(
-                AppConstants.clientResultContentText,
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                  height: 1.5,
-                ),
-              ),
-              const VerticalGap(),
-              SizedBox(
-                height: Get.height,
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: controller.clientResultPointsList.length,
-                  itemBuilder: ((context, index) => CheckBoxPoints(
-                        checkBoxPointText:
-                            controller.clientResultPointsList[index],
-                      )),
-                ),
-              ),
-              const VerticalGap(gap: 100),
-            ],
+            ),
           ),
-        ),
+          const Divider(
+            thickness: 1.0,
+            indent: 15,
+            endIndent: 15,
+          ),
+          const VerticalGap(),
+          const Text(
+            AppConstants.clientResultText,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          const VerticalGap(gap: 18),
+          const Text(
+            AppConstants.clientResultContentText,
+            textAlign: TextAlign.justify,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              height: 1.5,
+            ),
+          ),
+          const VerticalGap(),
+          SizedBox(
+            height: Get.height,
+            child: ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: controller.clientResultPointsList.length,
+              itemBuilder: ((context, index) => CheckBoxPoints(
+                    checkBoxPointText: controller.clientResultPointsList[index],
+                  )),
+            ),
+          ),
+          const VerticalGap(gap: 100),
+        ],
       ),
     );
   }

@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../services/api_services.dart';
 
 class LoginController extends GetxController {
