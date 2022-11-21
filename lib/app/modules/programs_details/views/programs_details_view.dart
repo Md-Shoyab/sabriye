@@ -165,7 +165,12 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
           Center(
             child: TextButton(
               onPressed: () {
-                controller.emailFormKey.currentState!.validate();
+                if (controller.emailFormKey.currentState!.validate()) {
+                  controller.apiServices.captureEmail(
+                    controller.emailController.text.trim(),
+                    controller.fnameController.text.trim(),
+                  );
+                }
               },
               child: const Text(
                 AppConstants.downloadText,

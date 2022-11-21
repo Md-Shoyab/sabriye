@@ -67,11 +67,26 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         ),
                       ),
                       const VerticalGap(gap: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: AppConstants.emailText,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                      Form(
+                        key: controller.emailFormKey,
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        child: TextFormField(
+                          validator: ((value) =>
+                              controller.validateEmail(value)),
+                          controller: controller.emailController,
+                          cursorColor: AppColors.primaryColor,
+                          decoration: InputDecoration(
+                            hintText: AppConstants.emailText,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              borderSide: const BorderSide(
+                                color: AppColors.primaryColor,
+                                width: 2.0,
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -79,7 +94,14 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                         gap: 20,
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (controller.emailFormKey.currentState!
+                              .validate()) {
+                            controller.apiServices.forgotPassword(
+                              controller.emailController.text.trim(),
+                            );
+                          }
+                        },
                         child: const Text(
                           AppConstants.loginTxt,
                           style: TextStyle(

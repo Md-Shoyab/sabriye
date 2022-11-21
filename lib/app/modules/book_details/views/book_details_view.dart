@@ -103,6 +103,7 @@ class BookDetailsView extends GetView<BookDetailsController> {
                 child: Column(
                   children: [
                     TextFormField(
+                      cursorColor: AppColors.primaryColor,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -110,12 +111,18 @@ class BookDetailsView extends GetView<BookDetailsController> {
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                              color: AppColors.primaryColor, width: 2.0),
                         ),
                         hintText: AppConstants.nameText,
                       ),
                     ),
                     const VerticalGap(),
                     TextFormField(
+                      cursorColor: AppColors.primaryColor,
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -123,6 +130,11 @@ class BookDetailsView extends GetView<BookDetailsController> {
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: const BorderSide(
+                              color: AppColors.primaryColor, width: 2.0),
                         ),
                         hintText: AppConstants.emailText,
                       ),

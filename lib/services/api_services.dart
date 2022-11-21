@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -641,5 +644,43 @@ class ApiServices {
       return Future.error('Exception error');
     }
   }
-  
+
+  Future<void> captureEmail(String email, name) async {
+    try {
+      var response = await http.post(
+        Uri.parse(
+          'http://app.sabriyeayana.com/?ac_request=1&ac_email=$email&fname=$name',
+        ),
+      );
+      if (response.statusCode == 200) {
+        return debugPrint('Email Captured Sucessfully');
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<void> forgotPassword(String registeredEmail) async {
+    try {
+      var response = await http.post(
+        Uri.parse(
+          'https://sabriyeayana.com/wp-json/bdpwr/v1/reset-password',
+        ),
+        body: {
+          "email": registeredEmail,
+        },
+      );
+      if (response.statusCode == 200) {
+        log(response.body);
+        return;
+      } else {
+        final finalResponse = jsonDecode(response.body);
+        return Future.error(finalResponse['message']);
+      }
+    } catch (e) {
+      return Future.error(e);
+    }
+  }
 }

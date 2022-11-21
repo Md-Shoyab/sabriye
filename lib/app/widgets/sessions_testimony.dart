@@ -28,7 +28,7 @@ class SessionTestimony extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 28,
-            backgroundImage: AssetImage(profileImagePath),
+            backgroundImage: NetworkImage(profileImagePath),
           ),
           const VerticalGap(gap: 8),
           Text(

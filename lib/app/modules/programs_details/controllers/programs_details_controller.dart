@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/services/api_services.dart';
 
 class ProgramsDetailsController extends GetxController {
   final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
   final TextEditingController fnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final ApiServices apiServices = ApiServices();
 
   final List<String> clientResultPointsList = [
     'Money struggles',
