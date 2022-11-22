@@ -1,12 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sabriye/app/constants/api_constants.dart';
-import 'package:sabriye/app/local_storage/sessions.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
+import 'package:sabriye/app/constants/app_colors.dart';
+import '../app/local_storage/sessions.dart';
+import '../app/routes/app_pages.dart';
 
 class ApiServices {
   Future<List> getAllPost() async {
@@ -301,13 +300,15 @@ class ApiServices {
         headers: <String, String>{'Authorization': basicAuth},
       );
       if (response.statusCode == 200) {
+        final finalResponse = jsonDecode(response.body);
         SessionManager.saveUserToken(basicAuth);
+        SessionManager.saveUserId(finalResponse['id']);
         Get.offAllNamed(Routes.MAIN_SCREEN);
       } else {
         Future.error('Server Error');
       }
     } catch (e) {
-      Future.error('Exception error');
+      Future.error(e);
     }
   }
 
@@ -673,14 +674,44 @@ class ApiServices {
         },
       );
       if (response.statusCode == 200) {
-        log(response.body);
-        return;
+        final finalResponse = jsonDecode(response.body);
+        Get.snackbar(
+          'Reset Password Link send to Email',
+          finalResponse['message'],
+          backgroundColor: AppColors.white,
+        );
       } else {
         final finalResponse = jsonDecode(response.body);
-        return Future.error(finalResponse['message']);
+        return Future.error(
+          Get.snackbar(
+            finalResponse['code'],
+            finalResponse['message'],
+            backgroundColor: AppColors.white,
+          ),
+        );
       }
     } catch (e) {
       return Future.error(e);
+    }
+  }
+
+  Future<Map> fetchProfileDetails(int id) async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL + '/users/$id',
+        ),
+        headers: <String, String>{
+          'Authorization': SessionManager.getUserToken().toString()
+        },
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
     }
   }
 }

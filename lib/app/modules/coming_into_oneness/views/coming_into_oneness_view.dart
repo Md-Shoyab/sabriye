@@ -56,14 +56,6 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
               },
             ),
             const VerticalGap(),
-            const Text(
-              'The Four Stages of Inner Union',
-              style: TextStyle(
-                color: AppColors.primaryColor,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
             FutureBuilder<List>(
               future: controller.apiServices.fourStagesInnerUnion(),
               builder: ((context, snapshot) {
@@ -73,90 +65,109 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                       child: Text('No Data available'),
                     );
                   }
-                  return ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) => Obx(
-                      () => Container(
-                        margin: const EdgeInsets.only(top: 15),
-                        decoration: BoxDecoration(
-                          color: controller.dropDownStatus[index].value
-                              ? Colors.transparent
-                              : AppColors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: AssetImage(
-                              controller.dropDownStatus[index].value
-                                  ? AppAssets.accordionBackground
-                                  : AppAssets.transparentBackground,
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                          boxShadow: [
-                            BoxShadow(
+                  return Column(
+                    children: [
+                      snapshot.hasData
+                          ? const Text(
+                              'The Four Stages of Inner Union',
+                              style: TextStyle(
+                                color: AppColors.primaryColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          : const CircularProgressIndicator(),
+                      ListView.builder(
+                        physics: const NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) => Obx(
+                          () => Container(
+                            margin: const EdgeInsets.only(top: 15),
+                            decoration: BoxDecoration(
                               color: controller.dropDownStatus[index].value
                                   ? Colors.transparent
-                                  : AppColors.lightprimary.withOpacity(0.4),
-                              spreadRadius: 1.0,
-                              blurRadius: 3.0,
+                                  : AppColors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  controller.dropDownStatus[index].value
+                                      ? AppAssets.accordionBackground
+                                      : AppAssets.transparentBackground,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: controller.dropDownStatus[index].value
+                                      ? Colors.transparent
+                                      : AppColors.lightprimary.withOpacity(0.4),
+                                  spreadRadius: 1.0,
+                                  blurRadius: 3.0,
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            const VerticalGap(),
-                            ListTile(
-                              title: Padding(
-                                padding: EdgeInsets.only(
-                                    left: controller.dropDownStatus[index].value
-                                        ? 8
-                                        : 0),
-                                child: Text(
-                                  snapshot.data![index]['title']['rendered'],
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    color:
-                                        controller.dropDownStatus[index].value
+                            child: Column(
+                              children: [
+                                const VerticalGap(),
+                                ListTile(
+                                  title: Padding(
+                                    padding: EdgeInsets.only(
+                                      left:
+                                          controller.dropDownStatus[index].value
+                                              ? 8
+                                              : 0,
+                                    ),
+                                    child: Text(
+                                      snapshot.data![index]['title']
+                                          ['rendered'],
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        color: controller
+                                                .dropDownStatus[index].value
                                             ? AppColors.white
                                             : AppColors.primaryColor,
-                                    fontWeight: FontWeight.w600,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                  trailing: IconButton(
+                                    onPressed: () {
+                                      controller.dropDownStatus[index].value =
+                                          !controller
+                                              .dropDownStatus[index].value;
+                                    },
+                                    icon: Icon(
+                                      controller.dropDownStatus[index].value
+                                          ? Icons.arrow_drop_up
+                                          : Icons.arrow_drop_down,
+                                      color:
+                                          controller.dropDownStatus[index].value
+                                              ? AppColors.white
+                                              : AppColors.primaryColor,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              trailing: IconButton(
-                                onPressed: () {
-                                  controller.dropDownStatus[index].value =
-                                      !controller.dropDownStatus[index].value;
-                                },
-                                icon: Icon(
-                                  controller.dropDownStatus[index].value
-                                      ? Icons.arrow_drop_up
-                                      : Icons.arrow_drop_down,
-                                  color: controller.dropDownStatus[index].value
-                                      ? AppColors.white
-                                      : AppColors.primaryColor,
-                                ),
-                              ),
+                                controller.dropDownStatus[index].value
+                                    ? Html(
+                                        data: snapshot.data![index]['content']
+                                            ['rendered'],
+                                        style: {
+                                          'p': Style(
+                                            color: AppColors.white,
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 15,
+                                            ),
+                                          ),
+                                        },
+                                      )
+                                    : Container()
+                              ],
                             ),
-                            controller.dropDownStatus[index].value
-                                ? Html(
-                                    data: snapshot.data![index]['content']
-                                        ['rendered'],
-                                    style: {
-                                      'p': Style(
-                                        color: AppColors.white,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 15,
-                                        ),
-                                      ),
-                                    },
-                                  )
-                                : Container()
-                          ],
+                          ),
                         ),
                       ),
-                    ),
+                    ],
                   );
                 }
                 return const Center(
@@ -187,10 +198,6 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
               }),
             ),
             const VerticalGap(gap: 20),
-            const Divider(
-              height: 1.3,
-              color: Colors.grey,
-            ),
             FutureBuilder<Map>(
               future: controller.apiServices.getPattyTestimonial(),
               builder: ((context, snapshot) {
@@ -200,54 +207,55 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                       child: Text('No Testimonials available'),
                     );
                   }
-                  return Container(
-                    width: Get.width,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 15,
-                    ),
-                    child: Column(
-                      children: [
-                        const CircleAvatar(
-                          radius: 28,
-                          backgroundImage: AssetImage(AppAssets.pattyProfile),
+                  return Column(
+                    children: [
+                      const Divider(
+                        height: 1.3,
+                        color: Colors.grey,
+                      ),
+                      Container(
+                        width: Get.width,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 15,
                         ),
-                        const VerticalGap(gap: 5),
-                        Text(
-                          snapshot.data!['title']['rendered'],
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.primaryColor,
-                          ),
+                        child: Column(
+                          children: [
+                            const CircleAvatar(
+                              radius: 28,
+                              backgroundImage:
+                                  AssetImage(AppAssets.pattyProfile),
+                            ),
+                            const VerticalGap(gap: 5),
+                            Text(
+                              snapshot.data!['title']['rendered'],
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                color: AppColors.primaryColor,
+                              ),
+                            ),
+                            const VerticalGap(),
+                            Html(
+                              data: snapshot.data!['content']['rendered'],
+                              style: {
+                                "p": Style(alignment: Alignment.center),
+                              },
+                            ),
+                            const Divider(
+                              height: 1.3,
+                              color: Colors.grey,
+                            ),
+                          ],
                         ),
-                        const VerticalGap(gap: 5),
-                        // const Text(
-                        //   'United States',
-                        //   style: TextStyle(
-                        //     fontSize: 15,
-                        //     fontWeight: FontWeight.w600,
-                        //   ),
-                        // ),
-                        const VerticalGap(),
-                        Html(
-                          data: snapshot.data!['content']['rendered'],
-                          style: {
-                            "p": Style(alignment: Alignment.center),
-                          },
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   );
                 }
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
               }),
-            ),
-            const Divider(
-              height: 1.3,
-              color: Colors.grey,
             ),
             const VerticalGap(gap: 20),
             FutureBuilder<Map>(
@@ -261,9 +269,6 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                   }
                   return Html(
                     data: snapshot.data!['content']['rendered'],
-                    style: {
-                      "h2": Style(color: AppColors.primaryColor),
-                    },
                   );
                 }
                 return const Center(

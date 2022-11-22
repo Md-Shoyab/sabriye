@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/change_password_controller.dart';
 
 class ChangePasswordView extends GetView<ChangePasswordController> {
@@ -52,21 +51,28 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
               vertical: 20,
             ),
             child: TextFormField(
+              cursorColor: AppColors.primaryColor,
               decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 0,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                hintText: AppConstants.emailText,
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  hintText: AppConstants.emailText),
+                ),
+              ),
             ),
           ),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.CHANGE_PASSWORD_VERFICATION);
-            },
+            onPressed: () {},
             child: const Text(
               AppConstants.sendText,
               style: TextStyle(

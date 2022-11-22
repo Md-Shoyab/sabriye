@@ -48,17 +48,6 @@ class BookDetailsView extends GetView<BookDetailsController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                height: Get.height * .25,
-                width: Get.width * .45,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(AppAssets.booksImage1),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-              const VerticalGap(),
               FutureBuilder<Map>(
                 future: controller.apiServices.getBookDetails(),
                 builder: (context, snapshot) {
@@ -71,6 +60,17 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
+                          Container(
+                            height: Get.height * .25,
+                            width: Get.width * .45,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(AppAssets.booksImage1),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          const VerticalGap(),
                           Html(
                             data: snapshot.data!['content']['rendered'],
                             style: {
@@ -80,6 +80,83 @@ class BookDetailsView extends GetView<BookDetailsController> {
                               "strong": Style(color: AppColors.primaryColor),
                             },
                           ),
+                          const Text(
+                            'Download this FREE Book',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const VerticalGap(),
+                          Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 15),
+                            child: Column(
+                              children: [
+                                TextFormField(
+                                  cursorColor: AppColors.primaryColor,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                      vertical: 0,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: const BorderSide(
+                                          color: AppColors.primaryColor,
+                                          width: 2.0),
+                                    ),
+                                    hintText: AppConstants.nameText,
+                                  ),
+                                ),
+                                const VerticalGap(),
+                                TextFormField(
+                                  cursorColor: AppColors.primaryColor,
+                                  decoration: InputDecoration(
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 20,
+                                      vertical: 0,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: const BorderSide(
+                                          color: AppColors.primaryColor,
+                                          width: 2.0),
+                                    ),
+                                    hintText: AppConstants.emailText,
+                                  ),
+                                ),
+                                const VerticalGap(),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    AppConstants.directDownloadText,
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                  style: TextButton.styleFrom(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 25,
+                                      vertical: 5,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    backgroundColor: AppColors.primaryColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const VerticalGap(),
                         ],
                       ),
                     );
@@ -88,81 +165,6 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     child: CircularProgressIndicator(),
                   );
                 },
-              ),
-              const VerticalGap(),
-              const Text(
-                'Download this FREE Book',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const VerticalGap(gap: 15),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    TextFormField(
-                      cursorColor: AppColors.primaryColor,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 0,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                              color: AppColors.primaryColor, width: 2.0),
-                        ),
-                        hintText: AppConstants.nameText,
-                      ),
-                    ),
-                    const VerticalGap(),
-                    TextFormField(
-                      cursorColor: AppColors.primaryColor,
-                      decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 0,
-                        ),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                          borderSide: const BorderSide(
-                              color: AppColors.primaryColor, width: 2.0),
-                        ),
-                        hintText: AppConstants.emailText,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const VerticalGap(),
-              TextButton(
-                onPressed: () {},
-                child: const Text(
-                  AppConstants.directDownloadText,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.white,
-                  ),
-                ),
-                style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 25,
-                    vertical: 5,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  backgroundColor: AppColors.primaryColor,
-                ),
               ),
               SizedBox(
                 height: Get.height * .2,

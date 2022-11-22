@@ -93,7 +93,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFormField(
-                  validator: (value) => controller.validateName(value!),
+                  validator: (value) => controller.validateFirstName(value!),
                   controller: controller.fnameController,
                   cursorColor: AppColors.primaryColor,
                   decoration: InputDecoration(
@@ -116,6 +116,8 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 ),
                 const VerticalGap(gap: 15),
                 TextFormField(
+                  controller: controller.lnameController,
+                  validator: (value) => controller.validateLastName(value!),
                   cursorColor: AppColors.primaryColor,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.symmetric(
@@ -168,7 +170,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 if (controller.emailFormKey.currentState!.validate()) {
                   controller.apiServices.captureEmail(
                     controller.emailController.text.trim(),
-                    controller.fnameController.text.trim(),
+                    '${controller.fnameController.text.trim()} ${controller.lnameController.text.trim()}',
                   );
                 }
               },
@@ -205,8 +207,7 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
               child: Column(
                 children: [
                   const CircleAvatar(
-                    backgroundImage:
-                        AssetImage(AppAssets.testimonialsProfileImage),
+                    backgroundImage: AssetImage(AppAssets.jasmijnDeGaafProfile),
                     radius: 30,
                   ),
                   const VerticalGap(gap: 8),
@@ -271,17 +272,25 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
             ),
           ),
           const VerticalGap(),
+          // ListView.builder(
+          //   clipBehavior: Clip.none,
+          //   physics: const NeverScrollableScrollPhysics(),
+          //   itemCount: controller.clientResultPointsList.length,
+          //   itemBuilder: ((context, index) => CheckBoxPoints(
+          //         checkBoxPointText: controller.clientResultPointsList[index],
+          //       )),
+          // ),
+          // const VerticalGap(gap: 100),
           SizedBox(
-            height: Get.height,
             child: ListView.builder(
               physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
               itemCount: controller.clientResultPointsList.length,
-              itemBuilder: ((context, index) => CheckBoxPoints(
-                    checkBoxPointText: controller.clientResultPointsList[index],
-                  )),
+              itemBuilder: (context, index) => CheckBoxPoints(
+                checkBoxPointText: controller.clientResultPointsList[index],
+              ),
             ),
           ),
-          const VerticalGap(gap: 100),
         ],
       ),
     );

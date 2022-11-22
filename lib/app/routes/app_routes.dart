@@ -19,9 +19,6 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
   static const CHANGE_EMAIL = _Paths.CHANGE_EMAIL;
-  static const CHANGE_PASSWORD_VERFICATION = _Paths.CHANGE_PASSWORD_VERFICATION;
-  static const NEW_PASSWORD = _Paths.NEW_PASSWORD;
-  static const NEW_EMAIL = _Paths.NEW_EMAIL;
   static const SPIRITUAL_SPOTLIGHT = _Paths.SPIRITUAL_SPOTLIGHT;
   static const BLOGS_LISTING = _Paths.BLOGS_LISTING;
   static const BOOKS_LISTING = _Paths.BOOKS_LISTING;
@@ -47,7 +44,6 @@ abstract class Routes {
   static const PROGRAMS_TESTIMONIALS = _Paths.PROGRAMS_TESTIMONIALS;
   static const RETREATS_TESTIMONIALS = _Paths.RETREATS_TESTIMONIALS;
   static const AKASHA_HEALING_FULL_DETAILS = _Paths.AKASHA_HEALING_FULL_DETAILS;
-  static const TEST = _Paths.TEST;
   static const TEACHINGS1 = _Paths.TEACHINGS1;
   static const TEACHINGS2 = _Paths.TEACHINGS2;
   static const SPLASH = _Paths.SPLASH;
@@ -73,9 +69,6 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const CHANGE_PASSWORD = '/change-password';
   static const CHANGE_EMAIL = '/change-email';
-  static const CHANGE_PASSWORD_VERFICATION = '/change-password-verfication';
-  static const NEW_PASSWORD = '/new-password';
-  static const NEW_EMAIL = '/new-email';
   static const SPIRITUAL_SPOTLIGHT = '/spiritual-spotlight';
   static const BLOGS_LISTING = '/blogs-listing';
   static const BOOKS_LISTING = '/books-listing';
@@ -101,7 +94,6 @@ abstract class _Paths {
   static const PROGRAMS_TESTIMONIALS = '/programs-testimonials';
   static const RETREATS_TESTIMONIALS = '/retreats-testimonials';
   static const AKASHA_HEALING_FULL_DETAILS = '/akasha-healing-full-details';
-  static const TEST = '/test';
   static const TEACHINGS1 = '/teachings1';
   static const TEACHINGS2 = '/teachings2';
   static const SPLASH = '/splash';

@@ -19,7 +19,6 @@ class OneOffSessionCards extends StatelessWidget {
     return Container(
       width: Get.width,
       margin: const EdgeInsets.symmetric(
-        horizontal: 15,
         vertical: 10,
       ),
       padding: const EdgeInsets.fromLTRB(15, 20, 15, 5),
@@ -40,6 +39,7 @@ class OneOffSessionCards extends StatelessWidget {
         ),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(

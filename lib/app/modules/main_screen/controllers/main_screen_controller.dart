@@ -36,7 +36,6 @@ class MainScreenController extends GetxController {
   void onInit() {
     Get.put(DashboardController());
     Get.put(InnerUnionOracleController());
-
     super.onInit();
   }
 }

@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
 class SessionTestimony extends StatelessWidget {
-  final String reviewerName,
-      reviewHighlightedText,
-      reviewFullContent,
-      profileImagePath;
+  final String reviewerName, reviewFullContent, profileImagePath;
   final double reviewRating;
 
   const SessionTestimony({
     Key? key,
     required this.reviewerName,
-    required this.reviewHighlightedText,
     required this.reviewFullContent,
     required this.reviewRating,
     required this.profileImagePath,
@@ -50,13 +47,12 @@ class SessionTestimony extends StatelessWidget {
             onRatingUpdate: (rating) {},
             itemSize: 20,
           ),
-          Text(
-            reviewFullContent,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              height: 1.4,
-              fontWeight: FontWeight.w300,
-            ),
+          Html(
+            data: reviewFullContent,
+            style: {
+              "h2": Style(alignment: Alignment.center),
+              "p": Style(alignment: Alignment.center),
+            },
           ),
         ],
       ),

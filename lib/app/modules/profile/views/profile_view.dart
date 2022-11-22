@@ -1,6 +1,5 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
@@ -63,64 +62,6 @@ class ProfileView extends GetView<ProfileController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Center(
-            //   child: Stack(
-            //     children: [
-            //       Obx(
-            //         () => controller.imagePath.value != ''
-            //             ? Container(
-            //                 margin: const EdgeInsets.only(top: 30),
-            //                 height: 130,
-            //                 width: 130,
-            //                 decoration: BoxDecoration(
-            //                   shape: BoxShape.circle,
-            //                   image: DecorationImage(
-            //                     image: AssetImage(controller.imagePath.value),
-            //                     fit: BoxFit.contain,
-            //                   ),
-            //                 ),
-            //               )
-            //             : Container(
-            //                 margin: const EdgeInsets.only(top: 30),
-            //                 height: 130,
-            //                 width: 130,
-            //                 decoration: const BoxDecoration(
-            //                   image: DecorationImage(
-            //                     image: AssetImage(AppAssets.profileImage),
-            //                     fit: BoxFit.cover,
-            //                   ),
-            //                 ),
-            //               ),
-            //       ),
-            //       Positioned(
-            //         bottom: 8,
-            //         right: 0,
-            //         child: Container(
-            //           height: 40,
-            //           width: 40,
-            //           decoration: BoxDecoration(
-            //             shape: BoxShape.circle,
-            //             color: Colors.white,
-            //             border: Border.all(),
-            //           ),
-            //           child: IconButton(
-            //             onPressed: () {
-            //               debugPrint('camera button pressed');
-            //               debugPrint(
-            //                 'This is imagePath Value =====>${controller.imagePath.value}',
-            //               );
-
-            //               controller.readOnly.value
-            //                   ? controller.addImage()
-            //                   : null;
-            //             },
-            //             icon: const Icon(Icons.camera_alt_outlined),
-            //           ),
-            //         ),
-            //       )
-            //     ],
-            //   ),
-            // ),
             const VerticalGap(gap: 20),
             Center(
               child: Stack(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/services/api_services.dart';
 
 class ProfileController extends GetxController {
   final TextEditingController firstNameController =
@@ -13,6 +14,7 @@ class ProfileController extends GetxController {
       TextEditingController(text: 'Corner@gmail.com');
   final RxBool readOnly = false.obs;
   final RxString imagePath = ''.obs;
+  final ApiServices apiServices = ApiServices();
 
   void addImage() async {
     await ImagePicker().pickImage(source: ImageSource.gallery).then((file) {
@@ -26,9 +28,4 @@ class ProfileController extends GetxController {
 
   @override
   void onClose() {}
-  @override
-  void onInit() {
-    log(imagePath.value);
-    super.onInit();
-  }
 }

@@ -109,7 +109,6 @@ class LoginView extends GetView<LoginController> {
                         TextButton(
                           onPressed: () {
                             controller.loginUser();
-                            //Get.toNamed(Routes.MAIN_SCREEN);
                           },
                           child: const Text(
                             AppConstants.loginTxt,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
-import '../routes/app_pages.dart';
 
 class OneWeekTrialPlan extends StatelessWidget {
   const OneWeekTrialPlan({
@@ -86,9 +84,7 @@ class OneWeekTrialPlan extends StatelessWidget {
           ),
           const VerticalGap(),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.NEW_EMAIL);
-            },
+            onPressed: () {},
             child: const Text(
               'free',
               style: TextStyle(

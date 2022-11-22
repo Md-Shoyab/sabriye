@@ -5,6 +5,7 @@ import 'package:sabriye/services/api_services.dart';
 class ProgramsDetailsController extends GetxController {
   final GlobalKey<FormState> emailFormKey = GlobalKey<FormState>();
   final TextEditingController fnameController = TextEditingController();
+  final TextEditingController lnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final ApiServices apiServices = ApiServices();
 
@@ -53,9 +54,16 @@ class ProgramsDetailsController extends GetxController {
     return null;
   }
 
-  String? validateName(String? value) {
+  String? validateFirstName(String? value) {
     if (value!.isEmpty) {
-      return 'Provide a valid name';
+      return 'Provide a valid first name';
+    } else {}
+    return null;
+  }
+
+  String? validateLastName(String? value) {
+    if (value!.isEmpty) {
+      return 'Provide a valid last name';
     } else {}
     return null;
   }
@@ -63,6 +71,7 @@ class ProgramsDetailsController extends GetxController {
   @override
   void onClose() {
     fnameController.dispose();
+    lnameController.dispose();
     emailController.dispose();
   }
 }

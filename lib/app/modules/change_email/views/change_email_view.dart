@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
-import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/change_email_controller.dart';
 
@@ -65,9 +64,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             ),
           ),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.NEW_EMAIL);
-            },
+            onPressed: () {},
             child: const Text(
               AppConstants.sendText,
               style: TextStyle(

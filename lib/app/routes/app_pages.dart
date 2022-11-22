@@ -18,8 +18,6 @@ import '../modules/change_email/bindings/change_email_binding.dart';
 import '../modules/change_email/views/change_email_view.dart';
 import '../modules/change_password/bindings/change_password_binding.dart';
 import '../modules/change_password/views/change_password_view.dart';
-import '../modules/change_password_verfication/bindings/change_password_verfication_binding.dart';
-import '../modules/change_password_verfication/views/change_password_verfication_view.dart';
 import '../modules/coming_into_oneness/bindings/coming_into_oneness_binding.dart';
 import '../modules/coming_into_oneness/views/coming_into_oneness_view.dart';
 import '../modules/comments/bindings/comments_binding.dart';
@@ -42,10 +40,6 @@ import '../modules/main_screen/bindings/main_screen_binding.dart';
 import '../modules/main_screen/views/main_screen_view.dart';
 import '../modules/membership/bindings/membership_binding.dart';
 import '../modules/membership/views/membership_view.dart';
-import '../modules/new_email/bindings/new_email_binding.dart';
-import '../modules/new_email/views/new_email_view.dart';
-import '../modules/new_password/bindings/new_password_binding.dart';
-import '../modules/new_password/views/new_password_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/programs_details/bindings/programs_details_binding.dart';
@@ -159,21 +153,6 @@ class AppPages {
       name: _Paths.CHANGE_EMAIL,
       page: () => const ChangeEmailView(),
       binding: ChangeEmailBinding(),
-    ),
-    GetPage(
-      name: _Paths.CHANGE_PASSWORD_VERFICATION,
-      page: () => const ChangePasswordVerficationView(),
-      binding: ChangePasswordVerficationBinding(),
-    ),
-    GetPage(
-      name: _Paths.NEW_PASSWORD,
-      page: () => const NewPasswordView(),
-      binding: NewPasswordBinding(),
-    ),
-    GetPage(
-      name: _Paths.NEW_EMAIL,
-      page: () => const NewEmailView(),
-      binding: NewEmailBinding(),
     ),
     GetPage(
       name: _Paths.SPIRITUAL_SPOTLIGHT,

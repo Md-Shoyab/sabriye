@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
-import '../routes/app_pages.dart';
 
 class OneMonthPlanCard extends StatelessWidget {
   const OneMonthPlanCard({
@@ -87,9 +85,7 @@ class OneMonthPlanCard extends StatelessWidget {
           ),
           const VerticalGap(gap: 15),
           TextButton(
-            onPressed: () {
-              Get.toNamed(Routes.NEW_EMAIL);
-            },
+            onPressed: () {},
             child: const Text(
               '€10.10',
               style: TextStyle(
