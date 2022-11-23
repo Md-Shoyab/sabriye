@@ -149,6 +149,7 @@ class ProfileView extends GetView<ProfileController> {
             const Text(AppConstants.firstNameText),
             Obx(
               () => TextFormField(
+                cursorColor: AppColors.primaryColor,
                 readOnly: !controller.readOnly.value,
                 controller: controller.firstNameController,
                 style: const TextStyle(
@@ -169,6 +170,7 @@ class ProfileView extends GetView<ProfileController> {
             const Text(AppConstants.lastNameText),
             Obx(
               () => TextFormField(
+                cursorColor: AppColors.primaryColor,
                 readOnly: !controller.readOnly.value,
                 controller: controller.lastNameController,
                 style: const TextStyle(
@@ -188,6 +190,7 @@ class ProfileView extends GetView<ProfileController> {
             const Text(AppConstants.emailText),
             Obx(
               () => TextFormField(
+                cursorColor: AppColors.primaryColor,
                 readOnly: !controller.readOnly.value,
                 controller: controller.emailController,
                 style: const TextStyle(

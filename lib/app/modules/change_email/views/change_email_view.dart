@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../../../widgets/gapper.dart';
@@ -53,6 +54,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             ),
             child: TextFormField(
               cursorColor: AppColors.primaryColor,
+              controller: controller.emailController,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -77,7 +79,12 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             ),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              controller.apiServices.changeEmail(
+                SessionManager.getUserToken()!,
+                controller.emailController.text,
+              );
+            },
             child: const Text(
               AppConstants.sendText,
               style: TextStyle(

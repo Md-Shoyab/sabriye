@@ -6,6 +6,7 @@ const String API_BASE_URL_2 = 'https://app.sabriyeayana.com/wp-json/wp/v2';
 // Login, Signup & Logout.
 const String API_SIGN_UP = '/users/signup';
 const String API_LOGIN = '/users/me';
+const String API_UPDATE_EMAIL = '/users/me';
 const String API_GET_TEACHINNGS_CATEGORIES =
     '/categories/?include=94,57,62,100,98';
 const String API_GET_TEACHINNGS_SUBCATEGORIES = '/categories?parent=';
