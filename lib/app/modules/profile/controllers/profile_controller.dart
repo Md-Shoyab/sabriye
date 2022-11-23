@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class ProfileController extends GetxController {
@@ -10,10 +11,11 @@ class ProfileController extends GetxController {
       TextEditingController(text: 'Sia');
   final TextEditingController lastNameController =
       TextEditingController(text: 'Corner');
-  final TextEditingController emailController =
-      TextEditingController(text: 'Corner@gmail.com');
+  final TextEditingController emailController = TextEditingController(
+    text: SessionManager.getUserEmail(),
+  );
   final RxBool readOnly = false.obs;
-  final RxString imagePath = ''.obs;
+  final RxString imagePath = SessionManager.getProfileImagePath()!.obs;
   final ApiServices apiServices = ApiServices();
 
   void addImage() async {
@@ -27,5 +29,9 @@ class ProfileController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    firstNameController.dispose();
+    lastNameController.dispose();
+    emailController.dispose();
+  }
 }

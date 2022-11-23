@@ -293,16 +293,21 @@ class ApiServices {
 
   Future<void> loginUser(String basicAuth) async {
     try {
-      var response = await http.get(
+      var response = await http.post(
         Uri.parse(
           API_BASE_URL + API_LOGIN,
         ),
         headers: <String, String>{'Authorization': basicAuth},
       );
+
       if (response.statusCode == 200) {
         final finalResponse = jsonDecode(response.body);
         SessionManager.saveUserToken(basicAuth);
         SessionManager.saveUserId(finalResponse['id']);
+        SessionManager.saveUserEmail(finalResponse['email']);
+        SessionManager.saveFirstName(finalResponse['first_name']);
+        SessionManager.savelastName(finalResponse['last_name']);
+        SessionManager.saveProfileImagePath(finalResponse['avatar_urls']['96']);
         Get.offAllNamed(Routes.MAIN_SCREEN);
       } else {
         Future.error('Server Error');

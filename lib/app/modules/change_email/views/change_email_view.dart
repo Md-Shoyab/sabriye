@@ -52,15 +52,28 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               vertical: 20,
             ),
             child: TextFormField(
+              cursorColor: AppColors.primaryColor,
               decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 0,
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
                   ),
-                  hintText: AppConstants.emailText),
+                ),
+                hintText: AppConstants.emailText,
+              ),
             ),
           ),
           TextButton(
