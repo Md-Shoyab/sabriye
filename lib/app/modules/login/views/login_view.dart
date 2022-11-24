@@ -63,13 +63,13 @@ class LoginView extends GetView<LoginController> {
                         ),
                         const VerticalGap(gap: 20),
                         TextFormField(
-                          controller: controller.usernameController,
+                          controller: controller.emailController,
                           validator: (value) {
-                            return controller.validateUsername(value!);
+                            return controller.validateEmail(value!);
                           },
                           cursorColor: AppColors.primaryColor,
                           decoration: InputDecoration(
-                            hintText: AppConstants.enterUsername,
+                            hintText: AppConstants.emailText,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -90,7 +90,7 @@ class LoginView extends GetView<LoginController> {
                           },
                           cursorColor: AppColors.primaryColor,
                           decoration: InputDecoration(
-                            hintText: AppConstants.enterPassword,
+                            hintText: AppConstants.passwordText,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),

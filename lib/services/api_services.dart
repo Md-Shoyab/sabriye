@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sabriye/app/constants/api_constants.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/modules/change_email/controllers/change_email_controller.dart';
 import '../app/local_storage/sessions.dart';
 import '../app/routes/app_pages.dart';
 
@@ -714,11 +715,17 @@ class ApiServices {
           });
 
       if (response.statusCode == 200) {
+        debugPrint('Come in change Email Sucess');
+        ChangeEmailController _changeEmailController = ChangeEmailController();
+        _changeEmailController.updateBasicAuth(
+          _changeEmailController.emailController.text,
+          SessionManager.getPassword(),
+        );
       } else {
         Future.error('Server Error');
       }
     } catch (e) {
-      Future.error(e);
+      Get.snackbar('Something Went Wrong', e.toString());
     }
   }
 }

@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_assets.dart';
 import '../constants/app_colors.dart';
 
 class OneOffSessionCards extends StatelessWidget {
-  final String title, content;
+  final String title, content, routes;
+  final Map titleContentArguments;
+
   const OneOffSessionCards({
     Key? key,
     required this.title,
     required this.content,
+    required this.routes,
+    required this.titleContentArguments,
   }) : super(key: key);
 
   @override
@@ -85,7 +88,12 @@ class OneOffSessionCards extends StatelessWidget {
               ),
               const HorizontalGap(gap: 25),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(
+                    routes,
+                    arguments: titleContentArguments,
+                  );
+                },
                 child: const Text(
                   'Learn More',
                   style: TextStyle(

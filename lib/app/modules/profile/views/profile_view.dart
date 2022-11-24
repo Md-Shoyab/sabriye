@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -67,7 +66,7 @@ class ProfileView extends GetView<ProfileController> {
               child: Stack(
                 children: [
                   Obx(
-                    (() => controller.imagePath.value != ''
+                    () => controller.selectedImagePath.value.isNotEmpty
                         ? Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -80,7 +79,7 @@ class ProfileView extends GetView<ProfileController> {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(80),
                               child: Image.file(
-                                File(controller.imagePath.value),
+                                File(controller.selectedImagePath.value),
                                 height: 150,
                                 width: 150,
                                 fit: BoxFit.cover,
@@ -100,19 +99,52 @@ class ProfileView extends GetView<ProfileController> {
                               ),
                             ),
                           )
-                        : Container(
-                            height: 155,
-                            width: 155,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.primaryColor,
-                            ),
-                            child: const Icon(
-                              Icons.person,
-                              size: 80,
-                              color: AppColors.white,
-                            ),
-                          )),
+                        : controller.existingImageUrl.value.isNotEmpty
+                            ? Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: AppColors.primaryColor,
+                                    width: 3,
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(80),
+                                  child: Image.network(
+                                    controller.existingImageUrl.value,
+                                    height: 150,
+                                    width: 150,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (_, __, ___) => Container(
+                                      height: 155,
+                                      width: 155,
+                                      decoration: const BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        color: AppColors.primaryColor,
+                                      ),
+                                      child: const Icon(
+                                        Icons.person_sharp,
+                                        color: AppColors.white,
+                                        size: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                height: 155,
+                                width: 155,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.primaryColor,
+                                ),
+                                child: const Icon(
+                                  Icons.person,
+                                  size: 80,
+                                  color: AppColors.white,
+                                ),
+                              ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -130,9 +162,8 @@ class ProfileView extends GetView<ProfileController> {
                       ),
                       child: IconButton(
                         onPressed: () {
-                          log('${controller.readOnly.value}');
                           controller.readOnly.value
-                              ? controller.addImage()
+                              ? controller.pickImage()
                               : null;
                         },
                         icon: const Icon(

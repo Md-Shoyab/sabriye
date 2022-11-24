@@ -8,6 +8,7 @@ Rx<String> USER_TOKEN = ''.obs;
 Rx<int> USER_ID = 0.obs;
 Rx<String> FIRST_NAME = ''.obs;
 Rx<String> LAST_NAME = ''.obs;
+Rx<String> PASSWORD = ''.obs;
 Rx<String> USER_MAIL = ''.obs;
 Rx<String> PROFILE_IMAGE_PATH = ''.obs;
 
@@ -16,8 +17,9 @@ class SessionManager {
   static const String _userToken = 'User Token';
   static const String _userId = 'User ID';
   static const String _firstName = 'first Name';
-  static const String _lastName = 'first Name';
+  static const String _lastName = 'last Name';
   static const String _userMail = 'User Mail';
+  static const String _password = 'password';
   static const String _profileImagePath = 'Profile Image Path';
 
   static void saveUserToken(String token) {
@@ -42,6 +44,12 @@ class SessionManager {
     LAST_NAME.value = lastName;
     _getStorage.write(_lastName, lastName);
     debugPrint('User last name Saved ==>$lastName');
+  }
+
+  static void savePassword(String password) {
+    PASSWORD.value = password;
+    _getStorage.write(_password, password);
+    debugPrint('Password Saved ==> $password');
   }
 
   static void saveUserId(int id) {
@@ -70,6 +78,13 @@ class SessionManager {
     return mailId;
   }
 
+  static String getPassword() {
+    String password = _getStorage.read(_password);
+    PASSWORD.value = password;
+    debugPrint('Password ==> $password');
+    return password;
+  }
+
   static String? getFirstName() {
     String? firstName = _getStorage.read(_firstName);
     FIRST_NAME.value = firstName ?? '';
@@ -84,9 +99,9 @@ class SessionManager {
     return lastName;
   }
 
-  static String? getProfileImagePath() {
-    String? imagePath = _getStorage.read(_profileImagePath);
-    PROFILE_IMAGE_PATH.value = imagePath ?? '';
+  static String getProfileImagePath() {
+    String imagePath = _getStorage.read(_profileImagePath) ?? '';
+    PROFILE_IMAGE_PATH.value = imagePath;
     debugPrint('Profile Image Path ==> $imagePath');
     return imagePath;
   }

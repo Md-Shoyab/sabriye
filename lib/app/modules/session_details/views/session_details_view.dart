@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/gapper.dart';
 import '../../../widgets/on_off_session_card.dart';
@@ -312,6 +313,13 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                                     ['rendered'],
                                 content: snapshot.data![index]['content']
                                     ['rendered'],
+                                routes: Routes.SESSION_DETAILS_AKASHAY,
+                                titleContentArguments: {
+                                  'title': snapshot.data![index]['title']
+                                      ['rendered'],
+                                  'content': snapshot.data![index]['content']
+                                      ['rendered'],
+                                },
                               )),
                         ),
                       ],

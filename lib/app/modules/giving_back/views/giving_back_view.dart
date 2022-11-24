@@ -299,7 +299,6 @@ class GivingBackView extends GetView<GivingBackController> {
                       data: snapshot.data!['content']['rendered'],
                       style: {
                         "h2": Style(color: AppColors.primaryColor),
-                        // "h3": Style(color: AppColors.primaryColor),
                         "h4": Style(color: AppColors.primaryColor),
                       },
                     ),

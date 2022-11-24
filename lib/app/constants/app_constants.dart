@@ -9,7 +9,7 @@ class AppConstants {
   static const String backToLogin = 'Back to Login';
   static const String enterUsername = 'Enter Username';
   static const String emailText = 'Email';
-  static const String enterPassword = 'Enter Password';
+  static const String passwordText = 'Password';
   static const String forgotPassword = 'Forgot Password';
   static const String enterEmailToResetPassword =
       'Please enter your email. \nWe will send you an email with a link to \nreset your password.';
