@@ -34,95 +34,52 @@ class MembershipView extends GetView<MembershipController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        children: [
-          const VerticalGap(),
-          FutureBuilder<Map>(
-            future: controller.apiServices.membershipIntro(),
-            builder: ((context, snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data!.isEmpty) {
-                  return const Center(
-                    child: Text('0 Cards avaialible'),
-                  );
-                }
-                return Html(
-                  data: snapshot.data!['content']['rendered'],
-                );
-              }
-              return const Center(
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
                 child: CircularProgressIndicator(),
-              );
-            }),
-          ),
-          FutureBuilder<List>(
-            future: controller.apiServices.membershipAccordion(),
-            builder: ((context, snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data!.isEmpty) {
-                  return const Text('No Data Available');
-                }
-                return Container(
-                  padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 4.0,
-                        color: AppColors.lightprimary.withOpacity(0.6),
+              )
+            : ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                children: [
+                  const VerticalGap(),
+                  Html(
+                    data: controller.htmlIntro.value,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: AppColors.lightprimary.withOpacity(0.6),
+                        ),
+                      ],
+                    ),
+                    child: ListView.builder(
+                      itemCount: controller.accordionList.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      reverse: true,
+                      clipBehavior: Clip.none,
+                      itemBuilder: (context, index) => Obx(
+                        () => MembershipAccordion(
+                          accordion: controller.accordionList[index],
+                          onAccordionTap: () {
+                            controller.changeSelectedAccordion(index);
+                          },
+                          isAccordionSelected:
+                              controller.selectedAccordionIndex.value == index,
+                        ),
                       ),
-                    ],
+                    ),
                   ),
-                  child: ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    clipBehavior: Clip.none,
-                    itemBuilder: ((context, index) => MembershipAccordion(
-                          controller: controller,
-                          accordionTitle: snapshot.data![index]['title']
-                              ['rendered'],
-                          accordionContent: snapshot.data![index]['content']
-                              ['rendered'],
-                          index: index,
-                        )),
-                  ),
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }),
-          ),
-          FutureBuilder<Map>(
-            future: controller.apiServices.membershipCheckPoints(),
-            builder: ((context, snapshot) {
-              if (snapshot.hasData) {
-                if (snapshot.data!.isEmpty) {
-                  return const Center(
-                    child: Text('0 Cards avaialible'),
-                  );
-                }
-                return Html(
-                  data: snapshot.data!['content']['rendered'],
-                );
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }),
-          ),
-          const VerticalGap(),
-          FutureBuilder<List>(
-              future: controller.apiServices.membershipPayment(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  if (snapshot.data!.isEmpty) {
-                    return const Text('0 Details');
-                  }
-                  return Row(
+                  const VerticalGap(),
+                  Html(data: controller.checkPointsList.value),
+                  const VerticalGap(),
+                  Row(
                     children: [
                       Expanded(
                         child: Container(
@@ -137,7 +94,8 @@ class MembershipView extends GetView<MembershipController> {
                                 padding:
                                     const EdgeInsets.fromLTRB(10, 10, 0, 0),
                                 child: Text(
-                                  snapshot.data![2]['title']['rendered'],
+                                  controller.membershipPlansDetails[2]['title']
+                                      ['rendered'],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -145,7 +103,8 @@ class MembershipView extends GetView<MembershipController> {
                                 ),
                               ),
                               Html(
-                                data: snapshot.data![2]['content']['rendered'],
+                                data: controller.membershipPlansDetails[2]
+                                    ['content']['rendered'],
                               ),
                               Container(
                                 padding: const EdgeInsets.only(left: 15),
@@ -192,7 +151,8 @@ class MembershipView extends GetView<MembershipController> {
                                 padding:
                                     const EdgeInsets.fromLTRB(15, 10, 0, 0),
                                 child: Text(
-                                  snapshot.data![1]['title']['rendered'],
+                                  controller.membershipPlansDetails[1]['title']
+                                      ['rendered'],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -200,16 +160,17 @@ class MembershipView extends GetView<MembershipController> {
                                 ),
                               ),
                               const VerticalGap(gap: 5),
-                              const Center(
-                                child: Text(
-                                  'Billed Annually',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ),
+                              // const Center(
+                              //   child: Text(
+                              //     'Billed Annually',
+                              //     style: TextStyle(
+                              //       fontSize: 14,
+                              //     ),
+                              //   ),
+                              // ),
                               Html(
-                                data: snapshot.data![1]['content']['rendered'],
+                                data: controller.membershipPlansDetails[1]
+                                    ['content']['rendered'],
                               ),
                               Container(
                                 padding: const EdgeInsets.only(left: 15),
@@ -247,7 +208,8 @@ class MembershipView extends GetView<MembershipController> {
                                 padding:
                                     const EdgeInsets.fromLTRB(10, 10, 0, 0),
                                 child: Text(
-                                  snapshot.data![0]['title']['rendered'],
+                                  controller.membershipPlansDetails[0]['title']
+                                      ['rendered'],
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
@@ -255,7 +217,8 @@ class MembershipView extends GetView<MembershipController> {
                                 ),
                               ),
                               Html(
-                                data: snapshot.data![0]['content']['rendered'],
+                                data: controller.membershipPlansDetails[0]
+                                    ['content']['rendered'],
                               ),
                               Container(
                                 padding: const EdgeInsets.only(left: 20),
@@ -281,11 +244,9 @@ class MembershipView extends GetView<MembershipController> {
                         ),
                       ),
                     ],
-                  );
-                }
-                return const Center(child: CircularProgressIndicator());
-              }),
-        ],
+                  ),
+                ],
+              ),
       ),
     );
   }

@@ -5,9 +5,13 @@ import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class ProfileController extends GetxController {
-  final TextEditingController firstNameController = TextEditingController(
-    text: SessionManager.getFirstName(),
-  );
+  // final
+
+  late TextEditingController firstNameController;
+
+  //  = TextEditingController(
+  //   text: SessionManager.getFirstName(),
+  // );
   final TextEditingController lastNameController = TextEditingController(
     text: SessionManager.getlastName(),
   );
@@ -38,6 +42,14 @@ class ProfileController extends GetxController {
         debugPrint('This is stackTrace \n$stackTrace');
       },
     );
+  }
+
+  @override
+  void onInit() {
+    firstNameController = TextEditingController(
+      text: SessionManager.getFirstName(),
+    );
+    super.onInit();
   }
 
   @override

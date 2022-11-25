@@ -516,7 +516,7 @@ class ApiServices {
     }
   }
 
-  Future<List> membershipPayment() async {
+  Future<List> getMembershipPlansDetails() async {
     try {
       var response = await http.get(
         Uri.parse(
