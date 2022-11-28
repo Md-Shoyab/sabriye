@@ -10,7 +10,6 @@ class ComingIntoOnenessController extends GetxController {
   final RxString whoIsCominngForOneness = ''.obs;
   final RxString getPattyTestimonialContent = ''.obs;
   final RxString getPattyTestimonialtitle = ''.obs;
-
   final RxBool isLoading = false.obs;
   RxList dropDownPointsList = [].obs;
 

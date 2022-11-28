@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
+import 'package:sabriye/app/widgets/on_off_session_card.dart';
+import 'package:sabriye/app/widgets/sessions_testimony.dart';
 import '../../../constants/app_colors.dart';
-import '../../../widgets/gapper.dart';
-import '../../../widgets/on_off_session_card.dart';
-import '../../../widgets/sessions_testimony.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/session_details_controller.dart';
 
 class SessionDetailsView extends GetView<SessionDetailsController> {
@@ -35,313 +34,137 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FutureBuilder<Map>(
-                future: controller.apiServices.sessionDetails(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Html(
-                      data: snapshot.data!['content']['rendered'],
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
+                children: [
+                  Html(data: controller.sessionDetails.value),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  SessionTestimony(
+                    reviewerName: controller.testimonials[5]['title']
+                        ['rendered'],
+                    reviewFullContent: controller.testimonials[5]['content']
+                        ['rendered'],
+                    reviewRating: 5.0,
+                    profileImagePath: controller.testimonials[5]['thumbnail'],
+                  ),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  Html(data: controller.rootCauseOfStruggleContent.value),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  SessionTestimony(
+                    reviewerName: controller.testimonials[4]['title']
+                        ['rendered'],
+                    reviewFullContent: controller.testimonials[4]['content']
+                        ['rendered'],
+                    reviewRating: 5.0,
+                    profileImagePath: controller.testimonials[4]['thumbnail'],
+                  ),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  Html(data: controller.whatisAkashayHealingQuantumText.value),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  SessionTestimony(
+                    reviewerName: controller.testimonials[3]['title']
+                        ['rendered'],
+                    reviewFullContent: controller.testimonials[3]['content']
+                        ['rendered'],
+                    reviewRating: 5.0,
+                    profileImagePath: controller.testimonials[3]['thumbnail'],
+                  ),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  Html(data: controller.doYouRecognizeThisText.value),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  SessionTestimony(
+                    reviewerName: controller.testimonials[2]['title']
+                        ['rendered'],
+                    reviewFullContent: controller.testimonials[2]['content']
+                        ['rendered'],
+                    reviewRating: 5.0,
+                    profileImagePath: controller.testimonials[2]['thumbnail'],
+                  ),
+                  const Divider(
+                    color: AppColors.grey,
+                    thickness: 1.0,
+                    height: 20,
+                    indent: 15,
+                    endIndent: 15,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.only(left: 10, top: 10),
+                    child: Text(
+                      controller.bookYourSessionTitle.value,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: AppColors.primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Html(data: controller.bookYourSessionContent.value),
+                  ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: controller.sessionCardDetails.length,
+                    itemBuilder: (context, index) => OneOffSessionCards(
+                      title: controller.sessionCardDetails[index]['title']
+                          ['rendered'],
+                      content: controller.sessionCardDetails[index]['content']
+                          ['rendered'],
+                      routes: Routes.SESSION_DETAILS_AKASHAY,
+                      titleContentArguments: {
+                        'title': controller.sessionCardDetails[0]['title']
+                            ['rendered'],
+                        'content': controller.sessionCardDetails[0]['content']
+                            ['rendered'],
+                      },
+                    ),
+                  ),
+                ],
               ),
-              FutureBuilder<List>(
-                future: controller.apiServices.sessionTestimony(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      children: [
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                        SessionTestimony(
-                          profileImagePath: snapshot.data![5]['thumbnail'],
-                          reviewerName: snapshot.data![5]['title']['rendered'],
-                          reviewRating: 5.0,
-                          reviewFullContent: snapshot.data![5]['content']
-                              ['rendered'],
-                        ),
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                }),
-              ),
-              FutureBuilder<Map>(
-                future: controller.apiServices.sessionDetailsPartTwo(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Founnd');
-                    }
-                    return Html(
-                      data: snapshot.data!['content']['rendered'],
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-              ),
-              FutureBuilder<List>(
-                future: controller.apiServices.sessionTestimony(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      children: [
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                        SessionTestimony(
-                          profileImagePath: snapshot.data![4]['thumbnail'],
-                          reviewerName: snapshot.data![4]['title']['rendered'],
-                          reviewRating: 5.0,
-                          reviewFullContent: snapshot.data![4]['content']
-                              ['rendered'],
-                        ),
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                }),
-              ),
-              FutureBuilder<Map>(
-                future: controller.apiServices.sessionDetailsPartThree(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Html(
-                      data: snapshot.data!['content']['rendered'],
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-              ),
-              FutureBuilder<List>(
-                future: controller.apiServices.sessionTestimony(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      children: [
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                        SessionTestimony(
-                          profileImagePath: snapshot.data![3]['thumbnail'],
-                          reviewerName: snapshot.data![3]['title']['rendered'],
-                          reviewRating: 5.0,
-                          reviewFullContent: snapshot.data![3]['content']
-                              ['rendered'],
-                        ),
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                }),
-              ),
-              FutureBuilder<Map>(
-                future: controller.apiServices.sessionDetailsPartFour(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Html(
-                      data: snapshot.data!['content']['rendered'],
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                }),
-              ),
-              FutureBuilder<List>(
-                future: controller.apiServices.sessionTestimony(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      children: [
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                        SessionTestimony(
-                          profileImagePath: snapshot.data![2]['thumbnail'],
-                          reviewerName: snapshot.data![2]['title']['rendered'],
-                          reviewRating: 5.0,
-                          reviewFullContent: snapshot.data![2]['content']
-                              ['rendered'],
-                        ),
-                        const Divider(
-                          color: AppColors.grey,
-                          thickness: 1.0,
-                          height: 20,
-                          indent: 15,
-                          endIndent: 15,
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(child: CircularProgressIndicator());
-                }),
-              ),
-              FutureBuilder<Map>(
-                future: controller.apiServices.sessionDetailsPartFive(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const VerticalGap(),
-                        Container(
-                          padding: const EdgeInsets.only(left: 5),
-                          child: Text(
-                            snapshot.data!['title']['rendered'],
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: AppColors.primaryColor,
-                            ),
-                          ),
-                        ),
-                        const VerticalGap(gap: 5),
-                        Html(
-                          data: snapshot.data!['content']['rendered'],
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-              ),
-              const VerticalGap(),
-              FutureBuilder<List>(
-                future: controller.apiServices.sessionCardsDetails(),
-                builder: ((context, snapshot) {
-                  if (snapshot.hasData) {
-                    if (snapshot.data!.isEmpty) {
-                      return const Text('No Data Available');
-                    }
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        snapshot.hasData
-                            ? const Text(
-                                'One-Off sessions:',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.primaryColor,
-                                  height: 1.5,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              )
-                            : const CircularProgressIndicator(),
-                        const VerticalGap(),
-                        ListView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: ((context, index) => OneOffSessionCards(
-                                title: snapshot.data![index]['title']
-                                    ['rendered'],
-                                content: snapshot.data![index]['content']
-                                    ['rendered'],
-                                routes: Routes.SESSION_DETAILS_AKASHAY,
-                                titleContentArguments: {
-                                  'title': snapshot.data![index]['title']
-                                      ['rendered'],
-                                  'content': snapshot.data![index]['content']
-                                      ['rendered'],
-                                },
-                              )),
-                        ),
-                      ],
-                    );
-                  }
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }),
-              ),
-              const Text(
-                'Akasha Healing™ Packages',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: AppColors.primaryColor,
-                  height: 1.5,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

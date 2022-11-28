@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -34,283 +35,199 @@ class GivingBackView extends GetView<GivingBackController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            FutureBuilder<Map>(
-              future: controller.apiServices.getGivingBackInfo(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  if (snapshot.data!.isEmpty) {
-                    return const Center(child: Text('Something went wrong'));
-                  }
-                  controller.carouselImages.addAll([
-                    snapshot.data!['custom_fields']['Kiva'][0],
-                    snapshot.data!['custom_fields']['ketto'][0],
-                    snapshot.data!['custom_fields']['milaap_2'][0],
-                  ]);
-                  controller.carouselDescription.addAll([
-                    snapshot.data!['custom_fields']['kiva_desc'][0],
-                    snapshot.data!['custom_fields']['ketto_desc'][0],
-                    snapshot.data!['custom_fields']['milaap_2_desc'][0],
-                  ]);
-
-                  return SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const VerticalGap(gap: 50),
-                        Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Text(
-                            snapshot.data?['title']['rendered'],
-                            style: const TextStyle(
-                              fontSize: 25,
-                              color: AppColors.primaryColor,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
+                children: [
+                  Image.asset(
+                    AppAssets.givingBackBannerImage,
+                    fit: BoxFit.fitWidth,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 5.0,
+                      top: 5.0,
+                    ),
+                    child: Text(
+                      controller.spiritualGuidingPrinciplesTitle.value,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w600,
+                        color: AppColors.primaryColor,
+                      ),
+                    ),
+                  ),
+                  Html(data: controller.givingBackIntroducationText.value),
+                  GivingBackCards(
+                    imageUrl: controller.smartImageUrl.value,
+                    descriptionText: controller.smartDescriptionText.value,
+                  ),
+                  const VerticalGap(gap: 20),
+                  GivingBackCards(
+                    imageUrl: controller.treeSisterImageUrl.value,
+                    descriptionText: controller.treeSisterDescriptionText.value,
+                  ),
+                  const VerticalGap(),
+                  Container(
+                    height: Get.height * .15,
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          controller.spendingActualDollarImageUrl.value,
                         ),
-                        Html(
-                          data: snapshot.data!['content']['rendered'],
-                          style: {
-                            "h2": Style(color: AppColors.primaryColor),
-                          },
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                          Colors.white.withOpacity(0.7),
+                          BlendMode.screen,
                         ),
-                        Container(
-                          height: Get.height * .35,
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.lightprimary.withOpacity(0.5),
-                                blurRadius: 6.0,
-                                spreadRadius: 0,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 120,
-                                width: 200,
-                                child: Image.network(
-                                  snapshot.data?['custom_fields']['smart'][0],
-                                ),
-                              ),
-                              Html(
-                                data: snapshot.data?['custom_fields']
-                                    ['smart_desc'][0],
-                                style: {
-                                  "a": Style(color: AppColors.primaryColor),
-                                  "p": Style(
-                                    lineHeight: LineHeight.number(1.3),
-                                  ),
-                                },
-                              ),
-                            ],
-                          ),
+                      ),
+                    ),
+                    child: Html(
+                      data:
+                          controller.spendingActualDollarDescriptionText.value,
+                    ),
+                  ),
+                  const VerticalGap(gap: 20),
+                  Center(
+                    child: CarouselSlider.builder(
+                      itemCount: controller.carouselSliderImageUrlList.length,
+                      itemBuilder: (_, i, k) => Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 5,
                         ),
-                        const VerticalGap(),
-                        Container(
-                          height: Get.height * .35,
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: AppColors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: AppColors.lightprimary.withOpacity(0.5),
-                                blurRadius: 5.0,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                height: 120,
-                                width: 200,
-                                child: Image.network(
-                                  snapshot.data?['custom_fields']['treesisters']
-                                      [0],
-                                ),
-                              ),
-                              const VerticalGap(),
-                              Html(
-                                data: snapshot.data?['custom_fields']
-                                    ['treesisters_desc'][0],
-                                style: {
-                                  "a": Style(color: AppColors.primaryColor),
-                                },
-                              ),
-                            ],
-                          ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: AppColors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: AppColors.lightprimary,
+                              blurRadius: 3.0,
+                            )
+                          ],
                         ),
-                        const VerticalGap(),
-                        Container(
-                          alignment: Alignment.centerLeft,
-                          height: 170,
-                          width: Get.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
-                            vertical: 10,
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                snapshot.data?['custom_fields']
-                                    ['Spending_actual_\$\$\$_image'][0],
-                              ),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                Colors.white.withOpacity(0.7),
-                                BlendMode.screen,
+                        child: Column(
+                          children: [
+                            const VerticalGap(gap: 50),
+                            SizedBox(
+                              width: 200,
+                              child: Image.network(
+                                controller.carouselSliderImageUrlList[i],
                               ),
                             ),
-                          ),
-                          child: Html(
-                            data: snapshot.data?['custom_fields']
-                                ['Spending_actual_\$\$\$'][0],
-                            style: {
-                              "h2": Style(
-                                color: AppColors.lightprimary,
-                              ),
-                            },
-                          ),
-                        ),
-                        Center(
-                          child: CarouselSlider.builder(
-                            itemCount: controller.carouselDescription.length,
-                            itemBuilder: (_, i, k) => Container(
-                              width: Get.width,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 10,
-                              ),
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 15,
-                              ),
-                              decoration: BoxDecoration(
-                                color: AppColors.white,
-                                borderRadius: BorderRadius.circular(15),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 2.0,
-                                    color: AppColors.primaryColor,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 80,
-                                    child: Image.network(
-                                      controller.carouselImages[i],
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  const VerticalGap(gap: 15),
-                                  Html(
-                                    data: controller.carouselDescription[i],
-                                  ),
-                                ],
-                              ),
-                            ),
-                            options: CarouselOptions(
-                              height: 350,
-                              aspectRatio: 2 / 1,
-                              viewportFraction: .99,
-                              initialPage: 0,
-                              enableInfiniteScroll: true,
-                              reverse: false,
-                              autoPlay: false,
-                              autoPlayInterval: const Duration(seconds: 2),
-                              autoPlayAnimationDuration:
-                                  const Duration(milliseconds: 800),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              enlargeCenterPage: false,
-                              scrollDirection: Axis.horizontal,
-                              onPageChanged: (index, _) {
-                                controller.changeIndexOnCasrosleSlide(index);
+                            Html(
+                              data: controller
+                                  .carouselSliderDescriptionTextList[i],
+                              shrinkWrap: true,
+                              style: {
+                                "a": Style(color: AppColors.primaryColor),
                               },
                             ),
-                          ),
+                          ],
                         ),
-                        const VerticalGap(),
-                        Obx(
-                          () => Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(
-                              3,
-                              (index) => Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 2),
-                                width: 10,
-                                height: 10,
-                                decoration: BoxDecoration(
-                                  border:
-                                      controller.currentCardIndex.value == index
-                                          ? null
-                                          : Border.all(
-                                              color: AppColors.primaryColor),
-                                  color:
-                                      controller.currentCardIndex.value == index
-                                          ? AppColors.primaryColor
-                                          : AppColors.white,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                            ),
+                      ),
+                      options: CarouselOptions(
+                        height: 350,
+                        aspectRatio: 2 / 1,
+                        viewportFraction: .99,
+                        initialPage: 0,
+                        enableInfiniteScroll: true,
+                        reverse: false,
+                        autoPlay: false,
+                        autoPlayInterval: const Duration(seconds: 2),
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        enlargeCenterPage: false,
+                        scrollDirection: Axis.horizontal,
+                        onPageChanged: (index, _) {
+                          controller.currentCarouselCardIndex(index);
+                        },
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      3,
+                      (index) => Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 3),
+                        height: 10,
+                        width: 10,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1.0,
+                            color: AppColors.primaryColor,
                           ),
+                          color:
+                              controller.currentCarouselCardIndex.value == index
+                                  ? AppColors.primaryColor
+                                  : AppColors.white,
+                          shape: BoxShape.circle,
                         ),
-                      ],
+                      ),
                     ),
-                  );
-                }
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
+                  ),
+                  Html(
+                    data: controller.spiritualGuidingPrinciples.value,
+                    style: {
+                      "h2": Style(color: AppColors.primaryColor),
+                      "h4": Style(color: AppColors.primaryColor),
+                    },
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+}
+
+class GivingBackCards extends StatelessWidget {
+  final String imageUrl, descriptionText;
+  const GivingBackCards({
+    Key? key,
+    required this.imageUrl,
+    required this.descriptionText,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: AppColors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: AppColors.lightprimary,
+            blurRadius: 2.0,
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          SizedBox(
+            width: 200,
+            child: Image.network(
+              imageUrl,
+              fit: BoxFit.contain,
             ),
-            FutureBuilder<Map>(
-              future: controller.apiServices.getGivingBackInfo2(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  if (snapshot.data!.isEmpty) {
-                    return const Center(
-                      child: Text('Something went wrong'),
-                    );
-                  }
-                  return SingleChildScrollView(
-                    child: Html(
-                      data: snapshot.data!['content']['rendered'],
-                      style: {
-                        "h2": Style(color: AppColors.primaryColor),
-                        "h4": Style(color: AppColors.primaryColor),
-                      },
-                    ),
-                  );
-                }
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              },
-            ),
-          ],
-        ),
+          ),
+          const VerticalGap(),
+          Html(
+            data: descriptionText,
+            style: {
+              "a": Style(color: AppColors.primaryColor),
+            },
+          ),
+        ],
       ),
     );
   }

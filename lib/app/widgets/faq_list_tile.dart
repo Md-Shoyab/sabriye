@@ -34,12 +34,7 @@ class FaqListTile extends StatelessWidget {
           ),
           const VerticalGap(),
           Html(
-            data: answer,
-            // style: {
-            //   'p': Style(
-            //     lineHeight: LineHeight.percent(130),
-            //   ),
-            // },
+            data: answer.toString(),
           ),
         ],
       ),
