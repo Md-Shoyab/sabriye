@@ -7,6 +7,7 @@ import 'package:sabriye/services/api_services.dart';
 class ChangeEmailController extends GetxController {
   final ApiServices apiServices = ApiServices();
   final TextEditingController emailController = TextEditingController();
+  final changeEmailFormkey = GlobalKey<FormState>();
 
   void updateBasicAuth(String updatedEmail, password) {
     debugPrint('come in updateBasicAuth');
@@ -17,5 +18,16 @@ class ChangeEmailController extends GetxController {
           ),
         );
     SessionManager.saveUserToken(basicAuth);
+  }
+
+  String? validateEmail(String? value) {
+    if (value!.isEmpty) {
+      return "Provide valid email.";
+    } else if (GetUtils.isEmail(value)) {
+      debugPrint('This is correct email');
+    } else {
+      return 'Provide a valid email';
+    }
+    return null;
   }
 }

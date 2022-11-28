@@ -715,7 +715,6 @@ class ApiServices {
           });
 
       if (response.statusCode == 200) {
-        debugPrint('Come in change Email Sucess');
         ChangeEmailController _changeEmailController = ChangeEmailController();
         _changeEmailController.updateBasicAuth(
           _changeEmailController.emailController.text,

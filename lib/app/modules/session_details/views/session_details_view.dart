@@ -40,6 +40,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                 child: CircularProgressIndicator(),
               )
             : ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 children: [
                   Html(data: controller.sessionDetails.value),
                   const Divider(
