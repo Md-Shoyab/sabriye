@@ -25,13 +25,13 @@ class AccountSettingsOption extends StatelessWidget {
         horizontal: 10,
       ),
       decoration: BoxDecoration(
-        color: AppColors.bgColor,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: AppColors.darkPrimaryColor,
-            blurRadius: 2.0,
-            offset: Offset(-1, 0),
+            color: AppColors.lightprimary.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 3),
           ),
         ],
       ),

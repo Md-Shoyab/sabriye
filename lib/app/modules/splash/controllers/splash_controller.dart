@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
@@ -14,7 +13,7 @@ class SplashController extends GetxController {
     Future.delayed(const Duration(seconds: 3)).then(
       (_) {
         if (userToken == null) {
-          Get.offAllNamed(Routes.LOGIN);
+          Get.offAllNamed(Routes.WELCOME_SCREENS);
         } else {
           Get.offAllNamed(Routes.MAIN_SCREEN);
         }
@@ -22,8 +21,6 @@ class SplashController extends GetxController {
     );
     super.onReady();
   }
-
-  
 
   @override
   void onInit() {

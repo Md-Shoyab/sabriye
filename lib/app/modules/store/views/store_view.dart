@@ -30,14 +30,17 @@ class StoreView extends GetView<StoreController> {
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          VerticalGap(gap: Get.height * .15),
+          VerticalGap(gap: Get.height * .1),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             height: Get.height,
             child: GridView(
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, mainAxisSpacing: 5, crossAxisSpacing: 5),
+                crossAxisCount: 2,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
+              ),
               children: const [
                 StoreOptionCard(
                   iconImagePath: AppAssets.membershipIcon,

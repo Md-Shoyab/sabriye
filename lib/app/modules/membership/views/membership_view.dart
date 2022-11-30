@@ -40,7 +40,7 @@ class MembershipView extends GetView<MembershipController> {
                 child: CircularProgressIndicator(),
               )
             : ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
                   const VerticalGap(),
                   Html(

@@ -19,23 +19,22 @@ class TopTestimonialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(15, 20, 15, 0),
-      padding: const EdgeInsets.all(8),
+      margin: const EdgeInsets.fromLTRB(20, 30, 20, 0),
+      padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
       width: Get.width * .9,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: AppColors.bgColor,
+            color: AppColors.lightprimary.withOpacity(0.4),
             blurRadius: 4,
-            spreadRadius: 4,
           ),
         ],
       ),
       child: Column(
         children: [
-          const VerticalGap(gap: 20),
+          const VerticalGap(),
           CircleAvatar(
             backgroundImage: AssetImage(imagePath),
             radius: 30,

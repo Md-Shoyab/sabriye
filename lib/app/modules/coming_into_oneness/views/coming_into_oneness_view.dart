@@ -39,7 +39,7 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                 child: CircularProgressIndicator(),
               )
             : ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
                   Html(data: controller.comingIntoOnenessIntro.value),
                   const VerticalGap(),

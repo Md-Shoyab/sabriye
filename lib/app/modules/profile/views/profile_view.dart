@@ -195,7 +195,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const Divider(
-              color: AppColors.black,
+              color: AppColors.grey,
             ),
             const VerticalGap(),
             const Text(AppConstants.lastNameText),
