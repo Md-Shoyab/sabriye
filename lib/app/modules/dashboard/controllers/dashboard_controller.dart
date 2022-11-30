@@ -1,21 +1,21 @@
 import 'package:get/get.dart';
-import 'package:sabriye/app/modules/inner_union_oracle/views/inner_union_oracle_view.dart';
-import 'package:sabriye/services/api_services.dart';
+import '../../../../services/api_services.dart';
 import '../../../constants/app_assets.dart';
-import '../../account_settings/views/account_settings_view.dart';
-import '../../side_menu/views/side_menu_view.dart';
-import '../../store/views/store_view.dart';
-import '../views/dashboard_view.dart';
 
 class DashboardController extends GetxController {
-  final ApiServices apiServices = ApiServices();
-  RxInt selectedPageIndex = 0.obs;
+  final ApiServices _apiServices = ApiServices();
+  RxBool isLoading = false.obs;
+  RxList teachingCategories = [].obs;
+  RxList spiritualSpotlightVideoInterview = [].obs;
 
-  final List<String> storyImage = [
-    AppAssets.storyImage1,
-    AppAssets.storyImage2,
-    AppAssets.storyImage3
-  ];
+  @override
+  void onInit() async {
+    isLoading.value = true;
+    await getAllTeachingsCategories();
+    await getAllSpiritualSpotlightVideoInterview();
+    isLoading.value = false;
+    super.onInit();
+  }
 
   final List<String> testimonialsUserImage = [
     AppAssets.reenaBharaniProfile,
@@ -50,23 +50,14 @@ class DashboardController extends GetxController {
     'Hi Sabriye, I just wanted to share with you that after our call I left my relationship. I told Sam how I felt. I flew to see him in October after not seeing each other for 7 years. December he proposed to me and we eloped. We are planning a real wedding for this summer. Thank you for your services and for helping to set me free. I will always appreciate you.',
   ];
 
-  final screens = [
-    const DashboardView(),
-    const InnerUnionOracleView(),
-    const StoreView(),
-    const AccountSettingsView(),
-    const SideMenuView(),
-  ];
-
-  @override
-  void onInit() {
-    apiServices.getAllTeachingsCategories();
-    apiServices.getAllSpritiualSpotlightVideoInterview();
-    apiServices.getAllStories();
-    super.onInit();
+  Future<void> getAllTeachingsCategories() async {
+    final responseJson = await _apiServices.getAllTeachingsCategories();
+    teachingCategories.value = responseJson;
   }
 
-  void updateSelectedPageIndex(int index) {
-    selectedPageIndex.value = index;
+  Future<void> getAllSpiritualSpotlightVideoInterview() async {
+    final responseJson =
+        await _apiServices.getAllSpritiualSpotlightVideoInterview();
+    spiritualSpotlightVideoInterview.value = responseJson;
   }
 }

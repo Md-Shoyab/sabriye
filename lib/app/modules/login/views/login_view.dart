@@ -36,7 +36,7 @@ class LoginView extends GetView<LoginController> {
               width: Get.width * .9,
               child: Card(
                 elevation: 5.0,
-                shadowColor: Colors.pink.shade200,
+                shadowColor: AppColor.shadowColors.withOpacity(0.5),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
                 ),

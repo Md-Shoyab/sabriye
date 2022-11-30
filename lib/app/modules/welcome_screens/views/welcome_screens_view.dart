@@ -110,9 +110,10 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                       onPressed: () {
                                         controller.welcomePageController
                                             .nextPage(
-                                                duration: const Duration(
-                                                    microseconds: 500),
-                                                curve: Curves.easeIn);
+                                          duration:
+                                              const Duration(microseconds: 500),
+                                          curve: Curves.easeIn,
+                                        );
                                       },
                                       child: const Text(
                                         'NEXT',

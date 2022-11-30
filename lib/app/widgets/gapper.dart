@@ -25,7 +25,3 @@ class HorizontalGap extends StatelessWidget {
     );
   }
 }
-
-class Kpadding {
-  static const kPadding = EdgeInsets.symmetric(horizontal: 10);
-}

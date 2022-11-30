@@ -17,7 +17,7 @@ class AppConstants {
       'Don\'t have an account yet?\nJoin the Inner Learning Circle';
   static const String oneWeekTrial = 'Grab your free one-week trial';
   static const String dashboardCardText =
-      'A \nnew paradigm\nperspective\nfor\nspiritual\nseekers';
+      'A new\nparadigm\nperspective for\nspiritual\nseekers';
   static const String dashboardCardText2 =
       'Unlimited Access to the Inner\nLearning Circle';
   static const String storiesText = 'Stories';
