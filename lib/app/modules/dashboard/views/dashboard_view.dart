@@ -27,8 +27,8 @@ class DashboardView extends GetView<DashboardController> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        image: const DecorationImage(
-                          image: AssetImage(AppAssets.dashboardImage),
+                        image: DecorationImage(
+                          image: NetworkImage(controller.bannerImageUrl.value),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(5),
@@ -37,24 +37,30 @@ class DashboardView extends GetView<DashboardController> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
-                          VerticalGap(),
-                          Text(
-                            AppConstants.dashboardCardText,
-                            style: TextStyle(
-                              color: AppColors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              height: 1.6,
+                        children: [
+                          const VerticalGap(),
+                          SizedBox(
+                            width: Get.width * .25,
+                            child: Text(
+                              controller.dashboardBigText.value,
+                              style: const TextStyle(
+                                color: AppColors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                height: 1.6,
+                              ),
                             ),
                           ),
-                          VerticalGap(gap: 20),
-                          Text(
-                            AppConstants.dashboardCardText2,
-                            style: TextStyle(
-                              color: AppColors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
+                          const VerticalGap(gap: 20),
+                          SizedBox(
+                            width: Get.width * .45,
+                            child: Text(
+                              controller.dashboardSmallText.value,
+                              style: const TextStyle(
+                                color: AppColors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ],

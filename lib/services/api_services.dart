@@ -733,7 +733,7 @@ class ApiServices {
     }
   }
 
-  Future<Map> getAllBannerImage() async {
+  Future<Map> getDashboardBannerImage() async {
     try {
       var response = await http.get(
         Uri.parse(API_BASE_URL_2 + API_GET_ALL_BANNER_IMAGE),

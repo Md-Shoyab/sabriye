@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import '../../../../services/api_services.dart';
 import '../../../constants/app_assets.dart';
@@ -7,12 +9,16 @@ class DashboardController extends GetxController {
   RxBool isLoading = false.obs;
   RxList teachingCategories = [].obs;
   RxList spiritualSpotlightVideoInterview = [].obs;
+  RxString bannerImageUrl = ''.obs;
+  RxString dashboardBigText = ''.obs;
+  RxString dashboardSmallText = ''.obs;
 
   @override
   void onInit() async {
     isLoading.value = true;
     await getAllTeachingsCategories();
     await getAllSpiritualSpotlightVideoInterview();
+    await getDashboardBannerImage();
     isLoading.value = false;
     super.onInit();
   }
@@ -59,5 +65,16 @@ class DashboardController extends GetxController {
     final responseJson =
         await _apiServices.getAllSpritiualSpotlightVideoInterview();
     spiritualSpotlightVideoInterview.value = responseJson;
+  }
+
+  Future<void> getDashboardBannerImage() async {
+    final responseJson = await _apiServices.getDashboardBannerImage();
+    bannerImageUrl.value = responseJson['custom_fields']['Dashboard'][0];
+    dashboardBigText.value =
+        responseJson['custom_fields']['dashboardbaner-bigtext'][0];
+    dashboardSmallText.value =
+        responseJson['custom_fields']['dashboardbaner-smalltext'][0];
+
+    log(bannerImageUrl.value);
   }
 }
