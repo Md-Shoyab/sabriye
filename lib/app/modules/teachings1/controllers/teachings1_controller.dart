@@ -5,9 +5,25 @@ import '../../../constants/app_assets.dart';
 import '../../../constants/app_constants.dart';
 
 class Teachings1Controller extends GetxController {
-  ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
+  final RxList teachingSubCategories = [].obs;
+  final RxList bannerImageList = [].obs;
+  final RxBool isLoading = false.obs;
   final String id = Get.arguments['id'].toString();
   final String appTitle = Get.arguments['appTitle'].toString();
+  final String bannerImageUrl = Get.arguments['banner_image'].toString();
+
+  @override
+  void onInit() async {
+    log(id);
+    log(appTitle);
+    log(bannerImageUrl);
+    isLoading.value = true;
+    await getAllTeachingsSubCategories();
+    // await getTeachingsBannerImage();
+    isLoading.value = false;
+    super.onInit();
+  }
 
   final List<String> scaredRealtionshipCategories = [
     AppConstants.karmicRelationshipText,
@@ -20,10 +36,14 @@ class Teachings1Controller extends GetxController {
     AppAssets.soulmatesImage,
   ];
 
-  @override
-  void onInit() {
-    log(id);
-    apiServices.getAllTeachingsSubCategories(id);
-    super.onInit();
+  Future<void> getAllTeachingsSubCategories() async {
+    final responseJson = await _apiServices.getAllTeachingsSubCategories(id);
+    teachingSubCategories.value = responseJson;
   }
+
+  // Future<void> getTeachingsBannerImage() async {
+  //   final responseJson = await _apiServices.getAllBannerImage();
+  //   bannerImageList.value = responseJson;
+  //   log(bannerImageList.toString());
+  // }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
-import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/teachings2_controller.dart';
 
 class Teachings2View extends GetView<Teachings2Controller> {
@@ -32,76 +31,82 @@ class Teachings2View extends GetView<Teachings2Controller> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: FutureBuilder<List>(
-        future: controller.apiServices
-            .getAllBlogsByTeachingsSubCategories(controller.id),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Center(child: Text('0 Categories avaialible'));
-            }
-            return ListView.builder(
-              itemCount: snapshot.data!.length,
-              itemBuilder: ((context, index) {
-                return Column(
-                  children: [
-                    index == 0
-                        ? Container(
-                            margin: const EdgeInsets.only(top: 15, bottom: 10),
-                            height: Get.height * .2,
-                            child: Image.asset(
-                              AppAssets.angleBackgroundImage,
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  Container(
+                    width: Get.width,
+                    height: Get.height * .12,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      image: DecorationImage(
+                        image: NetworkImage(controller.bannerImageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: Get.height * .77,
+                    child: ListView.builder(
+                      itemCount:
+                          controller.blogPostsByTeachingsSubCategories.length,
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: () {
+                          Get.toNamed(
+                            Routes.BLOG_DETAILS,
+                            arguments: {
+                              'id': controller
+                                      .blogPostsByTeachingsSubCategories[index]
+                                  ['id']
+                            },
+                          );
+                        },
+                        child: Container(
+                          height: 200,
+                          width: Get.width,
+                          alignment: Alignment.bottomLeft,
+                          margin: const EdgeInsets.symmetric(
+                            vertical: 15,
+                            horizontal: 20,
+                          ),
+                          decoration: BoxDecoration(
+                            color: AppColor.white,
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                controller.blogPostsByTeachingsSubCategories[
+                                    index]['thumbnail'],
+                              ),
                               fit: BoxFit.cover,
                             ),
-                          )
-                        : const SizedBox(),
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.TEACHINGS_DETAILS, arguments: {
-                          'id': snapshot.data?[index]['id'],
-                          'appTitle': snapshot.data?[index]['title']
-                              ['rendered'],
-                        });
-                      },
-                      child: Container(
-                        alignment: Alignment.bottomLeft,
-                        height: Get.height * .23,
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: NetworkImage(
-                              snapshot.data![index]
-                                  ['jetpack_featured_media_url'],
-                            ),
-                            fit: BoxFit.cover,
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, bottom: 20),
-                          child: Text(
-                            snapshot.data![index]['title']['rendered'],
-                            style: const TextStyle(
-                              color: AppColors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 10,
+                            ),
+                            child: Text(
+                              controller
+                                      .blogPostsByTeachingsSubCategories[index]
+                                  ['title']['rendered'],
+                              style: const TextStyle(
+                                fontSize: 15,
+                                color: AppColor.white,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ],
-                );
-              }),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
+                  ),
+                ],
+              ),
       ),
     );
   }

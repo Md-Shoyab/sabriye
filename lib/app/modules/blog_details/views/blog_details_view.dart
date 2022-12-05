@@ -15,9 +15,9 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
-        title: Text(
-          controller.appTitle,
-          style: const TextStyle(
+        title: const Text(
+          '',
+          style: TextStyle(
             color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
           ),

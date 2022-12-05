@@ -11,6 +11,7 @@ const String API_GET_TEACHINNGS_CATEGORIES =
     '/categories/?include=94,57,62,100';
 const String API_GET_TEACHINNGS_SUBCATEGORIES = '/categories?parent=';
 const String API_GET_BLOGPOST_LIST = '/posts/?categories=108';
+const String API_GET_ALL_BANNER_IMAGE = '/pages/207';
 const String API_GET_ALL_SPIRITUAL_SPOTLIGHT_VIDEO_INTERVIEW =
     '/posts/?categories=98';
 const String API_GET_ABOUT_INFO = '/pages/44';

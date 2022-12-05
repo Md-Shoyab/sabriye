@@ -6,7 +6,7 @@ import '../../../constants/app_assets.dart';
 class BlogDetailsController extends GetxController {
   ApiServices apiServices = ApiServices();
   final String id = Get.arguments['id'].toString();
-  final String appTitle = Get.arguments['appTitle'].toString();
+  // final String appTitle = Get.arguments['appTitle'].toString();
   final List<String> relatedPostImages = [
     AppAssets.relatedPost1,
     AppAssets.relatedPost2,
@@ -17,7 +17,6 @@ class BlogDetailsController extends GetxController {
   @override
   void onInit() {
     log(id);
-    log(appTitle);
     super.onInit();
   }
 }

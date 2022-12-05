@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -106,9 +105,12 @@ class DashboardView extends GetView<DashboardController> {
                             Get.toNamed(
                               Routes.TEACHINGS1,
                               arguments: {
-                                'id': controller.teachingCategories[index],
+                                'id': controller.teachingCategories[index]
+                                    ['id'],
                                 'appTitle': controller.teachingCategories[index]
                                     ['name'],
+                                'banner_image': controller
+                                    .teachingCategories[index]['banner_image'],
                               },
                             );
                           },
@@ -124,7 +126,7 @@ class DashboardView extends GetView<DashboardController> {
                               image: DecorationImage(
                                 image: NetworkImage(
                                   controller.teachingCategories[index]
-                                      ['thumbnail'][0],
+                                      ['thumbnail'],
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -156,24 +158,33 @@ class DashboardView extends GetView<DashboardController> {
                         scrollDirection: Axis.horizontal,
                         itemCount:
                             controller.spiritualSpotlightVideoInterview.length,
-                        itemBuilder: (context, index) => Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 8),
-                          height: 90,
-                          width: 170,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.amber,
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                controller
-                                        .spiritualSpotlightVideoInterview[index]
-                                    ['thumbnail'],
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.SPIRITUAL_SPOTLIGHT_DETAILS,
+                                arguments: {
+                                  'id': controller
+                                          .spiritualSpotlightVideoInterview[
+                                      index]['id'],
+                                });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 8),
+                            height: 90,
+                            width: 170,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              color: Colors.amber,
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                  controller.spiritualSpotlightVideoInterview[
+                                      index]['thumbnail'],
+                                ),
+                                fit: BoxFit.cover,
                               ),
-                              fit: BoxFit.cover,
                             ),
-                          ),
-                          child: Image.asset(
-                            AppAssets.smallVideoPlayIcon,
+                            child: Image.asset(
+                              AppAssets.smallVideoPlayIcon,
+                            ),
                           ),
                         ),
                       ),
@@ -194,76 +205,84 @@ class DashboardView extends GetView<DashboardController> {
                         clipBehavior: Clip.none,
                         scrollDirection: Axis.horizontal,
                         itemCount: controller.testimonalUserNameText.length,
-                        itemBuilder: (context, index) => Container(
-                          width: Get.width * .8,
-                          margin: const EdgeInsets.fromLTRB(5, 0, 15, 0),
-                          decoration: BoxDecoration(
-                            color: AppColor.white,
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                blurRadius: 5,
-                                color: AppColor.shadowColors.withOpacity(0.5),
-                                offset: const Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: const EdgeInsets.symmetric(
-                                  horizontal: 8,
-                                  vertical: 10,
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.TOP_TESTIMONIALS);
+                          },
+                          child: Container(
+                            width: Get.width * .8,
+                            margin: const EdgeInsets.fromLTRB(5, 0, 15, 0),
+                            decoration: BoxDecoration(
+                              color: AppColor.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 5,
+                                  color: AppColor.shadowColors.withOpacity(0.5),
+                                  offset: const Offset(0, 4),
                                 ),
-                                child: CircleAvatar(
-                                  radius: 25,
-                                  foregroundImage: AssetImage(
-                                    controller.testimonialsUserImage[index],
+                              ],
+                            ),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.symmetric(
+                                    horizontal: 8,
+                                    vertical: 10,
+                                  ),
+                                  child: CircleAvatar(
+                                    radius: 25,
+                                    foregroundImage: AssetImage(
+                                      controller.testimonialsUserImage[index],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 15),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      controller.testimonalUserNameText[index],
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: AppColor.primaryBrown,
-                                      ),
-                                    ),
-                                    const VerticalGap(gap: 3),
-                                    RatingBar.builder(
-                                      ignoreGestures: true,
-                                      initialRating: 5.0,
-                                      itemBuilder: (context, _) => const Icon(
-                                        Icons.star,
-                                        color: Colors.amber,
-                                      ),
-                                      onRatingUpdate: (rating) {},
-                                      itemSize: 15,
-                                    ),
-                                    const VerticalGap(gap: 5),
-                                    SizedBox(
-                                      width: Get.width * .6,
-                                      child: Text(
+                                Container(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 15),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
                                         controller
-                                            .testimonalUserTestimonyText[index],
-                                        maxLines: 3,
-                                        overflow: TextOverflow.ellipsis,
-                                        textAlign: TextAlign.left,
+                                            .testimonalUserNameText[index],
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: AppColor.primaryBrown,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      const VerticalGap(gap: 3),
+                                      RatingBar.builder(
+                                        ignoreGestures: true,
+                                        initialRating: 5.0,
+                                        itemBuilder: (context, _) => const Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        onRatingUpdate: (rating) {},
+                                        itemSize: 15,
+                                      ),
+                                      const VerticalGap(gap: 5),
+                                      SizedBox(
+                                        width: Get.width * .6,
+                                        child: Text(
+                                          controller
+                                                  .testimonalUserTestimonyText[
+                                              index],
+                                          maxLines: 3,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.left,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
