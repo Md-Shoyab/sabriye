@@ -5,7 +5,13 @@ import 'package:sabriye/services/api_services.dart';
 class MembershipController extends GetxController {
   late List<MemberShipAccordionItem> membershipAccordionItem;
   final ApiServices _apiServices = ApiServices();
+  late Uri lifetimePlanUri = Uri.parse(lifetimePlanUrl.value);
+  late Uri annualPlanUri = Uri.parse(annualPlanUrl.value);
+  late Uri weeklyTrialPlanUri = Uri.parse(weeklyTrialPlanUrl.value);
   RxString htmlIntro = ''.obs;
+  RxString lifetimePlanUrl = ''.obs;
+  RxString annualPlanUrl = ''.obs;
+  RxString weeklyTrialPlanUrl = ''.obs;
   RxString checkPointsList = ''.obs;
   RxList accordionList = [].obs;
   RxList membershipPlansDetails = [].obs;
@@ -41,6 +47,12 @@ class MembershipController extends GetxController {
   Future<void> getMembershipPlansDetails() async {
     final responseJson = await _apiServices.getMembershipPlansDetails();
     membershipPlansDetails.value = responseJson;
+    lifetimePlanUrl.value =
+        membershipPlansDetails[0]['custom_fields']['payment-btn-link'][0];
+    annualPlanUrl.value =
+        membershipPlansDetails[1]['custom_fields']['payment-btn-link'][0];
+    weeklyTrialPlanUrl.value =
+        membershipPlansDetails[2]['custom_fields']['payment-btn-link'][0];
   }
 
   void changeSelectedAccordion(int index) {

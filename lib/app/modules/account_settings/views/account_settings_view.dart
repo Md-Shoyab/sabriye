@@ -29,7 +29,7 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
       ),
       body: ListView(
         children: [
-          const VerticalGap(gap: 20),
+          const VerticalGap(gap: 22),
           InkWell(
             onTap: () {
               Get.toNamed(Routes.PROFILE);

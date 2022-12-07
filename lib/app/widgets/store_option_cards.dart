@@ -26,11 +26,12 @@ class StoreOptionCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-                color: AppColors.primaryColor,
-                blurRadius: 3.0,
-                offset: Offset(0, 1))
+              color: AppColor.shadowColors.withOpacity(.5),
+              blurRadius: 5,
+              offset: const Offset(0, 4),
+            ),
           ],
         ),
         child: Column(

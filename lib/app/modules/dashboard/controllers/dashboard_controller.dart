@@ -74,7 +74,6 @@ class DashboardController extends GetxController {
         responseJson['custom_fields']['dashboardbaner-bigtext'][0];
     dashboardSmallText.value =
         responseJson['custom_fields']['dashboardbaner-smalltext'][0];
-
     log(bannerImageUrl.value);
   }
 }

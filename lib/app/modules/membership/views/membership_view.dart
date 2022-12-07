@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../widgets/membership_accordion.dart';
@@ -42,10 +43,11 @@ class MembershipView extends GetView<MembershipController> {
             : ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
-                  const VerticalGap(),
+                  const VerticalGap(gap: 20),
                   Html(
                     data: controller.htmlIntro.value,
                   ),
+                  const VerticalGap(gap: 20),
                   Container(
                     padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
                     decoration: BoxDecoration(
@@ -53,8 +55,9 @@ class MembershipView extends GetView<MembershipController> {
                       borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 4.0,
-                          color: AppColors.lightprimary.withOpacity(0.6),
+                          blurRadius: 10,
+                          color: AppColor.shadowColors.withOpacity(.5),
+                          offset: const Offset(0, 4),
                         ),
                       ],
                     ),
@@ -76,9 +79,9 @@ class MembershipView extends GetView<MembershipController> {
                       ),
                     ),
                   ),
-                  const VerticalGap(),
+                  const VerticalGap(gap: 20),
                   Html(data: controller.checkPointsList.value),
-                  const VerticalGap(),
+                  const VerticalGap(gap: 20),
                   Row(
                     children: [
                       Expanded(
@@ -109,10 +112,19 @@ class MembershipView extends GetView<MembershipController> {
                               Container(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'FREE',
-                                    style: TextStyle(
+                                  onPressed: () async {
+                                    if (!await launchUrl(
+                                      controller.weeklyTrialPlanUri,
+                                      mode: LaunchMode.externalApplication,
+                                    )) {
+                                      throw 'Could not launch ${controller.weeklyTrialPlanUri}';
+                                    }
+                                  },
+                                  child: Text(
+                                    controller.membershipPlansDetails[2]
+                                            ['custom_fields']
+                                        ['payment-btn-text'][0],
+                                    style: const TextStyle(
                                       color: AppColors.white,
                                       fontSize: 13,
                                     ),
@@ -175,10 +187,19 @@ class MembershipView extends GetView<MembershipController> {
                               Container(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    '€111',
-                                    style: TextStyle(
+                                  onPressed: () async {
+                                    if (!await launchUrl(
+                                      controller.annualPlanUri,
+                                      mode: LaunchMode.externalApplication,
+                                    )) {
+                                      throw 'Could not launch ${controller.annualPlanUri}';
+                                    }
+                                  },
+                                  child: Text(
+                                    controller.membershipPlansDetails[1]
+                                            ['custom_fields']
+                                        ['payment-btn-text'][0],
+                                    style: const TextStyle(
                                       color: AppColors.white,
                                       fontSize: 13,
                                     ),
@@ -223,10 +244,19 @@ class MembershipView extends GetView<MembershipController> {
                               Container(
                                 padding: const EdgeInsets.only(left: 20),
                                 child: TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    '€',
-                                    style: TextStyle(
+                                  onPressed: () async {
+                                    if (!await launchUrl(
+                                      controller.lifetimePlanUri,
+                                      mode: LaunchMode.externalApplication,
+                                    )) {
+                                      throw 'Could not launch ${controller.lifetimePlanUri}';
+                                    }
+                                  },
+                                  child: Text(
+                                    controller.membershipPlansDetails[0]
+                                            ['custom_fields']
+                                        ['payment-btn-text'][0],
+                                    style: const TextStyle(
                                       color: AppColors.white,
                                       fontSize: 13,
                                     ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-
 import '../constants/app_colors.dart';
 
 class AccountSettingsOption extends StatelessWidget {
@@ -29,9 +28,9 @@ class AccountSettingsOption extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: AppColors.lightprimary.withOpacity(0.1),
+            color: AppColor.shadowColors.withOpacity(0.25),
             blurRadius: 10,
-            offset: const Offset(0, 3),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -39,8 +38,9 @@ class AccountSettingsOption extends StatelessWidget {
         padding: const EdgeInsets.only(left: 10.0),
         child: Row(
           children: [
+            const HorizontalGap(gap: 20),
             Image.asset(settingIconImage),
-            const HorizontalGap(gap: 15),
+            const HorizontalGap(gap: 25),
             Text(settingName,
                 style: TextStyle(
                   color: color,
