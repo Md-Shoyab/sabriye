@@ -19,11 +19,12 @@ class SessionTestimony extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CircleAvatar(
+            backgroundColor: AppColor.grey,
             radius: 28,
             backgroundImage: NetworkImage(profileImagePath),
           ),

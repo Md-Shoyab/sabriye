@@ -4,14 +4,17 @@ import 'package:sabriye/services/api_services.dart';
 class SessionDetailsController extends GetxController {
   final ApiServices _apiServices = ApiServices();
   final RxBool isLoading = false.obs;
-  final RxString sessionDetails = ''.obs;
+  final RxString sessionBannerTitle = ''.obs;
+  final RxString sessionBannerDescription = ''.obs;
+  final RxString sessionCheckpoints = ''.obs;
   final RxString rootCauseOfStruggleContent = ''.obs;
   final RxString whatisAkashayHealingQuantumText = ''.obs;
   final RxString doYouRecognizeThisText = ''.obs;
   final RxString bookYourSessionTitle = ''.obs;
   final RxString bookYourSessionContent = ''.obs;
   final RxList testimonials = [].obs;
-  final RxList sessionCardDetails = [].obs;
+  final RxList oneOffSessionCardsList = [].obs;
+  final RxList akashaHealingSessionCardsList = [].obs;
 
   @override
   void onInit() async {
@@ -22,14 +25,17 @@ class SessionDetailsController extends GetxController {
     await sessionDetailsPartThree();
     await sessionDetailsPartFour();
     await sessionDetailsPartFive();
-    await sessionCardsDetails();
+    await getAllOneOffCardsDetails();
+    await sessionDetailCheckPoints();
+    await getAllAkashaHealingCardsDetails();
     isLoading.value = false;
     super.onInit();
   }
 
   Future<void> getSessionDetails() async {
     final responseJson = await _apiServices.sessionDetails();
-    sessionDetails.value = responseJson['content']['rendered'];
+    sessionBannerTitle.value = responseJson['title']['rendered'];
+    sessionBannerDescription.value = responseJson['content']['rendered'];
   }
 
   Future<void> sessionTestimony() async {
@@ -58,8 +64,18 @@ class SessionDetailsController extends GetxController {
     bookYourSessionContent.value = responseJson['content']['rendered'];
   }
 
-  Future<void> sessionCardsDetails() async {
-    final responseJson = await _apiServices.sessionCardsDetails();
-    sessionCardDetails.value = responseJson;
+  Future<void> getAllOneOffCardsDetails() async {
+    final responseJson = await _apiServices.getAllOneOffCardsDetails();
+    oneOffSessionCardsList.value = responseJson;
+  }
+
+  Future<void> getAllAkashaHealingCardsDetails() async {
+    final responseJson = await _apiServices.getAllAkashaHealingCardsDetails();
+    akashaHealingSessionCardsList.value = responseJson;
+  }
+
+  Future<void> sessionDetailCheckPoints() async {
+    final responseJson = await _apiServices.sessionCheckPoints();
+    sessionCheckpoints.value = responseJson['content']['rendered'];
   }
 }

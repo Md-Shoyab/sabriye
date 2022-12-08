@@ -23,15 +23,17 @@ class OneOffSessionCards extends StatelessWidget {
       width: Get.width,
       margin: const EdgeInsets.symmetric(
         vertical: 10,
+        horizontal: 20,
       ),
       padding: const EdgeInsets.fromLTRB(15, 20, 15, 5),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            blurRadius: 3,
-            color: AppColors.lightprimary,
+            blurRadius: 10,
+            color: AppColor.shadowColors.withOpacity(.5),
+            offset: const Offset(0, 4),
           )
         ],
         image: const DecorationImage(
@@ -62,6 +64,7 @@ class OneOffSessionCards extends StatelessWidget {
             style: {
               'p': Style(
                 maxLines: 5,
+                textOverflow: TextOverflow.ellipsis,
               )
             },
           ),
