@@ -47,11 +47,11 @@ class BlogsListingView extends GetView<BlogsListingController> {
                   String title = wpPost['title']['rendered'];
                   return PostCards(
                     index: index,
-                    imagePath: wpPost['jetpack_featured_media_url'] ??
+                    imagePath: wpPost['thumbnail'] ??
                         'https://sabriyeayana.com/wp-content/uploads/2022/08/kundalini-awakening.jpg',
                     title: title,
                     appTitle: snapshot.data?[index]['title']['rendered'],
-                    id: snapshot.data?[index]['id']
+                    id: snapshot.data?[index]['id'],
                   );
                 }),
               );

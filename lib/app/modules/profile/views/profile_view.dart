@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -68,13 +69,13 @@ class ProfileView extends GetView<ProfileController> {
                   Obx(
                     () => controller.selectedImagePath.value.isNotEmpty
                         ? Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
-                              border: Border.all(
-                                color: AppColors.primaryColor,
-                                width: 3,
-                              ),
+                              // border: Border.all(
+                              //   color: AppColors.primaryColor,
+                              //   width: 3,
+                              // ),
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(80),
@@ -101,13 +102,13 @@ class ProfileView extends GetView<ProfileController> {
                           )
                         : controller.existingImageUrl.value.isNotEmpty
                             ? Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: AppColors.primaryColor,
-                                    width: 3,
-                                  ),
+                                  // border: Border.all(
+                                  //   color: AppColors.primaryColor,
+                                  //   width: 3,
+                                  // ),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(80),
@@ -149,26 +150,28 @@ class ProfileView extends GetView<ProfileController> {
                   Positioned(
                     bottom: 0,
                     right: 0,
-                    child: Container(
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: AppColors.primaryColor,
-                          width: 3,
-                        ),
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          controller.readOnly.value
-                              ? controller.pickImage()
-                              : null;
-                        },
-                        icon: const Icon(
-                          Icons.camera_alt_sharp,
-                          color: AppColors.primaryColor,
+                    child: InkWell(
+                      onTap: () {
+                        controller.readOnly.value
+                            ? controller.pickImage()
+                            : null;
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColor.shadowColors.withOpacity(.5),
+                              blurRadius: 3,
+                              offset: const Offset(0, 4),
+                            ),
+                          ],
+                          image: const DecorationImage(
+                            image: AssetImage(AppAssets.cameraIcon),
+                          ),
                         ),
                       ),
                     ),
