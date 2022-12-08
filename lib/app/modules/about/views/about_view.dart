@@ -3,6 +3,8 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_constants.dart';
 import '../controllers/about_controller.dart';
 
@@ -33,70 +35,133 @@ class AboutView extends GetView<AboutController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: FutureBuilder<Map>(
-        future: controller.apiServices.getAboutInfo(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Center(
-                child: Text('Something went wrong'),
-              );
-            }
-            return SingleChildScrollView(
-              child: Column(
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
                 children: [
                   Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 10,
-                    ),
                     height: Get.height * .45,
-                    width: Get.width,
-                    color: Colors.amber,
-                    child: Image.asset(
-                      AppAssets.aboutBannerImage,
-                      fit: BoxFit.cover,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                            controller.aboutsabriyeProfileUrl.value),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                  Html(
-                    data: snapshot.data!['content']['rendered'],
-                    style: {
-                      "h2": Style(color: AppColors.primaryColor),
-                      "strong": Style(color: AppColors.primaryColor),
-                    },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Html(data: controller.aboutApiResponse.value),
+                  ),
+                  const VerticalGap(gap: 15),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: InkWell(
+                            onTap: () async {
+                              if (!await launchUrl(
+                                controller.twitterUrl,
+                                mode: LaunchMode.externalApplication,
+                              )) {
+                                throw 'Could not launch ${controller.twitterUrl}';
+                              }
+                            },
+                            child: Image.asset(
+                              AppAssets.twitterIcon,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const HorizontalGap(gap: 15),
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: InkWell(
+                            onTap: () async {
+                              if (!await launchUrl(
+                                controller.instagramUrl,
+                                mode: LaunchMode.externalApplication,
+                              )) {
+                                throw 'Could not launch ${controller.instagramUrl}';
+                              }
+                            },
+                            child: Image.asset(
+                              AppAssets.instagramIcon,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const HorizontalGap(gap: 15),
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: InkWell(
+                            onTap: () async {
+                              if (!await launchUrl(
+                                controller.youtubeUrl,
+                                mode: LaunchMode.externalApplication,
+                              )) {
+                                throw 'Could not launch ${controller.youtubeUrl}';
+                              }
+                            },
+                            child: Image.asset(
+                              AppAssets.youtubeIcon,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const HorizontalGap(gap: 15),
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: InkWell(
+                            onTap: () async {
+                              if (!await launchUrl(
+                                controller.pinterestUrl,
+                                mode: LaunchMode.externalApplication,
+                              )) {
+                                throw 'Could not launch ${controller.pinterestUrl}';
+                              }
+                            },
+                            child: Image.asset(
+                              AppAssets.pinterestIcon,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        const HorizontalGap(gap: 15),
+                        SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: InkWell(
+                            onTap: () async {
+                              if (!await launchUrl(
+                                controller.facebookUrl,
+                                mode: LaunchMode.externalApplication,
+                              )) {
+                                throw 'Could not launch ${controller.facebookUrl}';
+                              }
+                            },
+                            child: Image.asset(
+                              AppAssets.facebookIcon,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
       ),
     );
   }
 }
-
-/*
-FutureBuilder<Map>(
-        future: controller.apiServices.getAboutInfo(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Text('Something went wrong');
-            }
-          }
-          return SingleChildScrollView(
-            child: Html(
-              data: snapshot.data!['content']['rendered'],
-            ),
-          );
-        },
-
-        ---------
-const WebView(
-        javascriptMode: JavascriptMode.unrestricted,
-        initialUrl: 'https://sabriyeayana.com/about/',
-      ),
-*/
