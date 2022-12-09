@@ -34,7 +34,6 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
       ),
       body: Form(
         key: controller.changeEmailFormkey,
-        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           children: [
@@ -77,6 +76,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             ),
             const VerticalGap(gap: 20),
             TextFormField(
+              validator: (value) => controller.validateConfirmEmail(value),
               cursorColor: AppColors.primaryColor,
               controller: controller.confirmEmailController,
               decoration: InputDecoration(
@@ -104,7 +104,9 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             const VerticalGap(gap: 20),
             Center(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.changeEmailFormkey.currentState!.validate();
+                },
                 child: const Text(
                   AppConstants.sendText,
                   style: TextStyle(

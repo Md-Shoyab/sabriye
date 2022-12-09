@@ -26,7 +26,18 @@ class ChangeEmailController extends GetxController {
     if (value!.isEmpty) {
       return "Provide valid email.";
     } else if (GetUtils.isEmail(value)) {
-      debugPrint('This is correct email');
+    } else {
+      return 'Provide a valid email';
+    }
+    return null;
+  }
+
+  String? validateConfirmEmail(String? value) {
+    if (value!.isEmpty) {
+      return "Provide valid email.";
+    } else if (emailController.text != confirmEmailController.text) {
+      return "New Email and Confirm Email doesn't match";
+    } else if (GetUtils.isEmail(value)) {
     } else {
       return 'Provide a valid email';
     }
