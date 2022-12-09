@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
 import '../../../routes/app_pages.dart';
+import '../../../widgets/gapper.dart';
 import '../controllers/teachings1_controller.dart';
 
 class Teachings1View extends GetView<Teachings1Controller> {
@@ -98,7 +99,7 @@ class SubCategoriesCard extends StatelessWidget {
             height: 200,
             width: Get.width,
             margin: const EdgeInsets.symmetric(
-              vertical: 35,
+              vertical: 10,
               horizontal: 20,
             ),
             decoration: BoxDecoration(
@@ -117,6 +118,7 @@ class SubCategoriesCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          const VerticalGap(gap: 20),
         ],
       ),
     );

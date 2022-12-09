@@ -1,20 +1,22 @@
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class SpiritualSpotlightController extends GetxController {
-  ApiServices apiServices = ApiServices();
-  final spiritualImageList = [
-    AppAssets.spiritualSpotlightImage1,
-    AppAssets.spiritualSpotlightImage2,
-    AppAssets.spiritualSpotlightImage3,
-  ];
+  final ApiServices _apiServices = ApiServices();
+  final RxBool isLoading = false.obs;
+  final RxList spiritualSpotlightVideoInterviewList = [].obs;
   @override
-  void onClose() {}
+  void onInit() async {
+    isLoading.value = true;
+    await getAllTeachingsCategories();
+    isLoading.value = false;
 
-  @override
-  void onInit() {
-    apiServices.getAllSpritiualSpotlightVideoInterview();
     super.onInit();
+  }
+
+  Future<void> getAllTeachingsCategories() async {
+    final responseJson =
+        await _apiServices.getAllSpritiualSpotlightVideoInterview();
+    spiritualSpotlightVideoInterviewList.value = responseJson;
   }
 }
