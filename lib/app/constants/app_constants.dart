@@ -361,6 +361,7 @@ The reason why so many people have tried everything else to manifest the life of
   static const String akashaHealingJourneyText = 'Akasha Healing Journey';
   static const String sessionTestimonialUserName = 'Lauren Maniere';
   static const String newPasswordText = 'New Password';
+  static const String confrimNewPasswordText = 'Confirm New Password';
   static const String plsEnterNewPassword = 'Please enter the new password';
   static const String sessionTestimonialContent =
       '“My mind has been blown open! After working with Sabriyé, I not only worked through the mental blocks that were holding me back from achieving some of the outcomes I had in visioned in my life, but with her new method soul clarity, it helped illuminate the path that I am meant to pursue. I couldn’t be more excited for the next part of my journey! Thank you Sabriyé for helping me realize my soul power and bringing it back to life!”';
