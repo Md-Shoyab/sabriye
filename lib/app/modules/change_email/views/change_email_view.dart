@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
-import '../../../local_storage/sessions.dart';
-import '../../../widgets/gapper.dart';
 import '../controllers/change_email_controller.dart';
 
 class ChangeEmailView extends GetView<ChangeEmailController> {
@@ -21,11 +20,11 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        leading: InkWell(
-          onTap: () {
+        leading: IconButton(
+          onPressed: () {
             Get.back();
           },
-          child: const Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: AppColors.primaryColor,
           ),
@@ -33,81 +32,98 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(
-        children: [
-          const VerticalGap(gap: 30),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            child: Text(
-              AppConstants.changeEmailSubText,
+      body: Form(
+        key: controller.changeEmailFormkey,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        child: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          children: [
+            const VerticalGap(gap: 20),
+            const Text(
+              'Please enter the new Email Adress',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 16,
+                height: 1.5,
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20.0,
-              vertical: 20,
+            const VerticalGap(gap: 20),
+            TextFormField(
+              validator: (value) => controller.validateEmail(value),
+              cursorColor: AppColors.primaryColor,
+              controller: controller.emailController,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
+                  ),
+                ),
+                hintText: AppConstants.newEmailAddressText,
+              ),
             ),
-            child: Form(
-              key: controller.changeEmailFormkey,
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              child: TextFormField(
-                validator: (value) => controller.validateEmail(value),
-                cursorColor: AppColors.primaryColor,
-                controller: controller.emailController,
-                decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 0,
+            const VerticalGap(gap: 20),
+            TextFormField(
+              cursorColor: AppColors.primaryColor,
+              controller: controller.confirmEmailController,
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 0,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(
-                      color: AppColors.primaryColor,
-                      width: 2.0,
-                    ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: const BorderSide(
+                    color: AppColors.primaryColor,
+                    width: 2.0,
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30),
-                    borderSide: const BorderSide(
-                      color: AppColors.primaryColor,
-                      width: 2.0,
-                    ),
+                ),
+                hintText: AppConstants.confrimNewEmailAddressText,
+              ),
+            ),
+            const VerticalGap(gap: 20),
+            Center(
+              child: TextButton(
+                onPressed: () {},
+                child: const Text(
+                  AppConstants.sendText,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.white,
                   ),
-                  hintText: AppConstants.emailText,
+                ),
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(150, 30),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                  backgroundColor: AppColors.primaryColor,
                 ),
               ),
             ),
-          ),
-          TextButton(
-            onPressed: () {
-              if (controller.changeEmailFormkey.currentState!.validate()) {
-                controller.apiServices.changeEmail(
-                  SessionManager.getUserToken()!,
-                  controller.emailController.text,
-                );
-              }
-            },
-            child: const Text(
-              AppConstants.sendText,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-                color: AppColors.white,
-              ),
-            ),
-            style: TextButton.styleFrom(
-              minimumSize: const Size(160, 40),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
-              backgroundColor: AppColors.primaryColor,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

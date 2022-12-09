@@ -7,6 +7,8 @@ import 'package:sabriye/services/api_services.dart';
 class ChangeEmailController extends GetxController {
   final ApiServices apiServices = ApiServices();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController confirmEmailController = TextEditingController();
+
   final changeEmailFormkey = GlobalKey<FormState>();
 
   void updateBasicAuth(String updatedEmail, password) {
