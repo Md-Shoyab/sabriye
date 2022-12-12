@@ -130,7 +130,7 @@ class SupportView extends GetView<SupportController> {
             ),
             IconButton(
               onPressed: () {
-                Get.toNamed(Routes.VERIFICATION_PASSWORD);
+                Get.toNamed(Routes.THANK_YOU);
               },
               icon: const Icon(Icons.logout),
             ),
