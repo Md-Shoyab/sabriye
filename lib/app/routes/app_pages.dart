@@ -84,6 +84,8 @@ import '../modules/thank_you/bindings/thank_you_binding.dart';
 import '../modules/thank_you/views/thank_you_view.dart';
 import '../modules/top_testimonials/bindings/top_testimonials_binding.dart';
 import '../modules/top_testimonials/views/top_testimonials_view.dart';
+import '../modules/verification_password/bindings/verification_password_binding.dart';
+import '../modules/verification_password/views/verification_password_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
 import '../modules/welcome_screens/views/welcome_screens_view.dart';
 
@@ -310,6 +312,11 @@ class AppPages {
       name: _Paths.THANK_YOU,
       page: () => const ThankYouView(),
       binding: ThankYouBinding(),
+    ),
+    GetPage(
+      name: _Paths.VERIFICATION_PASSWORD,
+      page: () => const VerificationPasswordView(),
+      binding: VerificationPasswordBinding(),
     ),
   ];
 }

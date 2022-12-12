@@ -58,7 +58,9 @@ class ThankYouView extends GetView<ThankYouController> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.back();
+                  },
                   child: const Text(
                     'Download Ebook',
                     style: TextStyle(
