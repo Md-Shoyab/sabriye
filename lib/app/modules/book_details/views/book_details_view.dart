@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -133,7 +134,9 @@ class BookDetailsView extends GetView<BookDetailsController> {
                                 ),
                                 const VerticalGap(),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.toNamed(Routes.THANK_YOU);
+                                  },
                                   child: const Text(
                                     AppConstants.directDownloadText,
                                     style: TextStyle(

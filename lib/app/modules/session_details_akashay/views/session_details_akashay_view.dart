@@ -18,7 +18,7 @@ class SessionDetailsAkashayView
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          'Sessions Testimonials Akashay',
+          '',
           style: TextStyle(
             color: AppColors.brownColor,
             fontWeight: FontWeight.w600,

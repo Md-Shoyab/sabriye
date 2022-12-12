@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../constants/app_assets.dart';
 import '../constants/app_colors.dart';
 
+// ignore: must_be_immutable
 class OneOffSessionCards extends StatelessWidget {
-  final String title, content, routes;
+  final String title, content, routes, buylink;
   final Map titleContentArguments;
+  late Uri sessionPlanUrl = Uri.parse(buylink);
 
-  const OneOffSessionCards({
+  OneOffSessionCards({
     Key? key,
     required this.title,
     required this.content,
     required this.routes,
     required this.titleContentArguments,
+    required this.buylink,
   }) : super(key: key);
 
   @override
@@ -73,7 +77,14 @@ class OneOffSessionCards extends StatelessWidget {
             children: [
               const HorizontalGap(),
               TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  if (!await launchUrl(
+                    sessionPlanUrl,
+                    mode: LaunchMode.externalApplication,
+                  )) {
+                    throw 'Could not launch $sessionPlanUrl';
+                  }
+                },
                 child: const Text(
                   'Buy Now',
                   style: TextStyle(

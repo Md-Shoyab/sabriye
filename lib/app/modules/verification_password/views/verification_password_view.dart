@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:otp_text_field/otp_text_field.dart';
+import 'package:otp_text_field/style.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/verification_password_controller.dart';
@@ -43,6 +45,22 @@ class VerificationPasswordView extends GetView<VerificationPasswordController> {
               fontWeight: FontWeight.w500,
               height: 1.4,
             ),
+          ),
+          const VerticalGap(gap: 20),
+          OTPTextField(
+            otpFieldStyle: OtpFieldStyle(
+              focusBorderColor: AppColor.primaryBrown,
+            ),
+            length: 4,
+            width: MediaQuery.of(context).size.width,
+            fieldWidth: 80,
+            style: const TextStyle(
+              fontSize: 17,
+              color: AppColor.primaryBrown,
+            ),
+            textFieldAlignment: MainAxisAlignment.spaceAround,
+            fieldStyle: FieldStyle.box,
+            onCompleted: (pin) {},
           ),
           const VerticalGap(gap: 20),
           Center(

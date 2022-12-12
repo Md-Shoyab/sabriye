@@ -293,11 +293,13 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                           ['content']['rendered'],
                       routes: Routes.SESSION_DETAILS_AKASHAY,
                       titleContentArguments: {
-                        'title': controller.oneOffSessionCardsList[0]['title']
-                            ['rendered'],
-                        'content': controller.oneOffSessionCardsList[0]
+                        'title': controller.oneOffSessionCardsList[index]
+                            ['title']['rendered'],
+                        'content': controller.oneOffSessionCardsList[index]
                             ['content']['rendered'],
                       },
+                      buylink: controller.oneOffSessionCardsList[index]
+                          ['custom_fields']['payment-btn-link'][1],
                     ),
                   ),
                   const VerticalGap(gap: 20),
@@ -324,11 +326,14 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                           ['content']['rendered'],
                       routes: Routes.SESSION_DETAILS_AKASHAY,
                       titleContentArguments: {
-                        'title': controller.akashaHealingSessionCardsList[0]
+                        'title': controller.akashaHealingSessionCardsList[index]
                             ['title']['rendered'],
-                        'content': controller.akashaHealingSessionCardsList[0]
-                            ['content']['rendered'],
+                        'content':
+                            controller.akashaHealingSessionCardsList[index]
+                                ['content']['rendered'],
                       },
+                      buylink: controller.akashaHealingSessionCardsList[index]
+                          ['custom_fields']['payment-btn-link'][1],
                     ),
                   ),
                 ],
