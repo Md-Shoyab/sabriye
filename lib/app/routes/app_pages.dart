@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/about/bindings/about_binding.dart';
 import '../modules/about/views/about_view.dart';
 import '../modules/account_settings/bindings/account_settings_binding.dart';
@@ -79,6 +80,8 @@ import '../modules/teachings2/bindings/teachings2_binding.dart';
 import '../modules/teachings2/views/teachings2_view.dart';
 import '../modules/teachings_details/bindings/teachings_details_binding.dart';
 import '../modules/teachings_details/views/teachings_details_view.dart';
+import '../modules/thank_you/bindings/thank_you_binding.dart';
+import '../modules/thank_you/views/thank_you_view.dart';
 import '../modules/top_testimonials/bindings/top_testimonials_binding.dart';
 import '../modules/top_testimonials/views/top_testimonials_view.dart';
 import '../modules/welcome_screens/bindings/welcome_screens_binding.dart';
@@ -302,6 +305,11 @@ class AppPages {
       name: _Paths.DIVINE_UNION_BOOK,
       page: () => const DivineUnionBookView(),
       binding: DivineUnionBookBinding(),
+    ),
+    GetPage(
+      name: _Paths.THANK_YOU,
+      page: () => const ThankYouView(),
+      binding: ThankYouBinding(),
     ),
   ];
 }

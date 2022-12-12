@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sabriye/app/local_storage/sessions.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 
 import 'package:get/get.dart';
@@ -130,7 +130,7 @@ class SupportView extends GetView<SupportController> {
             ),
             IconButton(
               onPressed: () {
-                SessionManager.clearSession();
+                Get.toNamed(Routes.THANK_YOU);
               },
               icon: const Icon(Icons.logout),
             ),

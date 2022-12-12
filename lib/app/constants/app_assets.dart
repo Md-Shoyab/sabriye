@@ -132,6 +132,7 @@ class AppAssets {
   static const String checkBoxIcon = 'assets/images/checkbox_icon.png';
   static const String flowerImage = 'assets/images/flower_image.png';
   static const String flowerImage2 = 'assets/images/flower_2.png';
+  static const String flowerImage3 = 'assets/images/flower_3.png';
   static const String testimonialsBgImage = 'assets/images/testimonials_bg.png';
   static const String spendingMoney = 'assets/images/spending_money.png';
   static const String kettoLogo = 'assets/images/ketto_logo.png';
