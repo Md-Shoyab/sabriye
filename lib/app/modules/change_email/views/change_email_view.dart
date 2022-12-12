@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -105,7 +106,9 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             Center(
               child: TextButton(
                 onPressed: () {
-                  controller.changeEmailFormkey.currentState!.validate();
+                  controller.changeEmailFormkey.currentState!.validate()
+                      ? Get.toNamed(Routes.VERIFICATION_PASSWORD)
+                      : null;
                 },
                 child: const Text(
                   AppConstants.sendText,
