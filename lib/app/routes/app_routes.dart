@@ -52,6 +52,7 @@ abstract class Routes {
   static const DIVINE_UNION_BOOK = _Paths.DIVINE_UNION_BOOK;
   static const THANK_YOU = _Paths.THANK_YOU;
   static const VERIFICATION_PASSWORD = _Paths.VERIFICATION_PASSWORD;
+  static const VERIFICATION_EMAIL = _Paths.VERIFICATION_EMAIL;
 }
 
 abstract class _Paths {
@@ -104,4 +105,5 @@ abstract class _Paths {
   static const DIVINE_UNION_BOOK = '/divine-union-book';
   static const THANK_YOU = '/thank-you';
   static const VERIFICATION_PASSWORD = '/verification-password';
+  static const VERIFICATION_EMAIL = '/verification-email';
 }
