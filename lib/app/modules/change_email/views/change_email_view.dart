@@ -107,7 +107,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               child: TextButton(
                 onPressed: () {
                   controller.changeEmailFormkey.currentState!.validate()
-                      ? Get.toNamed(Routes.VERIFICATION_PASSWORD)
+                      ? Get.toNamed(Routes.VERIFICATION_EMAIL)
                       : null;
                 },
                 child: const Text(
