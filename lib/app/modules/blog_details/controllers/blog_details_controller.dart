@@ -1,22 +1,30 @@
 import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
-import '../../../constants/app_assets.dart';
 
 class BlogDetailsController extends GetxController {
-  ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
+  final RxBool isLoading = false.obs;
   final String id = Get.arguments['id'].toString();
-  // final String appTitle = Get.arguments['appTitle'].toString();
-  final List<String> relatedPostImages = [
-    AppAssets.relatedPost1,
-    AppAssets.relatedPost2,
-    AppAssets.relatedPost3,
-  ];
+  final RxString blogDetailString = ''.obs;
+
   @override
-  void onClose() {}
-  @override
-  void onInit() {
+  void onInit() async {
+    isLoading.value = true;
     log(id);
+    await getBlogDetailsById();
+    isLoading.value = false;
     super.onInit();
   }
+
+  Future<void> getBlogDetailsById() async {
+    final responseJson = await _apiServices.getBlogDetailsById(id);
+    blogDetailString.value = responseJson['content']['rendered'];
+  }
 }
+
+  // final List<String> relatedPostImages = [
+  //   AppAssets.relatedPost1,
+  //   AppAssets.relatedPost2,
+  //   AppAssets.relatedPost3,
+  // ];

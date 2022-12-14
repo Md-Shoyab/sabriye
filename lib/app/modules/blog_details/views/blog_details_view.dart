@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
-import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
-import '../../../widgets/related_posts.dart';
 import '../controllers/blog_details_controller.dart';
 
 class BlogDetailsView extends GetView<BlogDetailsController> {
@@ -34,7 +31,25 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView(
+                children: [
+                  Html(
+                    data: controller.blogDetailString.value,
+                  ),
+                ],
+              ),
+      ),
+    );
+  }
+}
+
+/*
+SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,8 +71,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                       itemBuilder: ((context, index) => RelatedPost(
                             controller: controller,
                             index: index,
-                            imageUrl: snapshot.data?[index]
-                                ['jetpack_featured_media_url'],
+                            imageUrl: snapshot.data?[index]['thumbnail'],
                             title: snapshot.data?[index]['title']['rendered'],
                           )),
                     ),
@@ -109,6 +123,4 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
           ],
         ),
       ),
-    );
-  }
-}
+ */
