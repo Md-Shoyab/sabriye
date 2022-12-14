@@ -37,15 +37,26 @@ class BlogsListingView extends GetView<BlogsListingController> {
             ? const Center(
                 child: CircularProgressIndicator(),
               )
-            : ListView.builder(
-                itemCount: controller.blogsLists.length,
-                itemBuilder: (context, index) => PostCards(
-                  index: index,
-                  imagePath: controller.blogsLists[index]['thumbnail'],
-                  title: controller.blogsLists[index]['title']['rendered'],
-                  id: controller.blogsLists[index]['id'],
-                  appTitle: controller.blogsLists[index]['title']['rendered'],
-                ),
+            : ListView(
+                physics: const NeverScrollableScrollPhysics(),
+                children: [
+                  Image.network(controller.bannerImageUrl.value),
+                  SizedBox(
+                    height: Get.height * .77,
+                    child: ListView.builder(
+                      itemCount: controller.blogsLists.length,
+                      itemBuilder: (context, index) => PostCards(
+                        index: index,
+                        imagePath: controller.blogsLists[index]['thumbnail'],
+                        title: controller.blogsLists[index]['title']
+                            ['rendered'],
+                        id: controller.blogsLists[index]['id'],
+                        appTitle: controller.blogsLists[index]['title']
+                            ['rendered'],
+                      ),
+                    ),
+                  ),
+                ],
               ),
       ),
     );
