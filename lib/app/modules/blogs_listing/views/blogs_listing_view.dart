@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
+import 'package:sabriye/app/widgets/blog_post_card.dart';
 import '../../../constants/app_colors.dart';
-import '../../../widgets/blog_post_card.dart';
 import '../controllers/blogs_listing_controller.dart';
 
 class BlogsListingView extends GetView<BlogsListingController> {
@@ -32,35 +32,21 @@ class BlogsListingView extends GetView<BlogsListingController> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: SizedBox(
-        child: FutureBuilder<List>(
-          future: controller.post.getAllPost(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              if (snapshot.data!.isEmpty) {
-                return const Center(child: Text('0 post avaialible'));
-              }
-              return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: ((context, index) {
-                  Map wpPost = snapshot.data?[index];
-                  String title = wpPost['title']['rendered'];
-                  return PostCards(
-                    index: index,
-                    imagePath: wpPost['thumbnail'] ??
-                        'https://sabriyeayana.com/wp-content/uploads/2022/08/kundalini-awakening.jpg',
-                    title: title,
-                    appTitle: snapshot.data?[index]['title']['rendered'],
-                    id: snapshot.data?[index]['id'],
-                  );
-                }),
-              );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          },
-        ),
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : ListView.builder(
+                itemCount: controller.blogsLists.length,
+                itemBuilder: (context, index) => PostCards(
+                  index: index,
+                  imagePath: controller.blogsLists[index]['thumbnail'],
+                  title: controller.blogsLists[index]['title']['rendered'],
+                  id: controller.blogsLists[index]['id'],
+                  appTitle: controller.blogsLists[index]['title']['rendered'],
+                ),
+              ),
       ),
     );
   }

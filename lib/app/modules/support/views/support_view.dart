@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
 
 import 'package:get/get.dart';
@@ -127,12 +126,6 @@ class SupportView extends GetView<SupportController> {
                   image: AssetImage(AppAssets.sabriyeSignature),
                 ),
               ),
-            ),
-            IconButton(
-              onPressed: () {
-                Get.toNamed(Routes.VERIFICATION_EMAIL);
-              },
-              icon: const Icon(Icons.logout),
             ),
           ],
         ),

@@ -83,70 +83,84 @@ class BookDetailsView extends GetView<BookDetailsController> {
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Column(
-                        children: [
-                          TextFormField(
-                            cursorColor: AppColors.primaryColor,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 0,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: AppColors.primaryColor, width: 2.0),
-                              ),
-                              hintText: AppConstants.nameText,
-                            ),
-                          ),
-                          const VerticalGap(),
-                          TextFormField(
-                            cursorColor: AppColors.primaryColor,
-                            decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 0,
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: AppColors.primaryColor, width: 2.0),
-                              ),
-                              hintText: AppConstants.emailText,
-                            ),
-                          ),
-                          const VerticalGap(),
-                          TextButton(
-                            onPressed: () {
-                              Get.toNamed(Routes.THANK_YOU);
-                            },
-                            child: const Text(
-                              AppConstants.directDownloadText,
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.white,
+                      child: Form(
+                        key: controller.freeEbookFormKey,
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              controller: controller.nameController,
+                              validator: (value) =>
+                                  controller.validateName(value),
+                              cursorColor: AppColors.primaryColor,
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 0,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color: AppColors.primaryColor,
+                                      width: 2.0),
+                                ),
+                                hintText: AppConstants.nameText,
                               ),
                             ),
-                            style: TextButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 25,
-                                vertical: 5,
+                            const VerticalGap(),
+                            TextFormField(
+                              controller: controller.emailController,
+                              validator: (value) =>
+                                  controller.validateEmail(value),
+                              cursorColor: AppColors.primaryColor,
+                              decoration: InputDecoration(
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 0,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color: AppColors.primaryColor,
+                                      width: 2.0),
+                                ),
+                                hintText: AppConstants.emailText,
                               ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              backgroundColor: AppColors.primaryColor,
                             ),
-                          ),
-                        ],
+                            const VerticalGap(),
+                            TextButton(
+                              onPressed: () {
+                                controller.freeEbookFormKey.currentState!
+                                        .validate()
+                                    ? Get.toNamed(Routes.THANK_YOU)
+                                    : null;
+                              },
+                              child: const Text(
+                                AppConstants.directDownloadText,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.white,
+                                ),
+                              ),
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 25,
+                                  vertical: 5,
+                                ),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                                backgroundColor: AppColors.primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],

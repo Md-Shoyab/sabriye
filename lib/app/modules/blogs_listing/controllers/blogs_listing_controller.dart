@@ -1,28 +1,21 @@
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../../services/api_services.dart';
 
 class BlogsListingController extends GetxController {
-  final ApiServices post = ApiServices();
-
-  final List blogListImage = <String>[
-    AppAssets.blogImage1,
-    AppAssets.blogImage2,
-    AppAssets.blogImage3,
-  ];
-
-  final List blogListTitle = <String>[
-    'How I Received the Soul Call to Move to...',
-    'Why Lack of Money Isn’t Caused Ext …',
-    'The Magic Is In the ‘Last’ S …',
-  ];
+  final ApiServices _apiServices = ApiServices();
+  final RxList blogsLists = [].obs;
+  final RxBool isLoading = false.obs;
 
   @override
-  void onClose() {}
-
-  @override
-  void onInit() {
-    post.getAllPost();
+  void onInit() async {
+    isLoading.value = true;
+    await getAllPostList();
+    isLoading.value = false;
     super.onInit();
+  }
+
+  Future<void> getAllPostList() async {
+    final responseJson = await _apiServices.getAllPost();
+    blogsLists.value = responseJson;
   }
 }

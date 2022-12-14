@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
 
@@ -7,10 +8,15 @@ class BookDetailsController extends GetxController {
   final RxString freeEbookData = ''.obs;
   final RxString guideToInnerUnionText = ''.obs;
   final RxString freeEbookImageUrl = ''.obs;
+  late TextEditingController emailController, nameController;
+  final GlobalKey<FormState> freeEbookFormKey = GlobalKey<FormState>();
+
 
   @override
   void onInit() async {
     isLoading.value = true;
+    emailController = TextEditingController();
+    nameController = TextEditingController();
     await getFreeEbook();
     super.onInit();
     isLoading.value = false;
@@ -21,5 +27,22 @@ class BookDetailsController extends GetxController {
     freeEbookData.value = responseJson['content']['rendered'];
     guideToInnerUnionText.value = responseJson['title']['rendered'];
     freeEbookImageUrl.value = responseJson['thumbnail'];
+  }
+
+  String? validateEmail(String? value) {
+    if (value!.isEmpty) {
+      return "Provide valid email.";
+    } else if (GetUtils.isEmail(value)) {
+    } else {
+      return 'Provide a valid email';
+    }
+    return null;
+  }
+
+  String? validateName(String? value) {
+    if (value!.isEmpty) {
+      return 'Provide a valid name';
+    }
+    return null;
   }
 }
