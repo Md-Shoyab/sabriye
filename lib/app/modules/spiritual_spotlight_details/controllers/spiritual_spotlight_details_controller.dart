@@ -3,15 +3,30 @@ import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class SpiritualSpotlightDetailsController extends GetxController {
-  ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
   final String id = Get.arguments['id'].toString();
-  @override
-  void onClose() {}
+  final RxBool isLoading = false.obs;
+  final RxString spiritualSpotlightVideoInterviewImageUrl = ''.obs;
+  final RxString spiritualSpotlightVideoInterviewContent = ''.obs;
+  final RxString spiritualSpotlightVideoInterviewTitle = ''.obs;
 
   @override
-  void onInit() {
+  void onInit() async {
     log(id.toString());
-    apiServices.getSpiritualSpotlightVideoInterViewDetails(id);
+    isLoading.value = true;
+    await getSpiritualSpotlightVideoInterViewDetails();
+    isLoading.value = false;
     super.onInit();
+  }
+
+  Future<void> getSpiritualSpotlightVideoInterViewDetails() async {
+    final responseJson =
+        await _apiServices.getSpiritualSpotlightVideoInterViewDetails(id);
+    spiritualSpotlightVideoInterviewContent.value =
+        responseJson['content']['rendered'];
+
+    spiritualSpotlightVideoInterviewImageUrl.value = responseJson['thumbnail'];
+    spiritualSpotlightVideoInterviewTitle.value =
+        responseJson['title']['rendered'];
   }
 }

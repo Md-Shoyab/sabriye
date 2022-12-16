@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
-import '../../../constants/app_constants.dart';
 import '../controllers/spiritual_spotlight_details_controller.dart';
 
 class SpiritualSpotlightDetailsView
@@ -16,7 +15,7 @@ class SpiritualSpotlightDetailsView
       appBar: AppBar(
         backgroundColor: AppColors.bgColor,
         title: const Text(
-          AppConstants.spiritualSpotlightDetailsText,
+          '',
           style: TextStyle(
             color: AppColors.brownColor,
             fontWeight: FontWeight.w600,
@@ -34,7 +33,123 @@ class SpiritualSpotlightDetailsView
         centerTitle: true,
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: Obx(
+        () => controller.isLoading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const VerticalGap(gap: 20),
+                    Container(
+                      height: Get.height * .25,
+                      width: Get.width,
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(10),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                            controller
+                                .spiritualSpotlightVideoInterviewImageUrl.value,
+                          ),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const VerticalGap(gap: 20),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      width: Get.width * .8,
+                      child: Text(
+                        controller.spiritualSpotlightVideoInterviewTitle.value,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          height: 1.5,
+                        ),
+                      ),
+                    ),
+                    const VerticalGap(gap: 20),
+                    const Divider(
+                      indent: 20,
+                      endIndent: 20,
+                      thickness: 1,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const CircleAvatar(
+                            radius: 30,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'by Sabriyé Ayana',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const VerticalGap(gap: 5),
+                              SizedBox(
+                                width: Get.width * .7,
+                                child: const Text(
+                                    'Bestselling author, new paradigm business, life & soul mentor, founder of the Akasha Healing™ method and the School of Inner Union'),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Divider(
+                      indent: 20,
+                      endIndent: 20,
+                      thickness: 1,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Html(
+                        data: controller
+                            .spiritualSpotlightVideoInterviewContent.value,
+                        style: {
+                          "a": Style(
+                            color: AppColor.primaryBrown,
+                          ),
+                        },
+                      ),
+                    ),
+                    const VerticalGap(gap: 20),
+                    Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'View All Comments',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: AppColor.primaryBrown,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+      ),
+    );
+  }
+}
+
+/*
+
+SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,6 +187,5 @@ class SpiritualSpotlightDetailsView
           ],
         ),
       ),
-    );
-  }
-}
+
+ */
