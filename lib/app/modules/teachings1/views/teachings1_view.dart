@@ -40,17 +40,19 @@ class Teachings1View extends GetView<Teachings1Controller> {
             : ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  Container(
-                    width: Get.width,
-                    height: Get.height * .12,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      image: DecorationImage(
-                        image: NetworkImage(controller.bannerImageUrl),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
+                  const VerticalGap(gap: 20),
+                  // Container(
+                  //   width: Get.width,
+                  //   height: Get.height * .12,
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     image: DecorationImage(
+                  //       image: NetworkImage(controller.bannerImageUrl),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
+                  Image.network(controller.bannerImageUrl),
                   SizedBox(
                     height: Get.height * .77,
                     child: ListView.builder(

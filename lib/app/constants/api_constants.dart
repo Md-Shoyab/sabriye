@@ -3,7 +3,6 @@
 const String API_BASE_URL = 'https://sabriyeayana.com/wp-json/wp/v2';
 const String API_BASE_URL_2 = 'https://app.sabriyeayana.com/wp-json/wp/v2';
 
-
 // Login, Signup & Logout.
 const String API_SIGN_UP = '/users/signup';
 const String API_LOGIN = '/users/me';
@@ -37,6 +36,9 @@ const String API_GET_MEMBERSHIP_CHECKPOINTS = '/pages/117';
 const String API_GET_MEMBERSHIP_ACCORDIONS = '/posts/?categories=10';
 const String API_GET_MEMBERSHIP_PAYMENTS = '/posts/?categories=11';
 const String API_GET_MEMBERSHIP_DETAILS = '/pages/12473/';
+const String API_GET_AKASHA_HEALING_INTRO = '/pages/288';
+const String API_GET_AKASHA_HEALING_CLIENTS_RESULTS = '/pages/286';
+const String API_GET_AKASHA_HEALING_TESTIMONY = '/posts/?categories=22';
 const String API_GET_SESSIONS_PART1_DETAILS = '/pages/137';
 const String API_GET_SESSIONS_PART2_DETAILS = '/pages/144';
 const String API_GET_SESSIONS_PART3_DETAILS = '/pages/146';

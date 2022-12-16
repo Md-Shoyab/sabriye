@@ -7,12 +7,21 @@ class ProgramsDetailsController extends GetxController {
   final TextEditingController fnameController = TextEditingController();
   final TextEditingController lnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final ApiServices apiServices = ApiServices();
+  final RxString akashaHealingIntro = ''.obs;
+  final RxString clientResults = ''.obs;
+  final RxString testimonyUserName = ''.obs;
+  final RxString testimonyContent = ''.obs;
+  final RxString testimonyImageUrl = ''.obs;
+  final RxList testimonyList = [].obs;
+  final ApiServices _apiServices = ApiServices();
   final RxBool isLoading = false.obs;
 
   @override
-  void onInit() {
+  void onInit() async {
     isLoading.value = true;
+    await getAkashaHealingCertificationIntro();
+    await getAkashaHealingClientResults();
+    await getAkashaHealingTestimony();
     isLoading.value = false;
     super.onInit();
   }
@@ -23,40 +32,6 @@ class ProgramsDetailsController extends GetxController {
     lnameController.dispose();
     emailController.dispose();
   }
-
-  final List<String> clientResultPointsList = [
-    'Money struggles',
-    'Self-worth & Self-esteem',
-    'Glass ceiling and income plateaus',
-    'Healing narcissistic relationships',
-    'Absent or emotionally unavailable father',
-    'Mother wound',
-    'Inner child wounding',
-    'Ancestral or transgenerational trauma',
-    'Soul legacy wound',
-    'Visibility struggles',
-    'Getting off the victim triangle',
-    'Bad luck\' in love relationships',
-    'Overcoming the loss of a child, birth & abortion trauma',
-    'Self-love & Self-forgiveness',
-    'Healing sexual abuse',
-    'Abandonment & rejection wounds',
-    'Overcoming fears & phobias',
-    'Twin Flame & Soul mate relationships',
-    'Not getting promoted',
-    'Imposter syndrome',
-    'Incarnation wounding',
-    'Past life oaths and vows of celibacy and poverty',
-    'Codependency and stepping into your power',
-    'Soul retrieval',
-    'Past life karmic patterns/karmic debt',
-    'Sibling rivalry',
-    'Sisterhood wound',
-    'Your relationship with your soul and the Divine',
-    'Rescuing/Savior',
-    'Inability or difficulty to receive',
-    'Overgiving',
-  ];
 
   String? validateEmail(String? value) {
     if (value!.isEmpty) {
@@ -83,4 +58,21 @@ class ProgramsDetailsController extends GetxController {
     return null;
   }
 
+  Future<void> getAkashaHealingCertificationIntro() async {
+    final responseJson =
+        await _apiServices.getAkashaHealingCertificationIntro();
+    akashaHealingIntro.value = responseJson['content']['rendered'];
+  }
+
+  Future<void> getAkashaHealingClientResults() async {
+    final responseJson = await _apiServices.getAkashaHealingClientResults();
+    clientResults.value = responseJson['content']['rendered'];
+  }
+
+  Future<void> getAkashaHealingTestimony() async {
+    final responseJson = await _apiServices.getAkashaHealingTestimony();
+    testimonyUserName.value = responseJson[3]['title']['rendered'];
+    testimonyContent.value = responseJson[3]['content']['rendered'];
+    testimonyImageUrl.value = responseJson[3]['thumbnail'];
+  }
 }

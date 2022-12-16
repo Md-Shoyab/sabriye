@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
-import '../../../widgets/check_points.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/programs_details_controller.dart';
 
@@ -44,35 +43,8 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 children: [
                   const VerticalGap(gap: 20),
-                  const Text(
-                    AppConstants.akashaHealingCertificationText,
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w700,
-                      height: 1.5,
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  const VerticalGap(),
-                  const Text(
-                    AppConstants.programDetailsContent1,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16,
-                      height: 1.5,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const VerticalGap(gap: 15),
-                  const Text(
-                    AppConstants.programDetailsContent1,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
-                  ),
-                  const VerticalGap(),
+                  Html(data: controller.akashaHealingIntro.value),
+                  const VerticalGap(gap: 20),
                   const Text(
                     AppConstants.becomeAkashaHealingPractitionerText,
                     style: TextStyle(
@@ -174,12 +146,12 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                   Center(
                     child: TextButton(
                       onPressed: () {
-                        if (controller.emailFormKey.currentState!.validate()) {
-                          controller.apiServices.captureEmail(
-                            controller.emailController.text.trim(),
-                            '${controller.fnameController.text.trim()} ${controller.lnameController.text.trim()}',
-                          );
-                        }
+                        // if (controller.emailFormKey.currentState!.validate()) {
+                        //   controller.apiServices.captureEmail(
+                        //     controller.emailController.text.trim(),
+                        //     '${controller.fnameController.text.trim()} ${controller.lnameController.text.trim()}',
+                        //   );
+                        // }
                       },
                       child: const Text(
                         AppConstants.downloadText,
@@ -213,15 +185,16 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                       padding: const EdgeInsets.symmetric(horizontal: 15),
                       child: Column(
                         children: [
-                          const CircleAvatar(
-                            backgroundImage:
-                                AssetImage(AppAssets.jasmijnDeGaafProfile),
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                controller.testimonyImageUrl.value),
                             radius: 30,
                           ),
                           const VerticalGap(gap: 8),
-                          const Text(
-                            AppConstants.jasmijnDeGraafNameText,
-                            style: TextStyle(
+                          Text(
+                            controller.testimonyUserName.value
+                                .replaceAll('—', ''),
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
@@ -244,13 +217,14 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                             itemSize: 20,
                           ),
                           const VerticalGap(),
-                          const Text(
-                            AppConstants.jasmijnDeGraafTestimonyText,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w300,
-                            ),
+                          Html(
+                            data: controller.testimonyContent.value,
+                            style: {
+                              "p": Style(
+                                textAlign: TextAlign.center,
+                                lineHeight: LineHeight.number(1.2),
+                              ),
+                            },
                           ),
                         ],
                       ),
@@ -261,36 +235,10 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                     indent: 15,
                     endIndent: 15,
                   ),
-                  const VerticalGap(),
-                  const Text(
-                    AppConstants.clientResultText,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const VerticalGap(gap: 18),
-                  const Text(
-                    AppConstants.clientResultContentText,
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                      height: 1.5,
-                    ),
-                  ),
-                  const VerticalGap(),
-                  SizedBox(
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: controller.clientResultPointsList.length,
-                      itemBuilder: (context, index) => CheckBoxPoints(
-                        checkBoxPointText:
-                            controller.clientResultPointsList[index],
-                      ),
-                    ),
-                  ),
+                  Html(data: controller.clientResults.value),
+                  const SizedBox(
+                    height: 100,
+                  )
                 ],
               ),
       ),
