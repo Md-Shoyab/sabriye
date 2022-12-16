@@ -58,7 +58,7 @@ class Teachings2View extends GetView<Teachings2Controller> {
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
                           Get.toNamed(
-                            Routes.BLOG_DETAILS,
+                            Routes.TEACHINGS_DETAILS,
                             arguments: {
                               'id': controller
                                       .blogPostsByTeachingsSubCategories[index]

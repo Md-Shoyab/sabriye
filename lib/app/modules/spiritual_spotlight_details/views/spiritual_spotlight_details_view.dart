@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/spiritual_spotlight_details_controller.dart';
@@ -80,13 +81,17 @@ class SpiritualSpotlightDetailsView
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 5),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const CircleAvatar(
                             radius: 30,
+                            backgroundImage: AssetImage(
+                              AppAssets.sabriyeCircleProfile,
+                            ),
                           ),
+                          const HorizontalGap(gap: 8),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [

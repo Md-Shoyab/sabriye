@@ -1,26 +1,26 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
-import '../../../constants/app_assets.dart';
 
 class TeachingsDetailsController extends GetxController {
-  ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
   final String id = Get.arguments['id'].toString();
-  final String appTitle = Get.arguments['appTitle'].toString();
-  final List<String> relatedPostImages = [
-    AppAssets.relatedPost1,
-    AppAssets.relatedPost2,
-    AppAssets.relatedPost3,
-  ];
+  final RxString teachingDetailContent = ''.obs;
+  final RxString teachingImageUrl = ''.obs;
+  final RxString teachingTitle = ''.obs;
+  final RxBool isLoading = false.obs;
 
   @override
-  void onInit() {
-    log(id);
-    log(appTitle);
-    apiServices.getBlogDetailsById(id);
+  void onInit() async {
+    isLoading.value = true;
+    await getTeachingDetailsById();
+    isLoading.value = false;
     super.onInit();
   }
 
-  @override
-  void onClose() {}
+  Future<void> getTeachingDetailsById() async {
+    final responseJson = await _apiServices.getTeachingDetailsById(id);
+    teachingDetailContent.value = responseJson['content']['rendered'];
+    teachingImageUrl.value = responseJson['thumbnail'];
+    teachingTitle.value = responseJson['title']['rendered'];
+  }
 }
