@@ -49,6 +49,7 @@ class AboutView extends GetView<AboutController> {
                         image: NetworkImage(
                             controller.aboutsabriyeProfileUrl.value),
                         fit: BoxFit.cover,
+                        scale: 2,
                       ),
                     ),
                   ),

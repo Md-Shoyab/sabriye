@@ -8,6 +8,21 @@ class ProgramsDetailsController extends GetxController {
   final TextEditingController lnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final ApiServices apiServices = ApiServices();
+  final RxBool isLoading = false.obs;
+
+  @override
+  void onInit() {
+    isLoading.value = true;
+    isLoading.value = false;
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    fnameController.dispose();
+    lnameController.dispose();
+    emailController.dispose();
+  }
 
   final List<String> clientResultPointsList = [
     'Money struggles',
@@ -68,10 +83,4 @@ class ProgramsDetailsController extends GetxController {
     return null;
   }
 
-  @override
-  void onClose() {
-    fnameController.dispose();
-    lnameController.dispose();
-    emailController.dispose();
-  }
 }
