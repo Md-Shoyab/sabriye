@@ -7,12 +7,14 @@ class TeachingsDetailsController extends GetxController {
   final RxString teachingDetailContent = ''.obs;
   final RxString teachingImageUrl = ''.obs;
   final RxString teachingTitle = ''.obs;
+  final RxList relatedPostsList = [].obs;
   final RxBool isLoading = false.obs;
 
   @override
   void onInit() async {
     isLoading.value = true;
     await getTeachingDetailsById();
+    await getRelatedPosts();
     isLoading.value = false;
     super.onInit();
   }
@@ -22,5 +24,10 @@ class TeachingsDetailsController extends GetxController {
     teachingDetailContent.value = responseJson['content']['rendered'];
     teachingImageUrl.value = responseJson['thumbnail'];
     teachingTitle.value = responseJson['title']['rendered'];
+  }
+
+  Future<void> getRelatedPosts() async {
+    final responseJson = await _apiServices.getRelatedPosts();
+    relatedPostsList.value = responseJson;
   }
 }

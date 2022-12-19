@@ -11,6 +11,8 @@ const String API_GET_TEACHINNGS_CATEGORIES =
     '/categories/?include=94,57,62,100';
 const String API_GET_TEACHINNGS_SUBCATEGORIES = '/categories?parent=';
 const String API_GET_TEACHING_DETAILS_ID = '/posts/';
+const String API_GET_ALL_STORIES =
+    '/posts/?categories=26&orderby=date&order=desc&per_page=5';
 const String API_GET_BLOGPOST_LIST = '/posts/?categories=108';
 const String API_GET_ALL_BANNER_IMAGE = '/pages/207';
 const String API_GET_THANK_YOU = '/pages/263';
@@ -53,6 +55,6 @@ const String API_GET_SESSIONS_CHECKPOINTS = '/pages/203';
 const String API_GET_ALL_CARDS = '/card/';
 const String API_GET_BOOK_DETAILS = '/pages/41';
 const String API_GET_COMMENTS_BY_ID = '/comments/';
-const String API_GET_ALL_STORIES = '/posts?per_page=10&categories=18';
+
 const String API_GET_RELATED_POST = '/posts?per_page=10&categories=18';
 const String API_GET_FOUR_STAGES_INNER_UNION = '/posts/?categories=4';

@@ -10,7 +10,6 @@ class SpiritualSpotlightController extends GetxController {
     isLoading.value = true;
     await getAllTeachingsCategories();
     isLoading.value = false;
-
     super.onInit();
   }
 

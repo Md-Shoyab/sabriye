@@ -420,7 +420,7 @@ class ApiServices {
   Future<List> getAllStories() async {
     try {
       var response = await http.get(
-        Uri.parse(API_BASE_URL + API_GET_ALL_STORIES),
+        Uri.parse(API_BASE_URL_2 + API_GET_ALL_STORIES),
       );
       if (response.statusCode == 200) {
         return jsonDecode(response.body);

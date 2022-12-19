@@ -12,6 +12,7 @@ class DashboardController extends GetxController {
   RxString bannerImageUrl = ''.obs;
   RxString dashboardBigText = ''.obs;
   RxString dashboardSmallText = ''.obs;
+  final RxList storiesItems = [].obs;
 
   @override
   void onInit() async {
@@ -19,6 +20,7 @@ class DashboardController extends GetxController {
     await getAllTeachingsCategories();
     await getAllSpiritualSpotlightVideoInterview();
     await getDashboardBannerImage();
+    await getAllStories();
     isLoading.value = false;
     super.onInit();
   }
@@ -75,5 +77,10 @@ class DashboardController extends GetxController {
     dashboardSmallText.value =
         responseJson['custom_fields']['dashboardbaner-smalltext'][0];
     log(bannerImageUrl.value);
+  }
+
+  Future<void> getAllStories() async {
+    final responseJson = await _apiServices.getAllStories();
+    storiesItems.value = responseJson;
   }
 }

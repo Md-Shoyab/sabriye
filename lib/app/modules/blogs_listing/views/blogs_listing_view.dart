@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
 import 'package:sabriye/app/widgets/blog_post_card.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/blogs_listing_controller.dart';
 
@@ -40,7 +41,18 @@ class BlogsListingView extends GetView<BlogsListingController> {
             : ListView(
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
-                  Image.network(controller.bannerImageUrl.value),
+                  const VerticalGap(gap: 20),
+                  Container(
+                    height: 165,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          controller.bannerImageUrl.value,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                   SizedBox(
                     height: Get.height * .77,
                     child: ListView.builder(

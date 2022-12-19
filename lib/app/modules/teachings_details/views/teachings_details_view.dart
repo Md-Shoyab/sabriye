@@ -42,6 +42,47 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                 children: [
                   const VerticalGap(gap: 20),
                   Container(
+                    margin: const EdgeInsets.only(left: 20),
+                    height: Get.height * .19,
+                    child: ListView.builder(
+                      itemCount: controller.relatedPostsList.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) => Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              height: 90,
+                              width: 131,
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    controller.relatedPostsList[index]
+                                        ['thumbnail'],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const VerticalGap(gap: 5),
+                            Container(
+                              width: 131,
+                              margin: const EdgeInsets.only(left: 8),
+                              child: Text(
+                                controller.relatedPostsList[index]['title']
+                                    ['rendered'],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(gap: 5),
+                  Container(
                     height: Get.height * .25,
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(

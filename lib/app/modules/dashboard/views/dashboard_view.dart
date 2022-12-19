@@ -80,13 +80,19 @@ class DashboardView extends GetView<DashboardController> {
                       child: ListView.builder(
                         clipBehavior: Clip.none,
                         scrollDirection: Axis.horizontal,
-                        itemCount: 5,
-                        itemBuilder: (context, index) => Container(
-                          height: 100,
-                          width: 100,
-                          decoration: const BoxDecoration(
-                            color: AppColor.primaryBrown,
-                            shape: BoxShape.circle,
+                        itemCount: 3,
+                        itemBuilder: (context, index) => InkWell(
+                          onTap: () {
+                            Get.toNamed(Routes.STORY_PAGE);
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 5),
+                            child: CircleAvatar(
+                                backgroundColor: AppColor.primaryBrown,
+                                radius: 38,
+                                backgroundImage: NetworkImage(
+                                  controller.storiesItems[index]['thumbnail'],
+                                )),
                           ),
                         ),
                       ),
