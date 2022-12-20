@@ -42,15 +42,13 @@ class GivingBackView extends GetView<GivingBackController> {
               )
             : ListView(
                 children: [
+                  const VerticalGap(gap: 20),
                   Image.asset(
                     AppAssets.givingBackBannerImage,
                     fit: BoxFit.fitWidth,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 5.0,
-                      top: 5.0,
-                    ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(25, 15, 0, 0),
                     child: Text(
                       controller.spiritualGuidingPrinciplesTitle.value,
                       style: const TextStyle(
@@ -60,7 +58,11 @@ class GivingBackView extends GetView<GivingBackController> {
                       ),
                     ),
                   ),
-                  Html(data: controller.givingBackIntroducationText.value),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Html(
+                        data: controller.givingBackIntroducationText.value),
+                  ),
                   GivingBackCards(
                     imageUrl: controller.smartImageUrl.value,
                     descriptionText: controller.smartDescriptionText.value,
@@ -72,10 +74,9 @@ class GivingBackView extends GetView<GivingBackController> {
                   ),
                   const VerticalGap(),
                   Container(
-                    height: Get.height * .15,
+                    height: Get.height * .2,
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
-                      color: Colors.amber,
                       image: DecorationImage(
                         image: NetworkImage(
                           controller.spendingActualDollarImageUrl.value,
@@ -93,62 +94,70 @@ class GivingBackView extends GetView<GivingBackController> {
                     ),
                   ),
                   const VerticalGap(gap: 20),
-                  Center(
-                    child: CarouselSlider.builder(
-                      itemCount: controller.carouselSliderImageUrlList.length,
-                      itemBuilder: (_, i, k) => Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 5,
-                          vertical: 5,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: AppColors.white,
-                          boxShadow: const [
-                            BoxShadow(
-                              color: AppColors.lightprimary,
-                              blurRadius: 3.0,
-                            )
-                          ],
-                        ),
-                        child: Column(
-                          children: [
-                            const VerticalGap(gap: 50),
-                            SizedBox(
+                  CarouselSlider.builder(
+                    itemCount: controller.carouselSliderImageUrlList.length,
+                    itemBuilder: (_, i, k) => Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 5,
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColor.shadowColors.withOpacity(.5),
+                            blurRadius: 4.0,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: ListView(
+                        physics: const NeverScrollableScrollPhysics(),
+                        children: [
+                          const VerticalGap(gap: 50),
+                          Center(
+                            child: SizedBox(
                               width: 200,
                               child: Image.network(
                                 controller.carouselSliderImageUrlList[i],
                               ),
                             ),
-                            Html(
-                              data: controller
-                                  .carouselSliderDescriptionTextList[i],
-                              shrinkWrap: true,
-                              style: {
-                                "a": Style(color: AppColors.primaryColor),
-                              },
-                            ),
-                          ],
-                        ),
+                          ),
+                          Html(
+                            data:
+                                controller.carouselSliderDescriptionTextList[i],
+                            style: {
+                              "h4": Style(textAlign: TextAlign.center),
+                              "p": Style(
+                                textAlign: TextAlign.center,
+                                lineHeight: LineHeight.number(1.4),
+                              ),
+                              "a": Style(color: AppColor.primaryBrown),
+                            },
+                          ),
+                        ],
                       ),
-                      options: CarouselOptions(
-                        height: 350,
-                        aspectRatio: 2 / 1,
-                        viewportFraction: .99,
-                        initialPage: 0,
-                        enableInfiniteScroll: true,
-                        reverse: false,
-                        autoPlay: false,
-                        autoPlayInterval: const Duration(seconds: 2),
-                        autoPlayAnimationDuration:
-                            const Duration(milliseconds: 800),
-                        autoPlayCurve: Curves.fastOutSlowIn,
-                        enlargeCenterPage: false,
-                        scrollDirection: Axis.horizontal,
-                        onPageChanged: (index, _) {
-                          controller.currentCarouselCardIndex(index);
-                        },
-                      ),
+                    ),
+                    options: CarouselOptions(
+                      height: 350,
+                      aspectRatio: 2 / 1,
+                      viewportFraction: .99,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: false,
+                      autoPlayInterval: const Duration(seconds: 2),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: false,
+                      scrollDirection: Axis.horizontal,
+                      onPageChanged: (index, _) {
+                        controller.currentCarouselCardIndex(index);
+                      },
                     ),
                   ),
                   const VerticalGap(),
@@ -174,12 +183,15 @@ class GivingBackView extends GetView<GivingBackController> {
                       ),
                     ),
                   ),
-                  Html(
-                    data: controller.spiritualGuidingPrinciples.value,
-                    style: {
-                      "h2": Style(color: AppColors.primaryColor),
-                      "h4": Style(color: AppColors.primaryColor),
-                    },
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Html(
+                      data: controller.spiritualGuidingPrinciples.value,
+                      style: {
+                        "h2": Style(color: AppColors.primaryColor),
+                        "h4": Style(color: AppColors.primaryColor),
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -199,15 +211,19 @@ class GivingBackCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15),
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(
+        vertical: 20,
+        horizontal: 20,
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: AppColors.lightprimary,
-            blurRadius: 2.0,
+            color: AppColor.shadowColors.withOpacity(.5),
+            blurRadius: 5.0,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
