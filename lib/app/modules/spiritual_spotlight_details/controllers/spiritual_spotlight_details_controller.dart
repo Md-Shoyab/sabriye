@@ -9,6 +9,8 @@ class SpiritualSpotlightDetailsController extends GetxController {
   final RxString spiritualSpotlightVideoInterviewImageUrl = ''.obs;
   final RxString spiritualSpotlightVideoInterviewContent = ''.obs;
   final RxString spiritualSpotlightVideoInterviewTitle = ''.obs;
+  final RxString linkToOpen = ''.obs;
+  late Uri linkinHtml = Uri.parse(linkToOpen.value);
 
   @override
   void onInit() async {

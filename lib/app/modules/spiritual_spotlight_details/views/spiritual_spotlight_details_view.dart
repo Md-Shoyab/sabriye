@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/spiritual_spotlight_details_controller.dart';
 
@@ -121,6 +122,15 @@ class SpiritualSpotlightDetailsView
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 20),
                       child: Html(
+                        onLinkTap: (url, _, __, ___) async {
+                          controller.linkToOpen.value = url!;
+                          if (!await launchUrl(
+                            controller.linkinHtml,
+                            mode: LaunchMode.externalApplication,
+                          )) {
+                            throw 'Could not launch ${controller.linkinHtml}';
+                          }
+                        },
                         data: controller
                             .spiritualSpotlightVideoInterviewContent.value,
                         style: {
