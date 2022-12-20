@@ -34,8 +34,8 @@ class MainScreenController extends GetxController {
 
   @override
   void onInit() {
-    Get.put(DashboardController());
-    Get.put(InnerUnionOracleController());
+    Get.lazyPut(() => DashboardController());
+    Get.lazyPut(() => InnerUnionOracleController());
     super.onInit();
   }
 }

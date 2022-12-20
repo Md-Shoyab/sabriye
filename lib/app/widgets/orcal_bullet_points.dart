@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -27,10 +28,13 @@ class InnerUnionPointers extends StatelessWidget {
             ),
           ),
           const HorizontalGap(),
-          Text(
-            pointText,
-            style: const TextStyle(
-              color: AppColors.primaryColor,
+          SizedBox(
+            width: Get.width * .75,
+            child: Text(
+              pointText,
+              style: const TextStyle(
+                color: AppColors.primaryColor,
+              ),
             ),
           ),
         ],

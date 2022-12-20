@@ -15,6 +15,7 @@ const String API_GET_ALL_STORIES =
     '/posts/?categories=26&orderby=date&order=desc&per_page=5';
 const String API_GET_BLOGPOST_LIST = '/posts/?categories=108';
 const String API_GET_ALL_BANNER_IMAGE = '/pages/207';
+const String API_GET_INNER_UNION_INTRO_TEXT = '/pages/130';
 const String API_GET_THANK_YOU = '/pages/263';
 const String API_GET_ALL_SPIRITUAL_SPOTLIGHT_VIDEO_INTERVIEW =
     '/posts/?categories=98';
