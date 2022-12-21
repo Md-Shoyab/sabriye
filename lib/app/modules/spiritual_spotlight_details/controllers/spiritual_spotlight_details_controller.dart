@@ -9,8 +9,10 @@ class SpiritualSpotlightDetailsController extends GetxController {
   final RxString spiritualSpotlightVideoInterviewImageUrl = ''.obs;
   final RxString spiritualSpotlightVideoInterviewContent = ''.obs;
   final RxString spiritualSpotlightVideoInterviewTitle = ''.obs;
-  final RxString linkToOpen = ''.obs;
-  late Uri linkinHtml = Uri.parse(linkToOpen.value);
+  final RxString bySabriyeAyana = ''.obs;
+  final RxString authorDescription = ''.obs;
+  final RxString authorImageUrl = ''.obs;
+  final RxString pressedUrl = ''.obs;
 
   @override
   void onInit() async {
@@ -26,6 +28,9 @@ class SpiritualSpotlightDetailsController extends GetxController {
         await _apiServices.getSpiritualSpotlightVideoInterViewDetails(id);
     spiritualSpotlightVideoInterviewContent.value =
         responseJson['content']['rendered'];
+    bySabriyeAyana.value = responseJson['about_author']['title'];
+    authorDescription.value = responseJson['about_author']['description'];
+    authorImageUrl.value = responseJson['about_author']['image'];
 
     spiritualSpotlightVideoInterviewImageUrl.value = responseJson['thumbnail'];
     spiritualSpotlightVideoInterviewTitle.value =

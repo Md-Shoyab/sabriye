@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
@@ -86,19 +85,20 @@ class SpiritualSpotlightDetailsView
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const CircleAvatar(
+                          CircleAvatar(
                             radius: 30,
-                            backgroundImage: AssetImage(
-                              AppAssets.sabriyeCircleProfile,
-                            ),
+                            backgroundImage:
+                                NetworkImage(controller.authorImageUrl.value),
                           ),
                           const HorizontalGap(gap: 8),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text(
-                                'by Sabriyé Ayana',
-                                style: TextStyle(
+                              Text(
+                                controller.bySabriyeAyana.value
+                                    .replaceAll('<h3>', '')
+                                    .replaceAll('</h3>', ''),
+                                style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -106,8 +106,11 @@ class SpiritualSpotlightDetailsView
                               const VerticalGap(gap: 5),
                               SizedBox(
                                 width: Get.width * .7,
-                                child: const Text(
-                                    'Bestselling author, new paradigm business, life & soul mentor, founder of the Akasha Healing™ method and the School of Inner Union'),
+                                child: Text(
+                                  controller.authorDescription.value
+                                      .replaceAll('<p>', '')
+                                      .replaceAll('</p>', ''),
+                                ),
                               ),
                             ],
                           ),
@@ -123,12 +126,15 @@ class SpiritualSpotlightDetailsView
                       margin: const EdgeInsets.symmetric(horizontal: 20),
                       child: Html(
                         onLinkTap: (url, _, __, ___) async {
-                          controller.linkToOpen.value = url!;
-                          if (!await launchUrl(
-                            controller.linkinHtml,
-                            mode: LaunchMode.externalApplication,
-                          )) {
-                            throw 'Could not launch ${controller.linkinHtml}';
+                          controller.pressedUrl.value = url!;
+                          Uri finalUrl = Uri.parse(controller.pressedUrl.value);
+                          if (await canLaunchUrl(finalUrl)) {
+                            await launchUrl(
+                              finalUrl,
+                              mode: LaunchMode.externalApplication,
+                            );
+                          } else {
+                            throw 'Could not launch $url';
                           }
                         },
                         data: controller

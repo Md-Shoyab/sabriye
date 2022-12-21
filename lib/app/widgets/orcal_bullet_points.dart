@@ -29,7 +29,7 @@ class InnerUnionPointers extends StatelessWidget {
           ),
           const HorizontalGap(),
           SizedBox(
-            width: Get.width * .75,
+            width: Get.width * .8,
             child: Text(
               pointText,
               style: const TextStyle(
@@ -37,6 +37,8 @@ class InnerUnionPointers extends StatelessWidget {
               ),
             ),
           ),
+          const VerticalGap(),
+          
         ],
       ),
     );

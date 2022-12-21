@@ -44,13 +44,38 @@ class BlogsListingView extends GetView<BlogsListingController> {
                   const VerticalGap(gap: 20),
                   Container(
                     height: 165,
+                    alignment: Alignment.bottomLeft,
+                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          controller.bannerImageUrl.value,
+                          controller.blogBannerImageUrl.value,
                         ),
                         fit: BoxFit.cover,
                       ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          controller.blogBannerTitle.value,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            color: AppColor.white,
+                          ),
+                        ),
+                        const VerticalGap(gap: 5),
+                        Text(
+                          controller.blogBannerSubtitle.value,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(

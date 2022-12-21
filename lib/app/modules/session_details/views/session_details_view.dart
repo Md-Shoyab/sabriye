@@ -177,8 +177,14 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child:
-                        Html(data: controller.rootCauseOfStruggleContent.value),
+                    child: Html(
+                      data: controller.rootCauseOfStruggleContent.value,
+                      style: {
+                        "h2": Style(
+                          lineHeight: LineHeight.number(1.2),
+                        ),
+                      },
+                    ),
                   ),
                   const Divider(
                     color: AppColors.grey,
@@ -205,7 +211,13 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Html(
-                        data: controller.whatisAkashayHealingQuantumText.value),
+                      data: controller.whatisAkashayHealingQuantumText.value,
+                      style: {
+                        "h2": Style(
+                          lineHeight: LineHeight.number(1.2),
+                        ),
+                      },
+                    ),
                   ),
                   const Divider(
                     color: AppColors.grey,
@@ -231,7 +243,12 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Html(data: controller.doYouRecognizeThisText.value),
+                    child: Html(
+                      data: controller.doYouRecognizeThisText.value,
+                      style: {
+                        "h3": Style(color: AppColor.primaryBrown),
+                      },
+                    ),
                   ),
                   const Divider(
                     color: AppColors.grey,
@@ -262,7 +279,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       style: const TextStyle(
                         fontSize: 20,
                         color: AppColor.brown,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),
@@ -271,7 +288,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                     child: Html(data: controller.bookYourSessionContent.value),
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child: const Text(
                       'One-Off sessions:',
                       style: TextStyle(

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:get/get.dart';
 import '../../../../services/api_services.dart';
 import '../../../constants/app_assets.dart';
@@ -70,11 +71,11 @@ class DashboardController extends GetxController {
   Future<void> getDashboardBannerImage() async {
     final responseJson = await _apiServices.getDashboardBannerImage();
     bannerImageUrl.value = responseJson['custom_fields']['Dashboard'][0];
-
     dashboardBigText.value =
         responseJson['custom_fields']['dashboardbaner-bigtext'][0];
     dashboardSmallText.value =
         responseJson['custom_fields']['dashboardbaner-smalltext'][0];
+    log(bannerImageUrl.value);
   }
 
   Future<void> getAllStories() async {

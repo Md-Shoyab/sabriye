@@ -69,7 +69,7 @@ class SpiritualSpotlightView extends GetView<SpiritualSpotlightController> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      child: Image.asset(AppAssets.smallVideoPlayIcon),
+                      child: Image.asset(AppAssets.videoPlayButton),
                     ),
                   );
                 }),

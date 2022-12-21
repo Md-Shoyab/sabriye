@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/blog_details_controller.dart';
 
@@ -39,25 +40,140 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
               )
             : ListView(
                 children: [
-                  const VerticalGap(gap: 22),
-                  SizedBox(
-                    height: Get.height * .15,
+                  const VerticalGap(gap: 20),
+                  Container(
+                    margin: const EdgeInsets.only(left: 20),
+                    height: Get.height * .2,
                     child: ListView.builder(
-                      itemCount: 6,
-                      shrinkWrap: true,
+                      itemCount: controller.relatedPostsList.length,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: ((context, index) => Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 10),
-                            width: Get.width * .45,
-                            color: Colors.green,
-                          )),
+                      itemBuilder: (context, index) => Center(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.symmetric(horizontal: 5),
+                              height: 90,
+                              width: 131,
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                  image: NetworkImage(
+                                    controller.relatedPostsList[index]
+                                        ['thumbnail'],
+                                  ),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            const VerticalGap(gap: 5),
+                            Container(
+                              width: 131,
+                              margin: const EdgeInsets.only(left: 8),
+                              child: Html(
+                                data: controller.relatedPostsList[index]
+                                    ['title']['rendered'],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
-                  SizedBox(
+                  const VerticalGap(gap: 20),
+                  Container(
+                    height: Get.height * .25,
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(controller.blogImageUrl.value),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(gap: 20),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      controller.blogTitle.value,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(gap: 20),
+                  const Divider(
+                    indent: 20,
+                    endIndent: 20,
+                    thickness: 1,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage:
+                              NetworkImage(controller.authorImageUrl.value),
+                        ),
+                        const HorizontalGap(),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              controller.bySabriyeAyana.value
+                                  .replaceAll('<h3>', '')
+                                  .replaceAll('</h3>', ''),
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const VerticalGap(gap: 5),
+                            SizedBox(
+                              width: Get.width * .7,
+                              child: Text(
+                                controller.authorDescription.value
+                                    .replaceAll('<p>', '')
+                                    .replaceAll('</p>', ''),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    indent: 20,
+                    endIndent: 20,
+                    thickness: 1,
+                  ),
+                  const VerticalGap(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: Html(
                       data: controller.blogDetailString.value,
                       style: {
                         "a": Style(color: AppColor.primaryBrown),
+                      },
+                      onLinkTap: (url, _, __, ___) async {
+                        controller.pressedUrl.value = url!;
+                        Uri finalUrl = Uri.parse(controller.pressedUrl.value);
+                        if (await canLaunchUrl(finalUrl)) {
+                          await launchUrl(
+                            finalUrl,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        } else {
+                          throw 'Could not launch $url';
+                        }
                       },
                     ),
                   ),

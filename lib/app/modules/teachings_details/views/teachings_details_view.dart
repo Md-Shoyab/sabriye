@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-import '../../../constants/app_assets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/teachings_details_controller.dart';
 
@@ -43,7 +43,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                   const VerticalGap(gap: 20),
                   Container(
                     margin: const EdgeInsets.only(left: 20),
-                    height: Get.height * .19,
+                    height: Get.height * .2,
                     child: ListView.builder(
                       itemCount: controller.relatedPostsList.length,
                       scrollDirection: Axis.horizontal,
@@ -71,9 +71,9 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                             Container(
                               width: 131,
                               margin: const EdgeInsets.only(left: 8),
-                              child: Text(
-                                controller.relatedPostsList[index]['title']
-                                    ['rendered'],
+                              child: Html(
+                                data: controller.relatedPostsList[index]
+                                    ['title']['rendered'],
                               ),
                             ),
                           ],
@@ -118,19 +118,20 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage(
-                            AppAssets.sabriyeCircleProfile,
-                          ),
+                          backgroundImage:
+                              NetworkImage(controller.authorImageUrl.value),
                         ),
                         const HorizontalGap(),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              'by Sabriyé Ayana',
-                              style: TextStyle(
+                            Text(
+                              controller.bySabriyeAyana.value
+                                  .replaceAll('<h3>', '')
+                                  .replaceAll('</h3>', ''),
+                              style: const TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
                               ),
@@ -138,8 +139,11 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                             const VerticalGap(gap: 5),
                             SizedBox(
                               width: Get.width * .7,
-                              child: const Text(
-                                  'Bestselling author, new paradigm business, life & soul mentor, founder of the Akasha Healing™ method and the School of Inner Union'),
+                              child: Text(
+                                controller.authorDescription.value
+                                    .replaceAll('<p>', '')
+                                    .replaceAll('</p>', ''),
+                              ),
                             ),
                           ],
                         ),
@@ -160,6 +164,18 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: Html(
                       data: controller.teachingDetailContent.value,
+                      onLinkTap: (url, _, __, ___) async {
+                        controller.pressedUrl.value = url!;
+                        Uri finalUrl = Uri.parse(controller.pressedUrl.value);
+                        if (await canLaunchUrl(finalUrl)) {
+                          await launchUrl(
+                            finalUrl,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       style: {
                         "a": Style(color: AppColor.primaryBrown),
                       },
@@ -171,27 +187,3 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
     );
   }
 }
-
-/*
-FutureBuilder<Map>(
-        future: controller.apiServices.getBlogDetailsById(controller.id),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data!.isEmpty) {
-              return const Center(
-                child: Text('No Data Available'),
-              );
-            }
-            return SingleChildScrollView(
-              child: Html(
-                data: snapshot.data!['content']['rendered'],
-              ),
-            );
-          }
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-      ),
-
- */

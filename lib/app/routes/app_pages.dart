@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+
 import '../modules/about/bindings/about_binding.dart';
 import '../modules/about/views/about_view.dart';
 import '../modules/account_settings/bindings/account_settings_binding.dart';

@@ -4,23 +4,23 @@ import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class InnerUnionOracleController extends GetxController {
-  final ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
   RxBool backViewCard = false.obs;
   RxInt randomIndex = 0.obs;
-  RxList orcaleCardsList = [].obs;
   RxBool isLoading = false.obs;
   RxString innerUnionBannerImageUrl = ''.obs;
   RxString innerUnionBannerIntroText = ''.obs;
-  RxString pointOneText = ''.obs;
-  RxString pointTwoText = ''.obs;
-  RxString pointThreeText = ''.obs;
+  RxString boxOneText = ''.obs;
+  RxString boxTwoText = ''.obs;
+  RxString boxThreeText = ''.obs;
+  RxList orcaleCardsList = [].obs;
 
   @override
   void onInit() async {
     isLoading.value = true;
-    await getAllCards();
     await getInnerUnionBannerImage();
     await getInnerUnionIntroText();
+    await getAllCards();
     isLoading.value = false;
     super.onInit();
   }
@@ -32,22 +32,21 @@ class InnerUnionOracleController extends GetxController {
   }
 
   Future<void> getInnerUnionBannerImage() async {
-    final responseJson = await apiServices.getInnerUnionBannerImage();
+    final responseJson = await _apiServices.getInnerUnionBannerImage();
     innerUnionBannerImageUrl.value =
         responseJson['custom_fields']['Inner-Union-Oracle'][0];
-    debugPrint(responseJson['custom_fields']['Inner-Union-Oracle'][0]);
   }
 
   Future<void> getInnerUnionIntroText() async {
-    final responseJson = await apiServices.getInnerUnionIntroText();
+    final responseJson = await _apiServices.getInnerUnionIntroText();
     innerUnionBannerIntroText.value = responseJson['content']['rendered'];
-    pointOneText.value = responseJson['custom_fields']['box1'][0];
-    pointTwoText.value = responseJson['custom_fields']['box2'][0];
-    pointThreeText.value = responseJson['custom_fields']['box3'][0];
+    boxOneText.value = responseJson['custom_fields']['box1'][0];
+    boxTwoText.value = responseJson['custom_fields']['box2'][0];
+    boxThreeText.value = responseJson['custom_fields']['box3'][0];
   }
 
   Future<void> getAllCards() async {
-    final responseJson = await apiServices.getAllCards();
+    final responseJson = await _apiServices.getAllCards();
     orcaleCardsList.value = responseJson;
   }
 }

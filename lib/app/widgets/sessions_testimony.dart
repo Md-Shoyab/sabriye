@@ -51,8 +51,11 @@ class SessionTestimony extends StatelessWidget {
           Html(
             data: reviewFullContent,
             style: {
-              "h2": Style(alignment: Alignment.center),
-              "p": Style(alignment: Alignment.center),
+              "h2": Style(
+                textAlign: TextAlign.center,
+                fontSize: FontSize.medium,
+              ),
+              "p": Style(textAlign: TextAlign.center),
             },
           ),
         ],
