@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TeachingsDetailsController extends GetxController {
   final ApiServices _apiServices = ApiServices();
@@ -13,7 +14,6 @@ class TeachingsDetailsController extends GetxController {
   final RxString authorDescription = ''.obs;
   final RxString authorImageUrl = ''.obs;
   final RxString pressedUrl = ''.obs;
-
 
   @override
   void onInit() async {
@@ -37,5 +37,16 @@ class TeachingsDetailsController extends GetxController {
   Future<void> getRelatedPosts() async {
     final responseJson = await _apiServices.getRelatedPosts();
     relatedPostsList.value = responseJson;
+  }
+
+  Future<void> openUrl(String? url) async {
+    if (url != null) {
+      if (await canLaunchUrl(Uri.parse(url))) {
+        await launchUrl(
+          Uri.parse(url),
+          mode: LaunchMode.externalApplication,
+        );
+      }
+    }
   }
 }

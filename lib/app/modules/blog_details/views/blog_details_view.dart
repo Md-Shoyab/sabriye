@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/blog_details_controller.dart';
 
@@ -164,16 +163,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                         "a": Style(color: AppColor.primaryBrown),
                       },
                       onLinkTap: (url, _, __, ___) async {
-                        controller.pressedUrl.value = url!;
-                        Uri finalUrl = Uri.parse(controller.pressedUrl.value);
-                        if (await canLaunchUrl(finalUrl)) {
-                          await launchUrl(
-                            finalUrl,
-                            mode: LaunchMode.externalApplication,
-                          );
-                        } else {
-                          throw 'Could not launch $url';
-                        }
+                        await controller.openUrl(url);
                       },
                     ),
                   ),

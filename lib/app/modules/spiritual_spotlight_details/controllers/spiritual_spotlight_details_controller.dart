@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SpiritualSpotlightDetailsController extends GetxController {
   final ApiServices _apiServices = ApiServices();
@@ -35,5 +36,16 @@ class SpiritualSpotlightDetailsController extends GetxController {
     spiritualSpotlightVideoInterviewImageUrl.value = responseJson['thumbnail'];
     spiritualSpotlightVideoInterviewTitle.value =
         responseJson['title']['rendered'];
+  }
+
+  Future<void> openUrl(String? url) async {
+    if (url != null) {
+      if (await canLaunchUrl(Uri.parse(url))) {
+        await launchUrl(
+          Uri.parse(url),
+          mode: LaunchMode.externalApplication,
+        );
+      }
+    }
   }
 }
