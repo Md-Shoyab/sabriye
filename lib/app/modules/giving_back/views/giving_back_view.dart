@@ -75,7 +75,7 @@ class GivingBackView extends GetView<GivingBackController> {
                   const VerticalGap(),
                   Container(
                     height: Get.height * .2,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
@@ -91,6 +91,13 @@ class GivingBackView extends GetView<GivingBackController> {
                     child: Html(
                       data:
                           controller.spendingActualDollarDescriptionText.value,
+                      style: {
+                        "h2": Style(
+                          fontSize: FontSize.xxLarge,
+                          lineHeight: LineHeight.rem(1.3),
+                          color: AppColor.brightprimaryBrown,
+                        ),
+                      },
                     ),
                   ),
                   const VerticalGap(gap: 20),
@@ -241,6 +248,9 @@ class GivingBackCards extends StatelessWidget {
             data: descriptionText,
             style: {
               "a": Style(color: AppColors.primaryColor),
+              "p": Style(
+                lineHeight: LineHeight.rem(1.3),
+              )
             },
           ),
         ],

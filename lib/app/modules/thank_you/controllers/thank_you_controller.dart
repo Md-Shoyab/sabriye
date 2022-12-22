@@ -28,7 +28,7 @@ class ThankYouController extends GetxController {
     debugPrint(downloadButtonUrl.value);
   }
 
-   Future<void> openUrl(String? url) async {
+  Future<void> openUrl(String? url) async {
     if (url != null) {
       if (await canLaunchUrl(Uri.parse(url))) {
         await launchUrl(

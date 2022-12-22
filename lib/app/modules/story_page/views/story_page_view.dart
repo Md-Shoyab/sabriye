@@ -11,7 +11,20 @@ class StoryPageView extends GetView<StoryPageController> {
     return Scaffold(
       body: StoryView(
         controller: controller.storyController,
-        storyItems: controller.storyItems,
+        storyItems: [
+          StoryItem.text(title: 'Red', backgroundColor: Colors.red),
+          // StoryItem.text(title: 'Blue', backgroundColor: Colors.blue),
+          // StoryItem.text(title: 'Green', backgroundColor: Colors.green),
+          StoryItem.inlineImage(
+            url:
+                'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg',
+            controller: controller.storyController,
+          ),
+          StoryItem.pageVideo(
+            'https://player.vimeo.com/video/554200859',
+            controller: controller.storyController,
+          ),
+        ],
         inline: false,
         repeat: false,
         onComplete: () {
