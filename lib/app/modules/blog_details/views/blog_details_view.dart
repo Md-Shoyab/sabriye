@@ -46,11 +46,17 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                     child: ListView.builder(
                       itemCount: controller.relatedPostsList.length,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
+                      itemBuilder: (context, index) => Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              controller.getBlogDetailsById(
+                                controller.relatedPostsList[index]['id']
+                                    .toString(),
+                              );
+                            },
+                            child: Container(
                               margin: const EdgeInsets.symmetric(horizontal: 5),
                               height: 90,
                               width: 131,
@@ -66,17 +72,17 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                                 ),
                               ),
                             ),
-                            const VerticalGap(gap: 5),
-                            Container(
-                              width: 131,
-                              margin: const EdgeInsets.only(left: 8),
-                              child: Html(
-                                data: controller.relatedPostsList[index]
-                                    ['title']['rendered'],
-                              ),
+                          ),
+                          const VerticalGap(gap: 5),
+                          Container(
+                            width: 131,
+                            margin: const EdgeInsets.only(left: 8),
+                            child: Html(
+                              data: controller.relatedPostsList[index]['title']
+                                  ['rendered'],
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

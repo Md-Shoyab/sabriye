@@ -11,6 +11,7 @@ class StoryPageController extends GetxController {
     StoryItem.text(title: 'Red', backgroundColor: Colors.red),
     StoryItem.text(title: 'Blue', backgroundColor: Colors.blue),
     StoryItem.text(title: 'Green', backgroundColor: Colors.green),
+    // StoryItem.pageVideo('url', controller: storyController),
   ];
   final RxList storiesItems = [].obs;
 

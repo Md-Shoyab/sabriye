@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 class BlogDetailsController extends GetxController {
   final ApiServices _apiServices = ApiServices();
   final RxBool isLoading = false.obs;
-  final String id = Get.arguments['id'].toString();
   final RxString blogDetailString = ''.obs;
   final RxString blogImageUrl = ''.obs;
   final RxString blogTitle = ''.obs;
@@ -17,22 +15,23 @@ class BlogDetailsController extends GetxController {
 
   @override
   void onInit() async {
+    await getBlogDetailsById(Get.arguments['id'].toString());
     isLoading.value = true;
-    log(id);
-    await getBlogDetailsById();
     await getRelatedPosts();
     isLoading.value = false;
     super.onInit();
   }
 
-  Future<void> getBlogDetailsById() async {
-    final responseJson = await _apiServices.getBlogDetailsById(id);
+  Future<void> getBlogDetailsById(String postId) async {
+    isLoading.value = true;
+    final responseJson = await _apiServices.getBlogDetailsById(postId);
     blogDetailString.value = responseJson['content']['rendered'];
     blogImageUrl.value = responseJson['thumbnail'];
     blogTitle.value = responseJson['title']['rendered'];
     bySabriyeAyana.value = responseJson['about_author']['title'];
     authorDescription.value = responseJson['about_author']['description'];
     authorImageUrl.value = responseJson['about_author']['image'];
+    isLoading.value = false;
   }
 
   Future<void> getRelatedPosts() async {

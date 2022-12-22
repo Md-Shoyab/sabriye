@@ -4,7 +4,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 class TeachingsDetailsController extends GetxController {
   final ApiServices _apiServices = ApiServices();
-  final String id = Get.arguments['id'].toString();
   final RxString teachingDetailContent = ''.obs;
   final RxString teachingImageUrl = ''.obs;
   final RxString teachingTitle = ''.obs;
@@ -17,21 +16,23 @@ class TeachingsDetailsController extends GetxController {
 
   @override
   void onInit() async {
+    await getTeachingDetailsById(Get.arguments['id'].toString());
     isLoading.value = true;
-    await getTeachingDetailsById();
     await getRelatedPosts();
     isLoading.value = false;
     super.onInit();
   }
 
-  Future<void> getTeachingDetailsById() async {
-    final responseJson = await _apiServices.getTeachingDetailsById(id);
+  Future<void> getTeachingDetailsById(String teachingId) async {
+    isLoading.value = true;
+    final responseJson = await _apiServices.getTeachingDetailsById(teachingId);
     teachingDetailContent.value = responseJson['content']['rendered'];
     teachingImageUrl.value = responseJson['thumbnail'];
     teachingTitle.value = responseJson['title']['rendered'];
     bySabriyeAyana.value = responseJson['about_author']['title'];
     authorDescription.value = responseJson['about_author']['description'];
     authorImageUrl.value = responseJson['about_author']['image'];
+    isLoading.value = false;
   }
 
   Future<void> getRelatedPosts() async {

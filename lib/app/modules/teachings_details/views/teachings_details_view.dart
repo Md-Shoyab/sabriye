@@ -50,19 +50,28 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              margin: const EdgeInsets.symmetric(horizontal: 5),
-                              height: 90,
-                              width: 131,
-                              decoration: BoxDecoration(
-                                color: Colors.amber,
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                    controller.relatedPostsList[index]
-                                        ['thumbnail'],
+                            InkWell(
+                              onTap: () {
+                                controller.getTeachingDetailsById(
+                                  controller.relatedPostsList[index]['id']
+                                      .toString(),
+                                );
+                              },
+                              child: Container(
+                                margin:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                height: 90,
+                                width: 131,
+                                decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      controller.relatedPostsList[index]
+                                          ['thumbnail'],
+                                    ),
+                                    fit: BoxFit.cover,
                                   ),
-                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
