@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../../../widgets/faq_list_tile.dart';
@@ -41,7 +42,18 @@ class FaqView extends GetView<FaqController> {
             : ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 children: [
-                  Html(data: controller.faqText.value),
+                  Html(
+                    data: controller.faqText.value,
+                    style: {
+                      "h2": Style(
+                        textAlign: TextAlign.center,
+                      ),
+                      "p": Style(textAlign: TextAlign.center),
+                      "h3": Style(
+                        textAlign: TextAlign.center,
+                      ),
+                    },
+                  ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
@@ -49,7 +61,7 @@ class FaqView extends GetView<FaqController> {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
-                          color: AppColors.lightprimary.withOpacity(0.6),
+                          color: AppColor.shadowColors.withOpacity(0.5),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
@@ -66,13 +78,14 @@ class FaqView extends GetView<FaqController> {
                             ),
                           ),
                           trailing: IconButton(
-                            onPressed: () {
-                              controller.isInnerCircleExpanded.toggle();
-                            },
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_sharp,
-                            ),
-                          ),
+                              onPressed: () {
+                                controller.isInnerCircleExpanded.toggle();
+                              },
+                              icon: controller.isInnerCircleExpanded.value
+                                  ? const Icon(Icons.keyboard_arrow_up)
+                                  : const Icon(
+                                      Icons.keyboard_arrow_down_sharp,
+                                    )),
                         ),
                         controller.isInnerCircleExpanded.value
                             ? SizedBox(
@@ -100,7 +113,7 @@ class FaqView extends GetView<FaqController> {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
-                          color: AppColors.lightprimary.withOpacity(0.6),
+                          color: AppColor.shadowColors.withOpacity(0.5),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
@@ -120,9 +133,9 @@ class FaqView extends GetView<FaqController> {
                             onPressed: () {
                               controller.isTeachingsExpanded.toggle();
                             },
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_sharp,
-                            ),
+                            icon: controller.isTeachingsExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
                           ),
                         ),
                         controller.isTeachingsExpanded.value
@@ -151,7 +164,7 @@ class FaqView extends GetView<FaqController> {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
-                          color: AppColors.lightprimary.withOpacity(0.6),
+                          color: AppColor.shadowColors.withOpacity(0.5),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
@@ -171,9 +184,9 @@ class FaqView extends GetView<FaqController> {
                             onPressed: () {
                               controller.isAccountExpanded.toggle();
                             },
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_sharp,
-                            ),
+                            icon: controller.isAccountExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
                           ),
                         ),
                         controller.isAccountExpanded.value
@@ -203,7 +216,7 @@ class FaqView extends GetView<FaqController> {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 5,
-                          color: AppColors.lightprimary.withOpacity(0.6),
+                          color: AppColor.shadowColors.withOpacity(0.5),
                         ),
                       ],
                       borderRadius: BorderRadius.circular(10),
@@ -223,9 +236,9 @@ class FaqView extends GetView<FaqController> {
                             onPressed: () {
                               controller.isTroubleshootExpanded.toggle();
                             },
-                            icon: const Icon(
-                              Icons.keyboard_arrow_down_sharp,
-                            ),
+                            icon: controller.isTroubleshootExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
                           ),
                         ),
                         controller.isTroubleshootExpanded.value
@@ -248,6 +261,11 @@ class FaqView extends GetView<FaqController> {
                       ],
                     ),
                   ),
+                  const VerticalGap(gap: 20),
+                  Html(data: controller.schoolOfInnerUnion.value, style: {
+                    "h2": Style(textAlign: TextAlign.center),
+                  }),
+                  const VerticalGap(gap: 20),
                 ],
               ),
       ),

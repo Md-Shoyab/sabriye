@@ -8,6 +8,8 @@ class LoginController extends GetxController {
   late TextEditingController emailController, passwordController;
   ApiServices apiServices = ApiServices();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final Uri oneWeekTrial = Uri.parse(
+      'https://sabriyeayana.thrivecart.com/the-inner-healing-circle-trial/');
 
   String? validatePassword(String value) {
     if (value.length < 8) {
@@ -52,4 +54,6 @@ class LoginController extends GetxController {
     emailController.dispose();
     passwordController.dispose();
   }
+
+  
 }

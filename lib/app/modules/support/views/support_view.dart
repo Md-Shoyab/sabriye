@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import '../../../constants/app_colors.dart';
 
 import 'package:get/get.dart';
@@ -126,6 +127,12 @@ class SupportView extends GetView<SupportController> {
                   image: AssetImage(AppAssets.sabriyeSignature),
                 ),
               ),
+            ),
+            IconButton(
+              onPressed: () {
+                SessionManager.clearSession();
+              },
+              icon: const Icon(Icons.logout),
             ),
           ],
         ),

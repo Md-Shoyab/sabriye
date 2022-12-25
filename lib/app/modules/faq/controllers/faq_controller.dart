@@ -17,6 +17,7 @@ class FaqController extends GetxController {
   final RxBool isTeachingsExpanded = false.obs;
   final RxBool isAccountExpanded = false.obs;
   final RxBool isTroubleshootExpanded = false.obs;
+  final RxString schoolOfInnerUnion = ''.obs;
 
   final faqCategoriesTitleList = [
     'The Inner Circle:',
@@ -40,6 +41,8 @@ class FaqController extends GetxController {
   Future<void> getFaqIntroText() async {
     final responseJson = await _apiServices.getFaqIntro();
     faqText.value = responseJson['content']['rendered'];
+    schoolOfInnerUnion.value =
+        responseJson['custom_fields']['introduction-SIU'][0];
   }
 
   Future<void> getFaqInnerUnion() async {

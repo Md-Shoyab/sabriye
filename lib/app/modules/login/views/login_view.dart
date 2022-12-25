@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../../../routes/app_pages.dart';
@@ -164,7 +165,14 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (!await launchUrl(
+                      controller.oneWeekTrial,
+                      mode: LaunchMode.externalApplication,
+                    )) {
+                      throw 'Could not launch ${controller.oneWeekTrial}';
+                    }
+                  },
                   child: const Text(
                     AppConstants.oneWeekTrial,
                     style: TextStyle(
@@ -175,7 +183,7 @@ class LoginView extends GetView<LoginController> {
                 )
               ],
             ),
-          )
+          ),
         ],
       ),
     );
