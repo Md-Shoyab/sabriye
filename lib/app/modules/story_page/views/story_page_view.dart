@@ -15,7 +15,7 @@ class StoryPageView extends GetView<StoryPageController> {
           StoryItem.text(title: 'Red', backgroundColor: Colors.red),
           // StoryItem.text(title: 'Blue', backgroundColor: Colors.blue),
           // StoryItem.text(title: 'Green', backgroundColor: Colors.green),
-          StoryItem.inlineImage(
+          StoryItem.pageImage(
             url:
                 'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg',
             controller: controller.storyController,
