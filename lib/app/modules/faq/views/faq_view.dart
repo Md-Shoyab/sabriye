@@ -94,7 +94,8 @@ class FaqView extends GetView<FaqController> {
                                   clipBehavior: Clip.none,
                                   shrinkWrap: true,
                                   reverse: true,
-                                  itemCount: 3,
+                                  itemCount:
+                                      controller.faqAccountsQuestionList.length,
                                   itemBuilder: ((context, index) => FaqListTile(
                                         answer: controller.faqAnswerList[index],
                                         question:
@@ -144,7 +145,8 @@ class FaqView extends GetView<FaqController> {
                                   physics: const NeverScrollableScrollPhysics(),
                                   clipBehavior: Clip.none,
                                   shrinkWrap: true,
-                                  itemCount: 3,
+                                  itemCount: controller
+                                      .faqTeachingsQuestionList.length,
                                   itemBuilder: ((context, index) => FaqListTile(
                                         answer: controller
                                             .faqTeachingsAnswerList[index],
@@ -196,7 +198,8 @@ class FaqView extends GetView<FaqController> {
                                   clipBehavior: Clip.none,
                                   shrinkWrap: true,
                                   reverse: true,
-                                  itemCount: 3,
+                                  itemCount:
+                                      controller.faqAccountsQuestionList.length,
                                   itemBuilder: ((context, index) => FaqListTile(
                                         answer: controller
                                             .faqAccountsAnswerList[index],
@@ -248,7 +251,8 @@ class FaqView extends GetView<FaqController> {
                                   clipBehavior: Clip.none,
                                   shrinkWrap: true,
                                   reverse: true,
-                                  itemCount: 3,
+                                  itemCount: controller
+                                      .faqTeachingsQuestionList.length,
                                   itemBuilder: ((context, index) => FaqListTile(
                                         answer: controller
                                             .faqTeachingsAnswerList[index],
@@ -266,6 +270,334 @@ class FaqView extends GetView<FaqController> {
                     "h2": Style(textAlign: TextAlign.center),
                   }),
                   const VerticalGap(gap: 20),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[4],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isInnerUnionWorkExpanded.toggle();
+                            },
+                            icon: controller.isInnerUnionWorkExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isInnerUnionWorkExpanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount: controller
+                                      .faqInnerUnionProgramQuestionList.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                                .faqInnerUnionProgramAnswerList[
+                                            index],
+                                        question: controller
+                                                .faqInnerUnionProgramQuestionList[
+                                            index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[5],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isHealingExpanded.toggle();
+                            },
+                            icon: controller.isHealingExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isHealingExpanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount:
+                                      controller.faqHealingQuestionList.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                            .faqHealingAnswerList[index],
+                                        question: controller
+                                            .faqHealingQuestionList[index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[6],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isMasterMindExpanded.toggle();
+                            },
+                            icon: controller.isMasterMindExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isMasterMindExpanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount: controller
+                                      .faqMasterMindGroupQuestionList.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                                .faqMasterMindGroupAnswerList[
+                                            index],
+                                        question: controller
+                                                .faqMasterMindGroupQuestionList[
+                                            index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[7],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isPaymentPlanExpanded.toggle();
+                            },
+                            icon: controller.isPaymentPlanExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isPaymentPlanExpanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount: controller
+                                      .faqPaymentPlansQuestionList.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                            .faqPaymentPlansAnswerList[index],
+                                        question: controller
+                                            .faqPaymentPlansQuestionList[index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[8],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isManagingMyAccountExpanded.toggle();
+                            },
+                            icon: controller.isManagingMyAccountExpanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isManagingMyAccountExpanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount: controller
+                                      .faqManagingMyAccountQuestionList.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                                .faqManagingMyAccountAnswerList[
+                                            index],
+                                        question: controller
+                                                .faqManagingMyAccountQuestionList[
+                                            index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          color: AppColor.shadowColors.withOpacity(0.5),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: Text(
+                            controller.faqCategoriesTitleList[9],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: AppColors.primaryColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: IconButton(
+                            onPressed: () {
+                              controller.isTroubleshoot2Expanded.toggle();
+                            },
+                            icon: controller.isTroubleshoot2Expanded.value
+                                ? const Icon(Icons.keyboard_arrow_up)
+                                : const Icon(Icons.keyboard_arrow_down),
+                          ),
+                        ),
+                        controller.isTroubleshoot2Expanded.value
+                            ? SizedBox(
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  clipBehavior: Clip.none,
+                                  shrinkWrap: true,
+                                  reverse: true,
+                                  itemCount: controller
+                                      .faqTroubleshootQuestion2List.length,
+                                  itemBuilder: ((context, index) => FaqListTile(
+                                        answer: controller
+                                            .faqTroubleshootAnswer2List[index],
+                                        question: controller
+                                                .faqTroubleshootQuestion2List[
+                                            index],
+                                      )),
+                                ),
+                              )
+                            : const SizedBox(),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
                 ],
               ),
       ),

@@ -342,6 +342,108 @@ class ApiServices {
     }
   }
 
+  Future<List> getFaqInnerUnionWork() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_INNER_UNION_WORK,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> getFaqHealing() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_HEALING,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> getFaqMasterMindGroup() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_MASTERMIND_GROUP,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> getFaqPaymentPlans() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_PAYMENT_PLANS,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> getFaqMangingMyAccount2() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_MANAGING_MY_ACCOUNT_2,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<List> getFaqTroubleshoot2() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_FAQ_TROUBLESHOOT_2,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
   Future<Map> getMembershipDetails() async {
     try {
       var response = await http.get(
@@ -844,7 +946,7 @@ class ApiServices {
     }
   }
 
-   Future<Map> getBlogBannerImage() async {
+  Future<Map> getBlogBannerImage() async {
     try {
       var response = await http.get(
         Uri.parse(API_BASE_URL_2 + API_GET_ALL_BANNER_IMAGE),
@@ -873,7 +975,6 @@ class ApiServices {
       return Future.error('Exception error');
     }
   }
-
 
   Future<Map> getInnerUnionIntroText() async {
     try {

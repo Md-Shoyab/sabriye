@@ -34,6 +34,18 @@ const String API_GET_FAQ_INNER_UNION = '/posts/?categories=6';
 const String API_GET_FAQ_TEACHING = '/posts/?categories=8';
 const String API_GET_FAQ_MANAGING_ACCOUNT = '/posts/?categories=7';
 const String API_GET_FAQ_TROUBLESHOOT = '/posts/?categories=9';
+const String API_GET_FAQ_INNER_UNION_WORK =
+    '/posts/?categories=16&orderby=date&order=asc';
+const String API_GET_FAQ_HEALING =
+    '/posts/?categories=18&orderby=date&order=asc';
+const String API_GET_FAQ_MASTERMIND_GROUP =
+    '/posts/?categories=17&orderby=date&order=asc';
+const String API_GET_FAQ_PAYMENT_PLANS =
+    '/posts/?categories=19&orderby=date&order=asc';
+const String API_GET_FAQ_MANAGING_MY_ACCOUNT_2 =
+    '/posts/?categories=21&orderby=date&order=asc';
+const String API_GET_FAQ_TROUBLESHOOT_2 =
+    '/posts/?categories=20&orderby=date&order=asc';
 const String API_GET_MEMBERSHIP_INTRO = '/pages/102';
 const String API_GET_MEMBERSHIP_CHECKPOINTS = '/pages/117';
 const String API_GET_MEMBERSHIP_ACCORDIONS = '/posts/?categories=10';

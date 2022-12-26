@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../services/api_services.dart';
 
@@ -12,19 +13,44 @@ class FaqController extends GetxController {
   final RxList faqAccountsAnswerList = [].obs;
   final RxList faqTroubleshootQuestionList = [].obs;
   final RxList faqTroubleshootAnswerList = [].obs;
+  final RxList faqInnerUnionProgramQuestionList = [].obs;
+  final RxList faqInnerUnionProgramAnswerList = [].obs;
+  final RxList faqHealingQuestionList = [].obs;
+  final RxList faqHealingAnswerList = [].obs;
+  final RxList faqMasterMindGroupQuestionList = [].obs;
+  final RxList faqMasterMindGroupAnswerList = [].obs;
+  final RxList faqPaymentPlansQuestionList = [].obs;
+  final RxList faqPaymentPlansAnswerList = [].obs;
+  final RxList faqManagingMyAccountQuestionList = [].obs;
+  final RxList faqManagingMyAccountAnswerList = [].obs;
+  final RxList faqTroubleshootQuestion2List = [].obs;
+  final RxList faqTroubleshootAnswer2List = [].obs;
   final RxBool isLoading = false.obs;
   final RxBool isInnerCircleExpanded = false.obs;
   final RxBool isTeachingsExpanded = false.obs;
   final RxBool isAccountExpanded = false.obs;
   final RxBool isTroubleshootExpanded = false.obs;
+  final RxBool isTroubleshoot2Expanded = false.obs;
+  final RxBool isInnerUnionWorkExpanded = false.obs;
+  final RxBool isHealingExpanded = false.obs;
+  final RxBool isMasterMindExpanded = false.obs;
+  final RxBool isPaymentPlanExpanded = false.obs;
+  final RxBool isManagingMyAccountExpanded = false.obs;
   final RxString schoolOfInnerUnion = ''.obs;
+  RxList faqCategoriesTitleList = [].obs;
 
-  final faqCategoriesTitleList = [
-    'The Inner Circle:',
-    'The Teachings:',
-    'Managing My Account:',
-    'Troubleshooting:',
-  ];
+  // final faqCategoriesTitleList = [
+  //   'The Inner Circle:',
+  //   'The Teachings:',
+  //   'Managing My Account:',
+  //   'Troubleshooting:',
+  //   'Will the Inner Union Program Work For Me If:',
+  //   'Healing:',
+  //   'Mastermind Group:',
+  //   'Payment plans:',
+  //   'Managing My Account:',
+  //   'Troubleshooting:',
+  // ];
 
   @override
   void onInit() async {
@@ -34,6 +60,12 @@ class FaqController extends GetxController {
     await getFaqTeachings();
     await getFaqAccount();
     await getFaqTroubleshoot();
+    await faqInnerUnionProgramWork();
+    await faqHealinng();
+    await faqMasterMind();
+    await faqPaymentPlans();
+    await faqManagingAccount2();
+    await getFaqTroubleshoot2();
     isLoading.value = false;
     super.onInit();
   }
@@ -43,6 +75,20 @@ class FaqController extends GetxController {
     faqText.value = responseJson['content']['rendered'];
     schoolOfInnerUnion.value =
         responseJson['custom_fields']['introduction-SIU'][0];
+
+    faqCategoriesTitleList.addAll([
+      responseJson['custom_fields']['accordiontitle-1'][0],
+      responseJson['custom_fields']['accordiontitle-2'][0],
+      responseJson['custom_fields']['accordiontitle-3'][0],
+      responseJson['custom_fields']['accordiontitle-4'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-1'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-2'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-3'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-4'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-5'][0],
+      responseJson['custom_fields']['SIU-accordiontitle-6'][0],
+    ]);
+    debugPrint(faqCategoriesTitleList.toString());
   }
 
   Future<void> getFaqInnerUnion() async {
@@ -98,6 +144,102 @@ class FaqController extends GetxController {
       responseJson[0]['content']['rendered'],
       responseJson[1]['content']['rendered'],
       responseJson[2]['content']['rendered']
+    ]);
+  }
+
+  Future<void> faqInnerUnionProgramWork() async {
+    final responseJson = await _apiServices.getFaqInnerUnionWork();
+    faqInnerUnionProgramQuestionList.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+      responseJson[3]['title']['rendered'],
+      responseJson[4]['title']['rendered'],
+    ]);
+
+    faqInnerUnionProgramAnswerList.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
+      responseJson[3]['content']['rendered'],
+      responseJson[4]['content']['rendered'],
+    ]);
+  }
+
+  Future<void> faqHealinng() async {
+    final responseJson = await _apiServices.getFaqHealing();
+    faqHealingQuestionList.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+      responseJson[3]['title']['rendered'],
+    ]);
+
+    faqHealingAnswerList.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
+      responseJson[3]['content']['rendered'],
+    ]);
+  }
+
+  Future<void> faqMasterMind() async {
+    final responseJson = await _apiServices.getFaqMasterMindGroup();
+    faqMasterMindGroupQuestionList.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+    ]);
+
+    faqMasterMindGroupAnswerList.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
+    ]);
+  }
+
+  Future<void> faqPaymentPlans() async {
+    final responseJson = await _apiServices.getFaqPaymentPlans();
+    faqPaymentPlansQuestionList.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+    ]);
+    faqPaymentPlansAnswerList.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
+    ]);
+  }
+
+  Future<void> faqManagingAccount2() async {
+    final responseJson = await _apiServices.getFaqMangingMyAccount2();
+
+    faqManagingMyAccountQuestionList.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+    ]);
+
+    faqManagingMyAccountAnswerList.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
+    ]);
+  }
+
+  Future<void> getFaqTroubleshoot2() async {
+    final responseJson = await _apiServices.getFaqTroubleshoot2();
+    faqTroubleshootQuestion2List.addAll([
+      responseJson[0]['title']['rendered'],
+      responseJson[1]['title']['rendered'],
+      responseJson[2]['title']['rendered'],
+    ]);
+
+    faqTroubleshootAnswer2List.addAll([
+      responseJson[0]['content']['rendered'],
+      responseJson[1]['content']['rendered'],
+      responseJson[2]['content']['rendered'],
     ]);
   }
 }
