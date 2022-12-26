@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/change_email_controller.dart';
 
 class ChangeEmailView extends GetView<ChangeEmailController> {
@@ -106,9 +106,13 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
             Center(
               child: TextButton(
                 onPressed: () {
-                  controller.changeEmailFormkey.currentState!.validate()
-                      ? Get.toNamed(Routes.VERIFICATION_EMAIL)
-                      : null;
+                  if (controller.changeEmailFormkey.currentState!.validate()) {
+                    controller.changeEmail();
+                    Get.toNamed(Routes.VERIFICATION_EMAIL);
+                  } else {
+                    Get.snackbar(
+                        'Something Went Wrong', 'Something Went Wrong');
+                  }
                 },
                 child: const Text(
                   AppConstants.sendText,

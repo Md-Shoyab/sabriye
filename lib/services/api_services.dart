@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sabriye/app/constants/api_constants.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
-import 'package:sabriye/app/modules/change_email/controllers/change_email_controller.dart';
 import '../app/local_storage/sessions.dart';
 import '../app/routes/app_pages.dart';
 
@@ -904,28 +903,15 @@ class ApiServices {
     }
   }
 
-  Future<void> changeEmail(String basicAuth, updatedMailId) async {
+  Future<void> changeEmail(String basicAuth, String newEmail) async {
     try {
-      var response = await http.post(
-          Uri.parse(
-            API_BASE_URL + API_UPDATE_EMAIL,
-          ),
-          headers: <String, String>{
-            'Authorization': basicAuth
-          },
-          body: {
-            "email": updatedMailId,
-          });
-
-      if (response.statusCode == 200) {
-        ChangeEmailController _changeEmailController = ChangeEmailController();
-        _changeEmailController.updateBasicAuth(
-          _changeEmailController.emailController.text,
-          SessionManager.getPassword(),
-        );
-      } else {
-        Future.error('Server Error');
-      }
+      await http.post(
+        Uri.parse(API_UPDATE_EMAIL),
+        headers: <String, String>{'Authorization': basicAuth},
+        body: {
+          "user_email": newEmail,
+        },
+      );
     } catch (e) {
       Get.snackbar('Something Went Wrong', e.toString());
     }

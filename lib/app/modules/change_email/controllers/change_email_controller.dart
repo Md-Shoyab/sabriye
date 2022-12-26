@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/local_storage/sessions.dart';
@@ -8,18 +7,8 @@ class ChangeEmailController extends GetxController {
   final ApiServices apiServices = ApiServices();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController confirmEmailController = TextEditingController();
+  final finalBasicAuth = SessionManager.getUserToken();
   final changeEmailFormkey = GlobalKey<FormState>();
-
-  void updateBasicAuth(String updatedEmail, password) {
-    debugPrint('come in updateBasicAuth');
-    String basicAuth = 'Basic ' +
-        base64.encode(
-          utf8.encode(
-            '$updatedEmail:$password',
-          ),
-        );
-    SessionManager.saveUserToken(basicAuth);
-  }
 
   String? validateEmail(String? value) {
     if (value!.isEmpty) {
@@ -41,5 +30,13 @@ class ChangeEmailController extends GetxController {
       return 'Provide a valid email';
     }
     return null;
+  }
+
+  Future<void> changeEmail() async {
+    await apiServices.changeEmail(
+      finalBasicAuth!,
+      confirmEmailController.text.trim(),
+    );
+    debugPrint('come in change email');
   }
 }
