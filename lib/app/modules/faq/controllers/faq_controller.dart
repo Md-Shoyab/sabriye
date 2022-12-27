@@ -39,19 +39,6 @@ class FaqController extends GetxController {
   final RxString schoolOfInnerUnion = ''.obs;
   RxList faqCategoriesTitleList = [].obs;
 
-  // final faqCategoriesTitleList = [
-  //   'The Inner Circle:',
-  //   'The Teachings:',
-  //   'Managing My Account:',
-  //   'Troubleshooting:',
-  //   'Will the Inner Union Program Work For Me If:',
-  //   'Healing:',
-  //   'Mastermind Group:',
-  //   'Payment plans:',
-  //   'Managing My Account:',
-  //   'Troubleshooting:',
-  // ];
-
   @override
   void onInit() async {
     isLoading.value = true;

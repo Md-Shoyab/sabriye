@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -47,15 +48,26 @@ class FaqView extends GetView<FaqController> {
                     style: {
                       "h2": Style(
                         textAlign: TextAlign.center,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.xxLarge,
+                        color: AppColor.brown,
                       ),
-                      "p": Style(textAlign: TextAlign.center),
+                      "p": Style(
+                        textAlign: TextAlign.center,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w300,
+                      ),
                       "h3": Style(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryBrown,
                         textAlign: TextAlign.center,
                       ),
                     },
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -108,7 +120,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -160,7 +172,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -213,7 +225,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -266,12 +278,20 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   const VerticalGap(gap: 20),
-                  Html(data: controller.schoolOfInnerUnion.value, style: {
-                    "h2": Style(textAlign: TextAlign.center),
-                  }),
+                  Html(
+                    data: controller.schoolOfInnerUnion.value,
+                    style: {
+                      "h2": Style(
+                        textAlign: TextAlign.center,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.primaryBrown,
+                      ),
+                    },
+                  ),
                   const VerticalGap(gap: 20),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -326,7 +346,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -379,7 +399,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -434,7 +454,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -487,7 +507,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [
@@ -542,7 +562,7 @@ class FaqView extends GetView<FaqController> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     decoration: BoxDecoration(
                       color: AppColors.white,
                       boxShadow: [

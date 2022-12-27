@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -65,7 +66,8 @@ class BookDetailsView extends GetView<BookDetailsController> {
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontSize: 30,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w400,
+                          fontFamily: FontName.gastromond,
                           color: AppColor.white,
                         ),
                       ),
@@ -75,6 +77,9 @@ class BookDetailsView extends GetView<BookDetailsController> {
                       style: {
                         "p": Style(
                           textAlign: TextAlign.center,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.medium,
                         ),
                         "h2": Style(
                           textAlign: TextAlign.center,
