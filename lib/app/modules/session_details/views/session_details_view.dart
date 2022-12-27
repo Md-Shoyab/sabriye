@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:sabriye/app/widgets/on_off_session_card.dart';
 import 'package:sabriye/app/widgets/sessions_testimony.dart';
@@ -50,12 +50,13 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       children: [
                         Container(
                           padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
-                          width: 350,
+                          width: Get.width * .7,
                           child: Text(
                             controller.sessionBannerTitle.value,
                             style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: FontName.gastromond,
                               height: 1.5,
                               color: AppColor.primaryBrown,
                             ),
@@ -69,7 +70,9 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                                 .replaceAll('<br />', '')
                                 .replaceAll('</p>', ''),
                             style: const TextStyle(
+                              fontFamily: FontName.sourceSansPro,
                               fontWeight: FontWeight.w300,
+                              fontSize: 15,
                               height: 1.4,
                             ),
                           ),
@@ -77,7 +80,7 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       ],
                     ),
                   ),
-                  const VerticalGap(gap: 20),
+                  const VerticalGap(),
                   SizedBox(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,21 +90,24 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                           padding: const EdgeInsets.fromLTRB(20, 10, 0, 10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               Text(
-                                'The Secret to Unlocking Heaven on Earth',
-                                style: TextStyle(
+                                controller.secretToUnlockTitle.value,
+                                style: const TextStyle(
                                   fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.4,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily: FontName.gastromond,
+                                  height: 1.6,
                                 ),
                               ),
-                              VerticalGap(),
                               Text(
-                                'Is healing trauma and karma across multiple timelines.',
-                                style: TextStyle(
-                                  fontSize: 15,
+                                controller.secretToUnlockDescription.value
+                                    .replaceAll('<p>', '')
+                                    .replaceAll('</p>', ''),
+                                style: const TextStyle(
+                                  fontFamily: FontName.sourceSansPro,
                                   fontWeight: FontWeight.w300,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
@@ -109,8 +115,8 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                         ),
                         Container(
                           padding: const EdgeInsets.fromLTRB(0, 0, 20, 10),
-                          child: Image.asset(
-                            AppAssets.akashayHealingImageSession,
+                          child: Image.network(
+                            controller.secretToUnlockImageUrl.value,
                             height: 110,
                             width: 115,
                           ),
@@ -118,15 +124,14 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       ],
                     ),
                   ),
-                  const VerticalGap(gap: 20),
                   SizedBox(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Container(
                           padding: const EdgeInsets.fromLTRB(10, 0, 20, 10),
-                          child: Image.asset(
-                            AppAssets.akshayHealingSabriyeProfile,
+                          child: Image.network(
+                            controller.faciliatedImageUrl.value,
                             height: 120,
                             width: 115,
                           ),
@@ -134,12 +139,15 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                         SizedBox(
                           height: 130,
                           width: Get.width * .64,
-                          child: const Text(
-                            'I have facilitated over a thousand individual Akasha Quantum Soul Healing™ Journeys to date.',
-                            style: TextStyle(
-                              fontSize: 18,
+                          child: Text(
+                            controller.faciliatedText.value
+                                .replaceAll('<p>', '')
+                                .replaceAll('</p>', ''),
+                            style: const TextStyle(
+                              fontSize: 17,
                               color: AppColor.primaryBrown,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: FontName.gastromond,
                               height: 1.6,
                             ),
                           ),
@@ -150,7 +158,26 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     width: Get.width,
-                    child: Html(data: controller.sessionCheckpoints.value),
+                    child: Html(
+                      data: controller.sessionCheckpoints.value,
+                      style: {
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "li": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "em": Style(
+                          fontStyle: FontStyle.normal,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      },
+                    ),
                   ),
                   const Divider(
                     color: AppColors.grey,
@@ -181,7 +208,19 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       data: controller.rootCauseOfStruggleContent.value,
                       style: {
                         "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
                           lineHeight: LineHeight.number(1.2),
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "li": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
                         ),
                       },
                     ),
@@ -214,8 +253,16 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                       data: controller.whatisAkashayHealingQuantumText.value,
                       style: {
                         "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brown,
                           lineHeight: LineHeight.number(1.2),
                         ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        )
                       },
                     ),
                   ),
@@ -246,7 +293,27 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                     child: Html(
                       data: controller.doYouRecognizeThisText.value,
                       style: {
-                        "h3": Style(color: AppColor.primaryBrown),
+                        "h2": Style(
+                          color: AppColor.brown,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.xLarge,
+                        ),
+                        "h3": Style(
+                          color: AppColor.primaryBrown,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        "li": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
                       },
                     ),
                   ),
@@ -273,28 +340,39 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                     endIndent: 20,
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(27, 10, 20, 0),
                     child: Text(
                       controller.bookYourSessionTitle.value,
                       style: const TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: AppColor.brown,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: FontName.gastromond,
                       ),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Html(data: controller.bookYourSessionContent.value),
+                    child: Html(
+                      data: controller.bookYourSessionContent.value,
+                      style: {
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                      },
+                    ),
                   ),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(22, 20, 20, 0),
                     child: const Text(
                       'One-Off sessions:',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: AppColor.primaryBrown,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
@@ -321,13 +399,14 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                   ),
                   const VerticalGap(gap: 20),
                   Container(
-                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    padding: const EdgeInsets.fromLTRB(25, 0, 20, 0),
                     child: const Text(
                       'Akasha Healing™ Packages',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         color: AppColor.primaryBrown,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: FontName.gastromond,
                       ),
                     ),
                   ),

@@ -12,6 +12,11 @@ class SessionDetailsController extends GetxController {
   final RxString doYouRecognizeThisText = ''.obs;
   final RxString bookYourSessionTitle = ''.obs;
   final RxString bookYourSessionContent = ''.obs;
+  final RxString secretToUnlockTitle = ''.obs;
+  final RxString secretToUnlockDescription = ''.obs;
+  final RxString secretToUnlockImageUrl = ''.obs;
+  final RxString faciliatedImageUrl = ''.obs;
+  final RxString faciliatedText = ''.obs;
   final RxList testimonials = [].obs;
   final RxList oneOffSessionCardsList = [].obs;
   final RxList akashaHealingSessionCardsList = [].obs;
@@ -22,6 +27,8 @@ class SessionDetailsController extends GetxController {
     await getSessionDetails();
     await sessionTestimony();
     await getSessionDetailsPartTwo();
+    await sessionSecretToUnlockingHeavenEarth();
+    await sessionFaciliatedAkasha();
     await sessionDetailsPartThree();
     await sessionDetailsPartFour();
     await sessionDetailsPartFive();
@@ -77,5 +84,19 @@ class SessionDetailsController extends GetxController {
   Future<void> sessionDetailCheckPoints() async {
     final responseJson = await _apiServices.sessionCheckPoints();
     sessionCheckpoints.value = responseJson['content']['rendered'];
+  }
+
+  Future<void> sessionSecretToUnlockingHeavenEarth() async {
+    final responseJson =
+        await _apiServices.sessionSecretToUnlockingHeavenEarth();
+    secretToUnlockTitle.value = responseJson['title']['rendered'];
+    secretToUnlockDescription.value = responseJson['content']['rendered'];
+    secretToUnlockImageUrl.value = responseJson['thumbnail'];
+  }
+
+  Future<void> sessionFaciliatedAkasha() async {
+    final responseJson = await _apiServices.sessionFaciliatedAkasha();
+    faciliatedImageUrl.value = responseJson['thumbnail'];
+    faciliatedText.value = responseJson['content']['rendered'];
   }
 }

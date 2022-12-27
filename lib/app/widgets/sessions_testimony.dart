@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -28,16 +29,17 @@ class SessionTestimony extends StatelessWidget {
             radius: 28,
             backgroundImage: NetworkImage(profileImagePath),
           ),
-          const VerticalGap(gap: 8),
+          const VerticalGap(),
           Text(
             reviewerName,
             style: const TextStyle(
               fontSize: 18,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w400,
+              fontFamily: FontName.gastromond,
               color: AppColors.primaryColor,
             ),
           ),
-          const VerticalGap(gap: 8),
+          const VerticalGap(),
           RatingBar.builder(
             ignoreGestures: true,
             initialRating: reviewRating,
@@ -53,9 +55,16 @@ class SessionTestimony extends StatelessWidget {
             style: {
               "h2": Style(
                 textAlign: TextAlign.center,
-                fontSize: FontSize.medium,
+                fontSize: FontSize.larger,
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w600,
               ),
-              "p": Style(textAlign: TextAlign.center),
+              "p": Style(
+                textAlign: TextAlign.center,
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w300,
+                fontSize: FontSize.large,
+              ),
             },
           ),
         ],

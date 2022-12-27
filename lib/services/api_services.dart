@@ -854,6 +854,40 @@ class ApiServices {
     }
   }
 
+  Future<Map> sessionSecretToUnlockingHeavenEarth() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_SECRET_UNLOCK_HEAVEN_EARTH,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> sessionFaciliatedAkasha() async {
+    try {
+      var response = await http.get(
+        Uri.parse(
+          API_BASE_URL_2 + API_GET_SESSIONS_FACILITATED_AKASHA,
+        ),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
   Future<void> captureEmail(String email, name) async {
     try {
       var response = await http.post(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../constants/app_assets.dart';
@@ -35,7 +36,7 @@ class OneOffSessionCards extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            blurRadius: 10,
+            blurRadius: 8,
             color: AppColor.shadowColors.withOpacity(.5),
             offset: const Offset(0, 4),
           )
@@ -56,19 +57,22 @@ class OneOffSessionCards extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                fontWeight: FontWeight.w600,
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w700,
                 fontSize: 18,
-                color: AppColors.primaryColor,
+                color: AppColor.brown,
               ),
             ),
           ),
-          // const VerticalGap(),
           Html(
             data: content,
             style: {
               'p': Style(
                 maxLines: 5,
                 textOverflow: TextOverflow.ellipsis,
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w300,
+                lineHeight: LineHeight.rem(1.3),
               )
             },
           ),

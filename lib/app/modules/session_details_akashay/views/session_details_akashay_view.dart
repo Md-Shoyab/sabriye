@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -50,21 +51,26 @@ class SessionDetailsAkashayView
           children: [
             const VerticalGap(gap: 30),
             Text(
-              // 'Three Timelines\nHealing €1111',
               controller.title,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
+                fontSize: 25,
+                fontFamily: FontName.gastromond,
+                color: AppColor.brown,
+                fontWeight: FontWeight.w400,
                 height: 1.3,
               ),
             ),
-            const VerticalGap(),
+            const VerticalGap(gap: 15),
             Html(
-              // '''Akasha Healing™ works on the three timelines of the past: our childhood, ancestral baggage and past lives. Sometimes no matter how hard we try we can’t seem to create what we want. This is often because there is some subconscious false belief or fear that is holding us back from one or more of the three past timelines. By making this subconscious fear of false belief conscious across the three timelines where they are often entangled and hooked into each other, we can heal them once and for all.''',
               data: controller.content,
               style: {
-                "p": Style(alignment: Alignment.center),
+                "p": Style(
+                  textAlign: TextAlign.center,
+                  lineHeight: LineHeight.rem(1.3),
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w400,
+                ),
               },
             ),
             const VerticalGap(gap: 20),
@@ -79,10 +85,7 @@ class SessionDetailsAkashayView
                 ),
               ),
               style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 5,
-                ),
+                minimumSize: const Size(150, 30),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),

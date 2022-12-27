@@ -6,7 +6,8 @@ const String API_BASE_URL_2 = 'https://app.sabriyeayana.com/wp-json/wp/v2';
 // Login, Signup & Logout.
 const String API_SIGN_UP = '/users/signup';
 const String API_LOGIN = '/users/me';
-const String API_UPDATE_EMAIL = 'https://sabriyeayana.com/wp-json/etelligens/v1/change-email';
+const String API_UPDATE_EMAIL =
+    'https://sabriyeayana.com/wp-json/etelligens/v1/change-email';
 const String API_GET_TEACHINNGS_CATEGORIES =
     '/categories/?include=94,57,62,100';
 const String API_GET_TEACHINNGS_SUBCATEGORIES = '/categories?parent=';
@@ -64,6 +65,8 @@ const String API_GET_SESSIONS_CARDS_DETAILS =
 const String API_GET_AKASHA_HEALING_CARDS_DETAILS =
     '/posts/?categories=12&tags=14&orderby=date&order=asc';
 const String API_GET_SESSIONS_TESTIMONY = '/posts/?categories=13';
+const String API_GET_SESSIONS_SECRET_UNLOCK_HEAVEN_EARTH = '/pages/198';
+const String API_GET_SESSIONS_FACILITATED_AKASHA = '/pages/201';
 const String API_GET_SESSIONS_CHECKPOINTS = '/pages/203';
 const String API_GET_ALL_CARDS = '/card/';
 const String API_GET_BOOK_DETAILS = '/pages/41';
