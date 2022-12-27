@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/local_storage/sessions.dart';
+import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class ChangeEmailController extends GetxController {
@@ -33,10 +34,12 @@ class ChangeEmailController extends GetxController {
   }
 
   Future<void> changeEmail() async {
-    await apiServices.changeEmail(
+    var response = await apiServices.changeEmail(
       finalBasicAuth!,
       confirmEmailController.text.trim(),
     );
-    debugPrint('come in change email');
+    if (response != null && response.statusCode == 200) {
+      Get.toNamed(Routes.VERIFICATION_EMAIL);
+    }
   }
 }

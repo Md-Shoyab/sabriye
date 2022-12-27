@@ -49,6 +49,7 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
           ),
           const VerticalGap(gap: 20),
           OTPTextField(
+            controller: controller.otpFieldController,
             otpFieldStyle: OtpFieldStyle(
               focusBorderColor: AppColor.primaryBrown,
             ),
@@ -61,7 +62,9 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
             ),
             textFieldAlignment: MainAxisAlignment.spaceAround,
             fieldStyle: FieldStyle.box,
-            onCompleted: (pin) {},
+            onCompleted: (pin) {
+              
+            },
           ),
           const VerticalGap(gap: 20),
           Center(

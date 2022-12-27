@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -46,7 +47,8 @@ class DashboardView extends GetView<DashboardController> {
                               style: const TextStyle(
                                 color: AppColors.white,
                                 fontSize: 16,
-                                fontWeight: FontWeight.w700,
+                                fontFamily: FontName.gastromond,
+                                fontWeight: FontWeight.w400,
                                 height: 1.6,
                               ),
                             ),
@@ -71,7 +73,9 @@ class DashboardView extends GetView<DashboardController> {
                       AppConstants.storiesText,
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.7,
                       ),
                     ),
                     const VerticalGap(),
@@ -88,11 +92,12 @@ class DashboardView extends GetView<DashboardController> {
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
                             child: CircleAvatar(
-                                backgroundColor: AppColor.primaryBrown,
-                                radius: 38,
-                                backgroundImage: NetworkImage(
-                                  controller.storiesItems[index]['thumbnail'],
-                                )),
+                              backgroundColor: Colors.transparent,
+                              radius: 38,
+                              backgroundImage: NetworkImage(
+                                controller.storiesItems[index]['thumbnail'],
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -102,7 +107,9 @@ class DashboardView extends GetView<DashboardController> {
                       AppConstants.teachingText,
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.7,
                       ),
                     ),
                     const VerticalGap(gap: 17),
@@ -134,7 +141,6 @@ class DashboardView extends GetView<DashboardController> {
                             width: 170,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Colors.amber,
                               image: DecorationImage(
                                 image: NetworkImage(
                                   controller.teachingCategories[index]
@@ -159,7 +165,9 @@ class DashboardView extends GetView<DashboardController> {
                       AppConstants.inSpritiualSpotlightSubTxt,
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.7,
                       ),
                     ),
                     const VerticalGap(gap: 17),
@@ -185,7 +193,6 @@ class DashboardView extends GetView<DashboardController> {
                             width: 170,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Colors.amber,
                               image: DecorationImage(
                                 image: NetworkImage(
                                   controller.spiritualSpotlightVideoInterview[
@@ -206,7 +213,9 @@ class DashboardView extends GetView<DashboardController> {
                       AppConstants.testimonialsText,
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        letterSpacing: 0.7,
                       ),
                     ),
                     const VerticalGap(gap: 17),

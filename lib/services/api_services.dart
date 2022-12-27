@@ -903,9 +903,10 @@ class ApiServices {
     }
   }
 
-  Future<void> changeEmail(String basicAuth, String newEmail) async {
+  Future<http.Response?> changeEmail(String basicAuth, String newEmail) async {
+    http.Response? response;
     try {
-      await http.post(
+      response = await http.post(
         Uri.parse(API_UPDATE_EMAIL),
         headers: <String, String>{'Authorization': basicAuth},
         body: {
@@ -915,6 +916,7 @@ class ApiServices {
     } catch (e) {
       Get.snackbar('Something Went Wrong', e.toString());
     }
+    return response;
   }
 
   Future<Map> getDashboardBannerImage() async {

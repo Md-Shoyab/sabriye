@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../controllers/welcome_screens_controller.dart';
 
 class WelcomeScreensView extends GetView<WelcomeScreensController> {
@@ -37,6 +38,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                           controller.welcomePages[index].title,
                           style: const TextStyle(
                             fontSize: 18,
+                            fontFamily: FontName.gastromond,
                             fontWeight: FontWeight.w400,
                             color: AppColors.primaryColor,
                           ),
@@ -49,7 +51,8 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                           controller.welcomePages[index].subTitle,
                           style: const TextStyle(
                             fontSize: 35,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: FontName.gastromond,
+                            fontWeight: FontWeight.w400,
                             color: AppColors.primaryColor,
                           ),
                         ),

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
+import 'package:otp_text_field/otp_text_field.dart';
 
 class VerificationEmailController extends GetxController {
+  final OtpFieldController otpFieldController = OtpFieldController();
   @override
   void onClose() {}
 

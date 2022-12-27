@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/forgot_password_controller.dart';
 
@@ -30,99 +31,99 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           Align(
             alignment: Alignment.center,
             child: Container(
-              margin: const EdgeInsets.only(top: 100),
-              width: Get.width * .9,
-              child: Card(
-                elevation: 5.0,
-                shadowColor: Colors.pink.shade200,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    vertical: 15,
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text(
-                        AppConstants.forgotPassword,
-                        style: TextStyle(
-                          color: AppColors.primaryColor,
-                          fontSize: 24,
-                          fontWeight: FontWeight.w700,
+              margin: const EdgeInsets.fromLTRB(35, 100, 35, 0),
+              decoration: BoxDecoration(
+                color: AppColor.white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColor.shadowColors.withOpacity(0.5),
+                    offset: const Offset(0, 4),
+                    blurRadius: 10,
+                  )
+                ],
+              ),
+              child: Container(
+                margin: const EdgeInsets.all(22),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      AppConstants.forgotPassword,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 25,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const VerticalGap(gap: 13),
+                    const Text(
+                      AppConstants.enterEmailToResetPassword,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: AppColors.primaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                        height: 1.4,
+                      ),
+                    ),
+                    const VerticalGap(gap: 20),
+                    Form(
+                      key: controller.emailFormKey,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      child: TextFormField(
+                        validator: ((value) => controller.validateEmail(value)),
+                        controller: controller.emailController,
+                        cursorColor: AppColors.primaryColor,
+                        decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                          hintText: AppConstants.emailText,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryColor,
+                              width: 2.0,
+                            ),
+                          ),
                         ),
                       ),
-                      const VerticalGap(),
-                      const Text(
-                        AppConstants.enterEmailToResetPassword,
-                        textAlign: TextAlign.center,
+                    ),
+                    const VerticalGap(
+                      gap: 20,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        if (controller.emailFormKey.currentState!.validate()) {
+                          controller.apiServices.forgotPassword(
+                            controller.emailController.text.trim(),
+                          );
+                        }
+                      },
+                      child: const Text(
+                        AppConstants.loginTxt,
                         style: TextStyle(
-                          color: AppColors.primaryColor,
                           fontSize: 16,
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.white,
                         ),
                       ),
-                      const VerticalGap(gap: 20),
-                      Form(
-                        key: controller.emailFormKey,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: TextFormField(
-                          validator: ((value) =>
-                              controller.validateEmail(value)),
-                          controller: controller.emailController,
-                          cursorColor: AppColors.primaryColor,
-                          decoration: InputDecoration(
-                            hintText: AppConstants.emailText,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                color: AppColors.primaryColor,
-                                width: 2.0,
-                              ),
-                            ),
-                          ),
+                      style: TextButton.styleFrom(
+                        minimumSize: Size(
+                          Get.width * .8,
+                          Get.height * .07,
                         ),
-                      ),
-                      const VerticalGap(
-                        gap: 20,
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          if (controller.emailFormKey.currentState!
-                              .validate()) {
-                            controller.apiServices.forgotPassword(
-                              controller.emailController.text.trim(),
-                            );
-                          }
-                        },
-                        child: const Text(
-                          AppConstants.loginTxt,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: AppColors.white,
-                          ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(44),
                         ),
-                        style: TextButton.styleFrom(
-                          minimumSize: Size(
-                            Get.width * .8,
-                            Get.height * .07,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          backgroundColor: AppColors.primaryColor,
-                        ),
+                        backgroundColor: AppColors.primaryColor,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
