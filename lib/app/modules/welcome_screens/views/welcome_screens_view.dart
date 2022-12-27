@@ -80,7 +80,8 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         style: TextStyle(
                                           color: AppColors.primaryColor,
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: FontName.sourceSansPro,
                                         ),
                                       ),
                                     ),
@@ -93,18 +94,16 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         'Finish',
                                         style: TextStyle(
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w600,
                                           color: AppColors.white,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: FontName.sourceSansPro,
                                         ),
                                       ),
                                       style: TextButton.styleFrom(
-                                        minimumSize: Size(
-                                          Get.width * .7,
-                                          Get.height * .07,
-                                        ),
+                                        minimumSize: const Size(300, 60),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(25),
+                                              BorderRadius.circular(44),
                                         ),
                                         backgroundColor: AppColors.primaryColor,
                                       ),
@@ -123,18 +122,16 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.w900,
+                                          fontFamily: FontName.sourceSansPro,
                                         ),
                                       ),
                                       style: TextButton.styleFrom(
                                         backgroundColor: AppColors.primaryColor,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 50,
-                                          vertical: 15,
-                                        ),
+                                        minimumSize: const Size(150, 60),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                              BorderRadius.circular(44),
                                         ),
                                       ),
                                     ),

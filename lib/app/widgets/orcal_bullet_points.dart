@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -22,9 +23,10 @@ class InnerUnionPointers extends StatelessWidget {
           Text(
             pointNumber,
             style: const TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w700,
-              color: AppColors.primaryColor,
+              fontSize: 24,
+              fontWeight: FontWeight.w400,
+              fontFamily: FontName.gastromond,
+              color: AppColor.brightprimaryBrown,
             ),
           ),
           const HorizontalGap(),
@@ -33,12 +35,14 @@ class InnerUnionPointers extends StatelessWidget {
             child: Text(
               pointText,
               style: const TextStyle(
+                fontSize: 15,
                 color: AppColors.primaryColor,
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ),
           const VerticalGap(),
-          
         ],
       ),
     );

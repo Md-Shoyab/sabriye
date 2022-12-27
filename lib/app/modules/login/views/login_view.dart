@@ -75,6 +75,11 @@ class LoginView extends GetView<LoginController> {
                             contentPadding:
                                 const EdgeInsets.fromLTRB(15, 0, 0, 0),
                             hintText: AppConstants.emailText,
+                            hintStyle: const TextStyle(
+                              fontFamily: FontName.sourceSansPro,
+                              fontWeight: FontWeight.w600,
+                              color: AppColor.grey,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -98,6 +103,11 @@ class LoginView extends GetView<LoginController> {
                             contentPadding:
                                 const EdgeInsets.fromLTRB(15, 0, 0, 0),
                             hintText: AppConstants.passwordText,
+                            hintStyle: const TextStyle(
+                              fontFamily: FontName.sourceSansPro,
+                              fontWeight: FontWeight.w600,
+                              color: AppColor.grey,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -119,8 +129,9 @@ class LoginView extends GetView<LoginController> {
                             AppConstants.loginTxt,
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w900,
                               color: AppColors.white,
+                              fontFamily: FontName.sourceSansPro,
                             ),
                           ),
                           style: TextButton.styleFrom(
@@ -143,7 +154,8 @@ class LoginView extends GetView<LoginController> {
                             AppConstants.forgotPassword,
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: FontName.sourceSansPro,
                               color: AppColors.primaryColor,
                             ),
                           ),
@@ -167,6 +179,8 @@ class LoginView extends GetView<LoginController> {
                       style: TextStyle(
                         color: AppColor.primaryBrown,
                         fontSize: 16,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
@@ -175,8 +189,9 @@ class LoginView extends GetView<LoginController> {
                     AppConstants.dontHaveAccountTxt,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 16,
                       fontWeight: FontWeight.w300,
+                      fontFamily: FontName.sourceSansPro,
                     ),
                   ),
                   TextButton(
@@ -192,7 +207,9 @@ class LoginView extends GetView<LoginController> {
                       AppConstants.oneWeekTrial,
                       style: TextStyle(
                         color: AppColors.primaryColor,
-                        fontSize: 15,
+                        fontSize: 16,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   )

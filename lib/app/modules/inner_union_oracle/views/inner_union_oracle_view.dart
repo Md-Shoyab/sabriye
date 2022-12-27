@@ -2,6 +2,7 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
@@ -41,8 +42,19 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                   Html(
                     data: controller.innerUnionBannerIntroText.value,
                     style: {
-                      "h2": Style(textAlign: TextAlign.center),
-                      "div": Style(textAlign: TextAlign.center),
+                      "h2": Style(
+                        textAlign: TextAlign.center,
+                        fontSize: FontSize.xLarge,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.primaryBrown,
+                      ),
+                      "div": Style(
+                        textAlign: TextAlign.center,
+                        fontFamily: FontName.sourceSansPro,
+                        fontSize: FontSize.large,
+                        fontWeight: FontWeight.w200,
+                      ),
                       "a": Style(color: AppColor.primaryBrown),
                     },
                   ),

@@ -66,6 +66,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                           color: AppColors.primaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.w300,
+                          fontFamily: FontName.sourceSansPro,
                           height: 1.4,
                         ),
                       ),
@@ -82,6 +83,11 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                             contentPadding:
                                 const EdgeInsets.fromLTRB(15, 0, 0, 0),
                             hintText: AppConstants.emailText,
+                            hintStyle: const TextStyle(
+                              fontFamily: FontName.sourceSansPro,
+                              fontWeight: FontWeight.w600,
+                              color: AppColor.grey,
+                            ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -143,6 +149,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                       color: AppColors.primaryColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      fontFamily: FontName.sourceSansPro,
                     ),
                   ),
                 ),

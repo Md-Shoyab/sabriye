@@ -45,7 +45,9 @@ flutter:
          weight: 400
    - family: SourceSansPro
      fonts:
-       - asset: assets/fonts/SourceSansPro-Light.ttf
+       - asset: assets/fonts/SourceSansPro-ExtraLight.ttf
+         weight: 200
+       - asset: assets/fonts/SourceSansPro-Regular.ttf
          weight: 300
        - asset: assets/fonts/SourceSansPro-Regular.ttf
          weight: 400
