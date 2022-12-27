@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_constants.dart';
@@ -47,14 +48,30 @@ class AboutView extends GetView<AboutController> {
                     decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                            controller.aboutsabriyeProfileUrl.value),
+                          controller.aboutsabriyeProfileUrl.value,
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Html(data: controller.aboutApiResponse.value),
+                    child: Html(
+                      data: controller.aboutApiResponse.value,
+                      style: {
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.primaryBrown,
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "strong": Style(color: AppColor.brightprimaryBrown),
+                      },
+                    ),
                   ),
                   const VerticalGap(gap: 15),
                   Padding(

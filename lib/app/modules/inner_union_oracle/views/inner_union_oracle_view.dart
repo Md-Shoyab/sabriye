@@ -39,24 +39,27 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                   const VerticalGap(gap: 20),
                   Image.network(controller.innerUnionBannerImageUrl.value),
                   const VerticalGap(gap: 20),
-                  Html(
-                    data: controller.innerUnionBannerIntroText.value,
-                    style: {
-                      "h2": Style(
-                        textAlign: TextAlign.center,
-                        fontSize: FontSize.xLarge,
-                        fontFamily: FontName.sourceSansPro,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.primaryBrown,
-                      ),
-                      "div": Style(
-                        textAlign: TextAlign.center,
-                        fontFamily: FontName.sourceSansPro,
-                        fontSize: FontSize.large,
-                        fontWeight: FontWeight.w200,
-                      ),
-                      "a": Style(color: AppColor.primaryBrown),
-                    },
+                  Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Html(
+                      data: controller.innerUnionBannerIntroText.value,
+                      style: {
+                        "h2": Style(
+                          textAlign: TextAlign.center,
+                          fontSize: FontSize.xLarge,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                          color: AppColor.primaryBrown,
+                        ),
+                        "div": Style(
+                          textAlign: TextAlign.center,
+                          fontFamily: FontName.sourceSansPro,
+                          fontSize: FontSize.large,
+                          fontWeight: FontWeight.w200,
+                        ),
+                        "a": Style(color: AppColor.primaryBrown),
+                      },
+                    ),
                   ),
                   InnerUnionPointers(
                     pointNumber: '01',

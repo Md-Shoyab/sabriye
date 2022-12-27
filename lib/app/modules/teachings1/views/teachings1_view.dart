@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import '../../../constants/app_colors.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/gapper.dart';
@@ -30,6 +31,15 @@ class Teachings1View extends GetView<Teachings1Controller> {
           ),
         ),
         centerTitle: true,
+        bottom: PreferredSize(
+          child: Image.network(
+            controller.bannerImageUrl,
+            height: kToolbarHeight * 3,
+            width: Get.width,
+            fit: BoxFit.cover,
+          ),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 3),
+        ),
         elevation: 0,
       ),
       body: Obx(
@@ -37,46 +47,39 @@ class Teachings1View extends GetView<Teachings1Controller> {
             ? const Center(
                 child: CircularProgressIndicator(),
               )
-            : ListView(
-                physics: const NeverScrollableScrollPhysics(),
-                children: [
-                  const VerticalGap(gap: 20),
-                  // Container(
-                  //   width: Get.width,
-                  //   height: Get.height * .12,
-                  //   decoration: BoxDecoration(
-                  //     color: Colors.white,
-                  //     image: DecorationImage(
-                  //       image: NetworkImage(controller.bannerImageUrl),
-                  //       fit: BoxFit.cover,
-                  //     ),
-                  //   ),
-                  // ),
-                  Image.network(controller.bannerImageUrl),
-                  SizedBox(
-                    height: Get.height * .77,
-                    child: ListView.builder(
-                      itemCount: controller.teachingSubCategories.length,
-                      itemBuilder: (context, index) => InkWell(
-                        onTap: () {
-                          Get.toNamed(Routes.TEACHINGS2, arguments: {
+            : controller.teachingSubCategories.isEmpty
+                ? const Center(
+                    child: Text(
+                      'No Sub-Categories Available!',
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: controller.teachingSubCategories.length,
+                    itemBuilder: (context, index) => InkWell(
+                      onTap: () {
+                        Get.toNamed(
+                          Routes.TEACHINGS2,
+                          arguments: {
                             'id': controller.teachingSubCategories[index]['id'],
                             'appTitle': controller.teachingSubCategories[index]
                                 ['name'],
                             'banner_image': controller.bannerImageUrl
-                          });
-                        },
-                        child: SubCategoriesCard(
-                          subCategoriesName:
-                              controller.teachingSubCategories[index]['name'],
-                          subCategoriesImageUrl: controller
-                              .teachingSubCategories[index]['thumbnail'],
-                        ),
+                          },
+                        );
+                      },
+                      child: SubCategoriesCard(
+                        subCategoriesName:
+                            controller.teachingSubCategories[index]['name'],
+                        subCategoriesImageUrl: controller
+                            .teachingSubCategories[index]['thumbnail'],
                       ),
                     ),
                   ),
-                ],
-              ),
       ),
     );
   }

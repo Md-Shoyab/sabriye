@@ -43,8 +43,9 @@ class GivingBackController extends GetxController {
         responseJson['custom_fields']['Spending_actual_\$\$\$'][0];
     carouselSliderImageUrlList.add(responseJson['custom_fields']['Kiva'][0]);
     carouselSliderImageUrlList.add(responseJson['custom_fields']['ketto'][0]);
-    carouselSliderImageUrlList
-        .add(responseJson['custom_fields']['milaap_2'][0]);
+    carouselSliderImageUrlList.add(
+      responseJson['custom_fields']['milaap_2'][0],
+    );
     carouselSliderDescriptionTextList
         .add(responseJson['custom_fields']['kiva_desc'][0]);
     carouselSliderDescriptionTextList

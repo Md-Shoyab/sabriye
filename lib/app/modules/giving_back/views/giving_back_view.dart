@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -53,7 +54,8 @@ class GivingBackView extends GetView<GivingBackController> {
                       controller.spiritualGuidingPrinciplesTitle.value,
                       style: const TextStyle(
                         fontSize: 25,
-                        fontWeight: FontWeight.w600,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
                         color: AppColors.primaryColor,
                       ),
                     ),
