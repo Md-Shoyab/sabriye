@@ -1,3 +1,5 @@
+import 'package:sabriye/app/constants/font_names.dart';
+
 import '../constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +34,7 @@ class MembershipAccordion extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
+                fontFamily: FontName.sourceSansPro,
                 color: isAccordionSelected
                     ? AppColors.black
                     : AppColors.primaryColor,
@@ -52,7 +55,9 @@ class MembershipAccordion extends StatelessWidget {
                     .replaceAll('<p>', '')
                     .replaceAll('</p>', ''),
                 style: const TextStyle(
-                  height: 1.5,
+                  height: 1.8,
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w300,
                 ),
               )
             : const SizedBox(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../constants/app_assets.dart';
@@ -46,6 +47,21 @@ class MembershipView extends GetView<MembershipController> {
                   const VerticalGap(gap: 20),
                   Html(
                     data: controller.htmlIntro.value,
+                    style: {
+                      "h2": Style(
+                        color: AppColor.primaryBrown,
+                        fontSize: FontSize.xLarge,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        lineHeight: LineHeight.rem(1.2),
+                      ),
+                      "p": Style(
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.medium,
+                        lineHeight: LineHeight.rem(1.3),
+                      ),
+                    },
                   ),
                   const VerticalGap(gap: 20),
                   Container(
@@ -80,7 +96,22 @@ class MembershipView extends GetView<MembershipController> {
                     ),
                   ),
                   const VerticalGap(gap: 20),
-                  Html(data: controller.checkPointsList.value),
+                  Html(
+                    data: controller.checkPointsList.value,
+                    style: {
+                      "p": Style(
+                        color: AppColor.primaryBrown,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.large,
+                      ),
+                      "h2": Style(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.larger,
+                      ),
+                    },
+                  ),
                   const VerticalGap(gap: 20),
                   Row(
                     children: [
@@ -100,8 +131,10 @@ class MembershipView extends GetView<MembershipController> {
                                   controller.membershipPlansDetails[2]['title']
                                       ['rendered'],
                                   style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                    color: AppColor.primaryBrown,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: FontName.gastromond,
                                   ),
                                 ),
                               ),
@@ -165,21 +198,16 @@ class MembershipView extends GetView<MembershipController> {
                                 child: Text(
                                   controller.membershipPlansDetails[1]['title']
                                       ['rendered'],
+                                  textAlign: TextAlign.left,
                                   style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                    color: AppColor.primaryBrown,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: FontName.gastromond,
                                   ),
                                 ),
                               ),
                               const VerticalGap(gap: 5),
-                              // const Center(
-                              //   child: Text(
-                              //     'Billed Annually',
-                              //     style: TextStyle(
-                              //       fontSize: 14,
-                              //     ),
-                              //   ),
-                              // ),
                               Html(
                                 data: controller.membershipPlansDetails[1]
                                     ['content']['rendered'],
@@ -232,8 +260,10 @@ class MembershipView extends GetView<MembershipController> {
                                   controller.membershipPlansDetails[0]['title']
                                       ['rendered'],
                                   style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                    color: AppColor.primaryBrown,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily: FontName.gastromond,
                                   ),
                                 ),
                               ),
