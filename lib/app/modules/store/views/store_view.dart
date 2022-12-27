@@ -30,7 +30,7 @@ class StoreView extends GetView<StoreController> {
       body: ListView(
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          VerticalGap(gap: Get.height * .1),
+          const VerticalGap(gap: 54),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             height: Get.height,

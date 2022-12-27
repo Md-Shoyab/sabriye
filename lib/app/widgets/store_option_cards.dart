@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -50,8 +51,9 @@ class StoreOptionCard extends StatelessWidget {
               storeOptionName,
               style: const TextStyle(
                 color: AppColors.primaryColor,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+                fontFamily: FontName.gastromond,
               ),
             ),
           ],
