@@ -63,6 +63,7 @@ class DashboardView extends GetView<DashboardController> {
                                 color: AppColors.white,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
+                                fontFamily: FontName.sourceSansPro,
                               ),
                             ),
                           ),
@@ -75,7 +76,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: const Text(
                         AppConstants.storiesText,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                           fontFamily: FontName.gastromond,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.7,
@@ -113,7 +114,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: const Text(
                         AppConstants.teachingText,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                           fontFamily: FontName.gastromond,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.7,
@@ -162,7 +163,10 @@ class DashboardView extends GetView<DashboardController> {
                               controller.teachingCategories[index]['name'],
                               style: const TextStyle(
                                 color: AppColor.white,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 12,
+                                fontFamily: FontName.sourceSansPro,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.5,
                               ),
                             ),
                           ),
@@ -175,7 +179,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: const Text(
                         AppConstants.inSpritiualSpotlightSubTxt,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                           fontFamily: FontName.gastromond,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.7,
@@ -227,7 +231,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: const Text(
                         AppConstants.testimonialsText,
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 15,
                           fontFamily: FontName.gastromond,
                           fontWeight: FontWeight.w400,
                           letterSpacing: 0.7,
@@ -294,7 +298,7 @@ class DashboardView extends GetView<DashboardController> {
                                           color: AppColor.primaryBrown,
                                         ),
                                       ),
-                                      const VerticalGap(gap: 3),
+                                      const VerticalGap(gap: 5),
                                       RatingBar.builder(
                                         ignoreGestures: true,
                                         initialRating: 5.0,
@@ -315,6 +319,11 @@ class DashboardView extends GetView<DashboardController> {
                                           maxLines: 3,
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                            fontFamily: FontName.sourceSansPro,
+                                            fontWeight: FontWeight.w300,
+                                          ),
                                         ),
                                       ),
                                     ],
