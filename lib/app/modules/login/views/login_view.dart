@@ -21,7 +21,7 @@ class LoginView extends GetView<LoginController> {
           alignment: Alignment.topCenter,
           children: [
             Container(
-              height: Get.height * .6,
+              height: Get.height * .61,
               width: Get.width,
               decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -35,7 +35,7 @@ class LoginView extends GetView<LoginController> {
             Align(
               alignment: Alignment.center,
               child: Container(
-                margin: const EdgeInsets.fromLTRB(35, 100, 35, 0),
+                margin: const EdgeInsets.fromLTRB(35, 115, 35, 0),
                 decoration: BoxDecoration(
                   color: AppColor.white,
                   borderRadius: BorderRadius.circular(12),
@@ -155,7 +155,7 @@ class LoginView extends GetView<LoginController> {
               ),
             ),
             Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 12),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
