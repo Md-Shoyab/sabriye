@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../services/api_services.dart';
 
@@ -10,6 +9,7 @@ class ComingIntoOnenessController extends GetxController {
   final RxString whoIsCominngForOneness = ''.obs;
   final RxString getPattyTestimonialContent = ''.obs;
   final RxString getPattyTestimonialtitle = ''.obs;
+  final RxString pattyImageUrl = ''.obs;
   final RxBool isLoading = false.obs;
   RxList dropDownPointsList = [].obs;
 
@@ -36,7 +36,6 @@ class ComingIntoOnenessController extends GetxController {
   Future<void> fourStagesInnerUnion() async {
     final responseJson = await _apiServices.fourStagesInnerUnion();
     dropDownPointsList.value = responseJson;
-    debugPrint(dropDownPointsList.toString());
   }
 
   Future<void> getTheProgramDetailsComingInOneness() async {
@@ -49,6 +48,7 @@ class ComingIntoOnenessController extends GetxController {
     final responseJson = await _apiServices.getPattyTestimonial();
     getPattyTestimonialContent.value = responseJson['content']['rendered'];
     getPattyTestimonialtitle.value = responseJson['title']['rendered'];
+    pattyImageUrl.value = responseJson['thumbnail'];
   }
 
   Future<void> getWhoIsComingInOneness() async {

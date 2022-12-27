@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/coming_into_oneness_controller.dart';
@@ -41,15 +42,43 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
             : ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 children: [
-                  Html(data: controller.comingIntoOnenessIntro.value),
+                  Html(
+                    data: controller.comingIntoOnenessIntro.value,
+                    style: {
+                      "h1": Style(
+                        color: AppColor.primaryBrown,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      "em": Style(
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w600,
+                        fontSize: FontSize.large,
+                        fontStyle: FontStyle.normal,
+                        lineHeight: LineHeight.rem(1.3),
+                      ),
+                      "h2": Style(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.larger,
+                        lineHeight: LineHeight.rem(1.3),
+                      ),
+                      "p": Style(
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w400,
+                        lineHeight: LineHeight.rem(1.2),
+                      ),
+                    },
+                  ),
                   const VerticalGap(),
                   const Center(
                     child: Text(
                       'The Four Stages of Inner Union',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         color: AppColors.primaryColor,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: FontName.gastromond,
                       ),
                     ),
                   ),
@@ -70,7 +99,22 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                           }),
                     ),
                   ),
-                  Html(data: controller.getProgramDetails.value),
+                  Html(
+                    data: controller.getProgramDetails.value,
+                    style: {
+                      "h2": Style(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.larger,
+                      ),
+                      "p": Style(
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w400,
+                        fontSize: FontSize.large,
+                        lineHeight: LineHeight.rem(1.2),
+                      ),
+                    },
+                  ),
                   Column(
                     children: [
                       const Divider(
@@ -85,17 +129,18 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                         ),
                         child: Column(
                           children: [
-                            const CircleAvatar(
+                            CircleAvatar(
                               radius: 28,
                               backgroundImage:
-                                  AssetImage(AppAssets.pattyProfile),
+                                  NetworkImage(controller.pattyImageUrl.value),
                             ),
                             const VerticalGap(gap: 5),
                             Text(
                               controller.getPattyTestimonialtitle.value,
                               style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: FontName.gastromond,
                                 color: AppColors.primaryColor,
                               ),
                             ),
@@ -103,7 +148,12 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                             Html(
                               data: controller.getPattyTestimonialContent.value,
                               style: {
-                                "p": Style(alignment: Alignment.center),
+                                "p": Style(
+                                  textAlign: TextAlign.center,
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w300,
+                                  lineHeight: LineHeight.rem(1.3),
+                                ),
                               },
                             ),
                             const Divider(
@@ -115,7 +165,22 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
                       ),
                     ],
                   ),
-                  Html(data: controller.whoIsCominngForOneness.value),
+                  Html(
+                    data: controller.whoIsCominngForOneness.value,
+                    style: {
+                      "h2": Style(
+                        fontFamily: FontName.gastromond,
+                        fontSize: FontSize.larger,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      "p": Style(
+                        fontFamily: FontName.sourceSansPro,
+                        fontSize: FontSize.medium,
+                        fontWeight: FontWeight.w400,
+                        lineHeight: LineHeight.rem(1.3),
+                      ),
+                    },
+                  ),
                 ],
               ),
       ),
@@ -138,9 +203,8 @@ class ComingIntoOnenessDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: isDropDownSelected ? Get.height * .35 : null,
-      margin: const EdgeInsets.symmetric(vertical: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
       decoration: BoxDecoration(
         color: isDropDownSelected ? Colors.transparent : AppColors.white,
         boxShadow: [
@@ -164,7 +228,7 @@ class ComingIntoOnenessDropDown extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            contentPadding: EdgeInsets.zero,
+            contentPadding: const EdgeInsets.fromLTRB(15, 5, 0, 5),
             title: Padding(
               padding: EdgeInsets.only(left: isDropDownSelected ? 8.0 : 0.0),
               child: Title(
@@ -172,8 +236,9 @@ class ComingIntoOnenessDropDown extends StatelessWidget {
                 child: Text(
                   dropDown['title']['rendered'],
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: FontName.gastromond,
                     color: isDropDownSelected
                         ? AppColors.white
                         : AppColors.primaryColor,
@@ -194,15 +259,33 @@ class ComingIntoOnenessDropDown extends StatelessWidget {
             ),
           ),
           isDropDownSelected
-              ? Html(
-                  data: dropDown['content']['rendered'],
-                  style: {
-                    "p": Style(
-                      fontSize: FontSize.medium,
-                      color: AppColors.white,
-                      lineHeight: LineHeight.number(1.3),
+              ? Column(
+                  children: [
+                    Html(
+                      data: dropDown['content']['rendered'],
+                      style: {
+                        "p": Style(
+                          fontSize: FontSize.medium,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          color: AppColors.white,
+                          lineHeight: LineHeight.number(1.3),
+                        ),
+                      },
                     ),
-                  },
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Join Comming into Oneness',
+                        style: TextStyle(
+                          color: AppColor.white,
+                          fontSize: 15,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                  ],
                 )
               : const SizedBox(),
         ],
