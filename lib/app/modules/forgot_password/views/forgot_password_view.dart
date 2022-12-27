@@ -141,7 +141,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                     AppConstants.backToLogin,
                     style: TextStyle(
                       color: AppColors.primaryColor,
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

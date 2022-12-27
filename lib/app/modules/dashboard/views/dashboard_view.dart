@@ -27,6 +27,7 @@ class DashboardView extends GetView<DashboardController> {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   children: [
                     Container(
+                      margin: const EdgeInsets.fromLTRB(16, 24, 15, 0),
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(controller.bannerImageUrl.value),
@@ -69,17 +70,21 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                     const VerticalGap(gap: 45),
-                    const Text(
-                      AppConstants.storiesText,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: FontName.gastromond,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.7,
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: const Text(
+                        AppConstants.storiesText,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.7,
+                        ),
                       ),
                     ),
                     const VerticalGap(),
-                    SizedBox(
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
                       height: Get.height * .09,
                       child: ListView.builder(
                         clipBehavior: Clip.none,
@@ -103,17 +108,21 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                     const VerticalGap(gap: 35),
-                    const Text(
-                      AppConstants.teachingText,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: FontName.gastromond,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.7,
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: const Text(
+                        AppConstants.teachingText,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.7,
+                        ),
                       ),
                     ),
                     const VerticalGap(gap: 17),
-                    SizedBox(
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
                       height: Get.height * .12,
                       child: ListView.builder(
                         clipBehavior: Clip.none,
@@ -161,17 +170,21 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                     const VerticalGap(gap: 35),
-                    const Text(
-                      AppConstants.inSpritiualSpotlightSubTxt,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: FontName.gastromond,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.7,
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: const Text(
+                        AppConstants.inSpritiualSpotlightSubTxt,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.7,
+                        ),
                       ),
                     ),
                     const VerticalGap(gap: 17),
-                    SizedBox(
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
                       height: Get.height * .12,
                       child: ListView.builder(
                         clipBehavior: Clip.none,
@@ -209,17 +222,21 @@ class DashboardView extends GetView<DashboardController> {
                       ),
                     ),
                     const VerticalGap(gap: 35),
-                    const Text(
-                      AppConstants.testimonialsText,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: FontName.gastromond,
-                        fontWeight: FontWeight.w400,
-                        letterSpacing: 0.7,
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
+                      child: const Text(
+                        AppConstants.testimonialsText,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 0.7,
+                        ),
                       ),
                     ),
                     const VerticalGap(gap: 17),
-                    SizedBox(
+                    Container(
+                      margin: const EdgeInsets.only(left: 15),
                       width: Get.width,
                       height: Get.height * .15,
                       child: ListView.builder(
@@ -271,8 +288,9 @@ class DashboardView extends GetView<DashboardController> {
                                         controller
                                             .testimonalUserNameText[index],
                                         style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          fontFamily: FontName.gastromond,
+                                          fontWeight: FontWeight.w400,
                                           color: AppColor.primaryBrown,
                                         ),
                                       ),
