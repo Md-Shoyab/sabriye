@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_constants.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/blog_post_card.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
@@ -62,7 +63,8 @@ class BlogsListingView extends GetView<BlogsListingController> {
                           controller.blogBannerTitle.value,
                           style: const TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: FontName.gastromond,
+                            fontWeight: FontWeight.w400,
                             color: AppColor.white,
                           ),
                         ),
@@ -71,7 +73,8 @@ class BlogsListingView extends GetView<BlogsListingController> {
                           controller.blogBannerSubtitle.value,
                           style: const TextStyle(
                             fontSize: 16,
-                            fontWeight: FontWeight.w600,
+                            fontFamily: FontName.sourceSansPro,
+                            fontWeight: FontWeight.w700,
                             color: AppColor.white,
                           ),
                         ),

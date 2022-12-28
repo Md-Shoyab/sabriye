@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -33,6 +34,7 @@ class TeachingsDetailsController extends GetxController {
     authorDescription.value = responseJson['about_author']['description'];
     authorImageUrl.value = responseJson['about_author']['image'];
     isLoading.value = false;
+    debugPrint(responseJson.toString());
   }
 
   Future<void> getRelatedPosts() async {

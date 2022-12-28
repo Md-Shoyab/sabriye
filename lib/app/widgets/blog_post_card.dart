@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/modules/blogs_listing/controllers/blogs_listing_controller.dart';
 import '../routes/app_pages.dart';
 
@@ -30,10 +31,7 @@ class PostCards extends StatelessWidget {
       child: Container(
         height: Get.height * .25,
         width: Get.width,
-        padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
-        ),
+        padding: const EdgeInsets.fromLTRB(15, 0, 27, 15),
         alignment: Alignment.bottomLeft,
         margin: const EdgeInsets.symmetric(
           horizontal: 16,
@@ -50,8 +48,9 @@ class PostCards extends StatelessWidget {
           title,
           style: const TextStyle(
             color: Colors.white,
+            fontFamily: FontName.sourceSansPro,
             fontWeight: FontWeight.w600,
-            fontSize: 18,
+            fontSize: 17,
           ),
         ),
       ),

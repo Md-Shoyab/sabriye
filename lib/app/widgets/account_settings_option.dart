@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -40,10 +41,12 @@ class AccountSettingsOption extends StatelessWidget {
           children: [
             const HorizontalGap(gap: 20),
             Image.asset(settingIconImage),
-            const HorizontalGap(gap: 25),
+            const HorizontalGap(gap: 24),
             Text(settingName,
                 style: TextStyle(
                   color: color,
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w600,
                 )),
           ],
         ),

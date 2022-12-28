@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../controllers/blog_details_controller.dart';
@@ -106,7 +107,9 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                       controller.blogTitle.value,
                       style: const TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.w500,
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.brown,
                         height: 1.5,
                       ),
                     ),
@@ -138,7 +141,8 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                                   .replaceAll('</h3>', ''),
                               style: const TextStyle(
                                 fontSize: 16,
-                                fontWeight: FontWeight.w600,
+                                fontFamily: FontName.gastromond,
+                                fontWeight: FontWeight.w400,
                               ),
                             ),
                             const VerticalGap(gap: 5),
@@ -148,6 +152,10 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                                 controller.authorDescription.value
                                     .replaceAll('<p>', '')
                                     .replaceAll('</p>', ''),
+                                style: const TextStyle(
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w300,
+                                ),
                               ),
                             ),
                           ],
@@ -167,6 +175,21 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                       data: controller.blogDetailString.value,
                       style: {
                         "a": Style(color: AppColor.primaryBrown),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w300,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brown,
+                        ),
+                        "h3": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brown,
+                        )
                       },
                       onLinkTap: (url, _, __, ___) async {
                         await controller.openUrl(url);

@@ -3,6 +3,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../controllers/spiritual_spotlight_details_controller.dart';
 
 class SpiritualSpotlightDetailsView
@@ -67,7 +68,9 @@ class SpiritualSpotlightDetailsView
                         controller.spiritualSpotlightVideoInterviewTitle.value,
                         style: const TextStyle(
                           fontSize: 18,
-                          fontWeight: FontWeight.w500,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brown,
                           height: 1.5,
                         ),
                       ),
@@ -99,7 +102,8 @@ class SpiritualSpotlightDetailsView
                                     .replaceAll('</h3>', ''),
                                 style: const TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.w600,
+                                  fontFamily: FontName.gastromond,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                               const VerticalGap(gap: 5),
@@ -109,6 +113,10 @@ class SpiritualSpotlightDetailsView
                                   controller.authorDescription.value
                                       .replaceAll('<p>', '')
                                       .replaceAll('</p>', ''),
+                                  style: const TextStyle(
+                                    fontFamily: FontName.sourceSansPro,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                 ),
                               ),
                             ],
@@ -130,9 +138,27 @@ class SpiritualSpotlightDetailsView
                         data: controller
                             .spiritualSpotlightVideoInterviewContent.value,
                         style: {
-                          "a": Style(
-                            color: AppColor.primaryBrown,
+                          "a": Style(color: AppColor.primaryBrown),
+                          "p": Style(
+                            fontFamily: FontName.sourceSansPro,
+                            fontWeight: FontWeight.w300,
+                            lineHeight: LineHeight.rem(1.3),
                           ),
+                          "h2": Style(
+                            fontFamily: FontName.gastromond,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.brown,
+                          ),
+                          "h3": Style(
+                            fontFamily: FontName.gastromond,
+                            fontWeight: FontWeight.w400,
+                            color: AppColor.brown,
+                          ),
+                          "li": Style(
+                            fontFamily: FontName.sourceSansPro,
+                            fontWeight: FontWeight.w600,
+                            lineHeight: LineHeight.rem(1.3),
+                          )
                         },
                       ),
                     ),
