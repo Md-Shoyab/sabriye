@@ -63,7 +63,27 @@ class GivingBackView extends GetView<GivingBackController> {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: Html(
-                        data: controller.givingBackIntroducationText.value),
+                      data: controller.givingBackIntroducationText.value,
+                      style: {
+                        "h3": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                          fontSize: FontSize.larger,
+                        ),
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brightprimaryBrown,
+                          fontSize: FontSize.xxLarge,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w300,
+                          lineHeight: LineHeight.rem(1.3),
+                        )
+                      },
+                    ),
                   ),
                   GivingBackCards(
                     imageUrl: controller.smartImageUrl.value,
@@ -77,6 +97,7 @@ class GivingBackView extends GetView<GivingBackController> {
                   const VerticalGap(),
                   Container(
                     height: Get.height * .2,
+                    alignment: Alignment.center,
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -96,7 +117,9 @@ class GivingBackView extends GetView<GivingBackController> {
                       style: {
                         "h2": Style(
                           fontSize: FontSize.xxLarge,
-                          lineHeight: LineHeight.rem(1.3),
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.2),
                           color: AppColor.brightprimaryBrown,
                         ),
                       },
@@ -139,10 +162,17 @@ class GivingBackView extends GetView<GivingBackController> {
                             data:
                                 controller.carouselSliderDescriptionTextList[i],
                             style: {
-                              "h4": Style(textAlign: TextAlign.center),
+                              "h4": Style(
+                                textAlign: TextAlign.center,
+                                fontFamily: FontName.sourceSansPro,
+                                fontWeight: FontWeight.w600,
+                                fontSize: FontSize.large,
+                              ),
                               "p": Style(
                                 textAlign: TextAlign.center,
-                                lineHeight: LineHeight.number(1.4),
+                                fontFamily: FontName.sourceSansPro,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: LineHeight.number(1.3),
                               ),
                               "a": Style(color: AppColor.primaryBrown),
                             },
@@ -197,8 +227,29 @@ class GivingBackView extends GetView<GivingBackController> {
                     child: Html(
                       data: controller.spiritualGuidingPrinciples.value,
                       style: {
-                        "h2": Style(color: AppColors.primaryColor),
-                        "h4": Style(color: AppColors.primaryColor),
+                        "h2": Style(
+                          color: AppColor.brightprimaryBrown,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.xxLarge,
+                        ),
+                        "h3": Style(
+                          color: AppColor.brown,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                          fontSize: FontSize.xLarge,
+                        ),
+                        "h4": Style(
+                          color: AppColor.primaryBrown,
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.large,
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w300,
+                          lineHeight: LineHeight.rem(1.3),
+                        )
                       },
                     ),
                   ),
@@ -251,6 +302,8 @@ class GivingBackCards extends StatelessWidget {
             style: {
               "a": Style(color: AppColors.primaryColor),
               "p": Style(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w300,
                 lineHeight: LineHeight.rem(1.3),
               )
             },
