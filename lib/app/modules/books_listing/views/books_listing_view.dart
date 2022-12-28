@@ -40,7 +40,6 @@ class BooksListingView extends GetView<BooksListingController> {
       ),
       body: Column(
         children: [
-          const VerticalGap(gap: 20),
           const BookCards(
             bookTitleText: AppConstants.booksCardTitle1,
             imagePath: AppAssets.booksImage1,
@@ -62,8 +61,9 @@ class BooksListingView extends GetView<BooksListingController> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.all(10),
+                  alignment: Alignment.center,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
@@ -75,18 +75,7 @@ class BooksListingView extends GetView<BooksListingController> {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      const VerticalGap(gap: 15),
-                      const Text(
-                        'Know More',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: FontName.sourceSansPro,
-                          fontWeight: FontWeight.w600,
-                          color: AppColors.primaryColor,
-                          decoration: TextDecoration.underline,
-                        ),
-                      ),
-                      const VerticalGap(gap: 15),
+                      const VerticalGap(gap: 30),
                       TextButton(
                         onPressed: () async {
                           if (!await launchUrl(

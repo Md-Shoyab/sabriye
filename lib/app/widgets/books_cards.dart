@@ -34,57 +34,44 @@ class BookCards extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            margin: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  bookTitleText,
-                  style: const TextStyle(
-                    color: AppColor.primaryBrown,
-                    fontFamily: FontName.gastromond,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                bookTitleText,
+                style: const TextStyle(
+                  color: AppColor.primaryBrown,
+                  fontFamily: FontName.gastromond,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
                 ),
-                const VerticalGap(gap: 15),
-                const Text(
-                  'Know More',
-                  style: TextStyle(
-                    fontSize: 16,
+              ),
+              const VerticalGap(gap: 30),
+              TextButton(
+                onPressed: () {
+                  Get.toNamed(routes);
+                },
+                child: Text(
+                  textButtonText,
+                  style: const TextStyle(
+                    fontSize: 15,
                     fontFamily: FontName.sourceSansPro,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.primaryColor,
-                    decoration: TextDecoration.underline,
+                    color: AppColors.white,
                   ),
                 ),
-                const VerticalGap(gap: 15),
-                TextButton(
-                  onPressed: () {
-                    Get.toNamed(routes);
-                  },
-                  child: Text(
-                    textButtonText,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontFamily: FontName.sourceSansPro,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.white,
-                    ),
+                style: TextButton.styleFrom(
+                  minimumSize: const Size(150, 30),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(150, 30),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    backgroundColor: AppColors.primaryColor,
-                  ),
+                  backgroundColor: AppColors.primaryColor,
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),
