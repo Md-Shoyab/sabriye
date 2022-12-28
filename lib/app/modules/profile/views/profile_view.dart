@@ -41,7 +41,15 @@ class ProfileView extends GetView<ProfileController> {
                     onPressed: () {
                       controller.readOnly.value = !controller.readOnly.value;
                     },
-                    child: const Text('Save'),
+                    child: const Text(
+                      AppConstants.saveText,
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontFamily: FontName.sourceSansPro,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.primaryBrown,
+                      ),
+                    ),
                   )
                 : IconButton(
                     onPressed: () {
@@ -240,10 +248,10 @@ class ProfileView extends GetView<ProfileController> {
             Obx(
               () => TextFormField(
                 cursorColor: AppColors.primaryColor,
-                readOnly: !controller.readOnly.value,
+                readOnly: true,
                 controller: controller.emailController,
                 style: const TextStyle(
-                  color: AppColors.black,
+                  color: AppColors.grey,
                   fontFamily: FontName.sourceSansPro,
                   fontSize: 19,
                   fontWeight: FontWeight.w600,

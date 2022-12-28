@@ -186,7 +186,7 @@ class GivingBackView extends GetView<GivingBackController> {
                       height: 350,
                       aspectRatio: 2 / 1,
                       viewportFraction: .99,
-                      initialPage: 0,
+                      initialPage: 1,
                       enableInfiniteScroll: true,
                       reverse: false,
                       autoPlay: false,

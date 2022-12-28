@@ -60,7 +60,7 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                               },
                               child: Container(
                                 margin:
-                                    const EdgeInsets.symmetric(horizontal: 5),
+                                    const EdgeInsets.symmetric(horizontal: 8),
                                 height: 90,
                                 width: 131,
                                 decoration: BoxDecoration(
@@ -80,9 +80,14 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                             Container(
                               width: 131,
                               margin: const EdgeInsets.only(left: 8),
-                              child: Html(
-                                data: controller.relatedPostsList[index]
-                                    ['title']['rendered'],
+                              child: Text(
+                                controller.relatedPostsList[index]['title']
+                                    ['rendered'],
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ],
@@ -90,7 +95,6 @@ class TeachingsDetailsView extends GetView<TeachingsDetailsController> {
                       ),
                     ),
                   ),
-                  const VerticalGap(gap: 5),
                   Container(
                     height: Get.height * .25,
                     margin: const EdgeInsets.symmetric(horizontal: 20),

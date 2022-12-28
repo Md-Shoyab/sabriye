@@ -70,9 +70,7 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
           const VerticalGap(gap: 20),
           Center(
             child: TextButton(
-              onPressed: () {
-                Get.back();
-              },
+              onPressed: () {},
               child: const Text(
                 'Verify',
                 style: TextStyle(

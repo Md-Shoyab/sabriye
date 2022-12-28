@@ -13,6 +13,7 @@ class MembershipController extends GetxController {
   RxString annualPlanUrl = ''.obs;
   RxString weeklyTrialPlanUrl = ''.obs;
   RxString checkPointsList = ''.obs;
+  RxString paymentBelowText = ''.obs;
   RxList accordionList = [].obs;
   RxList membershipPlansDetails = [].obs;
   RxBool isLoading = false.obs;
@@ -25,6 +26,7 @@ class MembershipController extends GetxController {
     await getMembershipAccordion();
     await getMembershipCheckPoints();
     await getMembershipPlansDetails();
+    await innerLearningPaymentBelowText();
     isLoading.value = false;
     super.onInit();
   }
@@ -53,6 +55,11 @@ class MembershipController extends GetxController {
         membershipPlansDetails[1]['custom_fields']['payment-btn-link'][0];
     weeklyTrialPlanUrl.value =
         membershipPlansDetails[2]['custom_fields']['payment-btn-link'][0];
+  }
+
+  Future<void> innerLearningPaymentBelowText() async {
+    final responseJson = await _apiServices.innerLearningPaymentBelowText();
+    paymentBelowText.value = responseJson['content']['rendered'];
   }
 
   void changeSelectedAccordion(int index) {

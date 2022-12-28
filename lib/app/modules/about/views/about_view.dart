@@ -72,6 +72,12 @@ class AboutView extends GetView<AboutController> {
                           lineHeight: LineHeight.rem(1.3),
                         ),
                         "strong": Style(color: AppColor.brightprimaryBrown),
+                        "h4": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                          fontSize: FontSize.xLarge,
+                          color: AppColor.brightprimaryBrown,
+                        ),
                       },
                     ),
                   ),

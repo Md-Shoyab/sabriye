@@ -16,7 +16,7 @@ class GivingBackController extends GetxController {
   final RxString spiritualGuidingPrinciples = ''.obs;
   final RxList carouselSliderImageUrlList = [].obs;
   final RxList carouselSliderDescriptionTextList = [].obs;
-  final RxInt currentCarouselCardIndex = 0.obs;
+  final RxInt currentCarouselCardIndex = 1.obs;
 
   @override
   void onInit() async {

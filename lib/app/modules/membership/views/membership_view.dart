@@ -307,6 +307,22 @@ class MembershipView extends GetView<MembershipController> {
                       ),
                     ],
                   ),
+                  const VerticalGap(gap: 20),
+                  Container(
+                    margin: const EdgeInsets.only(left: 8),
+                    child: Html(
+                      data: controller.paymentBelowText.value,
+                      style: {
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          textAlign: TextAlign.center,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 50),
                 ],
               ),
       ),

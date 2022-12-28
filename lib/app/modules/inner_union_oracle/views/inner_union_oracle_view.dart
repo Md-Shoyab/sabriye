@@ -60,6 +60,13 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                           fontWeight: FontWeight.w200,
                         ),
                         "a": Style(color: AppColor.primaryBrown),
+                        "h3": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w300,
+                          fontSize: FontSize.larger,
+                          textAlign: TextAlign.center,
+                          lineHeight: LineHeight.rem(1.3),
+                        )
                       },
                     ),
                   ),

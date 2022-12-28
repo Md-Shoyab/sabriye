@@ -51,6 +51,7 @@ const String API_GET_MEMBERSHIP_INTRO = '/pages/102';
 const String API_GET_MEMBERSHIP_CHECKPOINTS = '/pages/117';
 const String API_GET_MEMBERSHIP_ACCORDIONS = '/posts/?categories=10';
 const String API_GET_MEMBERSHIP_PAYMENTS = '/posts/?categories=11';
+const String API_GET_MEMBERSHIP_BELOW_PAYMENTS_TEXT = '/pages/373';
 const String API_GET_MEMBERSHIP_DETAILS = '/pages/12473/';
 const String API_GET_AKASHA_HEALING_INTRO = '/pages/288';
 const String API_GET_AKASHA_HEALING_CLIENTS_RESULTS = '/pages/286';
