@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -44,6 +45,7 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               style: TextStyle(
                 height: 1.5,
                 fontSize: 15,
+                fontFamily: FontName.sourceSansPro,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -72,6 +74,11 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
                   ),
                 ),
                 hintText: AppConstants.newEmailAddressText,
+                hintStyle: const TextStyle(
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.grey,
+                ),
               ),
             ),
             const VerticalGap(gap: 20),
@@ -99,6 +106,11 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
                   ),
                 ),
                 hintText: AppConstants.confrimNewEmailAddressText,
+                hintStyle: const TextStyle(
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.grey,
+                ),
               ),
             ),
             const VerticalGap(gap: 20),
@@ -107,18 +119,14 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
                 onPressed: () {
                   if (controller.changeEmailFormkey.currentState!.validate()) {
                     controller.changeEmail();
-                  } else {
-                    Get.snackbar(
-                      'Something Went Wrong',
-                      'Something Went Wrong',
-                    );
-                  }
+                  } else {}
                 },
                 child: const Text(
-                  AppConstants.sendText,
+                  AppConstants.saveText,
                   style: TextStyle(
                     fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                    fontFamily: FontName.sourceSansPro,
+                    fontWeight: FontWeight.w900,
                     color: AppColors.white,
                   ),
                 ),

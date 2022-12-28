@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -47,10 +48,30 @@ class TopTestimonialsView extends GetView<TopTestimonialsController> {
             height: Get.height,
             child: ListView.builder(
               itemCount: controller.testimonalUserNameText.length,
-              itemBuilder: ((context, index) => TopTestimonialCard(
-                    imagePath: controller.testimonialsUserImage[index],
-                    reviewText: controller.testimonalUserTestimonyText[index],
-                    reviwerName: controller.testimonalUserNameText[index],
+              itemBuilder: ((context, index) => Column(
+                    children: [
+                      index == 0
+                          ? Container(
+                              margin: const EdgeInsets.fromLTRB(20, 25, 20, 0),
+                              child: const Text(
+                                'What clients say about doing Akasha Healing™ Journeys with me',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  height: 1.5,
+                                ),
+                              ),
+                            )
+                          : const SizedBox(),
+                      TopTestimonialCard(
+                        imagePath: controller.testimonialsUserImage[index],
+                        reviewText:
+                            controller.testimonalUserTestimonyText[index],
+                        reviwerName: controller.testimonalUserNameText[index],
+                      ),
+                    ],
                   )),
             ),
           ),

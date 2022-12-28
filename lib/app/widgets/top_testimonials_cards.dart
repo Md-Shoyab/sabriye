@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import '../constants/app_colors.dart';
 import 'gapper.dart';
 
@@ -20,8 +19,7 @@ class TopTestimonialCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(20, 30, 20, 0),
-      padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
-      width: Get.width * .9,
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -43,20 +41,11 @@ class TopTestimonialCard extends StatelessWidget {
           Text(
             reviwerName,
             style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              fontFamily: FontName.gastromond,
+              fontWeight: FontWeight.w400,
+              color: AppColor.primaryBrown,
             ),
-          ),
-          const VerticalGap(),
-          RatingBar.builder(
-            ignoreGestures: true,
-            initialRating: 5.0,
-            itemBuilder: (context, _) => const Icon(
-              Icons.star,
-              color: Colors.amber,
-            ),
-            onRatingUpdate: (rating) {},
-            itemSize: 20,
           ),
           const VerticalGap(),
           Text(
@@ -64,6 +53,7 @@ class TopTestimonialCard extends StatelessWidget {
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontSize: 15,
+              fontFamily: FontName.sourceSansPro,
               fontWeight: FontWeight.w300,
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -68,18 +69,21 @@ class BooksListingView extends GetView<BooksListingController> {
                       const Text(
                         AppConstants.booksCardTitle2,
                         style: TextStyle(
-                          color: AppColors.primaryColor,
+                          color: AppColor.primaryBrown,
+                          fontFamily: FontName.gastromond,
                           fontSize: 16,
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.w400,
                         ),
                       ),
                       const VerticalGap(gap: 15),
                       const Text(
                         'Know More',
                         style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
                           color: AppColors.primaryColor,
                           decoration: TextDecoration.underline,
-                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       const VerticalGap(gap: 15),
@@ -96,15 +100,13 @@ class BooksListingView extends GetView<BooksListingController> {
                           AppConstants.booksCardButtonText2,
                           style: TextStyle(
                             fontSize: 15,
+                            fontFamily: FontName.sourceSansPro,
                             fontWeight: FontWeight.w600,
                             color: AppColors.white,
                           ),
                         ),
                         style: TextButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 5,
-                          ),
+                          minimumSize: const Size(150, 30),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25),
                           ),

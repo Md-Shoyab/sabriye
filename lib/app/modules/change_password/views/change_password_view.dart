@@ -4,6 +4,7 @@ import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../constants/font_names.dart';
 import '../controllers/change_password_controller.dart';
 
 class ChangePasswordView extends GetView<ChangePasswordController> {
@@ -43,7 +44,9 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
               child: Text(
                 'Please enter the new password',
                 style: TextStyle(
-                  fontSize: 16,
+                  height: 1.5,
+                  fontSize: 15,
+                  fontFamily: FontName.sourceSansPro,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -73,6 +76,11 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   ),
                 ),
                 hintText: AppConstants.newPasswordText,
+                hintStyle: const TextStyle(
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.grey,
+                ),
               ),
             ),
             const VerticalGap(gap: 20),
@@ -100,6 +108,11 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   ),
                 ),
                 hintText: AppConstants.confrimNewPasswordText,
+                hintStyle: const TextStyle(
+                  fontFamily: FontName.sourceSansPro,
+                  fontWeight: FontWeight.w600,
+                  color: AppColor.grey,
+                ),
               ),
             ),
             const VerticalGap(gap: 20),
@@ -114,7 +127,8 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
                   AppConstants.saveText,
                   style: TextStyle(
                     fontSize: 15,
-                    fontWeight: FontWeight.w600,
+                    fontFamily: FontName.sourceSansPro,
+                    fontWeight: FontWeight.w900,
                     color: AppColors.white,
                   ),
                 ),

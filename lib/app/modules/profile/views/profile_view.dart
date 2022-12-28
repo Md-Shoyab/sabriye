@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -72,10 +73,6 @@ class ProfileView extends GetView<ProfileController> {
                             decoration: const BoxDecoration(
                               color: Colors.white,
                               shape: BoxShape.circle,
-                              // border: Border.all(
-                              //   color: AppColors.primaryColor,
-                              //   width: 3,
-                              // ),
                             ),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(80),
@@ -105,10 +102,6 @@ class ProfileView extends GetView<ProfileController> {
                                 decoration: const BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
-                                  // border: Border.all(
-                                  //   color: AppColors.primaryColor,
-                                  //   width: 3,
-                                  // ),
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(80),
@@ -180,7 +173,13 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const VerticalGap(gap: 30),
-            const Text(AppConstants.firstNameText),
+            const Text(
+              AppConstants.firstNameText,
+              style: TextStyle(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             Obx(
               () => TextFormField(
                 cursorColor: AppColors.primaryColor,
@@ -189,6 +188,7 @@ class ProfileView extends GetView<ProfileController> {
                 style: const TextStyle(
                   color: AppColors.black,
                   fontSize: 19,
+                  fontFamily: FontName.sourceSansPro,
                   fontWeight: FontWeight.w600,
                 ),
                 decoration: const InputDecoration(
@@ -201,7 +201,13 @@ class ProfileView extends GetView<ProfileController> {
               color: AppColors.grey,
             ),
             const VerticalGap(),
-            const Text(AppConstants.lastNameText),
+            const Text(
+              AppConstants.lastNameText,
+              style: TextStyle(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             Obx(
               () => TextFormField(
                 cursorColor: AppColors.primaryColor,
@@ -210,6 +216,7 @@ class ProfileView extends GetView<ProfileController> {
                 style: const TextStyle(
                   color: AppColors.black,
                   fontSize: 19,
+                  fontFamily: FontName.sourceSansPro,
                   fontWeight: FontWeight.w600,
                 ),
                 decoration: const InputDecoration(
@@ -221,7 +228,13 @@ class ProfileView extends GetView<ProfileController> {
               color: AppColors.black,
             ),
             const VerticalGap(),
-            const Text(AppConstants.emailText),
+            const Text(
+              AppConstants.emailText,
+              style: TextStyle(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
             Obx(
               () => TextFormField(
                 cursorColor: AppColors.primaryColor,
@@ -229,6 +242,7 @@ class ProfileView extends GetView<ProfileController> {
                 controller: controller.emailController,
                 style: const TextStyle(
                   color: AppColors.black,
+                  fontFamily: FontName.sourceSansPro,
                   fontSize: 19,
                   fontWeight: FontWeight.w600,
                 ),

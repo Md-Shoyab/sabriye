@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 
 import '../constants/app_colors.dart';
+import '../constants/font_names.dart';
 
 class BookCards extends StatelessWidget {
   final String bookTitleText;
@@ -15,7 +16,6 @@ class BookCards extends StatelessWidget {
     required this.imagePath,
     required this.textButtonText,
     required this.routes,
-    // required this.routes,
   }) : super(key: key);
 
   @override
@@ -42,18 +42,21 @@ class BookCards extends StatelessWidget {
                 Text(
                   bookTitleText,
                   style: const TextStyle(
-                    color: AppColors.primaryColor,
+                    color: AppColor.primaryBrown,
+                    fontFamily: FontName.gastromond,
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                   ),
                 ),
                 const VerticalGap(gap: 15),
                 const Text(
                   'Know More',
                   style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: FontName.sourceSansPro,
+                    fontWeight: FontWeight.w600,
                     color: AppColors.primaryColor,
                     decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 const VerticalGap(gap: 15),
@@ -65,15 +68,15 @@ class BookCards extends StatelessWidget {
                     textButtonText,
                     style: const TextStyle(
                       fontSize: 15,
+                      fontFamily: FontName.sourceSansPro,
                       fontWeight: FontWeight.w600,
                       color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
-                    ),
+                    minimumSize: const Size(150, 30),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
