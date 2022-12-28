@@ -18,8 +18,10 @@ class ChangePasswordView extends GetView<ChangePasswordController> {
         title: const Text(
           AppConstants.changePassword,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

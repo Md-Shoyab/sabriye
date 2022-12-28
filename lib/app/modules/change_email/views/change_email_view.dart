@@ -17,8 +17,10 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
         title: const Text(
           AppConstants.changeEmailText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

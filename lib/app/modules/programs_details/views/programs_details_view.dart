@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../constants/font_names.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/programs_details_controller.dart';
 
@@ -18,8 +19,10 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
         title: const Text(
           AppConstants.programDetailsText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

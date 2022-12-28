@@ -18,8 +18,10 @@ class SupportView extends GetView<SupportController> {
         title: const Text(
           AppConstants.supportText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

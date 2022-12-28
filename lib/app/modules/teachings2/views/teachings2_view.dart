@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/teachings2_controller.dart';
 
@@ -15,8 +16,10 @@ class Teachings2View extends GetView<Teachings2Controller> {
         title: Text(
           controller.appTitle,
           style: const TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

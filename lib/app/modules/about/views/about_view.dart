@@ -20,8 +20,10 @@ class AboutView extends GetView<AboutController> {
         title: const Text(
           AppConstants.aboutText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

@@ -4,6 +4,7 @@ import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../controllers/verification_password_controller.dart';
 
 class VerificationPasswordView extends GetView<VerificationPasswordController> {
@@ -17,8 +18,10 @@ class VerificationPasswordView extends GetView<VerificationPasswordController> {
         title: const Text(
           'Verification',
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

@@ -20,8 +20,10 @@ class MembershipView extends GetView<MembershipController> {
         title: const Text(
           'Membership',
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../constants/font_names.dart';
 import '../controllers/set_reminder_controller.dart';
 
 class SetReminderView extends GetView<SetReminderController> {
@@ -17,8 +18,10 @@ class SetReminderView extends GetView<SetReminderController> {
         title: const Text(
           AppConstants.setReminder,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

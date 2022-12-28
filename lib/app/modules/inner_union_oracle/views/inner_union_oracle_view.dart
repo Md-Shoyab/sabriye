@@ -21,8 +21,10 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
         title: const Text(
           AppConstants.innerUnionText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         automaticallyImplyLeading: false,

@@ -18,8 +18,10 @@ class BlogsListingView extends GetView<BlogsListingController> {
         title: const Text(
           AppConstants.blogText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

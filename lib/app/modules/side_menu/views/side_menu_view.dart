@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../constants/font_names.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../../../widgets/gapper.dart';
@@ -19,8 +20,10 @@ class SideMenuView extends GetView<SideMenuController> {
         title: const Text(
           AppConstants.sideMenuText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         centerTitle: true,

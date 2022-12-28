@@ -18,8 +18,10 @@ class ComingIntoOnenessView extends GetView<ComingIntoOnenessController> {
         title: const Text(
           'Coming Into Oneness',
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

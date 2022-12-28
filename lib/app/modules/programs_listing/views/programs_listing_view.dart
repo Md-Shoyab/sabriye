@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/routes/app_pages.dart';
 import '../../../constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../../../widgets/programs_cards.dart';
 import '../controllers/programs_listing_controller.dart';
 
@@ -17,8 +18,10 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
         title: const Text(
           'Programs',
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(

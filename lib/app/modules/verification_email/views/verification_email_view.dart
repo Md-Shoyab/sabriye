@@ -4,6 +4,7 @@ import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
 import '../../../constants/app_colors.dart';
+import '../../../constants/font_names.dart';
 import '../../../widgets/gapper.dart';
 import '../controllers/verification_email_controller.dart';
 
@@ -18,8 +19,10 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
         title: const Text(
           'Verification',
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         leading: IconButton(
@@ -62,9 +65,7 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
             ),
             textFieldAlignment: MainAxisAlignment.spaceAround,
             fieldStyle: FieldStyle.box,
-            onCompleted: (pin) {
-              
-            },
+            onCompleted: (pin) {},
           ),
           const VerticalGap(gap: 20),
           Center(

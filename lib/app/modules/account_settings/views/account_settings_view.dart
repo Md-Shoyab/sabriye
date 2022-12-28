@@ -5,6 +5,7 @@ import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
+import '../../../constants/font_names.dart';
 import '../../../widgets/account_settings_option.dart';
 import '../controllers/account_settings_controller.dart';
 
@@ -19,8 +20,10 @@ class AccountSettingsView extends GetView<AccountSettingsController> {
         title: const Text(
           AppConstants.accountSettingsText,
           style: TextStyle(
+            fontFamily: FontName.sourceSansPro,
             color: AppColors.brownColor,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w700,
+            fontSize: 20,
           ),
         ),
         centerTitle: true,
