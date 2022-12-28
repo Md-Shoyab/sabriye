@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/font_names.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../constants/app_colors.dart';
 
@@ -12,7 +13,8 @@ class ProgramsCards extends StatelessWidget {
     Key? key,
     required this.programTitle,
     required this.programImagePath,
-    required this.textButton, required this.routes,
+    required this.textButton,
+    required this.routes,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,7 @@ class ProgramsCards extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(10),
+            alignment: Alignment.center,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,9 +43,10 @@ class ProgramsCards extends StatelessWidget {
                 Text(
                   programTitle,
                   style: const TextStyle(
+                    fontSize: 15,
+                    fontFamily: FontName.gastromond,
+                    fontWeight: FontWeight.w400,
                     color: AppColors.primaryColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
                   ),
                 ),
                 const VerticalGap(),
@@ -54,14 +57,15 @@ class ProgramsCards extends StatelessWidget {
                   child: Text(
                     textButton,
                     style: const TextStyle(
+                      fontFamily: FontName.sourceSansPro,
                       fontSize: 15,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w900,
                       color: AppColors.white,
                     ),
                   ),
                   style: TextButton.styleFrom(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 30,
+                      horizontal: 45,
                       vertical: 5,
                     ),
                     shape: RoundedRectangleBorder(

@@ -34,6 +34,7 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
         elevation: 0,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           ProgramsCards(
             programImagePath: AppAssets.programImage1,
