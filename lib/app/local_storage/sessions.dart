@@ -21,6 +21,8 @@ class SessionManager {
   static const String _userMail = 'User Mail';
   static const String _password = 'password';
   static const String _profileImagePath = 'Profile Image Path';
+  static const String _oracleCardClickedTime =
+      'Last Clicked Time of Oracle Card';
 
   static void saveUserToken(String token) {
     USER_TOKEN.value = token;
@@ -116,5 +118,24 @@ class SessionManager {
   static void clearSession() {
     _getStorage.erase();
     debugPrint("Session Cleared.");
+  }
+
+  static void saveOracleCardClickedTime(DateTime oracleCardClickedDateTime) {
+    _getStorage.write(
+        _oracleCardClickedTime, oracleCardClickedDateTime.toString());
+    debugPrint(
+        "Oracle Card Clicked Time Saved ==> $oracleCardClickedDateTime.");
+  }
+
+  static DateTime? getOracleCardClickedTime() {
+    String oracleCardClickedDateTimeString =
+        _getStorage.read(_oracleCardClickedTime) ?? '';
+
+    debugPrint(
+        "Oracle Card Clicked Time ==> $oracleCardClickedDateTimeString.");
+
+    DateTime? oracleCardClickedDateTime =
+        DateTime.tryParse(oracleCardClickedDateTimeString);
+    return oracleCardClickedDateTime;
   }
 }

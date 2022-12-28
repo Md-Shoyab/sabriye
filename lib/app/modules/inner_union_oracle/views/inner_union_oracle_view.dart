@@ -89,14 +89,7 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                           ),
                         ),
                       ),
-                      onFlip: () {
-                        controller.backViewCard.toggle();
-                        if (controller.backViewCard.isTrue) {
-                          controller.getRandomIndex(
-                            controller.orcaleCardsList.length,
-                          );
-                        }
-                      },
+                      onFlip: controller.onFlip,
                       back: Container(
                         alignment: Alignment.center,
                         height: 200,
@@ -112,9 +105,8 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                           ),
                         ),
                         child: Html(
-                          data: controller
-                                  .orcaleCardsList[controller.randomIndex.value]
-                              ['title']['rendered'],
+                          data: controller.orcaleCardsList[controller
+                              .oracleCardIndex.value]['title']['rendered'],
                           style: {
                             'h1': Style(
                               fontSize: FontSize.large,
@@ -134,18 +126,18 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                         children: [
                           Html(
                             data: controller.orcaleCardsList[controller
-                                .randomIndex.value]['title']['rendered'],
+                                .oracleCardIndex.value]['title']['rendered'],
                           ),
                           Html(
                             data: controller.orcaleCardsList[controller
-                                .randomIndex.value]['content']['rendered'],
+                                .oracleCardIndex.value]['content']['rendered'],
                           ),
                         ],
                       ),
                     ),
                   ),
                   const SizedBox(
-                    height: 70,
+                    height: kBottomNavigationBarHeight,
                   )
                 ],
               ),

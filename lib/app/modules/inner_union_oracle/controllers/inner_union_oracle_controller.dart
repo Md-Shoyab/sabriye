@@ -1,12 +1,12 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class InnerUnionOracleController extends GetxController {
   final ApiServices _apiServices = ApiServices();
   RxBool backViewCard = false.obs;
-  RxInt randomIndex = 0.obs;
+  RxInt oracleCardIndex = 0.obs;
   RxBool isLoading = false.obs;
   RxString innerUnionBannerImageUrl = ''.obs;
   RxString innerUnionBannerIntroText = ''.obs;
@@ -25,10 +25,21 @@ class InnerUnionOracleController extends GetxController {
     super.onInit();
   }
 
-  void getRandomIndex(int maxNumber) {
-    randomIndex.value = Random().nextInt(maxNumber);
-    debugPrint('This is random number ===> ${randomIndex.value}');
-    debugPrint('This is max number ===> $maxNumber');
+  void onFlip() {
+    backViewCard.toggle();
+
+    if (_isOracleCardClickable()) {
+      _getRandomIndexAndUpdateOracleCardIndex();
+      SessionManager.saveOracleCardClickedTime(DateTime.now());
+    } else {
+      ///TODO; Impelment here when flip is done within 24 hours.
+    }
+  }
+
+  void _getRandomIndexAndUpdateOracleCardIndex() {
+    if (backViewCard.isTrue) {
+      oracleCardIndex.value = Random().nextInt(orcaleCardsList.length);
+    }
   }
 
   Future<void> getInnerUnionBannerImage() async {
@@ -48,5 +59,19 @@ class InnerUnionOracleController extends GetxController {
   Future<void> getAllCards() async {
     final responseJson = await _apiServices.getAllCards();
     orcaleCardsList.value = responseJson;
+  }
+
+  /// Returns True within the 24 hours of Click and False if 24 hours not Completed
+  bool _isOracleCardClickable() {
+    DateTime? oracleCardClickedTime = SessionManager.getOracleCardClickedTime();
+
+    if (oracleCardClickedTime != null) {
+      DateTime presentTime = DateTime.now();
+
+      return presentTime.difference(oracleCardClickedTime).inSeconds >= 10;
+      // 86400;
+    } else {
+      return true;
+    }
   }
 }
