@@ -14,6 +14,7 @@ class Teachings2Controller extends GetxController {
   void onInit() async {
     log(id);
     log(appTitle);
+    log(bannerImageUrl);
     isLoading.value = true;
     await getAllBlogPostsByTeachingsSubCategories();
     isLoading.value = false;

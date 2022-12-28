@@ -48,7 +48,7 @@ class ProgramsListingView extends GetView<ProgramsListingController> {
           ProgramsCards(
             programImagePath: AppAssets.programImage2,
             programTitle: 'Coming into Oneness',
-            textButton: 'Buy Now',
+            textButton: 'Learn More',
             routes: Routes.COMING_INTO_ONENESS,
           ),
         ],

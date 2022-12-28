@@ -20,7 +20,6 @@ class Teachings1Controller extends GetxController {
     log(bannerImageUrl);
     isLoading.value = true;
     await getAllTeachingsSubCategories();
-    // await getTeachingsBannerImage();
     isLoading.value = false;
     super.onInit();
   }
@@ -40,10 +39,4 @@ class Teachings1Controller extends GetxController {
     final responseJson = await _apiServices.getAllTeachingsSubCategories(id);
     teachingSubCategories.value = responseJson;
   }
-
-  // Future<void> getTeachingsBannerImage() async {
-  //   final responseJson = await _apiServices.getAllBannerImage();
-  //   bannerImageList.value = responseJson;
-  //   log(bannerImageList.toString());
-  // }
 }

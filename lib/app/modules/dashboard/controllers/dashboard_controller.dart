@@ -8,6 +8,7 @@ class DashboardController extends GetxController {
   RxBool isLoading = false.obs;
   RxList teachingCategories = [].obs;
   RxList spiritualSpotlightVideoInterview = [].obs;
+  final RxList teachingSubCategories = [].obs;
   RxString bannerImageUrl = ''.obs;
   RxString dashboardBigText = ''.obs;
   RxString dashboardSmallText = ''.obs;
@@ -16,6 +17,7 @@ class DashboardController extends GetxController {
   @override
   void onInit() async {
     isLoading.value = true;
+    await getAllTeachingsSubCategories('100');
     await getAllTeachingsCategories();
     await getAllSpiritualSpotlightVideoInterview();
     await getDashboardBannerImage();
@@ -81,5 +83,11 @@ class DashboardController extends GetxController {
   Future<void> getAllStories() async {
     final responseJson = await _apiServices.getAllStories();
     storiesItems.value = responseJson;
+  }
+
+  Future<void> getAllTeachingsSubCategories(String teachingId) async {
+    final responseJson =
+        await _apiServices.getAllTeachingsSubCategories(teachingId);
+    teachingSubCategories.value = responseJson;
   }
 }

@@ -50,13 +50,27 @@ class Teachings1View extends GetView<Teachings1Controller> {
                 child: CircularProgressIndicator(),
               )
             : controller.teachingSubCategories.isEmpty
-                ? const Center(
-                    child: Text(
-                      'No Sub-Categories Available!',
-                      style: TextStyle(
-                        fontSize: 23,
-                        fontFamily: FontName.sourceSansPro,
-                        fontWeight: FontWeight.w500,
+                ? Center(
+                    child: TextButton(
+                      onPressed: () {
+                        Get.toNamed(
+                          Routes.TEACHINGS2,
+                          arguments: {
+                            'id': '100',
+                            'appTitle': 'Asking Divine guidance',
+                            'banner_image':
+                                'https://sabriyeayana.com/wp-content/uploads/2022/01/Get-Divine-guidance.jpg'
+                          },
+                        );
+                      },
+                      child: const Text(
+                        'No Sub-Categories => Go to Post',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: AppColor.brown,
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   )

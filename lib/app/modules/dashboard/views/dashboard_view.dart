@@ -132,7 +132,9 @@ class DashboardView extends GetView<DashboardController> {
                         itemBuilder: (context, index) => InkWell(
                           onTap: () {
                             Get.toNamed(
-                              Routes.TEACHINGS1,
+                              controller.teachingSubCategories.isEmpty
+                                  ? Routes.TEACHINGS2
+                                  : Routes.TEACHINGS1,
                               arguments: {
                                 'id': controller.teachingCategories[index]
                                     ['id'],
