@@ -183,7 +183,6 @@ class GivingBackView extends GetView<GivingBackController> {
                       ),
                     ),
                     options: CarouselOptions(
-                      height: 350,
                       aspectRatio: 2 / 1,
                       viewportFraction: .99,
                       initialPage: 1,

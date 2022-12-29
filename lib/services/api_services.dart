@@ -49,6 +49,44 @@ class ApiServices {
         return Future.error('Server Error');
       }
     } catch (e) {
+      return Future.error(
+        Get.snackbar(
+          'Something Went Wrong',
+          e.toString(),
+          colorText: AppColor.white,
+          backgroundColor: AppColor.primaryBrown,
+          duration: const Duration(seconds: 8),
+        ),
+      );
+    }
+  }
+
+  Future<List> getAkashaHealingTestimony() async {
+    try {
+      var response = await http.get(
+        Uri.parse(API_BASE_URL_2 + API_GET_AKASHA_HEALING_TESTIMONY),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
+      return Future.error('Exception error');
+    }
+  }
+
+  Future<Map> getAkashaHealingClosingDoor() async {
+    try {
+      var response = await http.get(
+        Uri.parse(API_BASE_URL_2 + API_GET_AKASHA_HEALING_CLOSING_DOOR),
+      );
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server Error');
+      }
+    } catch (e) {
       return Future.error('Exception error');
     }
   }
@@ -68,10 +106,10 @@ class ApiServices {
     }
   }
 
-  Future<List> getAkashaHealingTestimony() async {
+  Future<Map> getAkashaHealingCeritifcation() async {
     try {
       var response = await http.get(
-        Uri.parse(API_BASE_URL_2 + API_GET_AKASHA_HEALING_TESTIMONY),
+        Uri.parse(API_BASE_URL_2 + API_GET_AKASHA_HEALING_CERTIFICATION),
       );
       if (response.statusCode == 200) {
         return jsonDecode(response.body);

@@ -1,11 +1,12 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../../../constants/font_names.dart';
 import '../../../widgets/gapper.dart';
+import '../../../widgets/program_testimony.dart';
 import '../controllers/programs_details_controller.dart';
 
 class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
@@ -43,207 +44,250 @@ class ProgramsDetailsView extends GetView<ProgramsDetailsController> {
                 child: CircularProgressIndicator(),
               )
             : ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
                 children: [
-                  const VerticalGap(gap: 20),
-                  Html(data: controller.akashaHealingIntro.value),
-                  const VerticalGap(gap: 20),
-                  const Text(
-                    AppConstants.becomeAkashaHealingPractitionerText,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      height: 1.5,
-                      color: AppColors.primaryColor,
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 20, 35, 20),
+                    child: Text(
+                      controller.akashaHealingTitle.value,
+                      style: const TextStyle(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 30,
+                        color: AppColor.primaryBrown,
+                      ),
                     ),
                   ),
-                  const VerticalGap(),
-                  const Text(
-                    AppConstants.fillTheFormDetailsText,
-                    style: TextStyle(
-                      height: 1.5,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child:
+                        Image.network(controller.akashaHealingimageUrl.value),
                   ),
-                  const VerticalGap(gap: 15),
-                  Form(
-                    key: controller.emailFormKey,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TextFormField(
-                          validator: (value) =>
-                              controller.validateFirstName(value!),
-                          controller: controller.fnameController,
-                          cursorColor: AppColors.primaryColor,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 0,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: AppColors.primaryColor,
-                                width: 2.0,
-                              ),
-                            ),
-                            hintText: AppConstants.firstNameText,
-                          ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: Html(
+                      data: controller.akashaHealingContent.value,
+                      style: {
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w600,
+                          lineHeight: LineHeight.rem(1.3),
+                          fontSize: FontSize.large,
+                          textAlign: TextAlign.left,
                         ),
-                        const VerticalGap(gap: 15),
-                        TextFormField(
-                          controller: controller.lnameController,
-                          validator: (value) =>
-                              controller.validateLastName(value!),
-                          cursorColor: AppColors.primaryColor,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 0,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: AppColors.primaryColor,
-                                width: 2.0,
-                              ),
-                            ),
-                            hintText: AppConstants.lastNameText,
-                          ),
-                        ),
-                        const VerticalGap(gap: 15),
-                        TextFormField(
-                          validator: (value) => controller.validateEmail(value),
-                          controller: controller.emailController,
-                          cursorColor: AppColors.primaryColor,
-                          decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 15,
-                              vertical: 0,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(
-                                color: AppColors.primaryColor,
-                                width: 2.0,
-                              ),
-                            ),
-                            hintText: AppConstants.emailText,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const VerticalGap(),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {
-                        // if (controller.emailFormKey.currentState!.validate()) {
-                        //   controller.apiServices.captureEmail(
-                        //     controller.emailController.text.trim(),
-                        //     '${controller.fnameController.text.trim()} ${controller.lnameController.text.trim()}',
-                        //   );
-                        // }
                       },
-                      child: const Text(
-                        AppConstants.downloadText,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.white,
-                        ),
-                      ),
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 8,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        backgroundColor: AppColors.primaryColor,
-                      ),
                     ),
-                  ),
-                  const VerticalGap(gap: 15),
-                  const Divider(
-                    thickness: 1.0,
-                    indent: 15,
-                    endIndent: 15,
                   ),
                   const VerticalGap(),
-                  Center(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            backgroundImage: NetworkImage(
-                                controller.testimonyImageUrl.value),
-                            radius: 30,
-                          ),
-                          const VerticalGap(gap: 8),
-                          Text(
-                            controller.testimonyUserName.value
-                                .replaceAll('—', ''),
-                            style: const TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                          const Text(
-                            AppConstants.newZealandText,
-                            style: TextStyle(
-                              fontSize: 16,
-                            ),
-                          ),
-                          const VerticalGap(gap: 5),
-                          RatingBar.builder(
-                            ignoreGestures: true,
-                            initialRating: 5.0,
-                            itemBuilder: (context, _) => const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                            ),
-                            onRatingUpdate: (rating) {},
-                            itemSize: 20,
-                          ),
-                          const VerticalGap(),
-                          Html(
-                            data: controller.testimonyContent.value,
-                            style: {
-                              "p": Style(
-                                textAlign: TextAlign.center,
-                                lineHeight: LineHeight.number(1.2),
-                              ),
-                            },
-                          ),
-                        ],
+                  ProgramTestimony(
+                    reviewerName: controller.superiorShaniceText.value,
+                    reviewFullContent:
+                        controller.superiorShaniceTestimonyContent.value,
+                    profileImagePath: controller.superiorShaniceImageUrl.value,
+                  ),
+                  const VerticalGap(),
+                  Container(
+                    height: 177,
+                    width: Get.width,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          controller.blueBannerImageUrl.value,
+                        ),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  const Divider(
-                    thickness: 1.0,
-                    indent: 15,
-                    endIndent: 15,
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: Html(
+                      data: controller.closingTheDoorContent.value,
+                      style: {
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.larger,
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.medium,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                      },
+                    ),
                   ),
-                  Html(data: controller.clientResults.value),
-                  const SizedBox(
-                    height: 100,
-                  )
+                  const VerticalGap(),
+                  ProgramTestimony(
+                    reviewerName: controller.jasmijnDeGraafText.value,
+                    reviewFullContent:
+                        controller.jasmijnDeGraafTestimonyContent.value,
+                    profileImagePath: controller.jasmijnDeGraafImageUrl.value,
+                  ),
+                  const VerticalGap(),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: const Text(
+                      '''Five Reasons to Join our growing community of
+Akasha Quantum Soul Healing™ Practitioners worldwide''',
+                      style: TextStyle(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        height: 1.5,
+                        color: AppColor.brown,
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(),
+                  CarouselSlider.builder(
+                    itemCount: 3,
+                    itemBuilder: (_, i, k) => const ProgramCarouselCard(
+                      carouselCardTitle:
+                          '01. Help Clients Achieve Life-Changing Results',
+                      carouselCardDescription:
+                          'Because Akasha Quantum Soul Healing™ addresses the root cause of one’s issues, there’s no need for complicated, drawn-out, or painful therapy sessions that go on and on. Often in as little as one single session, deep subconscious patterns can be healed once and for all.',
+                      carouselCardBackgroundImage:
+                          'https://app.sabriyeayana.com/wp-content/uploads/2022/12/nomad-11.jpg',
+                    ),
+                    options: CarouselOptions(
+                      height: 350,
+                      viewportFraction: 1,
+                      initialPage: 0,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      3,
+                      (index) => Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 3),
+                        height: 10,
+                        width: 10,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1.0,
+                            color: AppColors.primaryColor,
+                          ),
+                          color: AppColor.primaryBrown,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: Html(
+                      data: controller.clientResultContent.value,
+                      style: {
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.larger,
+                          color: AppColor.brown,
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.medium,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "li": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.medium,
+                          lineHeight: LineHeight.rem(0.9),
+                        ),
+                      },
+                    ),
+                  ),
+                  ProgramTestimony(
+                    reviewerName: controller.erinCockrellText.value,
+                    reviewFullContent:
+                        controller.erinCockrellTestimonyContent.value,
+                    profileImagePath: controller.erinCockrellImageUrl.value,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: Html(
+                      data: controller.akashaHealingCertification.value,
+                      style: {
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.larger,
+                          color: AppColor.brown,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          fontSize: FontSize.medium,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                      },
+                    ),
+                  ),
                 ],
               ),
+      ),
+    );
+  }
+}
+
+class ProgramCarouselCard extends StatelessWidget {
+  final String carouselCardTitle,
+      carouselCardDescription,
+      carouselCardBackgroundImage;
+  const ProgramCarouselCard({
+    Key? key,
+    required this.carouselCardTitle,
+    required this.carouselCardDescription,
+    required this.carouselCardBackgroundImage,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+      padding: const EdgeInsets.fromLTRB(26, 35, 26, 35),
+      width: Get.width * .85,
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.circular(10),
+        image: DecorationImage(
+          image: NetworkImage(carouselCardBackgroundImage),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            AppColor.black.withOpacity(.6),
+            BlendMode.darken,
+          ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            carouselCardTitle,
+            style: const TextStyle(
+              fontFamily: FontName.gastromond,
+              fontWeight: FontWeight.w400,
+              color: AppColor.white,
+              fontSize: 18,
+            ),
+          ),
+          const VerticalGap(gap: 15),
+          Text(
+            carouselCardDescription,
+            style: const TextStyle(
+              fontFamily: FontName.sourceSansPro,
+              fontWeight: FontWeight.w400,
+              color: AppColor.white,
+              fontSize: 14,
+              height: 1.9,
+            ),
+          ),
+        ],
       ),
     );
   }

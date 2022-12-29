@@ -18,7 +18,6 @@ class DashboardController extends GetxController {
   @override
   void onInit() async {
     isLoading.value = true;
-    // await getAllTeachingsSubCategories(teachingsId.value);
     await getAllTeachingsCategories();
     await getAllSpiritualSpotlightVideoInterview();
     await getDashboardBannerImage();
