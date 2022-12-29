@@ -228,8 +228,148 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                       },
                     ),
                   ),
+                  const VerticalGap(),
+                  SizedBox(
+                    child: ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      clipBehavior: Clip.none,
+                      shrinkWrap: true,
+                      itemCount: controller.akashaHealingModulesList.length,
+                      itemBuilder: (context, index) => ProgramModuleCards(
+                        moduleNumber: controller.akashaHealingModulesList[index]
+                            ['custom_fields']['module'][0],
+                        moduleTitle: controller.akashaHealingModulesList[index]
+                            ['title']['rendered'],
+                        moduleContent:
+                            controller.akashaHealingModulesList[index]
+                                ['content']['rendered'],
+                      ),
+                    ),
+                  ),
+                  const VerticalGap(),
+                  ProgramTestimony(
+                    reviewerName: controller.cindyPetersText.value,
+                    reviewFullContent:
+                        controller.cindyPetersTestimonyContent.value,
+                    profileImagePath: controller.cindyPetersImageUrl.value,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+                    child: Html(
+                      data: controller.akashaHealingWhoIsProgram.value,
+                      style: {
+                        "h2": Style(
+                          fontFamily: FontName.gastromond,
+                          fontWeight: FontWeight.w400,
+                          color: AppColor.brown,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                        "p": Style(
+                          fontFamily: FontName.sourceSansPro,
+                          fontWeight: FontWeight.w400,
+                          lineHeight: LineHeight.rem(1.3),
+                        ),
+                      },
+                    ),
+                  ),
+                  Container(
+                    color: AppColor.backgroundColor,
+                    padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const VerticalGap(),
+                        const Text(
+                          'Investment',
+                          style: TextStyle(
+                            fontFamily: FontName.gastromond,
+                            fontSize: 18,
+                          ),
+                        ),
+                        const VerticalGap(gap: 20),
+                        Container(
+                          height: 220,
+                          decoration: BoxDecoration(
+                            color: AppColor.grey,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        const VerticalGap(gap: 20),
+                        Container(
+                          height: 220,
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        const VerticalGap(gap: 40),
+                      ],
+                    ),
+                  ),
+                  const VerticalGap(),
+                  ProgramTestimony(
+                    reviewerName: controller.lauraMullisText.value,
+                    reviewFullContent:
+                        controller.lauraMullisTestimonyContent.value,
+                    profileImagePath: controller.lauraMullisImageUrl.value,
+                  ),
                 ],
               ),
+      ),
+    );
+  }
+}
+
+class ProgramModuleCards extends StatelessWidget {
+  final String moduleNumber, moduleTitle, moduleContent;
+  const ProgramModuleCards({
+    Key? key,
+    required this.moduleNumber,
+    required this.moduleTitle,
+    required this.moduleContent,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
+      padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+      decoration: BoxDecoration(
+        color: AppColor.primaryBrown,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            moduleNumber,
+            style: const TextStyle(
+              fontFamily: FontName.sourceSansPro,
+              fontWeight: FontWeight.w600,
+              color: AppColor.white,
+            ),
+          ),
+          const VerticalGap(),
+          Text(
+            moduleTitle,
+            style: const TextStyle(
+              fontFamily: FontName.gastromond,
+              fontWeight: FontWeight.w400,
+              color: AppColor.white,
+            ),
+          ),
+          Html(
+            data: moduleContent,
+            style: {
+              "p": Style(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w400,
+                color: AppColor.white,
+                lineHeight: LineHeight.rem(1.2),
+              ),
+            },
+          ),
+        ],
       ),
     );
   }

@@ -8,19 +8,27 @@ class ProgramsDetailsController extends GetxController {
   final RxString akashaHealingTitle = ''.obs;
   final RxString akashaHealingContent = ''.obs;
   final RxString akashaHealingimageUrl = ''.obs;
-  final RxString superiorShaniceImageUrl = ''.obs;
   final RxString superiorShaniceText = ''.obs;
+  final RxString superiorShaniceTestimonyContent = ''.obs;
+  final RxString superiorShaniceImageUrl = ''.obs;
   final RxString jasmijnDeGraafText = ''.obs;
   final RxString jasmijnDeGraafTestimonyContent = ''.obs;
   final RxString jasmijnDeGraafImageUrl = ''.obs;
   final RxString erinCockrellText = ''.obs;
   final RxString erinCockrellTestimonyContent = ''.obs;
   final RxString erinCockrellImageUrl = ''.obs;
-  final RxString superiorShaniceTestimonyContent = ''.obs;
+  final RxString cindyPetersText = ''.obs;
+  final RxString cindyPetersTestimonyContent = ''.obs;
+  final RxString cindyPetersImageUrl = ''.obs;
+  final RxString lauraMullisText = ''.obs;
+  final RxString lauraMullisTestimonyContent = ''.obs;
+  final RxString lauraMullisImageUrl = ''.obs;
   final RxString blueBannerImageUrl = ''.obs;
   final RxString closingTheDoorContent = ''.obs;
   final RxString clientResultContent = ''.obs;
   final RxString akashaHealingCertification = ''.obs;
+  final RxString akashaHealingWhoIsProgram = ''.obs;
+  final RxList akashaHealingModulesList = [].obs;
 
   @override
   void onInit() async {
@@ -30,6 +38,8 @@ class ProgramsDetailsController extends GetxController {
     await getAkashaHealingClosingDoor();
     await getAkashaHealingClientResults();
     await getAkashaHealingCeritifcation();
+    await getAkashaHealingModulesList();
+    await getAkashaHealingWhoIsInProgram();
     isLoading.value = false;
     super.onInit();
   }
@@ -80,6 +90,12 @@ class ProgramsDetailsController extends GetxController {
     erinCockrellText.value = responseJson[2]['title']['rendered'];
     erinCockrellTestimonyContent.value = responseJson[2]['content']['rendered'];
     erinCockrellImageUrl.value = responseJson[2]['thumbnail'];
+    cindyPetersText.value = responseJson[1]['title']['rendered'];
+    cindyPetersTestimonyContent.value = responseJson[1]['content']['rendered'];
+    cindyPetersImageUrl.value = responseJson[1]['thumbnail'];
+    lauraMullisText.value = responseJson[0]['title']['rendered'];
+    lauraMullisTestimonyContent.value = responseJson[0]['content']['rendered'];
+    lauraMullisImageUrl.value = responseJson[0]['thumbnail'];
   }
 
   Future<void> getAkashaHealingClosingDoor() async {
@@ -96,5 +112,15 @@ class ProgramsDetailsController extends GetxController {
   Future<void> getAkashaHealingCeritifcation() async {
     final responseJson = await _apiServices.getAkashaHealingCeritifcation();
     akashaHealingCertification.value = responseJson['content']['rendered'];
+  }
+
+  Future<void> getAkashaHealingModulesList() async {
+    final responseJson = await _apiServices.getAkashaHealingModulesList();
+    akashaHealingModulesList.value = responseJson;
+  }
+
+  Future<void> getAkashaHealingWhoIsInProgram() async {
+    final responseJson = await _apiServices.getAkashaHealingWhoIsInProgram();
+    akashaHealingWhoIsProgram.value = responseJson['content']['rendered'];
   }
 }

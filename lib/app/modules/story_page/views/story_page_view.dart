@@ -21,7 +21,7 @@ class StoryPageView extends GetView<StoryPageController> {
             controller: controller.storyController,
           ),
           StoryItem.pageVideo(
-            'https://player.vimeo.com/video/554200859',
+            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
             controller: controller.storyController,
           ),
         ],
