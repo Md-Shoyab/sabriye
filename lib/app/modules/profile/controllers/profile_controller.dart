@@ -5,25 +5,13 @@ import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class ProfileController extends GetxController {
-  // final
-
-  late TextEditingController firstNameController;
-
-  //  = TextEditingController(
-  //   text: SessionManager.getFirstName(),
-  // );
-  final TextEditingController lastNameController = TextEditingController(
-    text: SessionManager.getlastName(),
-  );
-  final TextEditingController emailController = TextEditingController(
-    text: SessionManager.getUserEmail(),
-  );
-
+  late TextEditingController firstNameController = TextEditingController();
+  late TextEditingController lastNameController = TextEditingController();
   final RxBool readOnly = false.obs;
   final RxString selectedImagePath = ''.obs;
+  final ApiServices _apiServices = ApiServices();
+  final finalBasicAuth = SessionManager.getUserToken();
   final RxString existingImageUrl = SessionManager.getProfileImagePath().obs;
-
-  final ApiServices apiServices = ApiServices();
 
   void pickImage() async {
     await ImagePicker()
@@ -45,10 +33,10 @@ class ProfileController extends GetxController {
   }
 
   @override
-  void onInit() {
-    firstNameController = TextEditingController(
-      text: SessionManager.getFirstName(),
-    );
+  void onInit() async {
+    firstNameController.text = SessionManager.getFirstName()!;
+    lastNameController.text = SessionManager.getlastName()!;
+    await _apiServices.getProfileImage(finalBasicAuth!);
     super.onInit();
   }
 
@@ -56,6 +44,5 @@ class ProfileController extends GetxController {
   void onClose() {
     firstNameController.dispose();
     lastNameController.dispose();
-    emailController.dispose();
   }
 }

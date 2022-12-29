@@ -208,7 +208,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const Divider(
-              color: AppColors.grey,
+              color: AppColor.grey,
             ),
             const VerticalGap(),
             const Text(
@@ -235,7 +235,7 @@ class ProfileView extends GetView<ProfileController> {
               ),
             ),
             const Divider(
-              color: AppColors.black,
+              color: AppColor.grey,
             ),
             const VerticalGap(),
             // const Text(

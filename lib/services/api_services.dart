@@ -1023,6 +1023,28 @@ class ApiServices {
     return response;
   }
 
+  Future<http.Response?> getProfileImage(String basicAuth) async {
+    http.Response? response;
+    try {
+      response = await http.post(
+        Uri.parse(API_GET_PROFILE_IMAGE),
+        headers: <String, String>{'Authorization': basicAuth},
+      );
+      final finalResponeJson = jsonDecode(response.body);
+      if (finalResponeJson['status'] == 'success') {
+        SessionManager.saveProfileImagePath(
+          finalResponeJson['profile_image'].toString(),
+        );
+      }
+    } catch (e) {
+      Get.snackbar(
+        'Something Went Wrong',
+        e.toString(),
+      );
+    }
+    return response;
+  }
+
   Future<Map> getDashboardBannerImage() async {
     try {
       var response = await http.get(

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sabriye/app/constants/font_names.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import '../../../constants/app_colors.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_constants.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/support_controller.dart';
 
 class SupportView extends GetView<SupportController> {
@@ -153,6 +155,13 @@ class SupportView extends GetView<SupportController> {
                 image: AssetImage(AppAssets.sabriyeSignature),
               ),
             ),
+          ),
+          IconButton(
+            onPressed: () {
+              SessionManager.clearSession();
+              Get.offAllNamed(Routes.LOGIN);
+            },
+            icon: const Icon(Icons.logout),
           ),
         ],
       ),
