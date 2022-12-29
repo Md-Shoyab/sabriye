@@ -1,11 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../services/api_services.dart';
+import '../../../local_storage/sessions.dart';
+import '../../../routes/app_pages.dart';
 
 class ChangePasswordController extends GetxController {
   final passwordFormkey = GlobalKey<FormState>();
-  final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  late TextEditingController newPasswordController, confirmPasswordController;
+  final ApiServices _apiServices = ApiServices();
+  final finalBasicAuth = SessionManager.getUserToken();
+
+  @override
+  void onInit() {
+    newPasswordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    newPasswordController.dispose();
+    confirmPasswordController.dispose();
+    super.onClose();
+  }
 
   String? validatePassword(String value) {
     if (value.length < 8) {
@@ -22,5 +39,17 @@ class ChangePasswordController extends GetxController {
       return " New Password & Confirm Password doesn't match";
     }
     return null;
+  }
+
+  Future<void> changePassword() async {
+    var response = await _apiServices.changePassword(
+      finalBasicAuth!,
+      newPasswordController.text.trim(),
+      confirmPasswordController.text.trim(),
+    );
+    if (response != null && response.statusCode == 200) {
+      debugPrint(response.body);
+      await Get.toNamed(Routes.VERIFICATION_PASSWORD);
+    }
   }
 }

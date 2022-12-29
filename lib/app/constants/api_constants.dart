@@ -8,6 +8,13 @@ const String API_SIGN_UP = '/users/signup';
 const String API_LOGIN = '/users/me';
 const String API_UPDATE_EMAIL =
     'https://sabriyeayana.com/wp-json/etelligens/v1/change-email';
+const String API_UPDATE_PASSWORD =
+    'https://sabriyeayana.com/wp-json/etelligens/v1/change-password';
+const String API_VERIFY_EMAIL_OTP =
+    'https://sabriyeayana.com/wp-json/etelligens/v1/verify-email-otp';
+
+const String API_VERIFY_PASSWORD_OTP =
+    'https://sabriyeayana.com/wp-json/etelligens/v1/verify-password-otp';
 const String API_GET_TEACHINNGS_CATEGORIES =
     '/categories/?include=94,57,62,100';
 const String API_GET_TEACHINNGS_SUBCATEGORIES = '/categories?parent=';

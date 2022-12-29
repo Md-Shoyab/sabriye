@@ -130,8 +130,12 @@ class DashboardView extends GetView<DashboardController> {
                         scrollDirection: Axis.horizontal,
                         itemCount: controller.teachingCategories.length,
                         itemBuilder: (context, index) => InkWell(
-                          onTap: () {
-                            Get.toNamed(
+                          onTap: () async {
+                            await controller.getAllTeachingsSubCategories(
+                              controller.teachingCategories[index]['id']
+                                  .toString(),
+                            );
+                            await Get.toNamed(
                               controller.teachingSubCategories.isEmpty
                                   ? Routes.TEACHINGS2
                                   : Routes.TEACHINGS1,

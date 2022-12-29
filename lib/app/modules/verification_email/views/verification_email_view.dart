@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:otp_text_field/otp_field.dart';
-import 'package:otp_text_field/otp_field_style.dart';
-import 'package:otp_text_field/style.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/font_names.dart';
 import '../../../widgets/gapper.dart';
@@ -51,26 +49,45 @@ class VerificationEmailView extends GetView<VerificationEmailController> {
             ),
           ),
           const VerticalGap(gap: 20),
-          OTPTextField(
-            controller: controller.otpFieldController,
-            otpFieldStyle: OtpFieldStyle(
-              focusBorderColor: AppColor.primaryBrown,
+          Form(
+            key: controller.otpFormKey,
+            child: PinCodeTextField(
+              validator: (value) {
+                if (GetUtils.isNumericOnly(value ?? '')) {
+                  return null;
+                } else if (value?.length != 4) {
+                  return "OTP must be 4 digit Only";
+                } else {
+                  return "OTP must be in Numbers Only";
+                }
+              },
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              autoDisposeControllers: false,
+              controller: controller.otpTextController,
+              pinTheme: PinTheme(
+                shape: PinCodeFieldShape.box,
+                borderRadius: BorderRadius.circular(10),
+                activeColor: Colors.grey,
+                fieldHeight: 60,
+                fieldWidth: 60,
+                activeFillColor: Colors.grey,
+                inactiveColor: Colors.grey,
+                inactiveFillColor: Colors.grey,
+                selectedColor: Colors.grey,
+              ),
+              cursorColor: Colors.grey,
+              keyboardType: TextInputType.number,
+              appContext: context,
+              length: 4,
+              onChanged: (value) {
+                debugPrint('Value changed to $value');
+              },
             ),
-            length: 4,
-            width: MediaQuery.of(context).size.width,
-            fieldWidth: 80,
-            style: const TextStyle(
-              fontSize: 17,
-              color: AppColor.primaryBrown,
-            ),
-            textFieldAlignment: MainAxisAlignment.spaceAround,
-            fieldStyle: FieldStyle.box,
-            onCompleted: (pin) {},
           ),
           const VerticalGap(gap: 20),
           Center(
             child: TextButton(
-              onPressed: () {},
+              onPressed: controller.verifyOtp,
               child: const Text(
                 'Verify',
                 style: TextStyle(

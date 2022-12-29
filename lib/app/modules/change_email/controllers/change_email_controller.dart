@@ -5,7 +5,7 @@ import 'package:sabriye/app/routes/app_pages.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class ChangeEmailController extends GetxController {
-  final ApiServices apiServices = ApiServices();
+  final ApiServices _apiServices = ApiServices();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController confirmEmailController = TextEditingController();
   final finalBasicAuth = SessionManager.getUserToken();
@@ -34,12 +34,13 @@ class ChangeEmailController extends GetxController {
   }
 
   Future<void> changeEmail() async {
-    var response = await apiServices.changeEmail(
+    var response = await _apiServices.changeEmail(
       finalBasicAuth!,
       confirmEmailController.text.trim(),
     );
     if (response != null && response.statusCode == 200) {
-      Get.toNamed(Routes.VERIFICATION_EMAIL);
+      debugPrint(response.body);
+      await Get.toNamed(Routes.VERIFICATION_EMAIL);
     }
   }
 }

@@ -238,32 +238,32 @@ class ProfileView extends GetView<ProfileController> {
               color: AppColors.black,
             ),
             const VerticalGap(),
-            const Text(
-              AppConstants.emailText,
-              style: TextStyle(
-                fontFamily: FontName.sourceSansPro,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            Obx(
-              () => TextFormField(
-                cursorColor: AppColors.primaryColor,
-                readOnly: true,
-                controller: controller.emailController,
-                style: const TextStyle(
-                  color: AppColors.grey,
-                  fontFamily: FontName.sourceSansPro,
-                  fontSize: 19,
-                  fontWeight: FontWeight.w600,
-                ),
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            const Divider(
-              color: AppColors.black,
-            ),
+            // const Text(
+            //   AppConstants.emailText,
+            //   style: TextStyle(
+            //     fontFamily: FontName.sourceSansPro,
+            //     fontWeight: FontWeight.w400,
+            //   ),
+            // ),
+            // Obx(
+            //   () => TextFormField(
+            //     cursorColor: AppColors.primaryColor,
+            //     readOnly: true,
+            //     controller: controller.emailController,
+            //     style: const TextStyle(
+            //       color: AppColors.grey,
+            //       fontFamily: FontName.sourceSansPro,
+            //       fontSize: 19,
+            //       fontWeight: FontWeight.w600,
+            //     ),
+            //     decoration: const InputDecoration(
+            //       border: InputBorder.none,
+            //     ),
+            //   ),
+            // ),
+            // const Divider(
+            //   color: AppColors.black,
+            // ),
           ],
         ),
       ),

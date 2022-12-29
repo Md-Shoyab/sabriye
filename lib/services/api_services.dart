@@ -970,6 +970,59 @@ class ApiServices {
     return response;
   }
 
+  Future<http.Response?> changePassword(
+      String basicAuth, String newPassword, String confirmPassword) async {
+    http.Response? response;
+    try {
+      response = await http.post(
+        Uri.parse(API_UPDATE_PASSWORD),
+        headers: <String, String>{'Authorization': basicAuth},
+        body: {
+          "new_password": newPassword,
+          "confirm_password": confirmPassword,
+        },
+      );
+    } catch (e) {
+      Get.snackbar(
+        'Something Went Wrong',
+        e.toString(),
+      );
+    }
+    return response;
+  }
+
+  Future<http.Response?> verifyEmailOtp(String basicAuth, String otp) async {
+    http.Response? response;
+    try {
+      response = await http.post(
+        Uri.parse(API_VERIFY_EMAIL_OTP),
+        headers: <String, String>{'Authorization': basicAuth},
+        body: {
+          "otp": otp,
+        },
+      );
+    } catch (e) {
+      Get.snackbar('Something Went Wrong', e.toString());
+    }
+    return response;
+  }
+
+  Future<http.Response?> verifyPasswordOtp(String basicAuth, String otp) async {
+    http.Response? response;
+    try {
+      response = await http.post(
+        Uri.parse(API_VERIFY_PASSWORD_OTP),
+        headers: <String, String>{'Authorization': basicAuth},
+        body: {
+          "otp": otp,
+        },
+      );
+    } catch (e) {
+      Get.snackbar('Something Went Wrong', e.toString());
+    }
+    return response;
+  }
+
   Future<Map> getDashboardBannerImage() async {
     try {
       var response = await http.get(
