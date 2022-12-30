@@ -29,6 +29,8 @@ class ProgramsDetailsController extends GetxController {
   final RxString akashaHealingCertification = ''.obs;
   final RxString akashaHealingWhoIsProgram = ''.obs;
   final RxList akashaHealingModulesList = [].obs;
+  final RxList akashaHealingFaqList = [].obs;
+  final RxList isFaqExpandedList = [].obs;
 
   @override
   void onInit() async {
@@ -40,6 +42,7 @@ class ProgramsDetailsController extends GetxController {
     await getAkashaHealingCeritifcation();
     await getAkashaHealingModulesList();
     await getAkashaHealingWhoIsInProgram();
+    await getAkashaHealingFaqList();
     isLoading.value = false;
     super.onInit();
   }
@@ -122,5 +125,13 @@ class ProgramsDetailsController extends GetxController {
   Future<void> getAkashaHealingWhoIsInProgram() async {
     final responseJson = await _apiServices.getAkashaHealingWhoIsInProgram();
     akashaHealingWhoIsProgram.value = responseJson['content']['rendered'];
+  }
+
+  Future<void> getAkashaHealingFaqList() async {
+    final responseJson = await _apiServices.getAkashaHealingFaqList();
+    akashaHealingFaqList.value = responseJson;
+    isFaqExpandedList.value =
+        List.generate(akashaHealingFaqList.length, (index) => false.obs);
+    debugPrint(isFaqExpandedList.toString());
   }
 }

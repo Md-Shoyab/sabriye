@@ -66,6 +66,8 @@ const String API_GET_AKASHA_HEALING_CLOSING_DOOR = '/pages/283';
 const String API_GET_AKASHA_HEALING_CLIENTS_RESULTS = '/pages/286';
 const String API_GET_AKASHA_HEALING_CERTIFICATION = '/pages/288';
 const String API_GET_AKASHA_HEALING_WHO_IS_PROGRAM = '/pages/311';
+const String API_GET_AKASHA_HEALING_FAQ_LIST =
+    '/posts/?categories=25&orderby=date&order=asc';
 const String API_GET_AKASHA_HEALING_MODULES =
     '/posts/?categories=23&orderby=date&order=asc';
 const String API_GET_AKASHA_HEALING_TESTIMONY = '/posts/?categories=22';

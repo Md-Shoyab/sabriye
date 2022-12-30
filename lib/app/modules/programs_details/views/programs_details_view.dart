@@ -273,7 +273,7 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                     ),
                   ),
                   Container(
-                    color: AppColor.backgroundColor,
+                    color: AppColor.lightSkinColor,
                     padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -290,7 +290,7 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                         Container(
                           height: 220,
                           decoration: BoxDecoration(
-                            color: AppColor.grey,
+                            color: AppColor.lightGrey,
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
@@ -313,8 +313,105 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                         controller.lauraMullisTestimonyContent.value,
                     profileImagePath: controller.lauraMullisImageUrl.value,
                   ),
+                  Container(
+                    margin: const EdgeInsets.fromLTRB(35, 20, 35, 20),
+                    child: const Text('FAQ'),
+                  ),
+                  ListView.builder(
+                    clipBehavior: Clip.none,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: controller.akashaHealingFaqList.length,
+                    shrinkWrap: true,
+                    itemBuilder: ((context, index) => ProgramFaqDropDown(
+                          controller: controller,
+                          faqQuestion: controller.akashaHealingFaqList[index]
+                              ['title']['rendered'],
+                          faqAnswer: controller.akashaHealingFaqList[index]
+                              ['content']['rendered'],
+                          isFaqExpanded: controller.isFaqExpandedList[index],
+                        )),
+                  ),
                 ],
               ),
+      ),
+    );
+  }
+}
+
+class ProgramFaqDropDown extends StatelessWidget {
+  final String faqQuestion, faqAnswer;
+  final RxBool isFaqExpanded;
+
+  const ProgramFaqDropDown({
+    Key? key,
+    required this.faqQuestion,
+    required this.faqAnswer,
+    required this.controller,
+    required this.isFaqExpanded,
+  }) : super(key: key);
+
+  final ProgramsDetailsController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      () => Container(
+        margin: const EdgeInsets.fromLTRB(30, 20, 30, 10),
+        padding: isFaqExpanded.value
+            ? const EdgeInsets.fromLTRB(25, 24, 25, 24)
+            : const EdgeInsets.fromLTRB(25, 10, 25, 0),
+        decoration: BoxDecoration(
+          color: AppColor.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: AppColor.shadowColors.withOpacity(.5),
+              offset: const Offset(0, 4),
+              blurRadius: 5,
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    faqQuestion,
+                    style: const TextStyle(
+                      fontFamily: FontName.gastromond,
+                      fontWeight: FontWeight.w400,
+                      color: AppColor.primaryBrown,
+                      height: 1.8,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {
+                    debugPrint(isFaqExpanded.value.toString());
+                    isFaqExpanded.toggle();
+                  },
+                  icon: Icon(
+                    isFaqExpanded.value
+                        ? Icons.keyboard_arrow_up
+                        : Icons.keyboard_arrow_down,
+                  ),
+                ),
+              ],
+            ),
+            const VerticalGap(gap: 10),
+            isFaqExpanded.value
+                ? Html(data: faqAnswer, style: {
+                    "p": Style(
+                      fontFamily: FontName.sourceSansPro,
+                      fontWeight: FontWeight.w300,
+                      fontSize: FontSize.large,
+                      lineHeight: LineHeight.rem(1.3),
+                    ),
+                  })
+                : const SizedBox(),
+          ],
+        ),
       ),
     );
   }

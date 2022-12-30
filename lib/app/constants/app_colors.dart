@@ -21,7 +21,9 @@ class AppColor {
   static const brightprimaryBrown = Color(0xFFC75D74);
   static const brown = Color(0xFF56484B);
   static const grey = Color(0xFFBBBBBB);
+  static const lightGrey = Color(0xFFEDEBEC);
   static const backgroundColor = Color(0xFFFEF4F5);
+  static const lightSkinColor = Color(0xFFF9F4F4);
   static const color2 = Color(0xFFCDA6A2);
   static const color6 = Color(0xFFEFE4DB);
   static const shadowColors = Color(0xFFFDBCC2);
