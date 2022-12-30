@@ -347,10 +347,16 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                                 },
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  await controller.openUrl(
+                                    controller
+                                            .akashaHealingInvestmentDataList[1]
+                                        ['custom_fields']['button-link'][0],
+                                  );
+                                },
                                 child: Text(
                                   controller.akashaHealingInvestmentDataList[1]
-                                      ['custom_fields']['button-text'][1],
+                                      ['custom_fields']['button-text'][0],
                                   style: const TextStyle(
                                     color: AppColor.white,
                                     fontFamily: FontName.sourceSansPro,
@@ -412,10 +418,17 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                                 },
                               ),
                               TextButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  'BUY NOW (€7.777 OR 11 X €777)',
-                                  style: TextStyle(
+                                onPressed: () async {
+                                  await controller.openUrl(
+                                    controller
+                                            .akashaHealingInvestmentDataList[0]
+                                        ['custom_fields']['button-link'][0],
+                                  );
+                                },
+                                child: Text(
+                                  controller.akashaHealingInvestmentDataList[0]
+                                      ['custom_fields']['button-text'][0],
+                                  style: const TextStyle(
                                     color: AppColor.primaryBrown,
                                     fontFamily: FontName.sourceSansPro,
                                     fontWeight: FontWeight.w900,
@@ -575,21 +588,27 @@ class ProgramModuleCards extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            moduleNumber,
-            style: const TextStyle(
-              fontFamily: FontName.sourceSansPro,
-              fontWeight: FontWeight.w600,
-              color: AppColor.white,
+          Container(
+            margin: const EdgeInsets.only(left: 10),
+            child: Text(
+              moduleNumber,
+              style: const TextStyle(
+                fontFamily: FontName.sourceSansPro,
+                fontWeight: FontWeight.w600,
+                color: AppColor.white,
+              ),
             ),
           ),
           const VerticalGap(),
-          Text(
-            moduleTitle,
-            style: const TextStyle(
-              fontFamily: FontName.gastromond,
-              fontWeight: FontWeight.w400,
-              color: AppColor.white,
+          Container(
+            margin: const EdgeInsets.only(left: 10),
+            child: Text(
+              moduleTitle,
+              style: const TextStyle(
+                fontFamily: FontName.gastromond,
+                fontWeight: FontWeight.w400,
+                color: AppColor.white,
+              ),
             ),
           ),
           Html(
@@ -627,7 +646,7 @@ class ProgramCarouselCard extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(26, 30, 26, 30),
       width: Get.width * .85,
       decoration: BoxDecoration(
-        color: AppColor.lightGrey,
+        color: AppColor.primaryBrown,
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           image: NetworkImage(carouselCardBackgroundImage),

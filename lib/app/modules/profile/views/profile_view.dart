@@ -39,7 +39,7 @@ class ProfileView extends GetView<ProfileController> {
             () => controller.readOnly.value
                 ? TextButton(
                     onPressed: () {
-                      controller.readOnly.value = !controller.readOnly.value;
+                      controller.readOnly.toggle();
                     },
                     child: const Text(
                       AppConstants.saveText,
@@ -53,7 +53,7 @@ class ProfileView extends GetView<ProfileController> {
                   )
                 : IconButton(
                     onPressed: () {
-                      controller.readOnly.value = !controller.readOnly.value;
+                      controller.readOnly.toggle();
                     },
                     icon: const Icon(
                       Icons.edit,

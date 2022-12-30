@@ -12,16 +12,16 @@ class StoryPageView extends GetView<StoryPageController> {
       body: StoryView(
         controller: controller.storyController,
         storyItems: [
-          StoryItem.text(title: 'Red', backgroundColor: Colors.red),
-          // StoryItem.text(title: 'Blue', backgroundColor: Colors.blue),
-          // StoryItem.text(title: 'Green', backgroundColor: Colors.green),
           StoryItem.pageImage(
-            url:
-                'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg',
+            url:'https://app.sabriyeayana.com/wp-content/uploads/2022/12/ebook-mockup1.png',
             controller: controller.storyController,
           ),
           StoryItem.pageVideo(
-            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+            'https://app.sabriyeayana.com/wp-content/uploads/2022/12/Sabriye-Ayana-media-reel-1.mp4',
+            controller: controller.storyController,
+          ),
+          StoryItem.pageVideo(
+            'https://app.sabriyeayana.com/wp-content/uploads/2022/12/Skype_Video.mp4',
             controller: controller.storyController,
           ),
         ],

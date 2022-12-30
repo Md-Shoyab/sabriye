@@ -61,7 +61,8 @@ class ThankYouView extends GetView<ThankYouController> {
                           margin: const EdgeInsets.symmetric(horizontal: 20),
                           child: TextButton(
                             style: TextButton.styleFrom(
-                              backgroundColor: AppColor.primaryBrown,
+                              backgroundColor:
+                                  AppColor.primaryBrown.withOpacity(0.5),
                               padding: const EdgeInsets.fromLTRB(35, 5, 35, 5),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40),

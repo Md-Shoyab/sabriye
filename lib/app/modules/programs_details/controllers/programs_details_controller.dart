@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/services/api_services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProgramsDetailsController extends GetxController {
   final RxBool isLoading = false.obs;
@@ -148,6 +149,17 @@ class ProgramsDetailsController extends GetxController {
   Future<void> getAkashaHealingInvestment() async {
     final responseJson = await _apiServices.getAkashaHealingInvestment();
     akashaHealingInvestmentDataList.value = responseJson;
+  }
+
+  Future<void> openUrl(String? url) async {
+    if (url != null) {
+      if (await canLaunchUrl(Uri.parse(url))) {
+        await launchUrl(
+          Uri.parse(url),
+          mode: LaunchMode.externalApplication,
+        );
+      }
+    }
   }
 
   void updateCasrosleSliderIndexIndicator(int index) {

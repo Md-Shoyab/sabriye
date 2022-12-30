@@ -90,10 +90,12 @@ class DashboardView extends GetView<DashboardController> {
                       child: ListView.builder(
                         clipBehavior: Clip.none,
                         scrollDirection: Axis.horizontal,
-                        itemCount: 3,
+                        itemCount: 1,
                         itemBuilder: (context, index) => InkWell(
                           onTap: () {
-                            Get.toNamed(Routes.STORY_PAGE);
+                            Get.toNamed(Routes.STORY_PAGE, arguments: {
+                              "storiesData": controller.storiesItems,
+                            });
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 5),
