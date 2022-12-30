@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
@@ -14,6 +15,8 @@ class InnerUnionOracleController extends GetxController {
   RxString boxTwoText = ''.obs;
   RxString boxThreeText = ''.obs;
   RxList orcaleCardsList = [].obs;
+  RxBool isCardVisible = false.obs;
+  RxBool is24HourComplete = false.obs;
 
   @override
   void onInit() async {
@@ -29,10 +32,14 @@ class InnerUnionOracleController extends GetxController {
     backViewCard.toggle();
 
     if (_isOracleCardClickable()) {
+      is24HourComplete.value = true;
       _getRandomIndexAndUpdateOracleCardIndex();
       SessionManager.saveOracleCardClickedTime(DateTime.now());
+      debugPrint('coming in if');
     } else {
       ///TODO; Impelment here when flip is done within 24 hours.
+      debugPrint('coming in else');
+      is24HourComplete.value = false;
     }
   }
 

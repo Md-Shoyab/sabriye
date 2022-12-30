@@ -6,13 +6,13 @@ class AppAssets {
       'assets/images/login_background_image.png';
   static const String dashboardImage = 'assets/images/dashboard_image.png';
   static const String teaching1 = 'assets/images/teachings_1.png';
-  static const String programInvestmentFlowerImage = 'assets/images/program_investment_flower.png';
+  static const String programInvestmentFlowerImage =
+      'assets/images/program_investment_flower.png';
   static const String videoInterviewImage =
       'assets/images/video_interview_image.png';
   static const String videoInterviewImage2 =
       'assets/images/video_Interview_Image2.png';
   static const String videoInterviewImage3 =
-
       'assets/images/video_Interview_Image3.png';
   static const String storyImage1 = 'assets/images/story_image_1.png';
   static const String storyImage2 = 'assets/images/story_image_2.png';
@@ -133,6 +133,7 @@ class AppAssets {
   static const String checkIcon = 'assets/images/check_icon.png';
   static const String checkBoxIcon = 'assets/images/checkbox_icon.png';
   static const String flowerImage = 'assets/images/flower_image.png';
+  static const String cardBackViewImage = 'assets/images/card_back_view.png';
   static const String flowerImage2 = 'assets/images/flower_2.png';
   static const String flowerImage3 = 'assets/images/flower_3.png';
   static const String testimonialsBgImage = 'assets/images/testimonials_bg.png';
