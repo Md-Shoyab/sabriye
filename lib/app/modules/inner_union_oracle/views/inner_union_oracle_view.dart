@@ -84,107 +84,110 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                   ),
                   const VerticalGap(gap: 20),
                   Center(
-                    child: FlipCard(
-                      front: Center(
-                        child: Container(
-                          height: 200,
-                          width: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: const DecorationImage(
-                              image: AssetImage(AppAssets.orcaleCardsImage),
-                              fit: BoxFit.cover,
+                    child: Obx(
+                      () => FlipCard(
+                        onFlipDone: controller.onFlipDone,
+                        front: Center(
+                          child: Container(
+                            height: 200,
+                            width: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: const DecorationImage(
+                                image: AssetImage(AppAssets.orcaleCardsImage),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      onFlip: controller.onFlip,
-                      back: controller.is24HourComplete.value
-                          ? Container(
-                              alignment: Alignment.center,
-                              height: 200,
-                              width: 200,
-                              padding: const EdgeInsets.only(left: 10),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.pink[200],
-                                image: const DecorationImage(
-                                  image: AssetImage(
-                                    AppAssets.cardBackViewImage,
+                        back: controller.isOracleCardClickable.value
+                            ? Container(
+                                alignment: Alignment.center,
+                                height: 200,
+                                width: 200,
+                                padding: const EdgeInsets.only(left: 10),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(15),
+                                  color: Colors.pink[200],
+                                  image: const DecorationImage(
+                                    image: AssetImage(
+                                      AppAssets.cardBackViewImage,
+                                    ),
+                                    fit: BoxFit.contain,
                                   ),
-                                  fit: BoxFit.contain,
                                 ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Html(
+                                      data: controller.orcaleCardsList[
+                                              controller.oracleCardIndex.value]
+                                          ['title']['rendered'],
+                                      style: {
+                                        "h1": Style(
+                                          color: Colors.amber,
+                                        )
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              )
+                            : Container(
+                                height: 200,
+                                width: 200,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.amber,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: const Text('Locked'),
                               ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Html(
-                                    data: controller.orcaleCardsList[controller
-                                        .oracleCardIndex
-                                        .value]['title']['rendered'],
-                                    style: {
-                                      "h1": Style(
-                                        color: Colors.amber,
-                                      )
-                                    },
-                                  ),
-                                ],
-                              ),
-                            )
-                          : Container(
-                              height: 200,
-                              width: 200,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.amber,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: const Text('Locked'),
-                            ),
+                      ),
                     ),
                   ),
                   const VerticalGap(gap: 20),
-                  Visibility(
-                    visible: controller.backViewCard.value,
-                    child: controller.is24HourComplete.value
-                        ? Container(
-                            margin: const EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 20,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: const Text(
-                                    'Extended Card Meaning',
-                                    style: TextStyle(
-                                      fontFamily: FontName.gastromond,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 18,
-                                      color: AppColor.brown,
-                                    ),
-                                  ),
+                  Obx(
+                    () => Visibility(
+                      visible: controller.isShowingOracleBackView.value &&
+                          controller.isOracleCardClickable.value,
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 20,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: const Text(
+                                'Extended Card Meaning',
+                                style: TextStyle(
+                                  fontFamily: FontName.gastromond,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+                                  color: AppColor.brown,
                                 ),
-                                Html(
-                                  data: controller.orcaleCardsList[controller
-                                      .oracleCardIndex
-                                      .value]['content']['rendered'],
-                                  style: {
-                                    "p": Style(
-                                      fontFamily: FontName.sourceSansPro,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: FontSize.large,
-                                      color: AppColor.brown,
-                                      lineHeight: LineHeight.rem(1.3),
-                                    ),
-                                  },
-                                ),
-                              ],
+                              ),
                             ),
-                          )
-                        : const SizedBox(),
+                            Html(
+                              data: controller.orcaleCardsList[controller
+                                  .oracleCardIndex
+                                  .value]['content']['rendered'],
+                              style: {
+                                "p": Style(
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: FontSize.large,
+                                  color: AppColor.brown,
+                                  lineHeight: LineHeight.rem(1.3),
+                                ),
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(
                     height: kBottomNavigationBarHeight,

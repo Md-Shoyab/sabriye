@@ -1,12 +1,10 @@
 import 'dart:math';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/services/api_services.dart';
 
 class InnerUnionOracleController extends GetxController {
   final ApiServices _apiServices = ApiServices();
-  RxBool backViewCard = false.obs;
   RxInt oracleCardIndex = 0.obs;
   RxBool isLoading = false.obs;
   RxString innerUnionBannerImageUrl = ''.obs;
@@ -15,8 +13,9 @@ class InnerUnionOracleController extends GetxController {
   RxString boxTwoText = ''.obs;
   RxString boxThreeText = ''.obs;
   RxList orcaleCardsList = [].obs;
-  RxBool isCardVisible = false.obs;
-  RxBool is24HourComplete = false.obs;
+
+  RxBool isShowingOracleBackView = false.obs;
+  RxBool isOracleCardClickable = false.obs;
 
   @override
   void onInit() async {
@@ -28,25 +27,18 @@ class InnerUnionOracleController extends GetxController {
     super.onInit();
   }
 
-  void onFlip() {
-    backViewCard.toggle();
+  void onFlipDone(bool fliped) {
+    isOracleCardClickable.value = _isOracleCardClickable();
+    isShowingOracleBackView.value = fliped;
 
-    if (_isOracleCardClickable()) {
-      is24HourComplete.value = true;
+    if (isShowingOracleBackView.value && isOracleCardClickable.value) {
       _getRandomIndexAndUpdateOracleCardIndex();
       SessionManager.saveOracleCardClickedTime(DateTime.now());
-      debugPrint('coming in if');
-    } else {
-      ///TODO; Impelment here when flip is done within 24 hours.
-      debugPrint('coming in else');
-      is24HourComplete.value = false;
     }
   }
 
   void _getRandomIndexAndUpdateOracleCardIndex() {
-    if (backViewCard.isTrue) {
-      oracleCardIndex.value = Random().nextInt(orcaleCardsList.length);
-    }
+    oracleCardIndex.value = Random().nextInt(orcaleCardsList.length);
   }
 
   Future<void> getInnerUnionBannerImage() async {
@@ -68,15 +60,14 @@ class InnerUnionOracleController extends GetxController {
     orcaleCardsList.value = responseJson;
   }
 
-  /// Returns True within the 24 hours of Click and False if 24 hours not Completed
+  /// Returns True within the 24 hours of Click and False if 24 hours not Completed.
+  /// In 24 hours there are 86400 seconds.
   bool _isOracleCardClickable() {
     DateTime? oracleCardClickedTime = SessionManager.getOracleCardClickedTime();
 
     if (oracleCardClickedTime != null) {
       DateTime presentTime = DateTime.now();
-
       return presentTime.difference(oracleCardClickedTime).inSeconds >= 10;
-      // 86400;
     } else {
       return true;
     }
