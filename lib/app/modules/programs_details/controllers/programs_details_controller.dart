@@ -31,6 +31,7 @@ class ProgramsDetailsController extends GetxController {
   final RxList akashaHealingModulesList = [].obs;
   final RxList akashaHealingFaqList = [].obs;
   final RxList akashaHealingCarouselDataList = [].obs;
+  final RxList akashaHealingInvestmentDataList = [].obs;
   final RxList isFaqExpandedList = [].obs;
   final RxInt currentCarouselCardIndex = 1.obs;
 
@@ -45,6 +46,7 @@ class ProgramsDetailsController extends GetxController {
     await getAkashaHealingCarouselData();
     await getAkashaHealingModulesList();
     await getAkashaHealingWhoIsInProgram();
+    await getAkashaHealingInvestment();
     await getAkashaHealingFaqList();
     isLoading.value = false;
     super.onInit();
@@ -141,6 +143,11 @@ class ProgramsDetailsController extends GetxController {
   Future<void> getAkashaHealingCarouselData() async {
     final responseJson = await _apiServices.getAkashaHealingCarouselData();
     akashaHealingCarouselDataList.value = responseJson;
+  }
+
+  Future<void> getAkashaHealingInvestment() async {
+    final responseJson = await _apiServices.getAkashaHealingInvestment();
+    akashaHealingInvestmentDataList.value = responseJson;
   }
 
   void updateCasrosleSliderIndexIndicator(int index) {

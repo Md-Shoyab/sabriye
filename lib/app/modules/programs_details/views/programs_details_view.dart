@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/constants/app_assets.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
 import '../../../constants/font_names.dart';
@@ -281,8 +282,16 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                     ),
                   ),
                   Container(
-                    color: AppColor.lightSkinColor,
-                    padding: const EdgeInsets.fromLTRB(20, 35, 20, 20),
+                    padding: const EdgeInsets.fromLTRB(20, 35, 20, 30),
+                    decoration: const BoxDecoration(
+                      color: AppColor.lightSkinColor,
+                      image: DecorationImage(
+                        image: AssetImage(
+                          AppAssets.programInvestmentFlowerImage,
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -296,21 +305,133 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                         ),
                         const VerticalGap(gap: 20),
                         Container(
-                          height: 220,
+                          padding: const EdgeInsets.fromLTRB(30, 21, 40, 20),
                           decoration: BoxDecoration(
                             color: AppColor.lightGrey,
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                controller.akashaHealingInvestmentDataList[1]
+                                    ['title']['rendered'],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 17,
+                                  height: 1.7,
+                                  color: AppColor.color2,
+                                ),
+                              ),
+                              Html(
+                                data: controller
+                                        .akashaHealingInvestmentDataList[1]
+                                    ['content']['rendered'],
+                                style: {
+                                  "h3": Style(
+                                    fontFamily: FontName.gastromond,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: FontSize.xxLarge,
+                                    color: AppColor.brown,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  "p": Style(
+                                    fontFamily: FontName.gastromond,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: FontSize.large,
+                                    color: AppColor.brown,
+                                    textAlign: TextAlign.center,
+                                  )
+                                },
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  controller.akashaHealingInvestmentDataList[1]
+                                      ['custom_fields']['button-text'][1],
+                                  style: const TextStyle(
+                                    color: AppColor.white,
+                                    fontFamily: FontName.sourceSansPro,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: AppColor.primaryBrown,
+                                  minimumSize: const Size(270, 30),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(44),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                         const VerticalGap(gap: 20),
                         Container(
-                          height: 220,
+                          padding: const EdgeInsets.fromLTRB(30, 21, 40, 20),
                           decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: AppColor.primaryBrown,
                             borderRadius: BorderRadius.circular(10),
                           ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                controller.akashaHealingInvestmentDataList[0]
+                                    ['title']['rendered'],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontFamily: FontName.sourceSansPro,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 17,
+                                  height: 1.7,
+                                  color: AppColor.backgroundColor,
+                                ),
+                              ),
+                              Html(
+                                data: controller
+                                        .akashaHealingInvestmentDataList[0]
+                                    ['content']['rendered'],
+                                style: {
+                                  "h3": Style(
+                                    fontFamily: FontName.gastromond,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: FontSize.xxLarge,
+                                    color: AppColor.white,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  "p": Style(
+                                    fontFamily: FontName.gastromond,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: FontSize.large,
+                                    color: AppColor.white,
+                                    textAlign: TextAlign.center,
+                                  )
+                                },
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'BUY NOW (€7.777 OR 11 X €777)',
+                                  style: TextStyle(
+                                    color: AppColor.primaryBrown,
+                                    fontFamily: FontName.sourceSansPro,
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                style: TextButton.styleFrom(
+                                  backgroundColor: AppColor.white,
+                                  minimumSize: const Size(270, 30),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(44),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
-                        const VerticalGap(gap: 40),
                       ],
                     ),
                   ),
