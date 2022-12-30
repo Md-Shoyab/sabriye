@@ -140,25 +140,30 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                   ),
                   const VerticalGap(),
                   CarouselSlider.builder(
-                    itemCount: 3,
-                    itemBuilder: (_, i, k) => const ProgramCarouselCard(
+                    itemCount: controller.akashaHealingCarouselDataList.length,
+                    itemBuilder: (_, i, k) => ProgramCarouselCard(
                       carouselCardTitle:
-                          '01. Help Clients Achieve Life-Changing Results',
+                          controller.akashaHealingCarouselDataList[i]['title']
+                              ['rendered'],
                       carouselCardDescription:
-                          'Because Akasha Quantum Soul Healing™ addresses the root cause of one’s issues, there’s no need for complicated, drawn-out, or painful therapy sessions that go on and on. Often in as little as one single session, deep subconscious patterns can be healed once and for all.',
-                      carouselCardBackgroundImage:
-                          'https://app.sabriyeayana.com/wp-content/uploads/2022/12/nomad-11.jpg',
+                          controller.akashaHealingCarouselDataList[i]['content']
+                              ['rendered'],
+                      carouselCardBackgroundImage: controller
+                          .akashaHealingCarouselDataList[i]['thumbnail'],
                     ),
                     options: CarouselOptions(
                       height: 350,
                       viewportFraction: 1,
                       initialPage: 0,
+                      onPageChanged: (index, _) {
+                        controller.currentCarouselCardIndex(index);
+                      },
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(
-                      3,
+                      controller.akashaHealingCarouselDataList.length,
                       (index) => Container(
                         margin: const EdgeInsets.symmetric(horizontal: 3),
                         height: 10,
@@ -168,7 +173,10 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                             width: 1.0,
                             color: AppColors.primaryColor,
                           ),
-                          color: AppColor.primaryBrown,
+                          color:
+                              controller.currentCarouselCardIndex.value == index
+                                  ? AppColors.primaryColor
+                                  : AppColors.white,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -315,7 +323,15 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                   ),
                   Container(
                     margin: const EdgeInsets.fromLTRB(35, 20, 35, 20),
-                    child: const Text('FAQ'),
+                    child: const Text(
+                      'FAQ',
+                      style: TextStyle(
+                        fontFamily: FontName.gastromond,
+                        fontWeight: FontWeight.w400,
+                        color: AppColor.brown,
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
                   ListView.builder(
                     clipBehavior: Clip.none,
@@ -487,10 +503,10 @@ class ProgramCarouselCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
-      padding: const EdgeInsets.fromLTRB(26, 35, 26, 35),
+      padding: const EdgeInsets.fromLTRB(26, 30, 26, 30),
       width: Get.width * .85,
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: AppColor.lightGrey,
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           image: NetworkImage(carouselCardBackgroundImage),
@@ -514,16 +530,14 @@ class ProgramCarouselCard extends StatelessWidget {
             ),
           ),
           const VerticalGap(gap: 15),
-          Text(
-            carouselCardDescription,
-            style: const TextStyle(
+          Html(data: carouselCardDescription, style: {
+            "p": Style(
               fontFamily: FontName.sourceSansPro,
-              fontWeight: FontWeight.w400,
+              fontSize: FontSize.large,
               color: AppColor.white,
-              fontSize: 14,
-              height: 1.9,
+              lineHeight: LineHeight.rem(1.3),
             ),
-          ),
+          }),
         ],
       ),
     );
