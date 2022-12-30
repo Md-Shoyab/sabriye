@@ -117,8 +117,8 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                           data: controller.orcaleCardsList[controller
                               .oracleCardIndex.value]['title']['rendered'],
                           style: {
-                            'h1': Style(
-                              fontSize: FontSize.large,
+                            "h1": Style(
+                              color: Colors.amber,
                             )
                           },
                         ),
@@ -129,17 +129,37 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                   Visibility(
                     visible: controller.backViewCard.value,
                     child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 20,
+                      ),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Html(
-                            data: controller.orcaleCardsList[controller
-                                .oracleCardIndex.value]['title']['rendered'],
+                          Container(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: const Text(
+                              'Extended Card Meaning',
+                              style: TextStyle(
+                                fontFamily: FontName.gastromond,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 18,
+                                color: AppColor.brown,
+                              ),
+                            ),
                           ),
                           Html(
                             data: controller.orcaleCardsList[controller
                                 .oracleCardIndex.value]['content']['rendered'],
+                            style: {
+                              "p": Style(
+                                fontFamily: FontName.sourceSansPro,
+                                fontWeight: FontWeight.w400,
+                                fontSize: FontSize.large,
+                                color: AppColor.brown,
+                                lineHeight: LineHeight.rem(1.3),
+                              ),
+                            },
                           ),
                         ],
                       ),
