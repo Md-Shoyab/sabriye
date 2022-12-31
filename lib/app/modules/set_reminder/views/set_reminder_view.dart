@@ -88,14 +88,12 @@ class SetReminderView extends GetView<SetReminderController> {
               ),
               const VerticalGap(gap: 20),
               Container(
-                // color: Colors.amber,
-                width: Get.width,
                 margin: const EdgeInsets.symmetric(horizontal: 15),
-                child: Obx(
-                  (() => ListView.builder(
+                child: controller.reminderTiming != null
+                    ? ListView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
-                        itemCount: controller.reminderTiming.length,
+                        itemCount: controller.reminderTiming!.length,
                         itemBuilder: ((context, index) => Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 15,
@@ -113,7 +111,7 @@ class SetReminderView extends GetView<SetReminderController> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
-                                    controller.reminderTiming[index]
+                                    controller.reminderTiming![index]!
                                         .format(context)
                                         .toString(),
                                     style: const TextStyle(
@@ -121,21 +119,20 @@ class SetReminderView extends GetView<SetReminderController> {
                                       fontWeight: FontWeight.w600,
                                     ),
                                   ),
-                                  Obx(
-                                    (() => Switch.adaptive(
-                                        activeColor: AppColors.primaryColor,
-                                        value: controller
-                                            .reminderOnOffStatus[index].value,
-                                        onChanged: (value) {
-                                          controller.reminderOnOffStatus[index]
-                                              .value = value;
-                                        })),
+                                  Switch.adaptive(
+                                    activeColor: AppColors.primaryColor,
+                                    value:
+                                        controller.reminderOnOffStatus![index],
+                                    onChanged: (value) {
+                                      controller.reminderOnOffStatus![index] =
+                                          value;
+                                    },
                                   ),
                                 ],
                               ),
                             )),
-                      )),
-                ),
+                      )
+                    : const SizedBox(),
               ),
               Container(
                 height: 60,
@@ -159,12 +156,14 @@ class SetReminderView extends GetView<SetReminderController> {
                     ).then((value) => {
                           if (value != null)
                             {
-                              controller.reminderTiming.add(value),
-                              SessionManager.saveReminderTimeList(value),
-                              controller.reminderOnOffStatus.add(true.obs),
+                              SessionManager.saveReminderTime(value),
+                              SessionManager.saveReminderStatus(false),
+                            }
+                          else
+                            {
+                              debugPrint('Time is not selected'),
                             }
                         });
-
                     debugPrint(controller.reminderTiming.toString());
                     debugPrint(controller.reminderOnOffStatus.toString());
                   },
@@ -173,6 +172,9 @@ class SetReminderView extends GetView<SetReminderController> {
                     color: AppColors.primaryColor,
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 50,
               ),
             ],
           ),

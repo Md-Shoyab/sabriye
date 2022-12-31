@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:sabriye/app/constants/app_assets.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_constants.dart';
-import '../../../routes/app_pages.dart';
 import '../controllers/support_controller.dart';
 
 class SupportView extends GetView<SupportController> {
@@ -159,7 +158,6 @@ class SupportView extends GetView<SupportController> {
           IconButton(
             onPressed: () {
               SessionManager.clearSession();
-              Get.offAllNamed(Routes.LOGIN);
             },
             icon: const Icon(Icons.logout),
           ),
