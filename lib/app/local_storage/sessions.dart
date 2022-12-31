@@ -11,6 +11,7 @@ Rx<String> LAST_NAME = ''.obs;
 Rx<String> PASSWORD = ''.obs;
 Rx<String> USER_MAIL = ''.obs;
 Rx<String> PROFILE_IMAGE_PATH = ''.obs;
+RxList REMINDER_TIME_LIST = [].obs;
 
 class SessionManager {
   static final _getStorage = GetStorage();
@@ -23,6 +24,7 @@ class SessionManager {
   static const String _profileImagePath = 'Profile Image Path';
   static const String _oracleCardClickedTime =
       'Last Clicked Time of Oracle Card';
+  static const String _reminderList = 'Reminder List';
 
   static void saveUserToken(String token) {
     USER_TOKEN.value = token;
@@ -127,12 +129,38 @@ class SessionManager {
         "Oracle Card Clicked Time Saved ==> $oracleCardClickedDateTime.");
   }
 
+  /*
+  static String? getUserEmail() {
+    String? mailId = _getStorage.read(_userMail);
+    USER_MAIL.value = mailId ?? '';
+    debugPrint('User Mail ==> $mailId');
+    return mailId;
+  }
+  */
+
+  static void saveReminderTimeList(TimeOfDay reminderTime) {
+    REMINDER_TIME_LIST.add(reminderTime);
+    debugPrint(REMINDER_TIME_LIST.toString());
+  }
+
+  static List? getReminderTimeList() {
+    List? reminderList = _getStorage.read(_reminderList);
+    REMINDER_TIME_LIST.add(reminderList);
+    // debugPrint('Reminder Time List ==> ${reminderList.toString()}');
+    return reminderList;
+  }
+
+  // static void updateReminderTimeList(RxList reminderTimeList) {
+  //   REMINDER_TIME_LIST.value = reminderTimeList;
+  // }
+
   static DateTime? getOracleCardClickedTime() {
     String oracleCardClickedDateTimeString =
         _getStorage.read(_oracleCardClickedTime) ?? '';
 
     debugPrint(
-        "Oracle Card Clicked Time ==> $oracleCardClickedDateTimeString.");
+      "Oracle Card Clicked Time ==> $oracleCardClickedDateTimeString.",
+    );
 
     DateTime? oracleCardClickedDateTime =
         DateTime.tryParse(oracleCardClickedDateTimeString);

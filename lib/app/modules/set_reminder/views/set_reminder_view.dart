@@ -1,6 +1,7 @@
 import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sabriye/app/local_storage/sessions.dart';
 import 'package:sabriye/app/widgets/gapper.dart';
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_constants.dart';
@@ -158,11 +159,12 @@ class SetReminderView extends GetView<SetReminderController> {
                     ).then((value) => {
                           if (value != null)
                             {
-                              controller.selectedReminderTime.value = value,
                               controller.reminderTiming.add(value),
+                              SessionManager.saveReminderTimeList(value),
                               controller.reminderOnOffStatus.add(true.obs),
                             }
                         });
+
                     debugPrint(controller.reminderTiming.toString());
                     debugPrint(controller.reminderOnOffStatus.toString());
                   },
