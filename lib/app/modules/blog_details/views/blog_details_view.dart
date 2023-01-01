@@ -192,6 +192,7 @@ class BlogDetailsView extends GetView<BlogDetailsController> {
                         )
                       },
                       onLinkTap: (url, _, __, ___) async {
+                        debugPrint('click on $url');
                         await controller.openUrl(url);
                       },
                     ),
