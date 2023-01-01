@@ -1,16 +1,24 @@
 import 'dart:developer';
-
-import 'package:flutter/material.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'model/remider_model.dart';
 import 'app/routes/app_pages.dart';
+import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 FlutterLocalNotificationsPlugin notificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
-void main() async {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
+
+  await Hive.initFlutter();
+  Hive.registerAdapter(
+    ReminderModelAdapter(),
+  );
+
   AndroidInitializationSettings androidSettings =
       const AndroidInitializationSettings(
     '@mipmap/ic_launcher',
