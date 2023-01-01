@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sabriye/app/constants/app_assets.dart';
+import 'package:sabriye/app/constants/app_colors.dart';
+import 'package:sabriye/app/widgets/gapper.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../constants/app_colors.dart';
+import '../../../constants/app_assets.dart';
 import '../../../constants/app_constants.dart';
 import '../../../constants/font_names.dart';
 import '../../../routes/app_pages.dart';
-import '../../../widgets/gapper.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -14,28 +14,28 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            Container(
-              height: Get.height * .61,
-              width: Get.width,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    AppAssets.loginBackgroundImage,
-                  ),
-                  fit: BoxFit.cover,
-                ),
+    return Stack(
+      children: [
+        Container(
+          color: AppColor.white,
+        ),
+        Container(
+          height: Get.height * .61,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                AppAssets.loginBackgroundImage,
               ),
+              fit: BoxFit.cover,
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                margin: const EdgeInsets.fromLTRB(35, 115, 35, 0),
+          ),
+        ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          body: ListView(
+            children: [
+              Container(
+                margin: const EdgeInsets.fromLTRB(35, 225, 35, 0),
                 decoration: BoxDecoration(
                   color: AppColor.white,
                   borderRadius: BorderRadius.circular(12),
@@ -165,60 +165,51 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Login as Guest User',
-                      style: TextStyle(
-                        color: AppColor.primaryBrown,
-                        fontSize: 16,
-                        fontFamily: FontName.sourceSansPro,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+              TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Login as Guest User',
+                  style: TextStyle(
+                    color: AppColor.primaryBrown,
+                    fontSize: 16,
+                    fontFamily: FontName.sourceSansPro,
+                    fontWeight: FontWeight.w600,
                   ),
-                  const VerticalGap(gap: 25),
-                  const Text(
-                    AppConstants.dontHaveAccountTxt,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w300,
-                      fontFamily: FontName.sourceSansPro,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () async {
-                      if (!await launchUrl(
-                        controller.oneWeekTrial,
-                        mode: LaunchMode.externalApplication,
-                      )) {
-                        throw 'Could not launch ${controller.oneWeekTrial}';
-                      }
-                    },
-                    child: const Text(
-                      AppConstants.oneWeekTrial,
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: 16,
-                        fontFamily: FontName.sourceSansPro,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  )
-                ],
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+              const VerticalGap(),
+              const Text(
+                AppConstants.dontHaveAccountTxt,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w300,
+                  fontFamily: FontName.sourceSansPro,
+                ),
+              ),
+              TextButton(
+                onPressed: () async {
+                  if (!await launchUrl(
+                    controller.oneWeekTrial,
+                    mode: LaunchMode.externalApplication,
+                  )) {
+                    throw 'Could not launch ${controller.oneWeekTrial}';
+                  }
+                },
+                child: const Text(
+                  AppConstants.oneWeekTrial,
+                  style: TextStyle(
+                    color: AppColors.primaryColor,
+                    fontSize: 16,
+                    fontFamily: FontName.sourceSansPro,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }

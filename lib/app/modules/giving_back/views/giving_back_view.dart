@@ -102,6 +102,7 @@ class GivingBackView extends GetView<GivingBackController> {
                     alignment: Alignment.center,
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
+                      color: Colors.amber,
                       image: DecorationImage(
                         image: NetworkImage(
                           controller.spendingActualDollarImageUrl.value,
@@ -139,11 +140,11 @@ class GivingBackView extends GetView<GivingBackController> {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: AppColors.white,
+                        color: AppColor.white,
                         boxShadow: [
                           BoxShadow(
                             color: AppColor.shadowColors.withOpacity(.5),
-                            blurRadius: 4.0,
+                            blurRadius: 8.0,
                             offset: const Offset(0, 4),
                           ),
                         ],
@@ -183,8 +184,9 @@ class GivingBackView extends GetView<GivingBackController> {
                       ),
                     ),
                     options: CarouselOptions(
+                      height: Get.height * .5,
                       aspectRatio: 2 / 1,
-                      viewportFraction: .99,
+                      viewportFraction: 1,
                       initialPage: 1,
                       enableInfiniteScroll: true,
                       reverse: false,

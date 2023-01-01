@@ -139,6 +139,7 @@ class WelcomeScreensView extends GetView<WelcomeScreensController> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 30),
                     ],
                   ),
                 );
