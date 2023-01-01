@@ -155,8 +155,8 @@ class DashboardView extends GetView<DashboardController> {
                             alignment: Alignment.bottomLeft,
                             padding: const EdgeInsets.fromLTRB(5, 0, 3, 10),
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            height: Get.width * .35,
-                            width: Get.width * .3,
+                            height: Get.height * .2,
+                            width: Get.width * .4,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               image: DecorationImage(
@@ -214,8 +214,8 @@ class DashboardView extends GetView<DashboardController> {
                           },
                           child: Container(
                             margin: const EdgeInsets.symmetric(horizontal: 8),
-                            height: Get.width * .35,
-                            width: Get.width * .3,
+                            height: Get.height * .2,
+                            width: Get.width * .4,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               image: DecorationImage(
@@ -250,7 +250,7 @@ class DashboardView extends GetView<DashboardController> {
                     Container(
                       margin: const EdgeInsets.only(left: 15),
                       width: Get.width,
-                      height: Get.height * .2,
+                      height: 150,
                       child: ListView.builder(
                         clipBehavior: Clip.none,
                         scrollDirection: Axis.horizontal,

@@ -11,8 +11,6 @@ Rx<String> LAST_NAME = ''.obs;
 Rx<String> PASSWORD = ''.obs;
 Rx<String> USER_MAIL = ''.obs;
 Rx<String> PROFILE_IMAGE_PATH = ''.obs;
-RxList<TimeOfDay?>? REMINDER_TIME_LIST = <TimeOfDay?>[].obs;
-RxList<bool>? REMINDER_STATUS_LIST = <bool>[].obs;
 
 class SessionManager {
   static final _getStorage = GetStorage();
@@ -23,9 +21,6 @@ class SessionManager {
   static const String _userMail = 'User Mail';
   static const String _password = 'password';
   static const String _profileImagePath = 'Profile Image Path';
-  static const String _reminderPickedTime = 'Picked Reminder Time';
-  static const String _reminderStatus = 'Reminder Status';
-
   static const String _oracleCardClickedTime =
       'Last Clicked Time of Oracle Card';
 
@@ -40,39 +35,6 @@ class SessionManager {
     USER_TOKEN.value = token ?? '';
     debugPrint("Get User Token ==> $token.");
     return token;
-  }
-
-  static void saveReminderTime(TimeOfDay? reminderTime) {
-    REMINDER_TIME_LIST!.addIf(reminderTime != null, reminderTime);
-    _getStorage.write(_reminderPickedTime, REMINDER_TIME_LIST);
-    debugPrint(
-      'Saved Reminder Time ==>${REMINDER_TIME_LIST.toString()}',
-    );
-  }
-
-  static RxList<TimeOfDay?>? getReminderTimeList() {
-    RxList<TimeOfDay?>? finalReminderList =
-        _getStorage.read(_reminderPickedTime);
-    debugPrint(
-      'Getting Reminder Time ==>${finalReminderList.toString()}',
-    );
-    return finalReminderList;
-  }
-
-  static void saveReminderStatus(bool reminderStatus) {
-    REMINDER_STATUS_LIST!.add(reminderStatus);
-    _getStorage.write(_reminderStatus, REMINDER_STATUS_LIST);
-    debugPrint(
-      'Reminder Status List ==>${REMINDER_STATUS_LIST.toString()}',
-    );
-  }
-
-  static RxList<bool>? getReminderStatusList() {
-    RxList<bool>? finalReminderStatusList = _getStorage.read(_reminderStatus);
-    debugPrint(
-      'Getting Reminder Status ==>${finalReminderStatusList.toString()}',
-    );
-    return finalReminderStatusList;
   }
 
   static void saveProfileImagePath(String imagePath) {
@@ -155,8 +117,6 @@ class SessionManager {
 
   static void clearSession() {
     _getStorage.erase();
-    REMINDER_TIME_LIST?.clear();
-    REMINDER_STATUS_LIST?.clear();
     debugPrint("Session Cleared.");
   }
 

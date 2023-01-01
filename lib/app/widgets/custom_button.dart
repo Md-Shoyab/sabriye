@@ -44,7 +44,7 @@ class LargeButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          primary: buttonColor,
+          backgroundColor: buttonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(100),
           ),
