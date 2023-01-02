@@ -17,10 +17,7 @@ class LoginView extends GetView<LoginController> {
     return Stack(
       children: [
         Container(
-          color: AppColor.white,
-        ),
-        Container(
-          height: Get.height * .61,
+          height: Get.height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
