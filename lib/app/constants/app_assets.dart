@@ -26,6 +26,7 @@ class AppAssets {
       'assets/images/default_profile.png';
   static const String profileAvatar = 'assets/images/profile_avatar.png';
   static const String annUsaProfile = 'assets/images/ann_usa_profile.webp';
+  static const String butterfly = 'assets/images/butterfly.png';
   static const String laurenManiereProfile =
       'assets/images/lauren_profile.webp';
 

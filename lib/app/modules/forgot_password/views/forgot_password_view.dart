@@ -18,7 +18,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
           alignment: Alignment.topCenter,
           children: [
             Container(
-              height: Get.height * .61,
+              height: Get.height,
               width: Get.width,
               decoration: const BoxDecoration(
                 image: DecorationImage(

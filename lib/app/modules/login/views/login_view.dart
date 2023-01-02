@@ -30,9 +30,10 @@ class LoginView extends GetView<LoginController> {
         Scaffold(
           backgroundColor: Colors.transparent,
           body: ListView(
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               Container(
-                margin: const EdgeInsets.fromLTRB(35, 225, 35, 0),
+                margin: const EdgeInsets.fromLTRB(35, 270, 35, 0),
                 decoration: BoxDecoration(
                   color: AppColor.white,
                   borderRadius: BorderRadius.circular(12),
@@ -162,8 +163,11 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
               ),
+              const VerticalGap(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(Routes.MAIN_SCREEN);
+                },
                 child: const Text(
                   'Login as Guest User',
                   style: TextStyle(
