@@ -137,10 +137,21 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                                 width: 200,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
-                                  color: Colors.amber,
-                                  borderRadius: BorderRadius.circular(10),
+                                    color: AppColor.backgroundColor,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: AppColor.shadowColors
+                                            .withOpacity(0.5),
+                                        offset: const Offset(0, 4),
+                                        blurRadius: 8.0,
+                                      )
+                                    ]),
+                                child: const Icon(
+                                  Icons.lock_rounded,
+                                  size: 50,
+                                  color: AppColor.primaryBrown,
                                 ),
-                                child: const Text('Locked'),
                               ),
                       ),
                     ),
@@ -150,50 +161,60 @@ class InnerUnionOracleView extends GetView<InnerUnionOracleController> {
                     () => Visibility(
                       visible: controller.isShowingOracleBackView.value &&
                           controller.isOracleCardClickable.value,
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 20,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: const Text(
-                                'Extended Card Meaning',
-                                style: TextStyle(
-                                  fontFamily: FontName.gastromond,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 18,
-                                  color: AppColor.brown,
-                                ),
+                      child: controller.isShowingOracleBackView.value &&
+                              controller.isOracleCardClickable.value
+                          ? Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 20,
+                                vertical: 20,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    child: const Text(
+                                      'Extended Card Meaning',
+                                      style: TextStyle(
+                                        fontFamily: FontName.gastromond,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 18,
+                                        color: AppColor.brown,
+                                      ),
+                                    ),
+                                  ),
+                                  Html(
+                                    data: controller.orcaleCardsList[controller
+                                        .oracleCardIndex
+                                        .value]['content']['rendered'],
+                                    style: {
+                                      "p": Style(
+                                        fontFamily: FontName.sourceSansPro,
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: FontSize.large,
+                                        color: AppColor.brown,
+                                        lineHeight: LineHeight.rem(1.3),
+                                      ),
+                                    },
+                                  ),
+                                ],
+                              ),
+                            )
+                          : const Text(
+                              'You can only Access Orcale once in 24 Hours!',
+                              style: TextStyle(
+                                fontFamily: FontName.sourceSansPro,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
                               ),
                             ),
-                            Html(
-                              data: controller.orcaleCardsList[controller
-                                  .oracleCardIndex
-                                  .value]['content']['rendered'],
-                              style: {
-                                "p": Style(
-                                  fontFamily: FontName.sourceSansPro,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: FontSize.large,
-                                  color: AppColor.brown,
-                                  lineHeight: LineHeight.rem(1.3),
-                                ),
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                   ),
                   const SizedBox(
                     height: kBottomNavigationBarHeight,
                   )
                 ],
-              ),
+   ),
       ),
     );
   }

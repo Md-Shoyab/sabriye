@@ -481,6 +481,7 @@ Akasha Quantum Soul Healing™ Practitioners worldwide''',
                           isFaqExpanded: controller.isFaqExpandedList[index],
                         )),
                   ),
+                  VerticalGap(),
                 ],
               ),
       ),
@@ -642,9 +643,9 @@ class ProgramCarouselCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.fromLTRB(35, 0, 35, 20),
-      padding: const EdgeInsets.fromLTRB(26, 30, 26, 30),
-      width: Get.width * .85,
+      margin: const EdgeInsets.fromLTRB(35, 0, 35, 10),
+      padding: const EdgeInsets.fromLTRB(26, 30, 26, 10),
+      //width: Get.width * .85,
       decoration: BoxDecoration(
         color: AppColor.primaryBrown,
         borderRadius: BorderRadius.circular(10),
@@ -658,6 +659,7 @@ class ProgramCarouselCard extends StatelessWidget {
         ),
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -670,14 +672,17 @@ class ProgramCarouselCard extends StatelessWidget {
             ),
           ),
           const VerticalGap(gap: 15),
-          Html(data: carouselCardDescription, style: {
-            "p": Style(
-              fontFamily: FontName.sourceSansPro,
-              fontSize: FontSize.large,
-              color: AppColor.white,
-              lineHeight: LineHeight.rem(1.3),
-            ),
-          }),
+          Html(
+            data: carouselCardDescription,
+            style: {
+              "p": Style(
+                fontFamily: FontName.sourceSansPro,
+                fontSize: FontSize.large,
+                color: AppColor.white,
+                lineHeight: LineHeight.rem(1.3),
+              ),
+            },
+          ),
         ],
       ),
     );

@@ -120,9 +120,7 @@ class LoginView extends GetView<LoginController> {
                         ),
                         const VerticalGap(gap: 20),
                         TextButton(
-                          onPressed: () {
-                            controller.loginUser();
-                          },
+                          onPressed: controller.loginUser,
                           child: const Text(
                             AppConstants.loginTxt,
                             style: TextStyle(

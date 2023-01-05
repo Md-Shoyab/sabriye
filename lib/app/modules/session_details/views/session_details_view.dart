@@ -138,19 +138,21 @@ class SessionDetailsView extends GetView<SessionDetailsController> {
                             width: 115,
                           ),
                         ),
-                        SizedBox(
-                          height: 130,
-                          width: Get.width * .64,
-                          child: Text(
-                            controller.faciliatedText.value
-                                .replaceAll('<p>', '')
-                                .replaceAll('</p>', ''),
-                            style: const TextStyle(
-                              fontSize: 17,
-                              color: AppColor.primaryBrown,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: FontName.gastromond,
-                              height: 1.6,
+                        Expanded(
+                          child: SizedBox(
+                            height: 130,
+                            width: Get.width * .64,
+                            child: Text(
+                              controller.faciliatedText.value
+                                  .replaceAll('<p>', '')
+                                  .replaceAll('</p>', ''),
+                              style: const TextStyle(
+                                fontSize: 17,
+                                color: AppColor.primaryBrown,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: FontName.gastromond,
+                                height: 1.6,
+                              ),
                             ),
                           ),
                         )

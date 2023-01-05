@@ -138,7 +138,6 @@ class ProgramsDetailsController extends GetxController {
     akashaHealingFaqList.value = responseJson;
     isFaqExpandedList.value =
         List.generate(akashaHealingFaqList.length, (index) => false.obs);
-    debugPrint(isFaqExpandedList.toString());
   }
 
   Future<void> getAkashaHealingCarouselData() async {
